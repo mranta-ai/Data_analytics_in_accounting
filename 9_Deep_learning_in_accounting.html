@@ -1,0 +1,1628 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Deep learning in accounting &#8212; Data analytics in accounting</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Introduction to natural language processing" href="10_NLP_in_accounting.html" />
+    <link rel="prev" title="2. Decision making with ML in accounting" href="8_Decision_making_in_accounting.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="book_intro.html">
+   Introduction to data analytics in accounting
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basic data analytics in accounting
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_installing_Python.html">
+   1. Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Pandas_basics.html">
+   2. Pandas data basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
+   3. Pandas Data preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
+   4. Connecting with accounting databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Visualisation_with_Python.html">
+   5. Visualisations with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
+   6. Basic statistics with Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Machine learning in accounting
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
+   1. Introduction Machine learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Decision_making_in_accounting.html">
+   2. Decision making with ML in accounting
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_NLP_in_accounting.html">
+   4. Introduction to natural language processing
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/9_Deep_learning_in_accounting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/9_Deep_learning_in_accounting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neural-networks">
+   3.1. Neural networks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traditional-feed-forward-neural-networks">
+   3.2. Traditional feed-forward neural networks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolutional-neural-networks">
+   3.3. Convolutional neural networks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relus">
+     3.3.1. ReLUs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pooling-layers">
+     3.3.2. Pooling layers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-maps">
+     3.3.3. Feature maps
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#best-pretrained-models">
+     3.3.4. Best pretrained models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recurrent-neural-networks">
+   3.4. Recurrent neural networks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorflow">
+   3.5. Tensorflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mnist-dataset">
+   3.6. The MNIST dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#densely-connected-network">
+   3.7. Densely connected network
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolutional-neural-network">
+   3.8. Convolutional neural network
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-dogs-and-cats">
+   3.9. Example - dogs and cats
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-cnn-model">
+     3.9.1. Simple CNN model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#augmentation-and-regularisation">
+     3.9.2. Augmentation and regularisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-trained-model">
+     3.9.3. Pre-trained model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fine-tuning">
+     3.9.4. Fine tuning
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="deep-learning-in-accounting">
+<h1><span class="section-number">3. </span>Deep learning in accounting<a class="headerlink" href="#deep-learning-in-accounting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="neural-networks">
+<h2><span class="section-number">3.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h2>
+<p>Neural networks are a large class of models and learning methods. The most traditional is the single hidden layer back-propagation network or a single layer perceptron.</p>
+<p><img alt="trad_nnetwork" src="_images/trad_nnetwork.svg" /></p>
+<p>The above networks belongs to a class of networks called feed-forward neural networks. The name comes from the fact that we calculate linear combinations of inputs at different layers, pass the results to a nonlinear activation function and feed the value forward. By combining these nonlinear functions of linear combinations into a network, we get a very powerful non-linear estimator.</p>
+<p>Basically, deep learning just means that we add many layers to the network. (The paradigm of deep learning is a little bit <em>deeper</em> than that, but we do not go into details at this point.)</p>
+<p>Despite the hype surrounding neural networks, they are no different from other nonlinear statistical models. They are just networks of neurons that calculate linear combinations of input values and input these linear combinations to nonlinear activation functions. The result is a powerful learning method, with widespread applications in many fields. The most successful neural network architectures in computer vision are convolutional neural networks that are introduced in more detail below.</p>
+</div>
+<div class="section" id="traditional-feed-forward-neural-networks">
+<h2><span class="section-number">3.2. </span>Traditional feed-forward neural networks<a class="headerlink" href="#traditional-feed-forward-neural-networks" title="Permalink to this headline">¶</a></h2>
+<p>The name of this architecture comes from the way information flows through the network from input <strong>x</strong> to the output <strong>y</strong>. At every neuron, information flows towards output without any feedback connections.</p>
+<p>If we add feedback connections to feed-forward networks, they are called recurrent neural networks.</p>
+<p>Usually, feed-forward networks are considered to consist of a sequency of dense layers that take vectors as inputs. However, sometimes the type is considered more general and, for example, convolutional neural networks are considered to be a special type of feed-forwarnd neural network.</p>
+<p>Just by adding together neurons that calculate linear combinations of vectors does not give us more explanatory power when compared to traditional methods like linear regression. The key element is the activation function of neurons, which enables the networks to estimate nonlinear structures.</p>
+<p>As can be observed from the figure below, neural network needs a lot of data as the number of parameters grows exponentially with the complexity of the network. Why? Because we need to have more data than parameters or the model will overfit severely.</p>
+<p><img alt="two_ann" src="_images/Two_layer_ann.svg" /></p>
+</div>
+<div class="section" id="convolutional-neural-networks">
+<h2><span class="section-number">3.3. </span>Convolutional neural networks<a class="headerlink" href="#convolutional-neural-networks" title="Permalink to this headline">¶</a></h2>
+<p>In the computer vision context, the input for convolutional neural networks (CNN) is a multi-channeled image (instead of a vector that is commonly used in standard feed-forward neural networks), i.e. a 3D-tensor (several channels of 2D images).</p>
+<p>The network consists of convolution layers and pooling layers.</p>
+<p><img alt="image.png" src="_images/conv_structure_1.png" /></p>
+<p>The convolution layers filter feature maps (channels in the original image) with small filters that are slid through the maps.</p>
+<ul class="simple">
+<li><p>Convolution  = filtering –&gt; A dot product between the filter and a portion of the image (plus bias).</p></li>
+<li><p>The filter is slid through an image (every channel of the image).</p></li>
+<li><p>As a result, we get a slightly smaller “image” of dot products.</p></li>
+<li><p>The convolution layer is the main building block of CNNs</p></li>
+</ul>
+<p>The fundamental difference between a densely connected layer and a convolution layer is that dense layers learn global structures in their input feature maps (channels), whereas convolution layers learn local patterns. This is useful in computer vision problems because, in the case of images, these local patterns can be located anywhere in the image. Moreover, CNNs have usually chains of convolutional layers, which causes these learned patterns to become more “complex” the deeper we are in the CNN. The first convolutional layers learn arcs, lines etc. and later layers connect these to circles and other more complex structures (, of course depending on the computer vision task at hand). A first convolutional layer learns small and simple patterns, a second convolutional layer learns patterns that are constructed from the patterns of the first layer, and so on.</p>
+<p>These characteristic give CNNs interesting properties. For example, the learned patterns are translation invariant. A certain pattern learned at a certain location can be recognised anywhere in an image, a key property for computer vision tasks. A traditional feed-forward network would have to learn a certain pattern anew for every location in an image. This makes CNNs data-efficient; they need fewer training samples to learn representations that have generalisation power.</p>
+<div class="section" id="relus">
+<h3><span class="section-number">3.3.1. </span>ReLUs<a class="headerlink" href="#relus" title="Permalink to this headline">¶</a></h3>
+<p>CNNs usually use rectified linear units (ReLU) as activation functions to add nonlinearity, just like traditional densely connected neural networks. Without a non-linear activation function, the network would be linear (no matter how many layers, a linear combination of linear combinations is still a linear combination).</p>
+<p><img alt="image.png" src="_images/relu.svg" /></p>
+</div>
+<div class="section" id="pooling-layers">
+<h3><span class="section-number">3.3.2. </span>Pooling layers<a class="headerlink" href="#pooling-layers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Its function is to progressively reduce the spatial size of the representation to reduce the number of parameters and computation in the network. Pooling layer operates on each feature map independently.</p></li>
+<li><p>The most common approach used in pooling is max pooling.</p></li>
+</ul>
+<p><img alt="image.png" src="_images/Max_pooling.png" /></p>
+</div>
+<div class="section" id="feature-maps">
+<h3><span class="section-number">3.3.3. </span>Feature maps<a class="headerlink" href="#feature-maps" title="Permalink to this headline">¶</a></h3>
+<p>As I mentioned, convolutional layers operate over 3D tensors, called feature maps, with two spatial axes (2D image) as well as a depth axis (also called the channels axis). For a usual RGB image, the dimension of the depth axis is  3 (red, green and blue). For a black-and-white picture, there is no depth axis, but one feature map representing different levels of grey (or the third dimension has unit length). The convolution operation extracts patches from its input feature map and applies the same transformation to all of these patches, producing an output feature map. This output feature map is still a 3D tensor: it has a width and a height that depend on the convolutional filter used. The depth is a parameter of the model, which increases when moving from left to right in a CNN. However, this does not increase the number of parameters in a model, because CNNs usually use pooling layers to decrease the size of feature maps. The channels no longer stand for specific colours as in an RGB input; rather, they stand for filters. Filters encode specific aspects of the input data: at a high level, a single filter could encode the concept “presence of a face in the input” for instance.</p>
+<p><img alt="image.png" src="_images/feature_maps.png" /></p>
+</div>
+<div class="section" id="best-pretrained-models">
+<h3><span class="section-number">3.3.4. </span>Best pretrained models<a class="headerlink" href="#best-pretrained-models" title="Permalink to this headline">¶</a></h3>
+<p>It is often beneficial to use pre-trained networks in practical computer vision applications. Pretrained networks have their parameters trained with very large datasets using HPC capabilities. A very common dataset is Imagenet that has over 14 million images (<a class="reference external" href="https://www.image-net.org">www.image-net.org</a>). Below are some popular pre-trained networks that have proven to be very efficient, according to the ImageNet Large Scale Visual Recognition Challenge -winners.</p>
+<p><strong>ImageNet Large Scale Visual Recognition Challenge -winners</strong></p>
+<p>Previous winners, with shallow neural networks, achieved around 25 % error rate. The examples below are all deep convolutional neural networks.</p>
+<ul class="simple">
+<li><p>2012 - Alexnet - 8 layers - 16 % error rate - a much deeper structure and utilised GPUs during training</p></li>
+<li><p>2013 - ZF-net - 8 layers - 12 % error rate</p></li>
+<li><p>2014 - VGG - 19 layers - 7.3 % error rate</p></li>
+<li><p>2014 - GoogleNet - 22 layers - 6.7 % error rate</p></li>
+</ul>
+<p>Human error rate around 5 %</p>
+<ul class="simple">
+<li><p>2015 - ResNet - 152 layers - 3.6 % error rate - innovation: a residual learning framework that improves the training of very deep networks</p></li>
+<li><p>2016 - Ensemble of previous models - 3.0 % error rate</p></li>
+<li><p>2017 - SENet - 2.25 % error rate</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="recurrent-neural-networks">
+<h2><span class="section-number">3.4. </span>Recurrent neural networks<a class="headerlink" href="#recurrent-neural-networks" title="Permalink to this headline">¶</a></h2>
+<p>Recurrent neural networks excel at analysing sequences, lime time series and language. The basic architecture is like feed-forward neural network, but added with feedback connections back to the sending neuron.</p>
+<p><img alt="rnn" src="_images/rnn.svg" /></p>
+<p>The original recurrent neural network architecture achieved acceptable results with sequences. However, its performance decreases quickly when the sequence becomes longer. To overcome this problem, long short-term memory networks were invented. They try keep the training of a netwrok efficient with longer sequences. Until the invention of transformes architecture, LSTM networks were the state-of-the-art for tasks like natural language processing.
+<img alt="lstm" src="_images/lstm.svg" /></p>
+<p>As you can see from the figure, the exact theory of LSTM networks is difficult and we skip it at this point.</p>
+</div>
+<div class="section" id="tensorflow">
+<h2><span class="section-number">3.5. </span>Tensorflow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h2>
+<p>Tensorflow is a very popular and extensive deep learning library. It is also somewhat difficult to learn. For our purposes, it is enouqh that we learn the basics of the Keras module included in Tensorflow.</p>
+<p>With Keras, it is extremely easy to build machine learning models. It is like building with Lego bricks. You just add the layers of your network, define the details of each layer, select the error function and the output function, and that’s it.</p>
+<p>If you want to replicate the Tensorflow code of this book, I strongly suggest that you <strong>install Tensorflow within Anaconda environment</strong>. At least, if you want to use gpu with Tensorflow. To enable the Nvidia-GPU support, you need to install also the CUDA-libraries provided by Nvidia. However, it is insanely difficult to get everything working in the GPU drivers-CUDA-Tensorflow -axis. Anaconda does everything automatically for you.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the following commands, you can check what kind of computing units are available. Of course, you are looking for GPU-units to speed up computations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, I have Quadro P5200 available for calculations. It will speed up calculations a lot when compared to CPU. If you do not have an Nvidia GPU available for calculations, some of the steps below will be very slow to calculate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.python.client</span> <span class="kn">import</span> <span class="n">device_lib</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">device_lib</span><span class="o">.</span><span class="n">list_local_devices</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to define a neural network with Keras is a single <strong>Sequential</strong>-command that has the layers in a list as a parameter. The densely connected layer has <strong>ReLU</strong> as an activation function. Because we want to categorise ten digits, <strong>softmax</strong> is the correct activation function for the last layer. Notice how the last layer has ten outputs, one for each digit. The <strong>Flatten()</strong>-layer transforms the 28 x 28 -image to a vector of size 784.</p>
+<p>With Keras, we can also build the network using sequential <strong>add()</strong>-commands. We first define the <strong>Sequential()</strong>-type and then add the layers with the <strong>add()</strong> -function.</p>
+<p>It is much easier to understand how Keras works by following an example. So, lets work through a detailed example using Keras.</p>
+</div>
+<div class="section" id="the-mnist-dataset">
+<h2><span class="section-number">3.6. </span>The MNIST dataset<a class="headerlink" href="#the-mnist-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The MNIST database (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used as the first test for computer vision models. These are 28x28 pixel images that are anti-aliased from the original NIST black and white images, and thus, grayscale images with 256 levels. The database contains 60,000 training images and 10,000 testing images.</p>
+<p><img alt="MNIST" src="_images/mnist.png" /></p>
+<p><strong>Keras.dataset</strong> has the MNIST dataset, so we avoid the hassle of downloading and preprocessing the dataset by ourselves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mnist</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <strong>load_data()</strong>, we can load the train and test datasets as <strong>Numpy arrays</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have 60000 images in the training set and 10000 images in the test set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check what kind of data we have. Matplotlib has a function to plot images. First, we load the library. With <strong>plt.imshow()</strong>, we can plot the image. We need to set <strong>cmap=gray</strong> to get the correct grayscale image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The originals are greyscale images with each pixel having a value from 0 to 255. We normalize them to values between 0 and 1 (neural networks like small values).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="densely-connected-network">
+<h2><span class="section-number">3.7. </span>Densely connected network<a class="headerlink" href="#densely-connected-network" title="Permalink to this headline">¶</a></h2>
+<p>First, we fit a traditional densely connected feed-forward neural network to the data.</p>
+<p><img alt="image.png" src="_images/feed_forward.png" />!</p>
+<p>Our data is a 3D-tensor of the form 60000 images x 28 pixels x 28 pixels. Sometimes we need to make the transform (60000,28,28) –&gt; (60000,28,28,1) and sometimes not. If you get an error in the model.fit -step, run the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">60000</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Currently, our labels are integers from 0 to 9. We need to transorm them to binary classes. For example 1–&gt;(0,1,0,0,0,0,0,0,0,0) and 9–&gt;(0,0,0,0,0,0,0,0,0,1). This can be done with the <strong>to_categorical()</strong> -function in Keras.utils.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to define a neural network with Keras is a single <strong>Sequential</strong>-command that has the layers in a list as a parameter. The densely connected layer has <strong>ReLU</strong> as an activation function. Because we want to categorise ten digits, <strong>softmax</strong> is the correct activation function for the last layer. Notice how the last layer has ten outputs, one for each digit. The <strong>Flatten()</strong>-layer transforms the 28 x 28 -image to a vector of size 784.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can check your model with the <strong>summary()</strong> -function. The model has 203 530 parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <strong>compile()</strong>, we build our neural network to be ready for use. For classification problems, <strong>categorical_crossentropy</strong> is the correct loss function. We measure our performance with accuracy. It is just the percentage of correct classifications.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we feed the training data to our model and train it using back-propagation. Everything is automatic, so, we do not need to worry about the details. The training data accuracy rises to 0.986 = 98.6%. However, true performance needs to be evaluated using test data. We can save to <strong>history</strong> information about the training process. The model is trained with batches of 64 images. So, to go through all the images, we need 938 rounds (the last batch has 32 images). One epoch is one round of going through all the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">train_labels</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code plots the progress of training. Within the code is info for different commands.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span> <span class="c1"># We select as a plot-style &#39;bmh&#39; that is in my opinion usually the prettiest.</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span> <span class="c1"># The evolution of accuracy to a list.</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="c1"># The evolution of loss to a list.</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Correct x-axis values (epochs)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span> <span class="c1"># Plot epochs vs. accuracy</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">)</span> <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> <span class="c1"># Show the first figure. Without this command, accuracy and loss would be drawn to the same plot.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span> <span class="c1"># Plot epochs vs. loss</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span> <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show everyhting</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Evaluate()</strong> can be used to evaluate the model with the test data. Acccuracy with the test data is 0.974</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_loss</span><span class="p">,</span><span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span><span class="n">test_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_acc</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convolutional-neural-network">
+<h2><span class="section-number">3.8. </span>Convolutional neural network<a class="headerlink" href="#convolutional-neural-network" title="Permalink to this headline">¶</a></h2>
+<p>Identifying the digits correctly is a computer vision problem. So, we should expect that convolutional neural networks would perform better. Thus, we build a simple CNN to identify the digits.</p>
+<p><img alt="image.png" src="_images/cnn_example.gif" /></p>
+<p>With Keras, we can also build the network using sequential <strong>add()</strong>-commands. We first define the <strong>Sequential()</strong>-type and then add the layers with the *<em>add()</em> -function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A convolutional layer with 32 feature maps and a 3x3 -filter: The activation is again <strong>ReLU</strong>. For the first layer, we need to define the format of the input data, in this case, 28 x 28 -pixel images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A max-pooling layer to decrease the size of the feature maps. The maximum values are selected from a 2 x 2 window.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, a convolutional layer. Notice how the number of feature maps increases. This is typical for CNN architectures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A second max-pooling layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A third convolutional layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Flatten()</strong> -layer transforms the 2D feature maps to a 1D vector so that we can feed it to an ordinary densely-connected layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One densely-connected layer before the output-layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output-layer has ten neurons that give probabilities for each digit. <strong>Softmax</strong> is the correct activation function for categorical predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <strong>summary()</strong> -function shows that our model has 93 322 parameters. Thus, much less than the previous densely-connected traditional neural network.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, we compile our model…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cnn</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>…and train it.</p>
+<p>Although our model has much fewer parameters, the performance with the training data is much better. Now, the accuracy is 0.994. Let’s see how it performs with the test data…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model_cnn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">train_labels</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again we plot the progress from <strong>history</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span> <span class="c1"># We select as a plot-style &#39;bmh&#39; that is in my opinion usually the best.</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span> <span class="c1"># The evolution of accuracy to a list.</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="c1"># The evolution of loss to a list.</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Correct x-axis values (epochs)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span> <span class="c1"># Plot epochs vs. accuracy</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">)</span> <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> <span class="c1"># Show the first figure. Without this command, accuracy and loss would be drawn to the same plot.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span> <span class="c1"># Plot epochs vs. loss</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span> <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show everyhting</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <strong>evaluate()</strong>, we can check the performance with the test data. We achieve much better accuracy of 0.989 with much fewer parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_loss</span><span class="p">,</span><span class="n">test_acc</span> <span class="o">=</span> <span class="n">model_cnn</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span><span class="n">test_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_acc</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-dogs-and-cats">
+<h2><span class="section-number">3.9. </span>Example - dogs and cats<a class="headerlink" href="#example-dogs-and-cats" title="Permalink to this headline">¶</a></h2>
+<p>For this example, we need to load the data ourselves that is somewhat laborious. We use image classification data from <a class="reference external" href="https://www.kaggle.com/c/dogs-vs-cats">www.kaggle.com/c/dogs-vs-cats</a>. Kaggle organises ML-competitions, and in this competition, the task is to distinguish dogs from cats in images.</p>
+<p><img alt="Pinto" src="_images/pinto.png" /></p>
+<p>First, we load some libraries that are needed to manipulate the image files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">shutil</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I have the original training data in the “original_data” folder (under the work folder). You can download the original data from <a class="reference external" href="https://www.kaggle.com/c/dogs-vs-cats">www.kaggle.com/c/dogs-vs-cats</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./original_data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The total number of dog and cat images is 25 000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We do this training “by-the-book” by dividing the data to train, validation and test parts. The validation data is used to finetune the hyperparameters of a model. With separate validation data, we avoid using the hyperparameter optimisation wrongly to optimise the test data performance. Below is an example of a dataset-split that uses 3-fold cross-validation.
+<img alt="Validation" src="_images/Train-Test-Validation.png" /></p>
+<p>The following commands build different folders for the training, validation and test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;validation&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Under the training, validation and test -folders we make separate folders for the dog and cat pictures. This makes it much easier to use Keras data-generation function as it can automatically collect observations of different classes from different folders. <strong>os.path.join()</strong> -function makes it easy to build directory structures. You add the “parts” of the directory structure, and it will add automatically slashes when needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the current work directory</span>
+<span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dogs</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">))</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">))</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">))</span>
+<span class="c1"># Cats</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">))</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">))</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we copy the files to correct folders. We use only part of the data to speed up calculations: 3000 images for the training, 1000 images for the validation and 1000 images for the testing. The first command in each cell constructs a list of correct filenames. It uses Python’s list comprehension, that is a great feature in Python.</p>
+<p>Let’s analyse the first one (<strong>fnames = [‘dog.{}.jpg’.format(i) for i in range(1500)]</strong>):</p>
+<p>When we put a for loop inside square brackets, Python will generate a list that has the “rounds” of a loop as values in the list.</p>
+<p><strong>‘dog.{}.jpg’.format(i)</strong> - This is the part that will be repeated in the list so that the curly brackets are replaced by the value of <strong>i</strong>.</p>
+<p><strong>for i in range(1500)</strong> - This will tell what values are inserted in <strong>i</strong>. <strong>range(1500)</strong> just means values from 0 to 1500.</p>
+<p>More information about list comprehension can be found from https://docs.python.org/3/tutorial/datastructures.html (section 5.1.3)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train dogs</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dog.</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;original_data&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validation dogs</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dog.</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2000</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;original_data&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test dogs</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dog.</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2500</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;original_data&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train cats</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat.</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;original_data&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validation cats</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat.</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2000</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;original_data&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test cats</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat.</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2000</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;original_data&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we check that everything went as planned. The dog folders should have 1500,500 and 500 images and similarly to the cat folders.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the dog directories</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the cat directories</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="s1">&#39;cats&#39;</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-cnn-model">
+<h3><span class="section-number">3.9.1. </span>Simple CNN model<a class="headerlink" href="#simple-cnn-model" title="Permalink to this headline">¶</a></h3>
+<p>As our preliminary model, we test a basic CNN model with four convolutional layers and four max-pooling layers followed by two dense layers with 12544 (flatten) and 512 neurons. The output layer has one neuron with a sigmoid activation function. So, the output is a prediction for one of the two classes.</p>
+<p>First, we need the <strong>layers</strong> and <strong>models</strong> -modules from Keras.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">models</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we define a sequential model and add layers using the <strong>add()</strong>-function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The input images to the network are 150x150 pixel RGB images. The size of the convolution-filter is 3x3, and the layer produces 32 feature maps. The ReLU activation function is the common choice with CNNs (and many other neural network types).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A max-pooling layer with a 2x2 window.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice how the number of feature maps is increasing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Overall, we have almost 7 million parameters in our model, which is way too much for a training set with 3000 images. The model will overfit as we will soon see from the results.
+<img alt="First_CNN" src="_images/nn.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">optimizers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we compile the model. Because we have now two classes, “binary_crossentropy” is the correct loss_function. There are many gradient descent optimisers available, but usually, RMSprop works very well. More information about RMSprop can be found here: https://keras.io/api/optimizers/rmsprop/.</p>
+<p><img alt="grad_desc" src="_images/Gradient_descent.gif" /></p>
+<p>We measure performance with the accuracy metric.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizers</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(),</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To get images from a folder to a CNN model can be a very tedious task. Luckily, Keras has functions that make our job much more straightforward.</p>
+<p><strong>ImageDataGenerator</strong> is a Python generator that can be used to transform images from a folder to tensors that can be fed to a neural network model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.image</span> <span class="kn">import</span> <span class="n">ImageDataGenerator</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We scale the pixel values from 0-255 to 0-1. Remember: neural networks like small values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">validation_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We change the size of the images to 150 x 150 and collect them in 25 batches. Basically, we feed (25,150,150,3)-tensors to the model. As you can see, the function automatically recognises two different classes. It is because we placed the cat and dog images to two different folders. We have to make separate generators for the training data and the validation data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_generator</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">),</span>
+                                                    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                                    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validation_generator</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">),</span>
+                                                    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                                    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use a little bit longer training with 30 epochs. Instead of input data, we now give the generators to the model. Also, we separately define the validation generator and validation testing steps. With 25 image batches and 120 steps per epoch, we go through all the 3000 images. To <strong>history</strong>, we save the training progress details.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_generator</span><span class="p">,</span>
+                              <span class="n">steps_per_epoch</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+                              <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                              <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_generator</span><span class="p">,</span>
+                              <span class="n">validation_steps</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check how did it go. In a typical overfitting situation, training accuracy quickly rises to almost 1.0 and validation accuracy stalls to a much lower level. This is also the case here. The training accuracy is 0.984, and the validation accuracy is around 0.72.
+But still, not that bad! The model recognises cats and dogs correctly from the images 72 % of the time.</p>
+<p><img alt="Overfitting" src="_images/Overfitting.svg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># Load plotting libraries</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span> <span class="c1"># bmh-style is usually nice</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># Matplotlib will automatically position the legend in a best possible way.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> <span class="c1"># This is needed to make two separate figures for loss and accuracy.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="augmentation-and-regularisation">
+<h3><span class="section-number">3.9.2. </span>Augmentation and regularisation<a class="headerlink" href="#augmentation-and-regularisation" title="Permalink to this headline">¶</a></h3>
+<p>Let’s try to improve our model. Augmentation is a common approach to “increase” the amount of data. The idea of augmentation is to transform images slightly every time they are fed to the model. Thus, we are trying to create new information to the model to train on. However, we are not truly creating new information. Nevertheless, augmentation has proven to be an efficient way to improve results.</p>
+<p>Image transformation can be implemented to the <strong>ImageDataGenerator()</strong>-function. There are many parameters that can be used to transform images. More information: <a class="reference external" href="https://keras.io/api/preprocessing/image/">keras.io/api/preprocessing/image/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rotation_range</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+                             <span class="n">width_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                             <span class="n">height_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                             <span class="n">shear_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                             <span class="n">zoom_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                             <span class="n">horizontal_flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                             <span class="n">fill_mode</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check what kind of images we are analysing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Image -module to view images</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We pick the 16th image from the train/dogs -folder.</span>
+<span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;dogs&#39;</span><span class="p">))[</span><span class="mi">16</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below is an example image from the original dataset. The sixteenth image in our list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use the Imagedatagenerator’s <strong>flow()</strong>-function, we need to transform our image to a numpy-array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_image_np</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">sample_image</span><span class="p">)</span>
+<span class="n">sample_image_np</span> <span class="o">=</span> <span class="n">sample_image_np</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,)</span> <span class="o">+</span> <span class="n">sample_image_np</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code transforms images using <em>ImageDataGenerator()</em> and plots eight examples. As you can see, they are slightly altered images that are very close to the original image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">transform</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">datagen</span><span class="o">.</span><span class="n">flow</span><span class="p">(</span><span class="n">sample_image_np</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">array_to_img</span><span class="p">(</span><span class="n">transform</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">8</span>==0:
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we define the model. Alongside augmentation, we add regularisation to the model with a dropout-layer. The Dropout layer randomly sets input units to 0 with a frequency of <strong>rate</strong> (0.5 below) at each step during training time, which helps prevent overfitting. Inputs not set to 0 are scaled up by 1/(1 - rate) such that the sum over all inputs is unchanged.</p>
+<p>We build our sequential model using <strong>add()</strong>-functions. The only difference, when compared to the previous model, is the dropout-layer after the flatten-layer (and the augmentation).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dropout layer does not change the number of parameters. It is exactly the same as in the previous model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The compile-step is not changed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizers</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(),</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We create the augmentation-enabled generators. Remember that the validation dataset should not be augmented!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span>
+                                   <span class="n">rotation_range</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+                                   <span class="n">width_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">height_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">shear_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">zoom_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">horizontal_flip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validation_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The same dataset of 3000 training images and 1000 validation images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_generator</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">),</span>
+                                                    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                                    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validation_generator</span> <span class="o">=</span> <span class="n">validation_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">),</span>
+                                                    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                                    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otherwise, the parameters to the <strong>model.fit()</strong> are the same as in the previous model, but we train the model a little bit longer. This is because regularisation slows down training.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_generator</span><span class="p">,</span>
+                              <span class="n">steps_per_epoch</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+                              <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                              <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_generator</span><span class="p">,</span>
+                              <span class="n">validation_steps</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see from the following figure, overfitting has almost disappeared. The training and validation accuracy stay approximately at the same level through the training. The performance is also somewhat better. Now we achieve a validation accuracy of 0.77.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training acc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation acc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pre-trained-model">
+<h3><span class="section-number">3.9.3. </span>Pre-trained model<a class="headerlink" href="#pre-trained-model" title="Permalink to this headline">¶</a></h3>
+<p>Next thing that we could try is to use a pre-trained model that has its parameters already optimised using some other dataset. Usually, CNNs related to computer vision are pre-trained using Imagenet data (http://www.image-net.org/). It is a vast collection of labelled images.</p>
+<p>We add our own layers after the pre-trained architecture. As our pre-trained model, we use VGG16</p>
+<p><img alt="VGG16" src="_images/vgg.png" /></p>
+<p>VGG16 is included in the <strong>keras.applications</strong> -module</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.applications</span> <span class="kn">import</span> <span class="n">VGG16</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we load the VGG16 model, we need to set <strong>weights=imagenet</strong> to get pre-trained parameter weights. <strong>include_top=False</strong> removes the output layer with 1000 neurons. We want our output layer to have only one neuron (prediction for dog/cat).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_base</span> <span class="o">=</span> <span class="n">VGG16</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">&#39;imagenet&#39;</span><span class="p">,</span><span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>VGG16 has 14.7 million parameters without the last layer. It also has two or three convolutional layers in a row. Our previous models were switching between a convolutional layer and a max-pooling layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_base</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we construct the model, we add the pre-trained VGG16-base first. Then follows a 256-neuron Dense-layer and a one-neuron output layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pretrained_base</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Overall, our model has almost 17 million parameters. However, we will lock the pre-trained VGG16 base, which will decrease the number of trainable parameters significantly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to use the pretrained Imagenet-weights, so, we lock the weights of the VGG16 -part.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_base</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now there is “only” two million trainable parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, we use the augmentation of the training dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span>
+                                   <span class="n">rotation_range</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+                                   <span class="n">width_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">height_shift_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">shear_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">zoom_range</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                   <span class="n">horizontal_flip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validation_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_generator</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">),</span>
+                                                    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                                    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validation_generator</span> <span class="o">=</span> <span class="n">validation_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;validation&#39;</span><span class="p">),</span>
+                                                    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                                    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compile- and fit-steps do not have anything new.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizers</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(),</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_generator</span><span class="p">,</span>
+                              <span class="n">steps_per_epoch</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+                              <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                              <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_generator</span><span class="p">,</span>
+                              <span class="n">validation_steps</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see from the plots below, there is a small overfitting issue. The difference between the training accuracy and the validation accuracy increases slowly. However, the performance is excellent! Now our model can separate dogs from cats correctly 85 % of the time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training acc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation acc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fine-tuning">
+<h3><span class="section-number">3.9.4. </span>Fine tuning<a class="headerlink" href="#fine-tuning" title="Permalink to this headline">¶</a></h3>
+<p>There is still (at least) one thing that we can do to improve our model. We can finetune our pre-trained VGG16 model by opening part of its’ weights. As our VGG16 is now optimised for Imagenet data, the weights have information about features that are useful for many different types of images. By opening the last few layers of the model, we allow it to finetune those weights to features that are useful in separating dogs from cats in images.</p>
+<p>First, we need to make our VGG16 model trainable again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_base</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the summary of the VGG16 model again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_base</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’ lock everything else, but leave the layers of <strong>block5</strong> to be finetuned by our dogs/cats images. The following code will go through the VGG16 structure, lock everything until ‘block4_pool’ and leave layers after that trainable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set_trainable</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">pretrained_base</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">layer</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;block5_conv1&#39;</span><span class="p">:</span>
+        <span class="n">set_trainable</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">set_trainable</span><span class="p">:</span>
+        <span class="n">layer</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">layer</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are over 9 million trainable parameters, which can probably cause overfitting, but let’s see.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizers</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(),</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_generator</span><span class="p">,</span>
+                              <span class="n">steps_per_epoch</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+                              <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                              <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_generator</span><span class="p">,</span>
+                              <span class="n">validation_steps</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, overfitting starts to be an issue again. But our validation performance is outstanding! The model is correct 90 % of the time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training acc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation acc&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the last step, let’s check the model’s performance with the test set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_generator</span> <span class="o">=</span> <span class="n">test_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">),</span>
+                                                    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+                                                    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_generator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our model is correct 90 % of the time!</p>
+<p><img alt="thumbs" src="_images/thumbs.jpeg" /></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="8_Decision_making_in_accounting.html" title="previous page"><span class="section-number">2. </span>Decision making with ML in accounting</a>
+    <a class='right-next' id="next-link" href="10_NLP_in_accounting.html" title="next page"><span class="section-number">4. </span>Introduction to natural language processing</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Mikko Ranta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
