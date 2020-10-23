@@ -1,0 +1,1413 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Visualisations with Python &#8212; Data analytics in accounting</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Basic statistics with Python" href="6_Basic_statistics_with_Python.html" />
+    <link rel="prev" title="4. Connecting with accounting databases" href="4_Connecting_with_accounting_databases.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="book_intro.html">
+   Introduction to data analytics in accounting
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Basic data analytics in accounting
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_installing_Python.html">
+   1. Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Pandas_basics.html">
+   2. Pandas data basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
+   3. Pandas Data preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
+   4. Connecting with accounting databases
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Visualisations with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
+   6. Basic statistics with Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Machine learning in accounting
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
+   1. Introduction Machine learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Decision_making_in_accounting.html">
+   2. Decision making with ML in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
+   3. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Deep_learning_in_accounting.html#example-dogs-and-cats">
+   4. Example - dogs and cats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_NLP_in_accounting.html">
+   5. Introduction to natural language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_NLP_in_accounting.html#nlp-example-lda-and-other-summarisation-tools">
+   6. NLP example - LDA and other summarisation tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_NLP_in_accounting.html#nlp-example-imdb">
+   7. NLP example - IMDB
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/5_Visualisation_with_Python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/5_Visualisation_with_Python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas">
+   5.1. Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   5.2. Matplotlib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn">
+   5.3. Seaborn
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="visualisations-with-python">
+<h1><span class="section-number">5. </span>Visualisations with Python<a class="headerlink" href="#visualisations-with-python" title="Permalink to this headline">¶</a></h1>
+<p>There are many libraries for visualisations in Python. In this chapter, we will explore <strong>Matplotlib</strong> and <strong>Seaborn</strong>. But first we check the somewhat limited visualisation capabilities of Pandas.</p>
+<div class="section" id="pandas">
+<h2><span class="section-number">5.1. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Although Pandas is mainly a data handling library, it has some functions for plotting too.</p>
+<p>The Series and Dataframe objects have <strong>plot()</strong> for basic plotting. By default, it makes line plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pe_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/PE.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">pe_df</span><span class="p">[</span><span class="s1">&#39;PE_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pe_df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">pe_df</span><span class="p">[</span><span class="s1">&#39;earnings&#39;</span><span class="p">]</span>
+
+<span class="n">pe_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1800&#39;</span><span class="p">,</span> <span class="s1">&#39;1932&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The evolution of P/E-index from 1800 to 1931.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pe_df</span><span class="p">[</span><span class="s1">&#39;PE_ratio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_8_1.png" src="_images/5_Visualisation_with_Python_8_1.png" />
+</div>
+</div>
+<p>The plot-object is passed to Matplotlib, so most of the Matplotlib parameters work also with Pandas plots.</p>
+<p>Pandas has functions for KDE plots and histograms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pe_df</span><span class="p">[</span><span class="s1">&#39;PE_ratio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_11_1.png" src="_images/5_Visualisation_with_Python_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pe_df</span><span class="p">[</span><span class="s1">&#39;PE_ratio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">density</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_12_1.png" src="_images/5_Visualisation_with_Python_12_1.png" />
+</div>
+</div>
+<p>Pandas bar plots. Notice how they are invoked using <strong>plot.bar()</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">know_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/politicalKnowledge.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">know_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Political knowledge in the US and Europe (high school background).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">know_df</span><span class="p">[[</span><span class="s1">&#39;DomesticKnowledge.hs&#39;</span><span class="p">,</span><span class="s1">&#39;InternationalKnowledge.hs&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;country&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_17_1.png" src="_images/5_Visualisation_with_Python_17_1.png" />
+</div>
+</div>
+<p>And horisontal bars. Political knowledge in the US and Europe (college background).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">know_df</span><span class="p">[[</span><span class="s1">&#39;DomesticKnowledge.c&#39;</span><span class="p">,</span><span class="s1">&#39;InternationalKnowledge.c&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;country&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_19_1.png" src="_images/5_Visualisation_with_Python_19_1.png" />
+</div>
+</div>
+<p>With the <strong>stacked = True</strong>, you change grouped bars to stacked bars. Political knowledge in the US and Europe (high school/some college/college background stacked together).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">know_df</span><span class="p">[[</span><span class="s1">&#39;DomesticKnowledge.hs&#39;</span><span class="p">,</span> <span class="s1">&#39;DomesticKnowledge.sc&#39;</span><span class="p">,</span> <span class="s1">&#39;DomesticKnowledge.c&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;InternationalKnowledge.hs&#39;</span><span class="p">,</span> <span class="s1">&#39;InternationalKnowledge.sc&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;InternationalKnowledge.c&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;country&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_21_1.png" src="_images/5_Visualisation_with_Python_21_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="matplotlib">
+<h2><span class="section-number">5.2. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>In the following, we will go through the basic features of Matplotlib. One important thing to remember is that Jupyter will reset most of the settings after each cell is evaluated. So most of the operations need to be executed in a single cell.</p>
+<p>Functions for basic plots are in the <strong>matplotlib.pyplot</strong> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use many different styles for your plots. The full list of styles is here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">available</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Solarize_Light2&#39;,
+ &#39;_classic_test_patch&#39;,
+ &#39;bmh&#39;,
+ &#39;classic&#39;,
+ &#39;dark_background&#39;,
+ &#39;fast&#39;,
+ &#39;fivethirtyeight&#39;,
+ &#39;ggplot&#39;,
+ &#39;grayscale&#39;,
+ &#39;seaborn&#39;,
+ &#39;seaborn-bright&#39;,
+ &#39;seaborn-colorblind&#39;,
+ &#39;seaborn-dark&#39;,
+ &#39;seaborn-dark-palette&#39;,
+ &#39;seaborn-darkgrid&#39;,
+ &#39;seaborn-deep&#39;,
+ &#39;seaborn-muted&#39;,
+ &#39;seaborn-notebook&#39;,
+ &#39;seaborn-paper&#39;,
+ &#39;seaborn-pastel&#39;,
+ &#39;seaborn-poster&#39;,
+ &#39;seaborn-talk&#39;,
+ &#39;seaborn-ticks&#39;,
+ &#39;seaborn-white&#39;,
+ &#39;seaborn-whitegrid&#39;,
+ &#39;tableau-colorblind10&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>I usually find the <strong>bmh</strong> style the most appealing. <strong>Fivethirtyeight</strong> and <strong>ggplot</strong> are also good.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Plot()</strong> is for plotting of sequence-like objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">csum_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_32_0.png" src="_images/5_Visualisation_with_Python_32_0.png" />
+</div>
+</div>
+<p>Although plots will show in jupyter notebooks without <strong>plt.show()</strong>, by adding it we can remove useless textual information above the plots.</p>
+<p>As I mentioned earlier, everything in Python are objects, also Matplotlib figures. The following command will add an empty template without any plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can add plots to the template using <strong>add_subplot()</strong>. The plots are addes as <strong>axes</strong>-objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_37_0.png" src="_images/5_Visualisation_with_Python_37_0.png" />
+</div>
+</div>
+<p>By default, Matplotlib will add the plot to the last axex-object added. You can add to a specific axes-object by using its name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">csum_values</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">csum_values</span><span class="p">),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">csum_values</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_39_0.png" src="_images/5_Visualisation_with_Python_39_0.png" />
+</div>
+</div>
+<p>As you can see from the above example, colors, linestyles, etc. are defined using string codes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">40</span><span class="p">],</span><span class="s1">&#39;ro--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_41_0.png" src="_images/5_Visualisation_with_Python_41_0.png" />
+</div>
+</div>
+<p>The string codes are convenient, if you know them. But learning them takes a little time. Consult the Matplotlib documentation for full list of the string codes: <a class="reference external" href="https://matplotlib.org/">matplotlib.org</a>. You can draw the above figure using a more explicit syntax.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">40</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_43_0.png" src="_images/5_Visualisation_with_Python_43_0.png" />
+</div>
+</div>
+<p>By default, adjacent points in line plots are connected with linear interpolation. With <strong>drawstyle</strong>, you can use also constant values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">40</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">40</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps-mid&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_45_0.png" src="_images/5_Visualisation_with_Python_45_0.png" />
+</div>
+</div>
+<p>Let’s load a more interesting dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">comp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;stat_data.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numer</span> <span class="o">=</span> <span class="n">comp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span> <span class="o">=</span> <span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.025</span><span class="p">),</span>
+                                                   <span class="n">upper</span><span class="o">=</span><span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.975</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NAME</th>
+      <th>DIV. YIELD</th>
+      <th>ROE (%)</th>
+      <th>R&amp;D/SALES (%)</th>
+      <th>CoGS/SALES - 5 Y (%)</th>
+      <th>SG%A/SALES 5Y (%)</th>
+      <th>ACCOUNTING STANDARD</th>
+      <th>Accounting Controversies</th>
+      <th>Basis of EPS data</th>
+      <th>INDUSTRY GROUP</th>
+      <th>IBES COUNTRY CODE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>APPLE</td>
+      <td>0.71</td>
+      <td>55.92</td>
+      <td>4.95</td>
+      <td>56.6400</td>
+      <td>6.53</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>4030.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SAUDI ARABIAN OIL</td>
+      <td>0.21</td>
+      <td>32.25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>IFRS</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>5880.0</td>
+      <td>FW</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MICROSOFT</td>
+      <td>1.07</td>
+      <td>40.14</td>
+      <td>13.59</td>
+      <td>26.4600</td>
+      <td>19.56</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>4080.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AMAZON.COM</td>
+      <td>0.00</td>
+      <td>21.95</td>
+      <td>12.29</td>
+      <td>56.8200</td>
+      <td>21.28</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>7091.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FACEBOOK CLASS A</td>
+      <td>0.00</td>
+      <td>19.96</td>
+      <td>21.00</td>
+      <td>7.0600</td>
+      <td>20.42</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>8580.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>BHP GROUP</td>
+      <td>4.23</td>
+      <td>16.61</td>
+      <td>NaN</td>
+      <td>45.5000</td>
+      <td>NaN</td>
+      <td>IFRS</td>
+      <td>N</td>
+      <td>IFRS</td>
+      <td>5210.0</td>
+      <td>EX</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>CITIC SECURITIES 'A'</td>
+      <td>1.67</td>
+      <td>7.77</td>
+      <td>NaN</td>
+      <td>10.9100</td>
+      <td>27.44</td>
+      <td>IFRS</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>4395.0</td>
+      <td>FC</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>EDWARDS LIFESCIENCES</td>
+      <td>0.00</td>
+      <td>28.73</td>
+      <td>16.09</td>
+      <td>23.3300</td>
+      <td>30.22</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>3440.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>GREE ELECT.APP. 'A'</td>
+      <td>2.25</td>
+      <td>24.52</td>
+      <td>NaN</td>
+      <td>66.3500</td>
+      <td>14.94</td>
+      <td>Local standards</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>3720.0</td>
+      <td>FC</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>HOUSING DEVELOPMENT FINANCE CORPORATION</td>
+      <td>1.08</td>
+      <td>18.17</td>
+      <td>NaN</td>
+      <td>4.7435</td>
+      <td>23.90</td>
+      <td>Local standards</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>4390.0</td>
+      <td>FI</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 11 columns</p>
+</div></div></div>
+</div>
+<p>We can add all the axes-objects at once using <strong>plt.subplots()</strong>. In the following for-loop, we use <strong>two</strong> iterators. One is going through the axes objects and other is going through specific columns from the dataframe. For that, we need to use <strong>zip()</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">comp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="n">column</span><span class="p">],</span><span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_51_0.png" src="_images/5_Visualisation_with_Python_51_0.png" />
+</div>
+</div>
+<p>Matplotlib has a huge collection of different plot types.</p>
+<p>The boxplot function, which does not work with missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">notch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_54_0.png" src="_images/5_Visualisation_with_Python_54_0.png" />
+</div>
+</div>
+<p>The horisontal bar plot function. There is also a function for a vertical bar plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;CoGS/SALES - 5 Y (%)&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_56_0.png" src="_images/5_Visualisation_with_Python_56_0.png" />
+</div>
+</div>
+<p>We already saw the normal histogram function, <strong>hist()</strong>. There is also a function for two-dimensional histograms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_58_0.png" src="_images/5_Visualisation_with_Python_58_0.png" />
+</div>
+</div>
+<p>A lineplot with log-log scales. With <strong>legend()</strong>, you can add a legend to your plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://vincentarelbundock.github.io/Rdatasets/csv/datasets/EuStockMarkets.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">euro_df</span><span class="p">[</span><span class="s1">&#39;DAX&#39;</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;DAX&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">euro_df</span><span class="p">[</span><span class="s1">&#39;SMI&#39;</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;SMI&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_61_0.png" src="_images/5_Visualisation_with_Python_61_0.png" />
+</div>
+</div>
+<p>There is also a function for pie charts. Let’s bin the R&amp;D/SALES -variable for a meaningful data to use in a pie chart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;R&amp;D/SALES (%)&#39;</span><span class="p">],</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <strong>title()</strong>, you can add a title.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">categs</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span><span class="n">labels</span><span class="o">=</span><span class="n">categs</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;R&amp;D/SALES (%)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_65_0.png" src="_images/5_Visualisation_with_Python_65_0.png" />
+</div>
+</div>
+<p>A polar plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x165153836d0&gt;]
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_67_1.png" src="_images/5_Visualisation_with_Python_67_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_df</span><span class="p">[</span><span class="s1">&#39;DAX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1            NaN
+2      -0.009283
+3      -0.004412
+4       0.009044
+5      -0.001777
+          ...   
+1856   -0.024631
+1857   -0.031985
+1858    0.019138
+1859   -0.005924
+1860    0.022164
+Name: DAX, Length: 1860, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Power Spectral Density can be used to recognise cycles in a time series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">psd</span><span class="p">(</span><span class="n">euro_df</span><span class="p">[</span><span class="s1">&#39;DAX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_70_0.png" src="_images/5_Visualisation_with_Python_70_0.png" />
+</div>
+</div>
+<p>Matplotlib allows you to customise almost everything in its plots. We already saw how to add a title and a legend to plots. We can also add axis titles and customise ticks/tickmarks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;R&amp;D/SALES (%)&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_72_0.png" src="_images/5_Visualisation_with_Python_72_0.png" />
+</div>
+</div>
+<p>Let’s add axis titles to the histogram, and customise its x-ticks. The number of ticks and tick labels must be equal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;R&amp;D/SALES (%)&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;0 %&#39;</span><span class="p">,</span> <span class="s1">&#39;10 %&#39;</span><span class="p">,</span> <span class="s1">&#39;20 %&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;R&amp;D / SALES&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Freq.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_74_0.png" src="_images/5_Visualisation_with_Python_74_0.png" />
+</div>
+</div>
+<p>A very convenient feature in Matplotlib is annotation. With <strong>annotate</strong>, we can highlight important points in figures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">euro_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1991-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1998-02-16&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">euro_df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;The IT boom starts&#39;</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1996</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">4000</span><span class="p">),</span>
+             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1994</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">5000</span><span class="p">),</span><span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_77_0.png" src="_images/5_Visualisation_with_Python_77_0.png" />
+</div>
+</div>
+<p>When you are happy with your figure, you can save it to a file using <strong>savefig()</strong>. The function has many convenient parameters. You can read more about them here: <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html?highlight=savefig">matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html?highlight=savefig</a>.</p>
+<p>If you want to change the default settings of Matplotlib, you can use <strong>rc()</strong>. This will change settings for all cells not just the cell you are executing. For example, to change the default settings of the lines, you can write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">euro_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_81_0.png" src="_images/5_Visualisation_with_Python_81_0.png" />
+</div>
+</div>
+<p>You can restore default settings with <strong>rcdefaults()</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcdefaults</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="seaborn">
+<h2><span class="section-number">5.3. </span>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">¶</a></h2>
+<p>Seaborn is a plotting library built on top of Matplotlib. It is especially designed for statistical plotting. Seaborn has very beautiful plots by default, and you get publication-quality plots from it without exhaustive parameter tuning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The bar plot in Seaborn adds automatically error bars to the plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_ret</span> <span class="o">=</span> <span class="n">euro_df</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+
+<span class="n">euro_ret</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1991</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">unstacked</span> <span class="o">=</span> <span class="n">euro_ret</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+
+<span class="n">unstacked</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Return&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">unstacked</span><span class="p">[</span><span class="s1">&#39;Return&#39;</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">unstacked</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Return&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_89_1.png" src="_images/5_Visualisation_with_Python_89_1.png" />
+</div>
+</div>
+<p>Seaborn has efficient tools for histograms and KDEs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">euro_ret</span><span class="p">[</span><span class="s1">&#39;DAX&#39;</span><span class="p">],</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x15323bb6730&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_91_1.png" src="_images/5_Visualisation_with_Python_91_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">euro_ret</span><span class="p">[</span><span class="s1">&#39;DAX&#39;</span><span class="p">],</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1532357deb0&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_92_1.png" src="_images/5_Visualisation_with_Python_92_1.png" />
+</div>
+</div>
+<p><strong>Regplot</strong> is important for linear regression. We need to reset Matplotlib settings, because <strong>regplot</strong> is not working correctly with the <strong>bmh</strong> style.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcdefaults</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NAME</th>
+      <th>DIV. YIELD</th>
+      <th>ROE (%)</th>
+      <th>R&amp;D/SALES (%)</th>
+      <th>CoGS/SALES - 5 Y (%)</th>
+      <th>SG%A/SALES 5Y (%)</th>
+      <th>ACCOUNTING STANDARD</th>
+      <th>Accounting Controversies</th>
+      <th>Basis of EPS data</th>
+      <th>INDUSTRY GROUP</th>
+      <th>IBES COUNTRY CODE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>APPLE</td>
+      <td>0.71</td>
+      <td>55.92</td>
+      <td>4.95</td>
+      <td>56.6400</td>
+      <td>6.53</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>4030.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SAUDI ARABIAN OIL</td>
+      <td>0.21</td>
+      <td>32.25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>IFRS</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>5880.0</td>
+      <td>FW</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MICROSOFT</td>
+      <td>1.07</td>
+      <td>40.14</td>
+      <td>13.59</td>
+      <td>26.4600</td>
+      <td>19.56</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>4080.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AMAZON.COM</td>
+      <td>0.00</td>
+      <td>21.95</td>
+      <td>12.29</td>
+      <td>56.8200</td>
+      <td>21.28</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>7091.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FACEBOOK CLASS A</td>
+      <td>0.00</td>
+      <td>19.96</td>
+      <td>21.00</td>
+      <td>7.0600</td>
+      <td>20.42</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>8580.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>BHP GROUP</td>
+      <td>4.23</td>
+      <td>16.61</td>
+      <td>NaN</td>
+      <td>45.5000</td>
+      <td>NaN</td>
+      <td>IFRS</td>
+      <td>N</td>
+      <td>IFRS</td>
+      <td>5210.0</td>
+      <td>EX</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>CITIC SECURITIES 'A'</td>
+      <td>1.67</td>
+      <td>7.77</td>
+      <td>NaN</td>
+      <td>10.9100</td>
+      <td>27.44</td>
+      <td>IFRS</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>4395.0</td>
+      <td>FC</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>EDWARDS LIFESCIENCES</td>
+      <td>0.00</td>
+      <td>28.73</td>
+      <td>16.09</td>
+      <td>23.3300</td>
+      <td>30.22</td>
+      <td>US standards (GAAP)</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>3440.0</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>GREE ELECT.APP. 'A'</td>
+      <td>2.25</td>
+      <td>24.52</td>
+      <td>NaN</td>
+      <td>66.3500</td>
+      <td>14.94</td>
+      <td>Local standards</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>3720.0</td>
+      <td>FC</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>HOUSING DEVELOPMENT FINANCE CORPORATION</td>
+      <td>1.08</td>
+      <td>18.17</td>
+      <td>NaN</td>
+      <td>4.7435</td>
+      <td>23.90</td>
+      <td>Local standards</td>
+      <td>N</td>
+      <td>EPS</td>
+      <td>4390.0</td>
+      <td>FI</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="s1">&#39;DIV. YIELD&#39;</span><span class="p">,</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">comp_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DIV. YIELD&#39;, ylabel=&#39;ROE (%)&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_96_1.png" src="_images/5_Visualisation_with_Python_96_1.png" />
+</div>
+</div>
+<p><strong>Pairplot</strong> is an excellent tool for quick exploratory analysis. It adds scatter graphs and  histograms into a single figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">comp_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x1532197e790&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_98_1.png" src="_images/5_Visualisation_with_Python_98_1.png" />
+</div>
+</div>
+<p>With <strong>catplot</strong>, you can catogorise data in multiple ways simultaneously.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;ACCOUNTING STANDARD&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;DIV. YIELD&#39;</span><span class="p">,</span>
+               <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Accounting Controversies&#39;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;Basis of EPS data&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">comp_df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5_Visualisation_with_Python_100_0.png" src="_images/5_Visualisation_with_Python_100_0.png" />
+</div>
+</div>
+<p>There is also the boxplot option in <strong>catplot</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;ACCOUNTING STANDARD&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">comp_df</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1532a30fdf0&gt;
+</pre></div>
+</div>
+<img alt="_images/5_Visualisation_with_Python_102_1.png" src="_images/5_Visualisation_with_Python_102_1.png" />
+</div>
+</div>
+<p>There are numerous other visualisation libraries in Python. Other important, which we do not have covered here, are at least <a class="reference external" href="https://plotly.com/">Plotly</a>, <a class="reference external" href="https://docs.bokeh.org/en/latest/index.html">Bokeh</a> and <a class="reference external" href="https://altair-viz.github.io/">Altair</a>, but there are numerous others and new libraries are introduced all the time.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="4_Connecting_with_accounting_databases.html" title="previous page"><span class="section-number">4. </span>Connecting with accounting databases</a>
+    <a class='right-next' id="next-link" href="6_Basic_statistics_with_Python.html" title="next page"><span class="section-number">6. </span>Basic statistics with Python</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Mikko Ranta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
