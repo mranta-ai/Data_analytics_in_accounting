@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6. Basic statistics with Python &#8212; Data analytics in accounting</title>
+    <title>7. Basic statistics with Python &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. Introduction Machine learning in accounting" href="7_Introduction_to_ML_in_accounting.html" />
-    <link rel="prev" title="5. Visualisations with Python" href="5_Visualisation_with_Python.html" />
+    <link rel="prev" title="6. Visualisations with Python" href="5_Visualisation_with_Python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -108,28 +108,33 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="1_Intro_to_Python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="2_Pandas_basics.html">
-   2. Pandas data basics
+   3. Pandas data basics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Pandas_data_preprocessing.html">
-   3. Pandas Data preprocessing
+   4. Pandas Data preprocessing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
-   4. Connecting with accounting databases
+   5. Connecting with accounting databases
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="5_Visualisation_with_Python.html">
-   5. Visualisations with Python
+   6. Visualisations with Python
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. Basic statistics with Python
+   7. Basic statistics with Python
   </a>
  </li>
 </ul>
@@ -250,32 +255,32 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descriptive-statistics-with-pandas">
-   6.1. Descriptive statistics with Pandas
+   7.1. Descriptive statistics with Pandas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#probability-and-statistics-functions">
-   6.2. Probability and statistics functions
+   7.2. Probability and statistics functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#statistical-analysis-with-statsmodels">
-   6.3. Statistical analysis with statsmodels
+   7.3. Statistical analysis with statsmodels
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#statistical-analysi-with-scipy-stats">
-   6.4. Statistical analysi with scipy.stats
+   7.4. Statistical analysi with scipy.stats
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#time-series">
-   6.5. Time series
+   7.5. Time series
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#datetime">
-     6.5.1. Datetime
+     7.5.1. Datetime
     </a>
    </li>
   </ul>
@@ -292,7 +297,7 @@
               <div>
                 
   <div class="section" id="basic-statistics-with-python">
-<h1><span class="section-number">6. </span>Basic statistics with Python<a class="headerlink" href="#basic-statistics-with-python" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Basic statistics with Python<a class="headerlink" href="#basic-statistics-with-python" title="Permalink to this headline">¶</a></h1>
 <p>Numpy has some statistical functions and they are useful when you have huge amounts of data. We will analyse Numpy more in the next chapter. Here we check only the main statistical functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -451,7 +456,7 @@
 </div>
 </div>
 <div class="section" id="descriptive-statistics-with-pandas">
-<h2><span class="section-number">6.1. </span>Descriptive statistics with Pandas<a class="headerlink" href="#descriptive-statistics-with-pandas" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Descriptive statistics with Pandas<a class="headerlink" href="#descriptive-statistics-with-pandas" title="Permalink to this headline">¶</a></h2>
 <p>Pandas is much more versatile for statistical calculations than Numpy, and should be used if there is no specific reason to use Numpy. Let’s load a more interesting dataset to analyse.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1356,7 +1361,7 @@ dtype: float64
 </div>
 </div>
 <div class="section" id="probability-and-statistics-functions">
-<h2><span class="section-number">6.2. </span>Probability and statistics functions<a class="headerlink" href="#probability-and-statistics-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Probability and statistics functions<a class="headerlink" href="#probability-and-statistics-functions" title="Permalink to this headline">¶</a></h2>
 <p>What we mainly need in data analysis from probability theory are random variables and distributions. Numpy has a large collection of random number generators that are located in module <strong>numpy.random</strong>. There are random number generators for every distribution that you will ever need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1440,7 +1445,7 @@ dtype: float64
 <p>It is good to remember that computer-generated random numbers are not truly random numbers. They are so called pseudorandom numbers. It is because they are generated using a deterministic algorithm and a seed value.</p>
 </div>
 <div class="section" id="statistical-analysis-with-statsmodels">
-<h2><span class="section-number">6.3. </span>Statistical analysis with statsmodels<a class="headerlink" href="#statistical-analysis-with-statsmodels" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Statistical analysis with statsmodels<a class="headerlink" href="#statistical-analysis-with-statsmodels" title="Permalink to this headline">¶</a></h2>
 <p>Pandas (and Numpy) has only functions for basic statistical analysis, like descriptive statistics. If you want to do more advanced (traditional) statistical analysis, the <strong>statsmodels</strong> library is a good option.</p>
 <p>For example, linear regerssion models are very easy to build with <strong>statsmodels</strong>.</p>
 <div class="cell docutils container">
@@ -2114,7 +2119,7 @@ Name: ROE (%), dtype: float64
 <p>Statsmodels is a very comprehensive statistical library. It has solutions for nonparametric statistics, generalised linear models, robust regression, time series analysis. We do not go into more details of Statsmodels at this point. If you want to learn more, check the Statsmodels documentation: <a class="reference external" href="https://www.statsmodels.org/stable/index.html">www.statsmodels.org/stable/index.html</a></p>
 </div>
 <div class="section" id="statistical-analysi-with-scipy-stats">
-<h2><span class="section-number">6.4. </span>Statistical analysi with scipy.stats<a class="headerlink" href="#statistical-analysi-with-scipy-stats" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4. </span>Statistical analysi with scipy.stats<a class="headerlink" href="#statistical-analysi-with-scipy-stats" title="Permalink to this headline">¶</a></h2>
 <p>Another option for statistical analysis in Python is the <strong>stats</strong> module of <strong>Scipy</strong>. It has many functions that are not included in other statistical libraries. However, Scipy does not handle automatically nan-values. Accounting data almost always has missing values, thus, they need to be manually handled, which is a bit annoying.</p>
 <p>Like Numpy, it has an extensive range of random number generators and probability distributions. It also has a long list of statistical tests.</p>
 <div class="cell docutils container">
@@ -2336,10 +2341,10 @@ Name: ROE (%), dtype: float64
 <p>There are functions for many other statistical tasks, like transformations, statistical distnaces, contigency tables. Check the Scipy homepage for more details.</p>
 </div>
 <div class="section" id="time-series">
-<h2><span class="section-number">6.5. </span>Time series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.5. </span>Time series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
 <p>Time series analysis is an important topic in accounting. Python and Pandas has many functions for time series analysis. Time series data has usually fixed frequency, which means that data points occur at regular intervals. Time series can also be irregular, which can potentially make the analysis very difficult. Luckily, Python/Pandas simplifies things considerably.</p>
 <div class="section" id="datetime">
-<h3><span class="section-number">6.5.1. </span>Datetime<a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.5.1. </span>Datetime<a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h3>
 <p>Python has modules for date/time -handling by default, the most important being <strong>datetime</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3553,7 +3558,7 @@ Freq: W-SUN, Length: 72, dtype: float64
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="5_Visualisation_with_Python.html" title="previous page"><span class="section-number">5. </span>Visualisations with Python</a>
+    <a class='left-prev' id="prev-link" href="5_Visualisation_with_Python.html" title="previous page"><span class="section-number">6. </span>Visualisations with Python</a>
     <a class='right-next' id="next-link" href="7_Introduction_to_ML_in_accounting.html" title="next page"><span class="section-number">1. </span>Introduction Machine learning in accounting</a>
 
     </div>
