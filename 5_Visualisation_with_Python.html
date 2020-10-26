@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Visualisations with Python &#8212; Data analytics in accounting</title>
+    <title>6. Visualisations with Python &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,8 +55,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Basic statistics with Python" href="6_Basic_statistics_with_Python.html" />
-    <link rel="prev" title="4. Connecting with accounting databases" href="4_Connecting_with_accounting_databases.html" />
+    <link rel="next" title="7. Basic statistics with Python" href="6_Basic_statistics_with_Python.html" />
+    <link rel="prev" title="5. Connecting with accounting databases" href="4_Connecting_with_accounting_databases.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -108,28 +108,33 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="1_Intro_to_Python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="2_Pandas_basics.html">
-   2. Pandas data basics
+   3. Pandas data basics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Pandas_data_preprocessing.html">
-   3. Pandas Data preprocessing
+   4. Pandas Data preprocessing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
-   4. Connecting with accounting databases
+   5. Connecting with accounting databases
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   5. Visualisations with Python
+   6. Visualisations with Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   6. Basic statistics with Python
+   7. Basic statistics with Python
   </a>
  </li>
 </ul>
@@ -250,17 +255,17 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandas">
-   5.1. Pandas
+   6.1. Pandas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matplotlib">
-   5.2. Matplotlib
+   6.2. Matplotlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#seaborn">
-   5.3. Seaborn
+   6.3. Seaborn
   </a>
  </li>
 </ul>
@@ -275,10 +280,10 @@
               <div>
                 
   <div class="section" id="visualisations-with-python">
-<h1><span class="section-number">5. </span>Visualisations with Python<a class="headerlink" href="#visualisations-with-python" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Visualisations with Python<a class="headerlink" href="#visualisations-with-python" title="Permalink to this headline">¶</a></h1>
 <p>There are many libraries for visualisations in Python. In this chapter, we will explore <strong>Matplotlib</strong> and <strong>Seaborn</strong>. But first we check the somewhat limited visualisation capabilities of Pandas.</p>
 <div class="section" id="pandas">
-<h2><span class="section-number">5.1. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -402,7 +407,7 @@
 </div>
 </div>
 <div class="section" id="matplotlib">
-<h2><span class="section-number">5.2. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>In the following, we will go through the basic features of Matplotlib. One important thing to remember is that Jupyter will reset most of the settings after each cell is evaluated. So most of the operations need to be executed in a single cell.</p>
 <p>Functions for basic plots are in the <strong>matplotlib.pyplot</strong> module.</p>
 <div class="cell docutils container">
@@ -1013,7 +1018,7 @@ Name: DAX, Length: 1860, dtype: float64
 </div>
 </div>
 <div class="section" id="seaborn">
-<h2><span class="section-number">5.3. </span>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">¶</a></h2>
 <p>Seaborn is a plotting library built on top of Matplotlib. It is especially designed for statistical plotting. Seaborn has very beautiful plots by default, and you get publication-quality plots from it without exhaustive parameter tuning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1369,8 +1374,8 @@ Name: DAX, Length: 1860, dtype: float64
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="4_Connecting_with_accounting_databases.html" title="previous page"><span class="section-number">4. </span>Connecting with accounting databases</a>
-    <a class='right-next' id="next-link" href="6_Basic_statistics_with_Python.html" title="next page"><span class="section-number">6. </span>Basic statistics with Python</a>
+    <a class='left-prev' id="prev-link" href="4_Connecting_with_accounting_databases.html" title="previous page"><span class="section-number">5. </span>Connecting with accounting databases</a>
+    <a class='right-next' id="next-link" href="6_Basic_statistics_with_Python.html" title="next page"><span class="section-number">7. </span>Basic statistics with Python</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

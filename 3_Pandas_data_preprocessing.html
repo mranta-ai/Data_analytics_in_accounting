@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Pandas Data preprocessing &#8212; Data analytics in accounting</title>
+    <title>4. Pandas Data preprocessing &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,8 +55,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Connecting with accounting databases" href="4_Connecting_with_accounting_databases.html" />
-    <link rel="prev" title="2. Pandas data basics" href="2_Pandas_basics.html" />
+    <link rel="next" title="5. Connecting with accounting databases" href="4_Connecting_with_accounting_databases.html" />
+    <link rel="prev" title="3. Pandas data basics" href="2_Pandas_basics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -108,28 +108,33 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="1_Intro_to_Python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="2_Pandas_basics.html">
-   2. Pandas data basics
+   3. Pandas data basics
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. Pandas Data preprocessing
+   4. Pandas Data preprocessing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
-   4. Connecting with accounting databases
+   5. Connecting with accounting databases
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="5_Visualisation_with_Python.html">
-   5. Visualisations with Python
+   6. Visualisations with Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   6. Basic statistics with Python
+   7. Basic statistics with Python
   </a>
  </li>
 </ul>
@@ -250,27 +255,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-methods">
-   3.1. Basic methods
+   4.1. Basic methods
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#advanced-methods">
-   3.2. Advanced methods
+   4.2. Advanced methods
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#merging-datasets">
-   3.3. Merging datasets
+   4.3. Merging datasets
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-aggreagation">
-   3.4. Data aggreagation
+   4.4. Data aggreagation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data-aggregation">
-     3.4.1. Data aggregation
+     4.4.1. Data aggregation
     </a>
    </li>
   </ul>
@@ -287,11 +292,11 @@
               <div>
                 
   <div class="section" id="pandas-data-preprocessing">
-<h1><span class="section-number">3. </span>Pandas Data preprocessing<a class="headerlink" href="#pandas-data-preprocessing" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Pandas Data preprocessing<a class="headerlink" href="#pandas-data-preprocessing" title="Permalink to this headline">¶</a></h1>
 <p>You might be wondering why we are talking so much about data processing and manipulation in this book. “Where are all the fancy ML methods” you might  ask. Unfortunately, most of the time in data science goes to data pre-processing. It is often reported that 80 % of a data scientist’s time goes to data preparation: cleaning, transforming, rearranging and creating suitable features (feature engineering). So, to be a succesfull data scientist, you need know how to play with data. Luckily, we have Pandas at our disposal, wich is one of the most powerful data manipulation tools available.</p>
 <p>Let’s look at some of the most common preprocessing situatsions we encounter when doing data science.</p>
 <div class="section" id="basic-methods">
-<h2><span class="section-number">3.1. </span>Basic methods<a class="headerlink" href="#basic-methods" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Basic methods<a class="headerlink" href="#basic-methods" title="Permalink to this headline">¶</a></h2>
 <p>Missing data is probably the most common issue with data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3162,7 +3167,7 @@ Categories (4, interval[float64]): [(3.129, 13.632] &lt; (13.632, 30.69] &lt; (3
 <p>Here is a good introduction to Pandas string methods. <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html">pandas.pydata.org/pandas-docs/stable/user_guide/text.html</a>. If you scroll down, there is a full list methods.</p>
 </div>
 <div class="section" id="advanced-methods">
-<h2><span class="section-number">3.2. </span>Advanced methods<a class="headerlink" href="#advanced-methods" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Advanced methods<a class="headerlink" href="#advanced-methods" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look some more advanced methods of Pandas next. We need a new dataset for that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4808,7 +4813,7 @@ Length: 540, dtype: object
 <p>Yet another tool to reorganise data is <strong>pivot_table</strong>. More of it later.</p>
 </div>
 <div class="section" id="merging-datasets">
-<h2><span class="section-number">3.3. </span>Merging datasets<a class="headerlink" href="#merging-datasets" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Merging datasets<a class="headerlink" href="#merging-datasets" title="Permalink to this headline">¶</a></h2>
 <p>Merging dataframes is often difficult for Pandas beginners. It can be a hassle. The usual cause of difficulties is to forget the importance of index in Pandas ecosystem. Merging dataframes is not about adding tables together. The merging is done according to indices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5809,7 +5814,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="data-aggreagation">
-<h2><span class="section-number">3.4. </span>Data aggreagation<a class="headerlink" href="#data-aggreagation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Data aggreagation<a class="headerlink" href="#data-aggreagation" title="Permalink to this headline">¶</a></h2>
 <p>Data aggregation is one the most important steps in data preprocessing. Pandas has many tools for that.</p>
 <p><strong>Groupby</strong> is an important tool in aggragation. Let’s load a new dataset for this.</p>
 <div class="cell docutils container">
@@ -6406,7 +6411,7 @@ Name: RETURN ON EQUITY - TOTAL (%), dtype: float64
 </div>
 <p>You could group data by defining a dict, a function etc. We do not go to these advanced methods here.</p>
 <div class="section" id="data-aggregation">
-<h3><span class="section-number">3.4.1. </span>Data aggregation<a class="headerlink" href="#data-aggregation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.1. </span>Data aggregation<a class="headerlink" href="#data-aggregation" title="Permalink to this headline">¶</a></h3>
 <p>Now that we know the basics of <strong>groupby</strong>, we can analyse more how it can be used to aggregate data. The methods of <strong>groupby</strong> are <strong>count, sum, mean, median, std, var, min, max, prod, first and last</strong>. These are opitmised for groupby objects, but many other methods work too. Actually, you can define your own functions for <strong>groupby.agg()</strong> to process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8122,8 +8127,8 @@ dtype: int64
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="2_Pandas_basics.html" title="previous page"><span class="section-number">2. </span>Pandas data basics</a>
-    <a class='right-next' id="next-link" href="4_Connecting_with_accounting_databases.html" title="next page"><span class="section-number">4. </span>Connecting with accounting databases</a>
+    <a class='left-prev' id="prev-link" href="2_Pandas_basics.html" title="previous page"><span class="section-number">3. </span>Pandas data basics</a>
+    <a class='right-next' id="next-link" href="4_Connecting_with_accounting_databases.html" title="next page"><span class="section-number">5. </span>Connecting with accounting databases</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Pandas data basics &#8212; Data analytics in accounting</title>
+    <title>3. Pandas data basics &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,8 +55,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Pandas Data preprocessing" href="3_Pandas_data_preprocessing.html" />
-    <link rel="prev" title="1. Installing Python" href="0_installing_Python.html" />
+    <link rel="next" title="4. Pandas Data preprocessing" href="3_Pandas_data_preprocessing.html" />
+    <link rel="prev" title="2. Introduction to Python" href="1_Intro_to_Python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -107,29 +107,34 @@
    1. Installing Python
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Intro_to_Python.html">
+   2. Introduction to Python
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Pandas data basics
+   3. Pandas data basics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_Pandas_data_preprocessing.html">
-   3. Pandas Data preprocessing
+   4. Pandas Data preprocessing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
-   4. Connecting with accounting databases
+   5. Connecting with accounting databases
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="5_Visualisation_with_Python.html">
-   5. Visualisations with Python
+   6. Visualisations with Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   6. Basic statistics with Python
+   7. Basic statistics with Python
   </a>
  </li>
 </ul>
@@ -250,56 +255,56 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#standard-data-types">
-   2.1. Standard data types
+   3.1. Standard data types
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#list">
-     2.1.1. List
+     3.1.1. List
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tuple">
-     2.1.2. Tuple
+     3.1.2. Tuple
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dict">
-     2.1.3. Dict
+     3.1.3. Dict
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#set">
-     2.1.4. Set
+     3.1.4. Set
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comprehensions">
-     2.1.5. Comprehensions
+     3.1.5. Comprehensions
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandas-data-structures">
-   2.2. Pandas data structures
+   3.2. Pandas data structures
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pandas-series">
-     2.2.1. Pandas series
+     3.2.1. Pandas series
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dataframe">
-     2.2.2. Dataframe
+     3.2.2. Dataframe
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-pandas-functions">
-   2.3. Basic Pandas functions
+   3.3. Basic Pandas functions
   </a>
  </li>
 </ul>
@@ -314,13 +319,13 @@
               <div>
                 
   <div class="section" id="pandas-data-basics">
-<h1><span class="section-number">2. </span>Pandas data basics<a class="headerlink" href="#pandas-data-basics" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Pandas data basics<a class="headerlink" href="#pandas-data-basics" title="Permalink to this headline">¶</a></h1>
 <p>We will mostly use Pandas dataframe as our data type. This and the next chapter will introduce the dataframes in detail. Pandas tries to pick up the best features of Numpy, spreadsheets and relational databases, and actually succeeds mostly in it. Pandas is an unbelievably powerful data manipulation tool.</p>
 <p>Before we start exploring Pandas, it is good to understand how the standard data types in Python work. So, let’s begin with them.</p>
 <div class="section" id="standard-data-types">
-<h2><span class="section-number">2.1. </span>Standard data types<a class="headerlink" href="#standard-data-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Standard data types<a class="headerlink" href="#standard-data-types" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="list">
-<h3><span class="section-number">2.1.1. </span>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.1. </span>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <p>A list is probably the most used data type in Python. It is a variable-length collection of items. A list can be defined in Python using either square brackets or the <strong>list</strong> function. Lists in Python are mutable. You can change the values of a list afterwards.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -670,7 +675,7 @@
 </div>
 </div>
 <div class="section" id="tuple">
-<h3><span class="section-number">2.1.2. </span>Tuple<a class="headerlink" href="#tuple" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.2. </span>Tuple<a class="headerlink" href="#tuple" title="Permalink to this headline">¶</a></h3>
 <p>A tuple is an immutable sequence of Python objects. Because it is immutable, it has also fixed length. You can create tuples using parantheses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -782,7 +787,7 @@
 </div>
 </div>
 <div class="section" id="dict">
-<h3><span class="section-number">2.1.3. </span>Dict<a class="headerlink" href="#dict" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3. </span>Dict<a class="headerlink" href="#dict" title="Permalink to this headline">¶</a></h3>
 <p><strong>Dict</strong> is the most complicated built-in data type in Python. It is a mutable collection of key-value pairs of Python objects. Dicts are created using curly braces.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -910,7 +915,7 @@
 </div>
 </div>
 <div class="section" id="set">
-<h3><span class="section-number">2.1.4. </span>Set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.4. </span>Set<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
 <p>A set in Python is a collection of unique elements. They can be created with <strong>set</strong> or with curly braces.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -995,7 +1000,7 @@
 </div>
 </div>
 <div class="section" id="comprehensions">
-<h3><span class="section-number">2.1.5. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.5. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
 <p>Comprehensions, especially the list ones, are a great feature in Python. With them, you can efficiently create collections with a single statement. Let’s look some examples. (<strong>%</strong> is a module operator)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1171,10 +1176,10 @@
 </div>
 </div>
 <div class="section" id="pandas-data-structures">
-<h2><span class="section-number">2.2. </span>Pandas data structures<a class="headerlink" href="#pandas-data-structures" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Pandas data structures<a class="headerlink" href="#pandas-data-structures" title="Permalink to this headline">¶</a></h2>
 <p>Two main data structures of Pandas are <strong>Series</strong> and <strong>Dataframe</strong>. Let’s analys both of them.</p>
 <div class="section" id="pandas-series">
-<h3><span class="section-number">2.2.1. </span>Pandas series<a class="headerlink" href="#pandas-series" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>Pandas series<a class="headerlink" href="#pandas-series" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start by importing Pandas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1426,7 +1431,7 @@ Name: some_values, dtype: int64
 </div>
 </div>
 <div class="section" id="dataframe">
-<h3><span class="section-number">2.2.2. </span>Dataframe<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.2. </span>Dataframe<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h3>
 <p>A Pandas Dataframe is a rectangular table of objects with similar features as a Pandas Series. Each column can have different type of values. In a way, it is a 2-dimensional extension of Pandas Series. For example, it has both a row and a column index.</p>
 <p>A dataframe can be constucted in many ways. One popular option is to use a dict of equal-length lists.</p>
 <div class="cell docutils container">
@@ -2196,7 +2201,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="basic-pandas-functions">
-<h2><span class="section-number">2.3. </span>Basic Pandas functions<a class="headerlink" href="#basic-pandas-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Basic Pandas functions<a class="headerlink" href="#basic-pandas-functions" title="Permalink to this headline">¶</a></h2>
 <p>Let’s use a more realistic example for the following examples.( More about <strong>read_csv()</strong> in the later chapters.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6478,8 +6483,8 @@ dtype: float64
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="0_installing_Python.html" title="previous page"><span class="section-number">1. </span>Installing Python</a>
-    <a class='right-next' id="next-link" href="3_Pandas_data_preprocessing.html" title="next page"><span class="section-number">3. </span>Pandas Data preprocessing</a>
+    <a class='left-prev' id="prev-link" href="1_Intro_to_Python.html" title="previous page"><span class="section-number">2. </span>Introduction to Python</a>
+    <a class='right-next' id="next-link" href="3_Pandas_data_preprocessing.html" title="next page"><span class="section-number">4. </span>Pandas Data preprocessing</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
