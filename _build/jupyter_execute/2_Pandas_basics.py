@@ -529,6 +529,6 @@ If you want sort by values, you can use **sort_values()**
 
 big_companies_df.sort_values(by = 'P/E - RATIO',ascending=False)
 
-You can use many colums when sortin by values.
+You can use many colums when sorting by values.
 
 big_companies_df.sort_values(by = ['DIVIDEND YIELD','P/E - RATIO'],ascending=[True,False])

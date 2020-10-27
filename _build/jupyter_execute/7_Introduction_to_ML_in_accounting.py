@@ -1,4 +1,4 @@
-## Introduction Machine learning in accounting
+## Introduction to Machine learning in accounting
 
 In this chapter we will discus **shallow** machine learning models. Although neural networks can also be shallow, the discussion of them is postponed to Chapter 9.
 
