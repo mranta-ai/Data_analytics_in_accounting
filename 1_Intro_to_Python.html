@@ -146,7 +146,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
-   1. Introduction Machine learning in accounting
+   1. Introduction to Machine learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
@@ -294,12 +294,12 @@
 <div class="section" id="what-s-python">
 <h2><span class="section-number">2.1. </span>What’s Python<a class="headerlink" href="#what-s-python" title="Permalink to this headline">¶</a></h2>
 <p>Guido van Rossum created Python in 1989. It is a general-purpose language used in many fields, like web development, game development, multimedia, data processing, and recently, machine learning. Python is an open-source software, with development coordinated by Python Software Foundation (<a class="reference external" href="https://www.python.org/psf/">www.python.org/psf/</a>. After a slow start, the popularity of Python has exploded in the last decade and is now one of the most popular programming languages.</p>
-<p>Python is a very intuitive and beginner-friendly programming language. However, it is not the easiest language to grasp for programming veterans that have accustomed to languages, like C and Fortran. Due to its beginner-friendliness, it is often used to teach programming and has been widely adopted by the data science community. It is also replacing traditional spreadsheet applications, like Excel, mostly due to its excellent data-handling library Pandas (<a class="reference external" href="https://pandas.pydata.org/">pandas.pydata.org</a>)</p>
+<p>Python is a very intuitive and beginner-friendly programming language. However, it is not the easiest language to grasp for programming veterans that have accustomed to languages like C and Fortran. Due to its beginner-friendliness, it is often used to teach programming and has been widely adopted by the data science community. It is also replacing traditional spreadsheet applications, like Excel, mostly due to its excellent data-handling library Pandas (<a class="reference external" href="https://pandas.pydata.org/">pandas.pydata.org</a>)</p>
 <p>Python is a high-level, interpreted language. The core of the language is quite small, but it is supported by a huge collection of libraries. It supports main programming styles but was designed as an object-oriented programming language.</p>
 </div>
 <div class="section" id="syntax-and-design">
 <h2><span class="section-number">2.2. </span>Syntax and design<a class="headerlink" href="#syntax-and-design" title="Permalink to this headline">¶</a></h2>
-<p>Python’s syntax is one of its strongest points. It is also the most controversial. After a small learning curve, the syntax is very easy to read and remember. Python also includes brilliant features, like iterators, generators and list comprehension, that allow very compact coding.</p>
+<p>Python’s syntax is one of its strongest points. It is also the most controversial. After a small learning curve, the syntax is very easy to read and remember. Python has also brilliant features, like iterators, generators and list comprehension, that allow very compact coding.</p>
 <p>Probably due to its syntax and design, it is very popular in fields, like machine learning, astronomy, meteorology, etc. This is somewhat surprising, as these fields need high computational power and Python is not a very fast language. Its popularity in finance and economics is also rising rapidly, and it is also finally finding its way to the accounting research community.</p>
 </div>
 <div class="section" id="python-basics">
@@ -321,7 +321,7 @@
 </div>
 </div>
 </div>
-<p>A colon denotes the start of an indented code block. Remember that all the code must be indented by the same amount until the end of the block. Also, use the same approach for every indentation. If you use TAB for one command and SPACES with the same amount of indentation for the following command, you will get trouble.</p>
+<p>A colon denotes the start of an indented code block. Remember that all the code must be indented by the same amount until the end of the block. Also, use the same approach for every indentation. If you use TAB for one command and SPACES with the same amount of indentation for the following command, the code will not work.</p>
 <p>Partly due to this, Python’s use of whitespaces for structuring is somewhat controversial. However, you get used to it in time. If you have blocks inside blocks, you need to indent more.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -817,7 +817,7 @@
 </div>
 </div>
 <p>More information about string formatting can be found here: <a class="reference external" href="https://docs.python.org/3/library/string.html">docs.python.org/3/library/string.html</a></p>
-<p><strong>Type casting</strong> is an efficient method to change the type of a variable. Remember that the boolean value of zero is False and of any other number, True</p>
+<p><strong>Type casting</strong> is an efficient method to change the type of a variable. Remember that the boolean value of zero is False and of any other number, True.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;1.234&#39;</span>
@@ -880,7 +880,7 @@
 </div>
 </div>
 </div>
-<p>Python has a moduel for dates and times, called <strong>datetime</strong></p>
+<p>Python has a module for dates and times, called <strong>datetime</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
@@ -1373,7 +1373,7 @@ n
 </div>
 </div>
 </div>
-<p>As I mentioned, one of the most liked feature of Python is the ability to iterate over almost everything. This is accomplished with <strong>iterators</strong>. For example, you can go easilty through the elemtns of a list.</p>
+<p>As I mentioned, one of the most liked feature of Python is the ability to iterate over almost everything. This is accomplished with <strong>iterators</strong>. For example, you can go easilty through the elements of a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;alfa&#39;</span><span class="p">,</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span><span class="s1">&#39;gamma&#39;</span><span class="p">,</span><span class="s1">&#39;delta&#39;</span><span class="p">]</span>
@@ -1391,7 +1391,7 @@ delta
 </div>
 </div>
 </div>
-<p>What happens above is that Python first creates an iterator from <strong>sample_list</strong>, i.e., an object that yields items when used, for example, in a for loop.</p>
+<p>What happens above is that Python first creates an iterator from <strong>sample_list</strong>, i.e., an object that yields items one at a time when used, for example, in a for loop.</p>
 <p>You can build your own iterator with <strong>generators</strong>. Generators are functions that return a sequence of objects one at a time. It pauses after each object until the next object is reguested. Generators are created by replacing <strong>return</strong> with <strong>yield</strong> in a function definition. Here is an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
