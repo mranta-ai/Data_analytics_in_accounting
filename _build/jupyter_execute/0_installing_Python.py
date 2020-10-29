@@ -1,8 +1,8 @@
 ## Installing Python
 
 There are two alternatives for installing Python:
- - Directly from installation files that can be downloaded from [www.python.org](https://www.python.org)
- - Anaconda environment that can be downloaded from [www.anaconda.com](https://www.anaconda.com)
+ - Directly from the installation files that can be downloaded from [www.python.org](https://www.python.org)
+ - The Anaconda environment that can be downloaded from [www.anaconda.com](https://www.anaconda.com)
 
 Both options have pros and cons. Personally, I started with Anaconda, but have since moved to use "pure" Python. With Anaconda, you get much more, but also many unneeded features that waste space. Also, with pure Python, you get more recent versions of libraries using Pip. The Conda versions are always older.
 
@@ -10,7 +10,7 @@ Both options have pros and cons. Personally, I started with Anaconda, but have s
 
 ![snake](./images/snake.png)
 
-The core Python package is pretty easy to install, especially in Linux. However, I would still suggest that you start your Python-journey with Anaconda [www.anaconda.com](https://www.anaconda.com/). You need many additional libraries not provided by the core installation to go through these lectures. Of course, you could manually install those libraries, but there is always a danger of compatibility issues with the most recent versions of the libraries.
+The core Python package is pretty easy to install, especially in Linux. However, I would still suggest that you start your Python-journey with Anaconda [www.anaconda.com](https://www.anaconda.com/). You need many additional libraries not provided by the core installation to go through this book. Of course, you could manually install those libraries, but there is always a danger of compatibility issues with the most recent versions of the libraries.
 
 So that you can entirely focus on learning Python, it is essential that everything is working. The Python libraries provided by the Anaconda environment are checked to be compatible with each other, and all are very easy to install. For example, installing GPU-enabled Tensorflow in Anaconda is just a few mouse clicks. In pure Python, it is extremely difficult, because you need to manually install the exact correct versions of the NVIDIA GPU libraries. Anaconda is also very popular and works exactly in the same way on all platforms. Also, the libraries list is quite extensive, and it is rare that a Python library is missing from the Conda environment (although this can happen).
 
@@ -32,7 +32,7 @@ If you still, despite my warnings, want to install pure Python, then follow thes
 
 For windows, follow these steps: [docs.python.org/3/using/windows.html#installation-steps](https://docs.python.org/3/using/windows.html#installation-steps)
 
-Python comes preinstalled on most Linux distributions and is available as a package on all others.
+Python comes preinstalled on most Linux distributions and is available as a package on almost all others.
 If this is not the case for your Linux, follow these steps: [docs.python.org/3/using/unix.html#on-linux](https://docs.python.org/3/using/unix.html#on-linux)
 
 ### Environments
@@ -65,11 +65,11 @@ By the way, this book is written with Jupyter notebooks.
 
 ### Starting Jupyter notebook
 
-Once you have installed Anaconda, you can start the Jupyter notebook.
+Once you have installed Anaconda, you can start the Jupyter notebook either
 
-Either by searching for Jupyter in your applications menu,
+* by searching for Jupyter in your applications menu,
 
-or opening up a terminal and typing **jupyter notebook**.
+* or opening up a terminal and typing **jupyter notebook**.
 
 In Windows, you need to open the Anaconda command prompt for the previous line to work.
 
@@ -78,8 +78,4 @@ The first option will always open Jupyter automatically. On some platforms, the 
 There is also Jypterlab that is an advanced version of Jupyter. You can start it from the Anaconda menus or by writing **jupyter-lab**.
 
 That's it! Now you have a working Python environment, and you can start coding.
-
-```{note}
-Here is a note!
-`"
 

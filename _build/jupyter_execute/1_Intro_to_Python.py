@@ -3,12 +3,12 @@
 ### What's Python
 Guido van Rossum created Python in 1989. It is a general-purpose language used in many fields, like web development, game development, multimedia, data processing, and recently, machine learning. Python is an open-source software, with development coordinated by Python Software Foundation ([www.python.org/psf/](https://www.python.org/psf/). After a slow start, the popularity of Python has exploded in the last decade and is now one of the most popular programming languages.
 
-Python is a very intuitive and beginner-friendly programming language. However, it is not the easiest language to grasp for programming veterans that have accustomed to languages, like C and Fortran. Due to its beginner-friendliness, it is often used to teach programming and has been widely adopted by the data science community. It is also replacing traditional spreadsheet applications, like Excel, mostly due to its excellent data-handling library Pandas ([pandas.pydata.org](https://pandas.pydata.org/))
+Python is a very intuitive and beginner-friendly programming language. However, it is not the easiest language to grasp for programming veterans that have accustomed to languages like C and Fortran. Due to its beginner-friendliness, it is often used to teach programming and has been widely adopted by the data science community. It is also replacing traditional spreadsheet applications, like Excel, mostly due to its excellent data-handling library Pandas ([pandas.pydata.org](https://pandas.pydata.org/))
 
 Python is a high-level, interpreted language. The core of the language is quite small, but it is supported by a huge collection of libraries. It supports main programming styles but was designed as an object-oriented programming language.
 
 ### Syntax and design
-Python's syntax is one of its strongest points. It is also the most controversial. After a small learning curve, the syntax is very easy to read and remember. Python also includes brilliant features, like iterators, generators and list comprehension, that allow very compact coding.
+Python's syntax is one of its strongest points. It is also the most controversial. After a small learning curve, the syntax is very easy to read and remember. Python has also brilliant features, like iterators, generators and list comprehension, that allow very compact coding.
 
 Probably due to its syntax and design, it is very popular in fields, like machine learning, astronomy, meteorology, etc. This is somewhat surprising, as these fields need high computational power and Python is not a very fast language. Its popularity in finance and economics is also rising rapidly, and it is also finally finding its way to the accounting research community.
 
@@ -21,7 +21,7 @@ if x > 2:
 else:
     print('Not larger than 2')
 
-A colon denotes the start of an indented code block. Remember that all the code must be indented by the same amount until the end of the block. Also, use the same approach for every indentation. If you use TAB for one command and SPACES with the same amount of indentation for the following command, you will get trouble.
+A colon denotes the start of an indented code block. Remember that all the code must be indented by the same amount until the end of the block. Also, use the same approach for every indentation. If you use TAB for one command and SPACES with the same amount of indentation for the following command, the code will not work.
 
 Partly due to this, Python's use of whitespaces for structuring is somewhat controversial. However, you get used to it in time. If you have blocks inside blocks, you need to indent more.
 
@@ -203,7 +203,7 @@ temperature.format(25.12345,77.22221)
 
 More information about string formatting can be found here: [docs.python.org/3/library/string.html](https://docs.python.org/3/library/string.html)
 
-**Type casting** is an efficient method to change the type of a variable. Remember that the boolean value of zero is False and of any other number, True
+**Type casting** is an efficient method to change the type of a variable. Remember that the boolean value of zero is False and of any other number, True.
 
 string = '1.234'
 
@@ -217,7 +217,7 @@ type(to_float)
 
 to_float
 
-Python has a moduel for dates and times, called **datetime**
+Python has a module for dates and times, called **datetime**.
 
 import datetime
 
@@ -390,13 +390,13 @@ list_of_numbers.sort(key= lambda x:-x)
 
 list_of_numbers
 
-As I mentioned, one of the most liked feature of Python is the ability to iterate over almost everything. This is accomplished with **iterators**. For example, you can go easilty through the elemtns of a list.
+As I mentioned, one of the most liked feature of Python is the ability to iterate over almost everything. This is accomplished with **iterators**. For example, you can go easilty through the elements of a list.
 
 sample_list = ['alfa','beta','gamma','delta']
 for item in sample_list:
     print(item)
 
-What happens above is that Python first creates an iterator from **sample_list**, i.e., an object that yields items when used, for example, in a for loop.
+What happens above is that Python first creates an iterator from **sample_list**, i.e., an object that yields items one at a time when used, for example, in a for loop.
 
 You can build your own iterator with **generators**. Generators are functions that return a sequence of objects one at a time. It pauses after each object until the next object is reguested. Generators are created by replacing **return** with **yield** in a function definition. Here is an example:
 
@@ -487,4 +487,3 @@ You can check the default encoding using the built-in **sys** library.
 import sys
 
 sys.getdefaultencoding()
-
