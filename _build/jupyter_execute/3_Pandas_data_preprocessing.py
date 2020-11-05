@@ -39,7 +39,7 @@ Interpolation methods that were available for reindexing can be used with fillna
 
 companies_df.fillna(method = 'bfill')
 
-**duplicated()** can be used to drop duplicated rows. It drops only duplicates that are next to eacch other
+**duplicated()** can be used to drop duplicated rows. It drops only duplicates that are next to each other
 
 More about **append()** later. Here we just build a new dataframe with companies_df in it twice. And then we sort the index so that every company is twice in the new dataframe.
 
@@ -55,7 +55,7 @@ We can remove duplicated rows using **drop_duplicated()**.
 
 new_df.drop_duplicates()
 
-It is easy to apply function transformation to rows, columns or alle the cells of a dataframe. **map** -metohd can be used for that.
+It is easy to apply function transformation to rows, columns or individual cells of a dataframe. **map** -metohd can be used for that.
 
 companies_df['Compensation ($ millions)'] = companies_df['Board member compensation'].map(
     lambda x: "{:.2f}".format(x/1000000)+" M$")
@@ -66,7 +66,7 @@ companies_df
 
 companies_df.index.map(lambda x : x[::-1])
 
-Of course, you can also use **rename()**. Using dict, **rename()** can also be used to change only some of the labels.
+Of course, you can also use **rename()**. Using a dictionary, **rename()** can also be used to change only some of the labels.
 
 companies_df.rename(index=str.title)
 
@@ -76,7 +76,7 @@ import numpy as np
 
 companies_df.replace(np.nan,-999) # Pandas NaN is np.nan
 
-Separating data to **bins** is a very important feature in Pandas. You can use **pd.cut()** (notice that it is not a dataframe method) to creata a categorical object. **pd.value_counts()** can be used to calculate the number of observations in each bin. With the **labels** parameter you can define names for different bins.
+Dividing data to **bins** is a very important feature in Pandas. You can use **pd.cut()** (notice that it is not a dataframe method) to creata a categorical object. **pd.value_counts()** can be used to calculate the number of observations in each bin. With the **labels** parameter you can define names for different bins.
 
 compensation_bins = [10000,100000,1000000,10000000,100000000]
 
@@ -94,7 +94,7 @@ pd.cut(companies_df['Board member compensation'],
                     compensation_bins,labels = ['Poor board members','Rich board members',
                                                 'Very rich board members','Insanely rich board members'])
 
-If you pass an integer number to the **bins** parameter, it will return equal-length bins.
+If you pass a number to the **bins** parameter, it will return that many equal-length bins.
 
 pd.cut(companies_df['Total CO2 To Revenues'],4,precision=1)
 
@@ -112,7 +112,7 @@ companies_df.drop('Compensation ($ millions)',axis=1,inplace=True)
 
 companies_df[(np.abs(companies_df-companies_df.mean()) < 2*companies_df.std(axis=0)).all(1)]
 
-Winsorising is another common procedure in practical econometrics. In it, the most extreme values are moved to specific quantiles, usually 1% and 99% quantiles. It is easiest to implement with the **clip()** method. Notice how the following command winsorise all the variables.
+Winsorising is another common procedure in practical econometrics. In that method, the most extreme values are moved to specific quantiles, usually 1% and 99% quantiles. It is easiest to implement with the **clip()** method. Notice how the following command winsorise all the variables.
 
 companies_df.clip(lower = companies_df.quantile(0.1), upper = companies_df.quantile(0.9),axis=1)
 
@@ -130,7 +130,7 @@ Very often in econometrics, you need to transform your categorical variables to 
 
 pd.get_dummies(companies_df['Emission Reduction Target %'],prefix='Emiss_')
 
-Pandas has efficient methods to manipulate strings in a dataframe. Due to this, Pandas is very popular among researchers that need to use string data in their analysis. This makes it also a very important tool for accounting data analysis. All the Python string object's built-in methods can be used to manipulate strings in a dataframe. We already discussed string-methods in Chapter 2.
+Pandas has efficient methods to manipulate strings in a dataframe. Due to this, Pandas is very popular among researchers that need to use string data in their analysis. This makes it also a very important tool for accounting data analysis. All the Python string object's built-in methods can be used to manipulate strings in a dataframe. We already discussed string-methods in Chapter 1.
 
 Regular expressions can also be used to manipulate string-dataframes. Regular expressions is a very broad topic, and it takes time to master it. Let's look at some very simple examples. If we want to split a sentence to a words-list, repeated whitespaces make the process difficult with the standard string-methods. However, it is very easy with regular expressions.
 
@@ -158,7 +158,7 @@ email_search.findall(example)
 
 We do not go into regular expression more at this point. But we will see some applications of them in the following chapters. If you want to learn more about regular expressions, here is a good website: [www.regular-expressions.info/index.html](https://www.regular-expressions.info/index.html)
 
-If your string data contains missing values, usually the standard string methods will not work. Then you need to use the dataframe string methods. Standard manoeuvres work, but there are also additional methods.
+If your string data contains missing values, usually the standard string methods will not work. Then you need to use the dataframe string methods.
 
 You can slice strings normally.
 
@@ -182,13 +182,13 @@ The cost function of electricity producers.
 
 electricity_df
 
-There are many tools to deal with over two dimensional data. The basic idea is to use hierarchical indexing in a two dimensional dataframe. For example, we can index the data by firm-years using **set_index()**.
+There are many tools to deal with data that has more than two dimensions. The basic idea is to use hierarchical indexing in a two dimensional dataframe. For example, we can index the data by firm-years using **set_index()**.
 
 electricity_df.set_index(['firm','year'],inplace=True)
 
 electricity_df
 
-Now the values are sorted so that all the years of a certain company are in adjacent rows. With **sort_index** you order the values according to years.
+Now the values are sorted so that all the years of a certain company are in adjacent rows. With **sort_index** you can order the values according to years.
 
 electricity_df.sort_index(level=1)
 
@@ -216,7 +216,7 @@ electricity_df.sum(level=0)
 
 electricity_df.sum(level=1)
 
-If we want to remove multi-index, we can use **reset_index()**. With the **level** -parameters, you can decide how many levels from the multi-index are removed.
+If we want to remove multi-index, we can use **reset_index()**. With the **level** parameter, you can decide how many levels from the multi-index are removed.
 
 electricity_df.reset_index(level=1)
 
@@ -234,7 +234,7 @@ electricity_df.reset_index(inplace=True)
 
 electricity_df
 
-**Stack** turns a dataframe into a Series.
+**Stack** turns a dataframe into a series.
 
 data_series= electricity_df.stack()
 
@@ -248,7 +248,7 @@ Yet another tool to reorganise data is **pivot_table**. More of it later.
 
 ### Merging datasets
 
-Merging dataframes is often difficult for Pandas beginners. It can be a hassle. The usual cause of difficulties is to forget the importance of index in Pandas ecosystem. Merging dataframes is not about adding tables together. The merging is done according to indices.
+Merging dataframes is often difficult for Pandas beginners. It can be a hassle. The usual cause of difficulties is to forget the importance of index with Pandas datatypes. Merging dataframes is not about gluing tables together. The merging is done according to indices.
 
 gasoline_df = pd.read_csv('https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/Gasoline.csv',index_col=0)
 
@@ -266,7 +266,7 @@ gasoline_df
 
 gaso2_df
 
-**Merge** combindes according to index values
+**Merge** combindes according to the index values
 
 pd.merge(gasoline_df,gaso2_df,on='country')
 
@@ -312,7 +312,7 @@ comp_returns_df = pd.read_csv('comp_returns.csv',index_col=0)
 
 comp_returns_df
 
-Now, we can group data by the followed accounting standards and calculate the mean. Notice how Pandas automatically drops the country variable, because you cannot calculate a mean from strings:
+Now, we can group data by the accounting standards variable and calculate the mean. Notice how Pandas automatically drops the country variable, because you cannot calculate a mean from strings:
 
 comp_returns_df.groupby('ACCOUNTING STANDARDS FOLLOWED').mean()
 
@@ -344,7 +344,7 @@ You could group data by defining a dict, a function etc. We do not go to these a
 
 #### Data aggregation
 
-Now that we know the basics of **groupby**, we can analyse more how it can be used to aggregate data. The methods of **groupby** are **count, sum, mean, median, std, var, min, max, prod, first and last**. These are opitmised for groupby objects, but many other methods work too. Actually, you can define your own functions for **groupby.agg()** to process.
+Now that we know the basics of **groupby**, we can analyse more how it can be used to aggregate data. The methods of **groupby** are **count, sum, mean, median, std, var, min, max, prod, first and last**. These are opitmised for groupby objects, but many other methods work too. Actually, you can define your own functions with **groupby.agg()**.
 
 def mean_median(arr):
     return arr.mean()-arr.median()
@@ -355,7 +355,7 @@ Basically, those Pandas methods will work with **groupby** that are some kind of
 
 comp_returns_df.groupby('ACCOUNTING STANDARDS FOLLOWED').quantile(0.9)
 
-Even though **describe** is an not aggregating function, it will also work.
+Even though **describe** is not an aggregating function, it will also work.
 
 comp_returns_df.groupby('ACCOUNTING STANDARDS FOLLOWED').describe()
 

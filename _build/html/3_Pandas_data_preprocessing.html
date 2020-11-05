@@ -146,7 +146,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
-   1. Introduction Machine learning in accounting
+   1. Introduction to Machine learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
@@ -1194,7 +1194,7 @@
 </table>
 </div></div></div>
 </div>
-<p><strong>duplicated()</strong> can be used to drop duplicated rows. It drops only duplicates that are next to eacch other</p>
+<p><strong>duplicated()</strong> can be used to drop duplicated rows. It drops only duplicates that are next to each other</p>
 <p>More about <strong>append()</strong> later. Here we just build a new dataframe with companies_df in it twice. And then we sort the index so that every company is twice in the new dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1626,7 +1626,7 @@ dtype: bool
 </table>
 </div></div></div>
 </div>
-<p>It is easy to apply function transformation to rows, columns or alle the cells of a dataframe. <strong>map</strong> -metohd can be used for that.</p>
+<p>It is easy to apply function transformation to rows, columns or individual cells of a dataframe. <strong>map</strong> -metohd can be used for that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">companies_df</span><span class="p">[</span><span class="s1">&#39;Compensation ($ millions)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">companies_df</span><span class="p">[</span><span class="s1">&#39;Board member compensation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
@@ -1808,7 +1808,7 @@ dtype: bool
 </div>
 </div>
 </div>
-<p>Of course, you can also use <strong>rename()</strong>. Using dict, <strong>rename()</strong> can also be used to change only some of the labels.</p>
+<p>Of course, you can also use <strong>rename()</strong>. Using a dictionary, <strong>rename()</strong> can also be used to change only some of the labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">companies_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
@@ -2127,7 +2127,7 @@ dtype: bool
 </table>
 </div></div></div>
 </div>
-<p>Separating data to <strong>bins</strong> is a very important feature in Pandas. You can use <strong>pd.cut()</strong> (notice that it is not a dataframe method) to creata a categorical object. <strong>pd.value_counts()</strong> can be used to calculate the number of observations in each bin. With the <strong>labels</strong> parameter you can define names for different bins.</p>
+<p>Dividing data to <strong>bins</strong> is a very important feature in Pandas. You can use <strong>pd.cut()</strong> (notice that it is not a dataframe method) to creata a categorical object. <strong>pd.value_counts()</strong> can be used to calculate the number of observations in each bin. With the <strong>labels</strong> parameter you can define names for different bins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compensation_bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span><span class="mi">100000</span><span class="p">,</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">10000000</span><span class="p">,</span><span class="mi">100000000</span><span class="p">]</span>
@@ -2247,7 +2247,7 @@ Categories (4, object): [&#39;Poor board members&#39; &lt; &#39;Rich board membe
 </div>
 </div>
 </div>
-<p>If you pass an integer number to the <strong>bins</strong> parameter, it will return equal-length bins.</p>
+<p>If you pass a number to the <strong>bins</strong> parameter, it will return that many equal-length bins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">companies_df</span><span class="p">[</span><span class="s1">&#39;Total CO2 To Revenues&#39;</span><span class="p">],</span><span class="mi">4</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2495,7 +2495,7 @@ Categories (4, interval[float64]): [(3.129, 13.632] &lt; (13.632, 30.69] &lt; (3
 </table>
 </div></div></div>
 </div>
-<p>Winsorising is another common procedure in practical econometrics. In it, the most extreme values are moved to specific quantiles, usually 1% and 99% quantiles. It is easiest to implement with the <strong>clip()</strong> method. Notice how the following command winsorise all the variables.</p>
+<p>Winsorising is another common procedure in practical econometrics. In that method, the most extreme values are moved to specific quantiles, usually 1% and 99% quantiles. It is easiest to implement with the <strong>clip()</strong> method. Notice how the following command winsorise all the variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">companies_df</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span> <span class="o">=</span> <span class="n">companies_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">companies_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.9</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -3072,7 +3072,7 @@ Categories (4, interval[float64]): [(3.129, 13.632] &lt; (13.632, 30.69] &lt; (3
 </table>
 </div></div></div>
 </div>
-<p>Pandas has efficient methods to manipulate strings in a dataframe. Due to this, Pandas is very popular among researchers that need to use string data in their analysis. This makes it also a very important tool for accounting data analysis. All the Python string object’s built-in methods can be used to manipulate strings in a dataframe. We already discussed string-methods in Chapter 2.</p>
+<p>Pandas has efficient methods to manipulate strings in a dataframe. Due to this, Pandas is very popular among researchers that need to use string data in their analysis. This makes it also a very important tool for accounting data analysis. All the Python string object’s built-in methods can be used to manipulate strings in a dataframe. We already discussed string-methods in Chapter 1.</p>
 <p>Regular expressions can also be used to manipulate string-dataframes. Regular expressions is a very broad topic, and it takes time to master it. Let’s look at some very simple examples. If we want to split a sentence to a words-list, repeated whitespaces make the process difficult with the standard string-methods. However, it is very easy with regular expressions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3135,7 +3135,7 @@ Categories (4, interval[float64]): [(3.129, 13.632] &lt; (13.632, 30.69] &lt; (3
 </div>
 </div>
 <p>We do not go into regular expression more at this point. But we will see some applications of them in the following chapters. If you want to learn more about regular expressions, here is a good website: <a class="reference external" href="https://www.regular-expressions.info/index.html">www.regular-expressions.info/index.html</a></p>
-<p>If your string data contains missing values, usually the standard string methods will not work. Then you need to use the dataframe string methods. Standard manoeuvres work, but there are also additional methods.</p>
+<p>If your string data contains missing values, usually the standard string methods will not work. Then you need to use the dataframe string methods.</p>
 <p>You can slice strings normally.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3322,7 +3322,7 @@ Categories (4, interval[float64]): [(3.129, 13.632] &lt; (13.632, 30.69] &lt; (3
 <p>90 rows × 6 columns</p>
 </div></div></div>
 </div>
-<p>There are many tools to deal with over two dimensional data. The basic idea is to use hierarchical indexing in a two dimensional dataframe. For example, we can index the data by firm-years using <strong>set_index()</strong>.</p>
+<p>There are many tools to deal with data that has more than two dimensions. The basic idea is to use hierarchical indexing in a two dimensional dataframe. For example, we can index the data by firm-years using <strong>set_index()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">electricity_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;firm&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -3456,7 +3456,7 @@ Categories (4, interval[float64]): [(3.129, 13.632] &lt; (13.632, 30.69] &lt; (3
 <p>90 rows × 4 columns</p>
 </div></div></div>
 </div>
-<p>Now the values are sorted so that all the years of a certain company are in adjacent rows. With <strong>sort_index</strong> you order the values according to years.</p>
+<p>Now the values are sorted so that all the years of a certain company are in adjacent rows. With <strong>sort_index</strong> you can order the values according to years.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">electricity_df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -4140,7 +4140,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>If we want to remove multi-index, we can use <strong>reset_index()</strong>. With the <strong>level</strong> -parameters, you can decide how many levels from the multi-index are removed.</p>
+<p>If we want to remove multi-index, we can use <strong>reset_index()</strong>. With the <strong>level</strong> parameter, you can decide how many levels from the multi-index are removed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">electricity_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -4640,7 +4640,7 @@ dtype: float64
 <p>90 rows × 6 columns</p>
 </div></div></div>
 </div>
-<p><strong>Stack</strong> turns a dataframe into a Series.</p>
+<p><strong>Stack</strong> turns a dataframe into a series.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_series</span><span class="o">=</span> <span class="n">electricity_df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
@@ -4814,7 +4814,7 @@ Length: 540, dtype: object
 </div>
 <div class="section" id="merging-datasets">
 <h2><span class="section-number">4.3. </span>Merging datasets<a class="headerlink" href="#merging-datasets" title="Permalink to this headline">¶</a></h2>
-<p>Merging dataframes is often difficult for Pandas beginners. It can be a hassle. The usual cause of difficulties is to forget the importance of index in Pandas ecosystem. Merging dataframes is not about adding tables together. The merging is done according to indices.</p>
+<p>Merging dataframes is often difficult for Pandas beginners. It can be a hassle. The usual cause of difficulties is to forget the importance of index with Pandas datatypes. Merging dataframes is not about gluing tables together. The merging is done according to indices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gasoline_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/Gasoline.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -5181,7 +5181,7 @@ Length: 540, dtype: object
 <p>342 rows × 2 columns</p>
 </div></div></div>
 </div>
-<p><strong>Merge</strong> combindes according to index values</p>
+<p><strong>Merge</strong> combindes according to the index values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">gasoline_df</span><span class="p">,</span><span class="n">gaso2_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">)</span>
@@ -6139,7 +6139,7 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>Now, we can group data by the followed accounting standards and calculate the mean. Notice how Pandas automatically drops the country variable, because you cannot calculate a mean from strings:</p>
+<p>Now, we can group data by the accounting standards variable and calculate the mean. Notice how Pandas automatically drops the country variable, because you cannot calculate a mean from strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp_returns_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ACCOUNTING STANDARDS FOLLOWED&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -6412,7 +6412,7 @@ Name: RETURN ON EQUITY - TOTAL (%), dtype: float64
 <p>You could group data by defining a dict, a function etc. We do not go to these advanced methods here.</p>
 <div class="section" id="data-aggregation">
 <h3><span class="section-number">4.4.1. </span>Data aggregation<a class="headerlink" href="#data-aggregation" title="Permalink to this headline">¶</a></h3>
-<p>Now that we know the basics of <strong>groupby</strong>, we can analyse more how it can be used to aggregate data. The methods of <strong>groupby</strong> are <strong>count, sum, mean, median, std, var, min, max, prod, first and last</strong>. These are opitmised for groupby objects, but many other methods work too. Actually, you can define your own functions for <strong>groupby.agg()</strong> to process.</p>
+<p>Now that we know the basics of <strong>groupby</strong>, we can analyse more how it can be used to aggregate data. The methods of <strong>groupby</strong> are <strong>count, sum, mean, median, std, var, min, max, prod, first and last</strong>. These are opitmised for groupby objects, but many other methods work too. Actually, you can define your own functions with <strong>groupby.agg()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_median</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
@@ -6540,7 +6540,7 @@ Name: RETURN ON EQUITY - TOTAL (%), dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>Even though <strong>describe</strong> is an not aggregating function, it will also work.</p>
+<p>Even though <strong>describe</strong> is not an aggregating function, it will also work.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp_returns_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ACCOUNTING STANDARDS FOLLOWED&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
