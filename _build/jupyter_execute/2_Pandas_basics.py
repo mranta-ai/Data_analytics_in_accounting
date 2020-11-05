@@ -1,6 +1,6 @@
 ## Pandas data basics
 
-We will mostly use Pandas dataframe as our data type. This and the next chapter will introduce the dataframes in detail. Pandas tries to pick up the best features of Numpy, spreadsheets and relational databases, and actually succeeds mostly in it. Pandas is an unbelievably powerful data manipulation tool.
+We will mostly use Pandas dataframe as our data type. This and the next chapter will introduce the dataframe in detail. Pandas tries to pick up the best features of Numpy, spreadsheets and relational databases, and actually succeeds mostly in it. Pandas is an unbelievably powerful data manipulation tool.
 
 Before we start exploring Pandas, it is good to understand how the standard data types in Python work. So, let's begin with them.
 
@@ -35,7 +35,7 @@ example_list.pop(3)
 
 example_list
 
-You can remove specific item from the list using **remove()**.
+You can remove a specific item from the list using **remove()**.
 
 example_list.remove(3)
 
@@ -98,7 +98,7 @@ small_list[::-1]
 
 #### Tuple
 
-A tuple is an immutable sequence of Python objects. Because it is immutable, it has also fixed length. You can create tuples using parantheses.
+A tuple is an immutable sequence of Python objects. Because it is immutable, it has also a fixed length. You can create tuples using parantheses.
 
 small_tuple = (10,20,30,40)
 
@@ -189,7 +189,7 @@ x.symmetric_difference(y)
 
 #### Comprehensions
 
-Comprehensions, especially the list ones, are a great feature in Python. With them, you can efficiently create collections with a single statement. Let's look some examples. (**%** is a module operator)
+Comprehensions, especially the list ones, are a great feature in Python. With them, you can efficiently create collections with a single statement. Let's look some examples. (**%** is the module operator)
 
 squares = [x**2 for x in range(10) if x%2==0]
 
@@ -204,7 +204,7 @@ for x in range(10):
 
 squares
 
-Here is an another example:
+Here is another example:
 
 fd = open('quotes.txt',encoding='utf-8')
 
@@ -252,7 +252,7 @@ first_pandas = pd.Series([5,3,7,3,7,1])
 
 first_pandas
 
-If we do not pass index when defining a series, it will be given a default index of sequential values.
+If we do not pass an index when defining a series, it will be given the default index of sequential values.
 
 first_pandas.index
 
@@ -262,11 +262,11 @@ second_pandas = pd.Series([1,2,3], index=['first','second','third'])
 
 second_pandas
 
-A pandas series works like a dict. You can use the index to pick up a single value.
+A pandas series works like a dict. You can use the index value to pick up a single item.
 
 second_pandas['second']
 
-You can also use boolean indexing. Notice how the following command picks up the indices 0, 2 and 4.
+You can also use boolean indexing. Notice how the following command picks up the values on index locations 0, 2 and 4.
 
 first_pandas[first_pandas > 4]
 
@@ -286,13 +286,13 @@ sample_series = pd.Series(sample_dict)
 
 sample_series
 
-Important feature in Pandas is that everything is aligned by index.
+Important feature in Pandas is that everything is aligned by the index.
 
 sample_series2 = pd.Series([100,200,300,400], index=['c','a','d','b'])
 
 sample_series + sample_series2
 
-If you look carefully, you can see that summing was done "index-wise".
+If you look carefully, you can see that the summing was done "index-wise".
 
 You can give a name to the values and index of your Series.
 
@@ -309,7 +309,7 @@ sample_series
 
 #### Dataframe
 
-A Pandas Dataframe is a rectangular table of objects with similar features as a Pandas Series. Each column can have different type of values. In a way, it is a 2-dimensional extension of Pandas Series. For example, it has both a row and a column index.
+Pandas Dataframe is a rectangular table of objects with similar features as Pandas Series. Each column can have different type of values. In a way, it is a 2-dimensional extension of Pandas Series. For example, it has both a row and a column index.
 
 A dataframe can be constucted in many ways. One popular option is to use a dict of equal-length lists.
 
@@ -375,15 +375,15 @@ Transposing data is done in the same way as in Numpy, just by adding **.T** afte
 
 new_df.T
 
-There are still many other ways to construct a dataframe, and we will use some of then in the following chapters. A detailed introduction to constructing a dataframe can be found here: [pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html)
+There are still many other ways to construct a dataframe, and we will use some of them in the following chapters. A detailed introduction to constructing a dataframe can be found here: [pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html)
 
-There is actually a third data type in Pandas, **Index objects**. They are used to hold the labels of columns and index of a dataframe or series. Pandas **index** is immutable and has similiraties with Python sets. However, Pandas **index** can contain duplicate items.
+There is actually a third data type in Pandas, **Index objects**. They are used to hold the labels of columns and index of a dataframe or series. A Pandas **index** is immutable and has similiraties with Python sets. However, the Pandas **index** can contain duplicate items.
 
 new_df.index
 
 ### Basic Pandas functions
 
-Let's use a more realistic example for the following examples.( More about **read_csv()** in the later chapters.)
+Let's use a more realistic data for the following examples.( More about **read_csv()** in the later chapters.)
 
 big_companies_df = pd.read_csv('big_companies.csv',index_col='NAME',delimiter=';')
 
@@ -393,7 +393,7 @@ With **reindex()**, you can rearrange the values of the dataframe. Let's load Nu
 
 import numpy as np
 
-The following command shuffles the order of indices (company names).
+The following command shuffles the order of the index values (company names).
 
 random_order = np.random.permutation(big_companies_df.index)
 
@@ -409,17 +409,17 @@ random_columns
 
 big_companies_df.reindex(columns = random_columns)
 
-If have names in the reindex list that are not included in the original index/columns, these are added to the dataframe with missing values. You can prevent those missing values, for example, with **ffill** in the parameter **method** (there is also **bfill** and **nearest**).
+If we have names in the reindex list that are not included in the original index/columns, these are added to the dataframe with missing values. You can prevent those missing values, for example, with **ffill** in the parameter **method** (there is also **bfill** and **nearest**).
 
 new_df = big_companies_df.reindex(['APPLE','MICROSOFT','TESLA'])
 
 new_df
 
-**Ffill** is a forward fill. With strings, it adds the values of the original dataframe forward, according to the alphabetical order of the strings. Because **APPLE** is after **AMAZON.COM** and **ALIBABA...** in alphabetical order, NaN values are put to these new rows.
+**Ffill** is a forward fill. With strings, it adds the values of the original dataframe forward, according to the alphabetical order of the strings. Because **APPLE** is after **AMAZON.COM**, **ALPHABET** and **ALIBABA...** in alphabetical order, NaN values are put to these new rows.
 
 new_df.reindex(big_companies_df.index,method = 'ffill')
 
-It is easy to drop values by indices from a series/dataframe using **drop()**. By default, Pandas drops indices. Defining **axis=1**, you can drop columns. Another option is to drop both using **index** and **columns**
+It is easy to drop values by index values from a series/dataframe using **drop()**. By default, Pandas uses index. Defining **axis=1**, you can drop columns. Another option is to drop both using **index** and **columns**
 
 big_companies_df.drop('APPLE')
 
@@ -477,7 +477,7 @@ If you want to have some other than NaN values to these locations, you can use t
 
 partial_data_df.add(partial_data2_df,fill_value=0)
 
-You can also do arithmetic operations between Dataframe and Series. One thing to note is that these operations use **broadcasting** like Numpy arrays. Broadcasting is a very important conceopt in ML. You can read more about it here. [numpy.org/doc/stable/user/basics.broadcasting.html](https://numpy.org/doc/stable/user/basics.broadcasting.html)
+You can also do arithmetic operations between a dataframe and a Pandas series. One thing to note is that these operations use **broadcasting** like Numpy arrays. Broadcasting is a very important concept in ML. You can read more about it here. [numpy.org/doc/stable/user/basics.broadcasting.html](https://numpy.org/doc/stable/user/basics.broadcasting.html)
 
 In its simplest, broadcasting means that if we are subtracting a Series from a Dataframe, the Series is subtracted from every row (or column) of the dataframe.
 

@@ -320,7 +320,7 @@
                 
   <div class="section" id="pandas-data-basics">
 <h1><span class="section-number">3. </span>Pandas data basics<a class="headerlink" href="#pandas-data-basics" title="Permalink to this headline">¶</a></h1>
-<p>We will mostly use Pandas dataframe as our data type. This and the next chapter will introduce the dataframes in detail. Pandas tries to pick up the best features of Numpy, spreadsheets and relational databases, and actually succeeds mostly in it. Pandas is an unbelievably powerful data manipulation tool.</p>
+<p>We will mostly use Pandas dataframe as our data type. This and the next chapter will introduce the dataframe in detail. Pandas tries to pick up the best features of Numpy, spreadsheets and relational databases, and actually succeeds mostly in it. Pandas is an unbelievably powerful data manipulation tool.</p>
 <p>Before we start exploring Pandas, it is good to understand how the standard data types in Python work. So, let’s begin with them.</p>
 <div class="section" id="standard-data-types">
 <h2><span class="section-number">3.1. </span>Standard data types<a class="headerlink" href="#standard-data-types" title="Permalink to this headline">¶</a></h2>
@@ -430,7 +430,7 @@
 </div>
 </div>
 </div>
-<p>You can remove specific item from the list using <strong>remove()</strong>.</p>
+<p>You can remove a specific item from the list using <strong>remove()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -676,7 +676,7 @@
 </div>
 <div class="section" id="tuple">
 <h3><span class="section-number">3.1.2. </span>Tuple<a class="headerlink" href="#tuple" title="Permalink to this headline">¶</a></h3>
-<p>A tuple is an immutable sequence of Python objects. Because it is immutable, it has also fixed length. You can create tuples using parantheses.</p>
+<p>A tuple is an immutable sequence of Python objects. Because it is immutable, it has also a fixed length. You can create tuples using parantheses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
@@ -1001,7 +1001,7 @@
 </div>
 <div class="section" id="comprehensions">
 <h3><span class="section-number">3.1.5. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
-<p>Comprehensions, especially the list ones, are a great feature in Python. With them, you can efficiently create collections with a single statement. Let’s look some examples. (<strong>%</strong> is a module operator)</p>
+<p>Comprehensions, especially the list ones, are a great feature in Python. With them, you can efficiently create collections with a single statement. Let’s look some examples. (<strong>%</strong> is the module operator)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0]
@@ -1044,7 +1044,7 @@
 </div>
 </div>
 </div>
-<p>Here is an another example:</p>
+<p>Here is another example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;quotes.txt&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
@@ -1214,7 +1214,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>If we do not pass index when defining a series, it will be given a default index of sequential values.</p>
+<p>If we do not pass an index when defining a series, it will be given the default index of sequential values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_pandas</span><span class="o">.</span><span class="n">index</span>
@@ -1250,7 +1250,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>A pandas series works like a dict. You can use the index to pick up a single value.</p>
+<p>A pandas series works like a dict. You can use the index value to pick up a single item.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">second_pandas</span><span class="p">[</span><span class="s1">&#39;second&#39;</span><span class="p">]</span>
@@ -1263,7 +1263,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>You can also use boolean indexing. Notice how the following command picks up the indices 0, 2 and 4.</p>
+<p>You can also use boolean indexing. Notice how the following command picks up the values on index locations 0, 2 and 4.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_pandas</span><span class="p">[</span><span class="n">first_pandas</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">]</span>
@@ -1354,7 +1354,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>Important feature in Pandas is that everything is aligned by index.</p>
+<p>Important feature in Pandas is that everything is aligned by the index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_series2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
@@ -1378,7 +1378,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>If you look carefully, you can see that summing was done “index-wise”.</p>
+<p>If you look carefully, you can see that the summing was done “index-wise”.</p>
 <p>You can give a name to the values and index of your Series.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1432,7 +1432,7 @@ Name: some_values, dtype: int64
 </div>
 <div class="section" id="dataframe">
 <h3><span class="section-number">3.2.2. </span>Dataframe<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h3>
-<p>A Pandas Dataframe is a rectangular table of objects with similar features as a Pandas Series. Each column can have different type of values. In a way, it is a 2-dimensional extension of Pandas Series. For example, it has both a row and a column index.</p>
+<p>Pandas Dataframe is a rectangular table of objects with similar features as Pandas Series. Each column can have different type of values. In a way, it is a 2-dimensional extension of Pandas Series. For example, it has both a row and a column index.</p>
 <p>A dataframe can be constucted in many ways. One popular option is to use a dict of equal-length lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2184,8 +2184,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>There are still many other ways to construct a dataframe, and we will use some of then in the following chapters. A detailed introduction to constructing a dataframe can be found here: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html">pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html</a></p>
-<p>There is actually a third data type in Pandas, <strong>Index objects</strong>. They are used to hold the labels of columns and index of a dataframe or series. Pandas <strong>index</strong> is immutable and has similiraties with Python sets. However, Pandas <strong>index</strong> can contain duplicate items.</p>
+<p>There are still many other ways to construct a dataframe, and we will use some of them in the following chapters. A detailed introduction to constructing a dataframe can be found here: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html">pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html</a></p>
+<p>There is actually a third data type in Pandas, <strong>Index objects</strong>. They are used to hold the labels of columns and index of a dataframe or series. A Pandas <strong>index</strong> is immutable and has similiraties with Python sets. However, the Pandas <strong>index</strong> can contain duplicate items.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_df</span><span class="o">.</span><span class="n">index</span>
@@ -2202,7 +2202,7 @@ dtype: int64
 </div>
 <div class="section" id="basic-pandas-functions">
 <h2><span class="section-number">3.3. </span>Basic Pandas functions<a class="headerlink" href="#basic-pandas-functions" title="Permalink to this headline">¶</a></h2>
-<p>Let’s use a more realistic example for the following examples.( More about <strong>read_csv()</strong> in the later chapters.)</p>
+<p>Let’s use a more realistic data for the following examples.( More about <strong>read_csv()</strong> in the later chapters.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_companies_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;big_companies.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
@@ -2382,7 +2382,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>The following command shuffles the order of indices (company names).</p>
+<p>The following command shuffles the order of the index values (company names).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">big_companies_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -2397,10 +2397,10 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;TESLA&#39;, &#39;SAUDI ARABIAN OIL&#39;, &#39;APPLE&#39;, &#39;TAIWAN SEMICON.MNFG.&#39;,
-       &#39;MICROSOFT&#39;, &#39;JOHNSON &amp; JOHNSON&#39;, &#39;WALMART&#39;, &#39;AMAZON.COM&#39;,
-       &#39;ALPHABET A&#39;, &#39;FACEBOOK CLASS A&#39;, &#39;TENCENT HOLDINGS&#39;, &quot;NESTLE &#39;N&#39;&quot;,
-       &#39;ALIBABA GROUP HOLDING ADR 1:8&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;MICROSOFT&#39;, &#39;APPLE&#39;, &#39;WALMART&#39;, &#39;ALPHABET A&#39;, &quot;NESTLE &#39;N&#39;&quot;,
+       &#39;TESLA&#39;, &#39;SAUDI ARABIAN OIL&#39;, &#39;TAIWAN SEMICON.MNFG.&#39;,
+       &#39;JOHNSON &amp; JOHNSON&#39;, &#39;TENCENT HOLDINGS&#39;, &#39;AMAZON.COM&#39;,
+       &#39;FACEBOOK CLASS A&#39;, &#39;ALIBABA GROUP HOLDING ADR 1:8&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -2449,6 +2449,51 @@ dtype: int64
   </thead>
   <tbody>
     <tr>
+      <th>MICROSOFT</th>
+      <td>1.06</td>
+      <td>43.46</td>
+      <td>40.14</td>
+      <td>24.89</td>
+      <td>36.5</td>
+      <td>61.56</td>
+    </tr>
+    <tr>
+      <th>APPLE</th>
+      <td>0.71</td>
+      <td>28.01</td>
+      <td>55.92</td>
+      <td>27.65</td>
+      <td>35.4</td>
+      <td>119.40</td>
+    </tr>
+    <tr>
+      <th>WALMART</th>
+      <td>1.54</td>
+      <td>4.88</td>
+      <td>20.22</td>
+      <td>12.55</td>
+      <td>26.6</td>
+      <td>72.95</td>
+    </tr>
+    <tr>
+      <th>ALPHABET A</th>
+      <td>0.00</td>
+      <td>33.18</td>
+      <td>18.12</td>
+      <td>17.76</td>
+      <td>33.2</td>
+      <td>2.26</td>
+    </tr>
+    <tr>
+      <th>NESTLE 'N'</th>
+      <td>2.47</td>
+      <td>16.85</td>
+      <td>23.05</td>
+      <td>14.21</td>
+      <td>23.3</td>
+      <td>71.42</td>
+    </tr>
+    <tr>
       <th>TESLA</th>
       <td>0.00</td>
       <td>11.21</td>
@@ -2467,15 +2512,6 @@ dtype: int64
       <td>16.96</td>
     </tr>
     <tr>
-      <th>APPLE</th>
-      <td>0.71</td>
-      <td>28.01</td>
-      <td>55.92</td>
-      <td>27.65</td>
-      <td>35.4</td>
-      <td>119.40</td>
-    </tr>
-    <tr>
       <th>TAIWAN SEMICON.MNFG.</th>
       <td>2.31</td>
       <td>57.91</td>
@@ -2483,15 +2519,6 @@ dtype: int64
       <td>18.96</td>
       <td>24.7</td>
       <td>11.89</td>
-    </tr>
-    <tr>
-      <th>MICROSOFT</th>
-      <td>1.06</td>
-      <td>43.46</td>
-      <td>40.14</td>
-      <td>24.89</td>
-      <td>36.5</td>
-      <td>61.56</td>
     </tr>
     <tr>
       <th>JOHNSON &amp; JOHNSON</th>
@@ -2503,13 +2530,13 @@ dtype: int64
       <td>46.57</td>
     </tr>
     <tr>
-      <th>WALMART</th>
-      <td>1.54</td>
-      <td>4.88</td>
-      <td>20.22</td>
-      <td>12.55</td>
-      <td>26.6</td>
-      <td>72.95</td>
+      <th>TENCENT HOLDINGS</th>
+      <td>0.23</td>
+      <td>35.55</td>
+      <td>24.68</td>
+      <td>15.92</td>
+      <td>42.6</td>
+      <td>53.74</td>
     </tr>
     <tr>
       <th>AMAZON.COM</th>
@@ -2521,15 +2548,6 @@ dtype: int64
       <td>83.31</td>
     </tr>
     <tr>
-      <th>ALPHABET A</th>
-      <td>0.00</td>
-      <td>33.18</td>
-      <td>18.12</td>
-      <td>17.76</td>
-      <td>33.2</td>
-      <td>2.26</td>
-    </tr>
-    <tr>
       <th>FACEBOOK CLASS A</th>
       <td>0.00</td>
       <td>41.11</td>
@@ -2537,24 +2555,6 @@ dtype: int64
       <td>19.94</td>
       <td>32.0</td>
       <td>0.47</td>
-    </tr>
-    <tr>
-      <th>TENCENT HOLDINGS</th>
-      <td>0.23</td>
-      <td>35.55</td>
-      <td>24.68</td>
-      <td>15.92</td>
-      <td>42.6</td>
-      <td>53.74</td>
-    </tr>
-    <tr>
-      <th>NESTLE 'N'</th>
-      <td>2.47</td>
-      <td>16.85</td>
-      <td>23.05</td>
-      <td>14.21</td>
-      <td>23.3</td>
-      <td>71.42</td>
     </tr>
     <tr>
       <th>ALIBABA GROUP HOLDING ADR 1:8</th>
@@ -2584,9 +2584,9 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;RETURN ON EQUITY - TOTAL (%)&#39;, &#39;RETURN ON INVESTED CAPITAL&#39;,
-       &#39;DIVIDEND YIELD&#39;, &#39;CASH FLOW/SALES&#39;, &#39;P/E - RATIO&#39;,
-       &#39;TOTAL DEBT % COMMON EQUITY&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;TOTAL DEBT % COMMON EQUITY&#39;, &#39;RETURN ON EQUITY - TOTAL (%)&#39;,
+       &#39;P/E - RATIO&#39;, &#39;CASH FLOW/SALES&#39;, &#39;RETURN ON INVESTED CAPITAL&#39;,
+       &#39;DIVIDEND YIELD&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -2616,12 +2616,12 @@ dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>TOTAL DEBT % COMMON EQUITY</th>
       <th>RETURN ON EQUITY - TOTAL (%)</th>
+      <th>P/E - RATIO</th>
+      <th>CASH FLOW/SALES</th>
       <th>RETURN ON INVESTED CAPITAL</th>
       <th>DIVIDEND YIELD</th>
-      <th>CASH FLOW/SALES</th>
-      <th>P/E - RATIO</th>
-      <th>TOTAL DEBT % COMMON EQUITY</th>
     </tr>
     <tr>
       <th>NAME</th>
@@ -2636,126 +2636,126 @@ dtype: int64
   <tbody>
     <tr>
       <th>APPLE</th>
+      <td>119.40</td>
       <td>55.92</td>
+      <td>35.4</td>
+      <td>28.01</td>
       <td>27.65</td>
       <td>0.71</td>
-      <td>28.01</td>
-      <td>35.4</td>
-      <td>119.40</td>
     </tr>
     <tr>
       <th>SAUDI ARABIAN OIL</th>
+      <td>16.96</td>
       <td>32.25</td>
+      <td>29.5</td>
+      <td>31.73</td>
       <td>28.34</td>
       <td>0.21</td>
-      <td>31.73</td>
-      <td>29.5</td>
-      <td>16.96</td>
     </tr>
     <tr>
       <th>MICROSOFT</th>
+      <td>61.56</td>
       <td>40.14</td>
+      <td>36.5</td>
+      <td>43.46</td>
       <td>24.89</td>
       <td>1.06</td>
-      <td>43.46</td>
-      <td>36.5</td>
-      <td>61.56</td>
     </tr>
     <tr>
       <th>AMAZON.COM</th>
+      <td>83.31</td>
       <td>21.95</td>
+      <td>121.1</td>
+      <td>14.60</td>
       <td>12.97</td>
       <td>0.00</td>
-      <td>14.60</td>
-      <td>121.1</td>
-      <td>83.31</td>
     </tr>
     <tr>
       <th>ALIBABA GROUP HOLDING ADR 1:8</th>
+      <td>16.60</td>
       <td>23.77</td>
+      <td>31.0</td>
+      <td>31.23</td>
       <td>17.39</td>
       <td>0.00</td>
-      <td>31.23</td>
-      <td>31.0</td>
-      <td>16.60</td>
     </tr>
     <tr>
       <th>FACEBOOK CLASS A</th>
+      <td>0.47</td>
       <td>19.96</td>
+      <td>32.0</td>
+      <td>41.11</td>
       <td>19.94</td>
       <td>0.00</td>
-      <td>41.11</td>
-      <td>32.0</td>
-      <td>0.47</td>
     </tr>
     <tr>
       <th>TENCENT HOLDINGS</th>
+      <td>53.74</td>
       <td>24.68</td>
+      <td>42.6</td>
+      <td>35.55</td>
       <td>15.92</td>
       <td>0.23</td>
-      <td>35.55</td>
-      <td>42.6</td>
-      <td>53.74</td>
     </tr>
     <tr>
       <th>ALPHABET A</th>
+      <td>2.26</td>
       <td>18.12</td>
+      <td>33.2</td>
+      <td>33.18</td>
       <td>17.76</td>
       <td>0.00</td>
-      <td>33.18</td>
-      <td>33.2</td>
-      <td>2.26</td>
     </tr>
     <tr>
       <th>TESLA</th>
+      <td>202.77</td>
       <td>-14.94</td>
+      <td>1036.3</td>
+      <td>11.21</td>
       <td>-1.61</td>
       <td>0.00</td>
-      <td>11.21</td>
-      <td>1036.3</td>
-      <td>202.77</td>
     </tr>
     <tr>
       <th>WALMART</th>
+      <td>72.95</td>
       <td>20.22</td>
+      <td>26.6</td>
+      <td>4.88</td>
       <td>12.55</td>
       <td>1.54</td>
-      <td>4.88</td>
-      <td>26.6</td>
-      <td>72.95</td>
     </tr>
     <tr>
       <th>JOHNSON &amp; JOHNSON</th>
+      <td>46.57</td>
       <td>25.36</td>
+      <td>26.7</td>
+      <td>23.83</td>
       <td>17.38</td>
       <td>2.71</td>
-      <td>23.83</td>
-      <td>26.7</td>
-      <td>46.57</td>
     </tr>
     <tr>
       <th>TAIWAN SEMICON.MNFG.</th>
+      <td>11.89</td>
       <td>20.94</td>
+      <td>24.7</td>
+      <td>57.91</td>
       <td>18.96</td>
       <td>2.31</td>
-      <td>57.91</td>
-      <td>24.7</td>
-      <td>11.89</td>
     </tr>
     <tr>
       <th>NESTLE 'N'</th>
+      <td>71.42</td>
       <td>23.05</td>
+      <td>23.3</td>
+      <td>16.85</td>
       <td>14.21</td>
       <td>2.47</td>
-      <td>16.85</td>
-      <td>23.3</td>
-      <td>71.42</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>If have names in the reindex list that are not included in the original index/columns, these are added to the dataframe with missing values. You can prevent those missing values, for example, with <strong>ffill</strong> in the parameter <strong>method</strong> (there is also <strong>bfill</strong> and <strong>nearest</strong>).</p>
+<p>If we have names in the reindex list that are not included in the original index/columns, these are added to the dataframe with missing values. You can prevent those missing values, for example, with <strong>ffill</strong> in the parameter <strong>method</strong> (there is also <strong>bfill</strong> and <strong>nearest</strong>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_df</span> <span class="o">=</span> <span class="n">big_companies_df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;APPLE&#39;</span><span class="p">,</span><span class="s1">&#39;MICROSOFT&#39;</span><span class="p">,</span><span class="s1">&#39;TESLA&#39;</span><span class="p">])</span>
@@ -2837,7 +2837,7 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<p><strong>Ffill</strong> is a forward fill. With strings, it adds the values of the original dataframe forward, according to the alphabetical order of the strings. Because <strong>APPLE</strong> is after <strong>AMAZON.COM</strong> and <strong>ALIBABA…</strong> in alphabetical order, NaN values are put to these new rows.</p>
+<p><strong>Ffill</strong> is a forward fill. With strings, it adds the values of the original dataframe forward, according to the alphabetical order of the strings. Because <strong>APPLE</strong> is after <strong>AMAZON.COM</strong>, <strong>ALPHABET</strong> and <strong>ALIBABA…</strong> in alphabetical order, NaN values are put to these new rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">big_companies_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
@@ -3002,7 +3002,7 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>It is easy to drop values by indices from a series/dataframe using <strong>drop()</strong>. By default, Pandas drops indices. Defining <strong>axis=1</strong>, you can drop columns. Another option is to drop both using <strong>index</strong> and <strong>columns</strong></p>
+<p>It is easy to drop values by index values from a series/dataframe using <strong>drop()</strong>. By default, Pandas uses index. Defining <strong>axis=1</strong>, you can drop columns. Another option is to drop both using <strong>index</strong> and <strong>columns</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_companies_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;APPLE&#39;</span><span class="p">)</span>
@@ -5028,7 +5028,7 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>You can also do arithmetic operations between Dataframe and Series. One thing to note is that these operations use <strong>broadcasting</strong> like Numpy arrays. Broadcasting is a very important conceopt in ML. You can read more about it here. <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy.org/doc/stable/user/basics.broadcasting.html</a></p>
+<p>You can also do arithmetic operations between a dataframe and a Pandas series. One thing to note is that these operations use <strong>broadcasting</strong> like Numpy arrays. Broadcasting is a very important concept in ML. You can read more about it here. <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">numpy.org/doc/stable/user/basics.broadcasting.html</a></p>
 <p>In its simplest, broadcasting means that if we are subtracting a Series from a Dataframe, the Series is subtracted from every row (or column) of the dataframe.</p>
 <p>In the following, we subtract the values of <strong>TESLA</strong> from every row of our dataframe.</p>
 <div class="cell docutils container">
