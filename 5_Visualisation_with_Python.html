@@ -146,7 +146,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
-   1. Introduction Machine learning in accounting
+   1. Introduction to Machine learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
@@ -304,7 +304,7 @@
 </div>
 </div>
 </div>
-<p>The evolution of P/E-index from 1800 to 1931.</p>
+<p>The evolution of P/E-ratio from 1800 to 1931.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pe_df</span><span class="p">[</span><span class="s1">&#39;PE_ratio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -346,7 +346,7 @@
 <img alt="_images/5_Visualisation_with_Python_12_1.png" src="_images/5_Visualisation_with_Python_12_1.png" />
 </div>
 </div>
-<p>Pandas bar plots. Notice how they are invoked using <strong>plot.bar()</strong>.</p>
+<p>Pandas has bar plots. Notice how they are invoked using <strong>plot.bar()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">know_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/politicalKnowledge.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -389,7 +389,7 @@
 <img alt="_images/5_Visualisation_with_Python_19_1.png" src="_images/5_Visualisation_with_Python_19_1.png" />
 </div>
 </div>
-<p>With the <strong>stacked = True</strong>, you change grouped bars to stacked bars. Political knowledge in the US and Europe (high school/some college/college background stacked together).</p>
+<p>With <strong>stacked = True</strong>, you change grouped bars to stacked bars. Political knowledge in the US and Europe (high school/some college/college background stacked together).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">know_df</span><span class="p">[[</span><span class="s1">&#39;DomesticKnowledge.hs&#39;</span><span class="p">,</span> <span class="s1">&#39;DomesticKnowledge.sc&#39;</span><span class="p">,</span> <span class="s1">&#39;DomesticKnowledge.c&#39;</span><span class="p">,</span>
@@ -535,7 +535,7 @@
 <img alt="_images/5_Visualisation_with_Python_39_0.png" src="_images/5_Visualisation_with_Python_39_0.png" />
 </div>
 </div>
-<p>As you can see from the above example, colors, linestyles, etc. are defined using string codes.</p>
+<p>As you can see from the example above, colors, linestyles, etc. are defined using string codes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">40</span><span class="p">],</span><span class="s1">&#39;ro--&#39;</span><span class="p">)</span>
@@ -547,7 +547,7 @@
 <img alt="_images/5_Visualisation_with_Python_41_0.png" src="_images/5_Visualisation_with_Python_41_0.png" />
 </div>
 </div>
-<p>The string codes are convenient, if you know them. But learning them takes a little time. Consult the Matplotlib documentation for full list of the string codes: <a class="reference external" href="https://matplotlib.org/">matplotlib.org</a>. You can draw the above figure using a more explicit syntax.</p>
+<p>The string codes are convenient, if you know them. But learning them takes a little time. Consult the Matplotlib documentation for the full list of the string codes: <a class="reference external" href="https://matplotlib.org/">matplotlib.org</a>. You can draw the above figure using a more explicit syntax.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum_values</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">40</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
@@ -583,7 +583,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numer</span> <span class="o">=</span> <span class="n">comp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># winsorizing numerical variables</span>
+<span class="n">numer</span> <span class="o">=</span> <span class="n">comp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 <span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span> <span class="o">=</span> <span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.025</span><span class="p">),</span>
                                                    <span class="n">upper</span><span class="o">=</span><span class="n">comp_df</span><span class="p">[</span><span class="n">numer</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.975</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -816,7 +817,7 @@
 <img alt="_images/5_Visualisation_with_Python_54_0.png" src="_images/5_Visualisation_with_Python_54_0.png" />
 </div>
 </div>
-<p>The horisontal bar plot function. There is also a function for a vertical bar plot.</p>
+<p>The horisontal bar plot function. There is also the function for a vertical bar plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;CoGS/SALES - 5 Y (%)&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
@@ -861,7 +862,7 @@
 <img alt="_images/5_Visualisation_with_Python_61_0.png" src="_images/5_Visualisation_with_Python_61_0.png" />
 </div>
 </div>
-<p>There is also a function for pie charts. Let’s bin the R&amp;D/SALES -variable for a meaningful data to use in a pie chart.</p>
+<p>There is also a function for pie charts. Let’s categorise the R&amp;D/SALES -variable for a meaningful data to use in a pie chart.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">comp_df</span><span class="p">[</span><span class="s1">&#39;R&amp;D/SALES (%)&#39;</span><span class="p">],</span><span class="mi">4</span><span class="p">)</span>
@@ -1315,7 +1316,7 @@ Name: DAX, Length: 1860, dtype: float64
 <img alt="_images/5_Visualisation_with_Python_98_1.png" src="_images/5_Visualisation_with_Python_98_1.png" />
 </div>
 </div>
-<p>With <strong>catplot</strong>, you can catogorise data in multiple ways simultaneously.</p>
+<p>With <strong>catplot</strong>, you can catogorise data in multiple ways.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;ACCOUNTING STANDARD&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;DIV. YIELD&#39;</span><span class="p">,</span>

@@ -306,7 +306,7 @@
 <li><p>You must use full directory paths in your code, not relative paths.</p></li>
 <li><p>Nested tables are not supported.</p></li>
 </ul>
-<p>Otherwise, implementing Python in Power BI is very similar to doing analysis purely inside Python. The good side is, of course, that you have the tools of both Python and Power BI at your disposal.</p>
+<p>Otherwise, implementing Python in Power BI is very similar to doing analysis purely inside Python. The good thing is, of course, that you have the tools of both Python and Power BI at your disposal.</p>
 </div>
 <div class="section" id="mysql-sap-and-others">
 <h2><span class="section-number">5.2. </span>MySQL, SAP and others<a class="headerlink" href="#mysql-sap-and-others" title="Permalink to this headline">¶</a></h2>
@@ -317,7 +317,7 @@ The task is quite difficult, and we are not doing that in this course.</p>
 <div class="section" id="sqlite">
 <h2><span class="section-number">5.3. </span>Sqlite<a class="headerlink" href="#sqlite" title="Permalink to this headline">¶</a></h2>
 <p>In the following, we will analyse our example database purely in Python. For that, we use an example company database that is available here: <a class="reference external" href="https://github.com/jpwhite3/northwind-SQLite3">github.com/jpwhite3/northwind-SQLite3</a></p>
-<p><img alt="Northwind" src="./images/northwind.png" /></p>
+<p><img alt="Northwind" src="_images/Northwind.png" /></p>
 <p>This demo-database has originally been published to Microsoft Access 2000. We analyse it using Sqlite3. However, keep in mind that you can repeat the following analysis by connecting to many other databases, like SAP. In the following, we use some basic SQL statements. However, this course is not about SQL, so we do not go deeper in that direction.</p>
 <p>Sqlite3 is included in the standard library. So, you do not need to install any additional libraries. Let’s start by importing the library.</p>
 <div class="cell docutils container">
@@ -432,6 +432,156 @@ The task is quite difficult, and we are not doing that in this course.</p>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>LastName</th>
+      <th>UnitPrice</th>
+      <th>Quantity</th>
+      <th>OrderDate</th>
+      <th>ShipCountry</th>
+      <th>CategoryName</th>
+      <th>ProductName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Buchanan</td>
+      <td>14.00</td>
+      <td>12</td>
+      <td>2012-07-04</td>
+      <td>France</td>
+      <td>Dairy Products</td>
+      <td>Queso Cabrales</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Buchanan</td>
+      <td>9.80</td>
+      <td>10</td>
+      <td>2012-07-04</td>
+      <td>France</td>
+      <td>Grains/Cereals</td>
+      <td>Singaporean Hokkien Fried Mee</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Buchanan</td>
+      <td>34.80</td>
+      <td>5</td>
+      <td>2012-07-04</td>
+      <td>France</td>
+      <td>Dairy Products</td>
+      <td>Mozzarella di Giovanni</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Suyama</td>
+      <td>18.60</td>
+      <td>9</td>
+      <td>2012-07-05</td>
+      <td>Germany</td>
+      <td>Produce</td>
+      <td>Tofu</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Suyama</td>
+      <td>42.40</td>
+      <td>40</td>
+      <td>2012-07-05</td>
+      <td>Germany</td>
+      <td>Produce</td>
+      <td>Manjimup Dried Apples</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>621878</th>
+      <td>Davolio</td>
+      <td>21.00</td>
+      <td>20</td>
+      <td>2013-08-31 02:59:28</td>
+      <td>Venezuela</td>
+      <td>Grains/Cereals</td>
+      <td>Gustaf's Knäckebröd</td>
+    </tr>
+    <tr>
+      <th>621879</th>
+      <td>Davolio</td>
+      <td>13.00</td>
+      <td>11</td>
+      <td>2013-08-31 02:59:28</td>
+      <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Original Frankfurter grüne Soße</td>
+    </tr>
+    <tr>
+      <th>621880</th>
+      <td>Davolio</td>
+      <td>39.00</td>
+      <td>45</td>
+      <td>2013-08-31 02:59:28</td>
+      <td>Venezuela</td>
+      <td>Meat/Poultry</td>
+      <td>Alice Mutton</td>
+    </tr>
+    <tr>
+      <th>621881</th>
+      <td>Davolio</td>
+      <td>25.00</td>
+      <td>7</td>
+      <td>2013-08-31 02:59:28</td>
+      <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Grandma's Boysenberry Spread</td>
+    </tr>
+    <tr>
+      <th>621882</th>
+      <td>Davolio</td>
+      <td>21.05</td>
+      <td>27</td>
+      <td>2013-08-31 02:59:28</td>
+      <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Louisiana Fiery Hot Pepper Sauce</td>
+    </tr>
+  </tbody>
+</table>
+<p>621883 rows × 7 columns</p>
+</div></div></div>
+</div>
 <p>Now that we have everything neatly in a Pandas dataframe, we can do many kinds of analyses. The other chapters focus more on the Pandas functionality, but let’s try something that we can do.</p>
 <p>For example, to analyse trends, we can change <strong>OrderDate</strong> to a datetime object with <strong>to_datetime()</strong>.</p>
 <div class="cell docutils container">
@@ -471,6 +621,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <th>Quantity</th>
       <th>OrderDate</th>
       <th>ShipCountry</th>
+      <th>CategoryName</th>
+      <th>ProductName</th>
     </tr>
   </thead>
   <tbody>
@@ -481,6 +633,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>12</td>
       <td>2012-07-04 00:00:00</td>
       <td>France</td>
+      <td>Dairy Products</td>
+      <td>Queso Cabrales</td>
     </tr>
     <tr>
       <th>1</th>
@@ -489,6 +643,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>10</td>
       <td>2012-07-04 00:00:00</td>
       <td>France</td>
+      <td>Grains/Cereals</td>
+      <td>Singaporean Hokkien Fried Mee</td>
     </tr>
     <tr>
       <th>2</th>
@@ -497,6 +653,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>5</td>
       <td>2012-07-04 00:00:00</td>
       <td>France</td>
+      <td>Dairy Products</td>
+      <td>Mozzarella di Giovanni</td>
     </tr>
     <tr>
       <th>3</th>
@@ -505,6 +663,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>9</td>
       <td>2012-07-05 00:00:00</td>
       <td>Germany</td>
+      <td>Produce</td>
+      <td>Tofu</td>
     </tr>
     <tr>
       <th>4</th>
@@ -513,9 +673,13 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>40</td>
       <td>2012-07-05 00:00:00</td>
       <td>Germany</td>
+      <td>Produce</td>
+      <td>Manjimup Dried Apples</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -529,6 +693,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>20</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Grains/Cereals</td>
+      <td>Gustaf's Knäckebröd</td>
     </tr>
     <tr>
       <th>621879</th>
@@ -537,6 +703,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>11</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Original Frankfurter grüne Soße</td>
     </tr>
     <tr>
       <th>621880</th>
@@ -545,6 +713,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>45</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Meat/Poultry</td>
+      <td>Alice Mutton</td>
     </tr>
     <tr>
       <th>621881</th>
@@ -553,6 +723,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>7</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Grandma's Boysenberry Spread</td>
     </tr>
     <tr>
       <th>621882</th>
@@ -561,10 +733,12 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>27</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Louisiana Fiery Hot Pepper Sauce</td>
     </tr>
   </tbody>
 </table>
-<p>621883 rows × 5 columns</p>
+<p>621883 rows × 7 columns</p>
 </div></div></div>
 </div>
 <p>Next, we can change our datetime object as index.</p>
@@ -605,9 +779,13 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <th>Quantity</th>
       <th>OrderDate</th>
       <th>ShipCountry</th>
+      <th>CategoryName</th>
+      <th>ProductName</th>
     </tr>
     <tr>
       <th>OrderDate</th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -623,6 +801,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>12</td>
       <td>2012-07-04 00:00:00</td>
       <td>France</td>
+      <td>Dairy Products</td>
+      <td>Queso Cabrales</td>
     </tr>
     <tr>
       <th>2012-07-04 00:00:00</th>
@@ -631,6 +811,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>10</td>
       <td>2012-07-04 00:00:00</td>
       <td>France</td>
+      <td>Grains/Cereals</td>
+      <td>Singaporean Hokkien Fried Mee</td>
     </tr>
     <tr>
       <th>2012-07-04 00:00:00</th>
@@ -639,6 +821,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>5</td>
       <td>2012-07-04 00:00:00</td>
       <td>France</td>
+      <td>Dairy Products</td>
+      <td>Mozzarella di Giovanni</td>
     </tr>
     <tr>
       <th>2012-07-05 00:00:00</th>
@@ -647,6 +831,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>9</td>
       <td>2012-07-05 00:00:00</td>
       <td>Germany</td>
+      <td>Produce</td>
+      <td>Tofu</td>
     </tr>
     <tr>
       <th>2012-07-05 00:00:00</th>
@@ -655,9 +841,13 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>40</td>
       <td>2012-07-05 00:00:00</td>
       <td>Germany</td>
+      <td>Produce</td>
+      <td>Manjimup Dried Apples</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -671,6 +861,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>20</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Grains/Cereals</td>
+      <td>Gustaf's Knäckebröd</td>
     </tr>
     <tr>
       <th>2013-08-31 02:59:28</th>
@@ -679,6 +871,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>11</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Original Frankfurter grüne Soße</td>
     </tr>
     <tr>
       <th>2013-08-31 02:59:28</th>
@@ -687,6 +881,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>45</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Meat/Poultry</td>
+      <td>Alice Mutton</td>
     </tr>
     <tr>
       <th>2013-08-31 02:59:28</th>
@@ -695,6 +891,8 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>7</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Grandma's Boysenberry Spread</td>
     </tr>
     <tr>
       <th>2013-08-31 02:59:28</th>
@@ -703,10 +901,12 @@ The task is quite difficult, and we are not doing that in this course.</p>
       <td>27</td>
       <td>2013-08-31 02:59:28</td>
       <td>Venezuela</td>
+      <td>Condiments</td>
+      <td>Louisiana Fiery Hot Pepper Sauce</td>
     </tr>
   </tbody>
 </table>
-<p>621883 rows × 5 columns</p>
+<p>621883 rows × 7 columns</p>
 </div></div></div>
 </div>
 <p>We still need to order the index.</p>
@@ -728,7 +928,7 @@ The task is quite difficult, and we are not doing that in this course.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/4_Connecting_with_accounting_databases_26_1.png" src="_images/4_Connecting_with_accounting_databases_26_1.png" />
+<img alt="_images/4_Connecting_with_accounting_databases_27_1.png" src="_images/4_Connecting_with_accounting_databases_27_1.png" />
 </div>
 </div>
 <p>Let’s check next, to which country the company is selling the most. The following command is quite long! First, it groups values by <strong>ShipCountry</strong>, then counts values and sorts them in a descending order by <strong>Quantity</strong>, and finally selects only <strong>Quantity</strong> -column.</p>
@@ -790,15 +990,7 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">4</span><span class="n">eed2d2471d2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">query_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ShipCountry&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;query_df&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/4_Connecting_with_accounting_databases_34_0.png" src="_images/4_Connecting_with_accounting_databases_34_0.png" />
 </div>
 </div>
 <p>With pivot tables, we can do a 2-way grouping.</p>
@@ -1115,7 +1307,7 @@ Name: Quantity, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;OrderDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/4_Connecting_with_accounting_databases_39_1.png" src="_images/4_Connecting_with_accounting_databases_39_1.png" />
+<img alt="_images/4_Connecting_with_accounting_databases_40_1.png" src="_images/4_Connecting_with_accounting_databases_40_1.png" />
 </div>
 </div>
 <p>Let’s plot how the sales of different salesperson have progressed. The <strong>for</strong> loop in the command goes through all the salesperson and draws their performance to the same chart. With <strong>set</strong>, we can pick from the <strong>LastName</strong> column unique values.</p>
@@ -1130,21 +1322,19 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4_Connecting_with_accounting_databases_41_0.png" src="_images/4_Connecting_with_accounting_databases_41_0.png" />
+<img alt="_images/4_Connecting_with_accounting_databases_42_0.png" src="_images/4_Connecting_with_accounting_databases_42_0.png" />
 </div>
 </div>
 <p>We can also use bar charts. Here are the sales of different salesperson and product categories. We first do a two-level grouping, sum the values in those groups, and pick <strong>TotalPrice</strong>. Adding <strong>plot.barh()</strong> to the end turns the 2-level grouping table into a bar chart.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;LastName&#39;</span><span class="p">,</span><span class="s1">&#39;CategoryName&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="s1">&#39;TotalPrice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;LastName,CategoryName&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/4_Connecting_with_accounting_databases_43_1.png" src="_images/4_Connecting_with_accounting_databases_43_1.png" />
+<img alt="_images/4_Connecting_with_accounting_databases_44_0.png" src="_images/4_Connecting_with_accounting_databases_44_0.png" />
 </div>
 </div>
 <p>We can also use percentage values in tables. (I admit, the following command is a mess!). It divides the values of a <strong>LastName/CategoryName</strong> -pivot table with the row sums of that table. Then, it multiplies these numbers by hundred. <strong>style.format</strong> is used to decrease the number of decimals to 2 <strong>2f</strong>, and to add <strong>%</strong> to the end.</p>
@@ -1158,105 +1348,105 @@ Name: Quantity, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_d8786312_01a0_11eb_8f9c_a434d95e1072" ><thead>    <tr>        <th class="index_name level0" >CategoryName</th>        <th class="col_heading level0 col0" >Beverages</th>        <th class="col_heading level0 col1" >Condiments</th>        <th class="col_heading level0 col2" >Confections</th>        <th class="col_heading level0 col3" >Dairy Products</th>        <th class="col_heading level0 col4" >Grains/Cereals</th>        <th class="col_heading level0 col5" >Meat/Poultry</th>        <th class="col_heading level0 col6" >Produce</th>        <th class="col_heading level0 col7" >Seafood</th>    </tr>    <tr>        <th class="index_name level0" >LastName</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+</style><table id="T_fd4ba002_23f4_11eb_82c7_472f2f362698" ><thead>    <tr>        <th class="index_name level0" >CategoryName</th>        <th class="col_heading level0 col0" >Beverages</th>        <th class="col_heading level0 col1" >Condiments</th>        <th class="col_heading level0 col2" >Confections</th>        <th class="col_heading level0 col3" >Dairy Products</th>        <th class="col_heading level0 col4" >Grains/Cereals</th>        <th class="col_heading level0 col5" >Meat/Poultry</th>        <th class="col_heading level0 col6" >Produce</th>        <th class="col_heading level0 col7" >Seafood</th>    </tr>    <tr>        <th class="index_name level0" >LastName</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row0" class="row_heading level0 row0" >Buchanan</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col0" class="data row0 col0" >15.70 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col1" class="data row0 col1" >9.51 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col2" class="data row0 col2" >10.41 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col3" class="data row0 col3" >11.92 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col4" class="data row0 col4" >8.35 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col5" class="data row0 col5" >22.39 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col6" class="data row0 col6" >13.14 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row0_col7" class="data row0 col7" >8.58 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row0" class="row_heading level0 row0" >Buchanan</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col0" class="data row0 col0" >15.70 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col1" class="data row0 col1" >9.51 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col2" class="data row0 col2" >10.41 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col3" class="data row0 col3" >11.92 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col4" class="data row0 col4" >8.35 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col5" class="data row0 col5" >22.39 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col6" class="data row0 col6" >13.14 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row0_col7" class="data row0 col7" >8.58 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row1" class="row_heading level0 row1" >Callahan</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col0" class="data row1 col0" >15.71 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col1" class="data row1 col1" >9.52 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col2" class="data row1 col2" >10.41 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col3" class="data row1 col3" >11.84 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col4" class="data row1 col4" >8.18 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col5" class="data row1 col5" >22.45 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col6" class="data row1 col6" >13.44 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row1_col7" class="data row1 col7" >8.45 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row1" class="row_heading level0 row1" >Callahan</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col0" class="data row1 col0" >15.71 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col1" class="data row1 col1" >9.52 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col2" class="data row1 col2" >10.41 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col3" class="data row1 col3" >11.84 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col4" class="data row1 col4" >8.18 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col5" class="data row1 col5" >22.45 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col6" class="data row1 col6" >13.44 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row1_col7" class="data row1 col7" >8.45 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row2" class="row_heading level0 row2" >Davolio</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col0" class="data row2 col0" >15.45 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col1" class="data row2 col1" >9.46 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col2" class="data row2 col2" >10.37 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col3" class="data row2 col3" >11.89 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col4" class="data row2 col4" >8.34 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col5" class="data row2 col5" >22.36 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col6" class="data row2 col6" >13.70 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row2_col7" class="data row2 col7" >8.43 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row2" class="row_heading level0 row2" >Davolio</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col0" class="data row2 col0" >15.45 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col1" class="data row2 col1" >9.46 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col2" class="data row2 col2" >10.37 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col3" class="data row2 col3" >11.89 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col4" class="data row2 col4" >8.34 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col5" class="data row2 col5" >22.36 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col6" class="data row2 col6" >13.70 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row2_col7" class="data row2 col7" >8.43 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row3" class="row_heading level0 row3" >Dodsworth</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col0" class="data row3 col0" >15.65 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col1" class="data row3 col1" >9.64 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col2" class="data row3 col2" >10.32 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col3" class="data row3 col3" >11.91 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col4" class="data row3 col4" >8.38 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col5" class="data row3 col5" >22.36 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col6" class="data row3 col6" >13.06 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row3_col7" class="data row3 col7" >8.67 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row3" class="row_heading level0 row3" >Dodsworth</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col0" class="data row3 col0" >15.65 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col1" class="data row3 col1" >9.64 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col2" class="data row3 col2" >10.32 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col3" class="data row3 col3" >11.91 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col4" class="data row3 col4" >8.38 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col5" class="data row3 col5" >22.36 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col6" class="data row3 col6" >13.06 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row3_col7" class="data row3 col7" >8.67 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row4" class="row_heading level0 row4" >Fuller</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col0" class="data row4 col0" >15.73 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col1" class="data row4 col1" >9.45 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col2" class="data row4 col2" >10.39 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col3" class="data row4 col3" >11.87 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col4" class="data row4 col4" >8.39 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col5" class="data row4 col5" >22.35 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col6" class="data row4 col6" >13.28 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row4_col7" class="data row4 col7" >8.53 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row4" class="row_heading level0 row4" >Fuller</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col0" class="data row4 col0" >15.73 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col1" class="data row4 col1" >9.45 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col2" class="data row4 col2" >10.39 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col3" class="data row4 col3" >11.87 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col4" class="data row4 col4" >8.39 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col5" class="data row4 col5" >22.35 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col6" class="data row4 col6" >13.28 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row4_col7" class="data row4 col7" >8.53 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row5" class="row_heading level0 row5" >King</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col0" class="data row5 col0" >15.59 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col1" class="data row5 col1" >9.59 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col2" class="data row5 col2" >10.56 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col3" class="data row5 col3" >11.94 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col4" class="data row5 col4" >8.36 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col5" class="data row5 col5" >21.95 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col6" class="data row5 col6" >13.49 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row5_col7" class="data row5 col7" >8.53 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row5" class="row_heading level0 row5" >King</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col0" class="data row5 col0" >15.59 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col1" class="data row5 col1" >9.59 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col2" class="data row5 col2" >10.56 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col3" class="data row5 col3" >11.94 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col4" class="data row5 col4" >8.36 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col5" class="data row5 col5" >21.95 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col6" class="data row5 col6" >13.49 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row5_col7" class="data row5 col7" >8.53 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row6" class="row_heading level0 row6" >Leverling</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col0" class="data row6 col0" >15.69 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col1" class="data row6 col1" >9.58 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col2" class="data row6 col2" >10.42 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col3" class="data row6 col3" >11.98 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col4" class="data row6 col4" >8.37 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col5" class="data row6 col5" >22.31 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col6" class="data row6 col6" >13.08 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row6_col7" class="data row6 col7" >8.58 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row6" class="row_heading level0 row6" >Leverling</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col0" class="data row6 col0" >15.69 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col1" class="data row6 col1" >9.58 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col2" class="data row6 col2" >10.42 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col3" class="data row6 col3" >11.98 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col4" class="data row6 col4" >8.37 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col5" class="data row6 col5" >22.31 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col6" class="data row6 col6" >13.08 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row6_col7" class="data row6 col7" >8.58 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row7" class="row_heading level0 row7" >Peacock</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col0" class="data row7 col0" >15.41 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col1" class="data row7 col1" >9.50 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col2" class="data row7 col2" >10.44 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col3" class="data row7 col3" >11.83 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col4" class="data row7 col4" >8.33 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col5" class="data row7 col5" >22.27 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col6" class="data row7 col6" >13.61 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row7_col7" class="data row7 col7" >8.60 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row7" class="row_heading level0 row7" >Peacock</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col0" class="data row7 col0" >15.41 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col1" class="data row7 col1" >9.50 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col2" class="data row7 col2" >10.44 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col3" class="data row7 col3" >11.83 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col4" class="data row7 col4" >8.33 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col5" class="data row7 col5" >22.27 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col6" class="data row7 col6" >13.61 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row7_col7" class="data row7 col7" >8.60 %</td>
             </tr>
             <tr>
-                        <th id="T_d8786312_01a0_11eb_8f9c_a434d95e1072level0_row8" class="row_heading level0 row8" >Suyama</th>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col0" class="data row8 col0" >15.63 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col1" class="data row8 col1" >9.52 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col2" class="data row8 col2" >10.36 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col3" class="data row8 col3" >11.86 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col4" class="data row8 col4" >8.34 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col5" class="data row8 col5" >22.40 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col6" class="data row8 col6" >13.38 %</td>
-                        <td id="T_d8786312_01a0_11eb_8f9c_a434d95e1072row8_col7" class="data row8 col7" >8.52 %</td>
+                        <th id="T_fd4ba002_23f4_11eb_82c7_472f2f362698level0_row8" class="row_heading level0 row8" >Suyama</th>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col0" class="data row8 col0" >15.63 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col1" class="data row8 col1" >9.52 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col2" class="data row8 col2" >10.36 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col3" class="data row8 col3" >11.86 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col4" class="data row8 col4" >8.34 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col5" class="data row8 col5" >22.40 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col6" class="data row8 col6" >13.38 %</td>
+                        <td id="T_fd4ba002_23f4_11eb_82c7_472f2f362698row8_col7" class="data row8 col7" >8.52 %</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1314,7 +1504,7 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4_Connecting_with_accounting_databases_57_0.png" src="_images/4_Connecting_with_accounting_databases_57_0.png" />
+<img alt="_images/4_Connecting_with_accounting_databases_58_0.png" src="_images/4_Connecting_with_accounting_databases_58_0.png" />
 </div>
 </div>
 <p>Fama/French data library is also very interesting for accounting research. <a class="reference external" href="http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html</a></p>
@@ -1366,7 +1556,7 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;10 Industry Portfolios\n----------------------\n\nThis file was created by CMPT_IND_RETS using the 202008 CRSP database. It contains value- and equal-weighted returns for 10 industry portfolios. The portfolios are constructed at the end of June. The annual returns are from January to December. Missing data are indicated by -99.99 or -999. Copyright 2020 Kenneth R. French\n\n  0 : Average Value Weighted Returns -- Monthly (59 rows x 10 cols)\n  1 : Average Equal Weighted Returns -- Monthly (59 rows x 10 cols)\n  2 : Average Value Weighted Returns -- Annual (5 rows x 10 cols)\n  3 : Average Equal Weighted Returns -- Annual (5 rows x 10 cols)\n  4 : Number of Firms in Portfolios (59 rows x 10 cols)\n  5 : Average Firm Size (59 rows x 10 cols)\n  6 : Sum of BE / Sum of ME (6 rows x 10 cols)\n  7 : Value-Weighted Average of BE/ME (6 rows x 10 cols)&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;10 Industry Portfolios\n----------------------\n\nThis file was created by CMPT_IND_RETS using the 202009 CRSP database. It contains value- and equal-weighted returns for 10 industry portfolios. The portfolios are constructed at the end of June. The annual returns are from January to December. Missing data are indicated by -99.99 or -999. Copyright 2020 Kenneth R. French\n\n  0 : Average Value Weighted Returns -- Monthly (59 rows x 10 cols)\n  1 : Average Equal Weighted Returns -- Monthly (59 rows x 10 cols)\n  2 : Average Value Weighted Returns -- Annual (5 rows x 10 cols)\n  3 : Average Equal Weighted Returns -- Annual (5 rows x 10 cols)\n  4 : Number of Firms in Portfolios (59 rows x 10 cols)\n  5 : Average Firm Size (59 rows x 10 cols)\n  6 : Sum of BE / Sum of ME (6 rows x 10 cols)\n  7 : Value-Weighted Average of BE/ME (6 rows x 10 cols)&#39;
 </pre></div>
 </div>
 </div>
@@ -1381,7 +1571,7 @@ Name: Quantity, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/4_Connecting_with_accounting_databases_67_1.png" src="_images/4_Connecting_with_accounting_databases_67_1.png" />
+<img alt="_images/4_Connecting_with_accounting_databases_68_1.png" src="_images/4_Connecting_with_accounting_databases_68_1.png" />
 </div>
 </div>
 </div>
