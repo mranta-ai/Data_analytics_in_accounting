@@ -16,7 +16,7 @@ pe_df['PE_ratio'] = pe_df['price']/pe_df['earnings']
 
 pe_df.index = pd.date_range('1800', '1932', freq='Y')
 
-The evolution of P/E-index from 1800 to 1931.
+The evolution of P/E-ratio from 1800 to 1931.
 
 pe_df['PE_ratio'].plot()
 
@@ -28,7 +28,7 @@ pe_df['PE_ratio'].hist()
 
 pe_df['PE_ratio'].plot.density()
 
-Pandas bar plots. Notice how they are invoked using **plot.bar()**.
+Pandas has bar plots. Notice how they are invoked using **plot.bar()**.
 
 know_df = pd.read_csv('https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/politicalKnowledge.csv',index_col=0)
 
@@ -42,7 +42,7 @@ And horisontal bars. Political knowledge in the US and Europe (college backgroun
 
 know_df[['DomesticKnowledge.c','InternationalKnowledge.c']].plot.barh(figsize=(10,6))
 
-With the **stacked = True**, you change grouped bars to stacked bars. Political knowledge in the US and Europe (high school/some college/college background stacked together).
+With **stacked = True**, you change grouped bars to stacked bars. Political knowledge in the US and Europe (high school/some college/college background stacked together).
 
 know_df[['DomesticKnowledge.hs', 'DomesticKnowledge.sc', 'DomesticKnowledge.c',
        'InternationalKnowledge.hs', 'InternationalKnowledge.sc',
@@ -102,12 +102,12 @@ ax3.plot(np.diff(csum_values),linestyle='--')
 ax4.hist(np.diff(csum_values),bins=20)
 plt.show()
 
-As you can see from the above example, colors, linestyles, etc. are defined using string codes.
+As you can see from the example above, colors, linestyles, etc. are defined using string codes.
 
 plt.plot(csum_values[20:40],'ro--')
 plt.show()
 
-The string codes are convenient, if you know them. But learning them takes a little time. Consult the Matplotlib documentation for full list of the string codes: [matplotlib.org](https://matplotlib.org/). You can draw the above figure using a more explicit syntax.
+The string codes are convenient, if you know them. But learning them takes a little time. Consult the Matplotlib documentation for the full list of the string codes: [matplotlib.org](https://matplotlib.org/). You can draw the above figure using a more explicit syntax.
 
 plt.plot(csum_values[20:40], color='r',marker='o',linestyle='dashed')
 plt.show()
@@ -123,6 +123,7 @@ Let's load a more interesting dataset.
 import pandas as pd
 comp_df = pd.read_csv('stat_data.csv',index_col=0)
 
+# winsorizing numerical variables
 numer = comp_df.columns[2:6]
 comp_df[numer] = comp_df[numer].clip(lower=comp_df[numer].quantile(0.025),
                                                    upper=comp_df[numer].quantile(0.975),axis=1)
@@ -144,7 +145,7 @@ plt.figure(figsize=(6,8))
 plt.boxplot(comp_df['ROE (%)'].dropna(),notch=True)
 plt.show()
 
-The horisontal bar plot function. There is also a function for a vertical bar plot.
+The horisontal bar plot function. There is also the function for a vertical bar plot.
 
 plt.barh(comp_df['NAME'][0:10],comp_df['CoGS/SALES - 5 Y (%)'][0:10])
 plt.show()
@@ -163,7 +164,7 @@ plt.loglog(euro_df['SMI'],label='SMI')
 plt.legend()
 plt.show()
 
-There is also a function for pie charts. Let's bin the R&D/SALES -variable for a meaningful data to use in a pie chart.
+There is also a function for pie charts. Let's categorise the R&D/SALES -variable for a meaningful data to use in a pie chart.
 
 categs = pd.cut(comp_df['R&D/SALES (%)'],4)
 
@@ -265,7 +266,7 @@ sns.regplot('DIV. YIELD','ROE (%)',data=comp_df)
 
 sns.pairplot(comp_df)
 
-With **catplot**, you can catogorise data in multiple ways simultaneously.
+With **catplot**, you can catogorise data in multiple ways.
 
 sns.catplot(x='ACCOUNTING STANDARD',y='DIV. YIELD',
                hue='Accounting Controversies',col='Basis of EPS data',kind='bar',data=comp_df)

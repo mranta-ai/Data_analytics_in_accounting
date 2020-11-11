@@ -16,7 +16,7 @@ There are a few limitations with the connection between Power BI/Python:
 - You must use full directory paths in your code, not relative paths.
 - Nested tables are not supported.
 
-Otherwise, implementing Python in Power BI is very similar to doing analysis purely inside Python. The good side is, of course, that you have the tools of both Python and Power BI at your disposal.
+Otherwise, implementing Python in Power BI is very similar to doing analysis purely inside Python. The good thing is, of course, that you have the tools of both Python and Power BI at your disposal.
 
 ### MySQL, SAP and others
 
@@ -29,7 +29,7 @@ The task is quite difficult, and we are not doing that in this course.
 
 In the following, we will analyse our example database purely in Python. For that, we use an example company database that is available here: [github.com/jpwhite3/northwind-SQLite3](https://github.com/jpwhite3/northwind-SQLite3)
 
-![Northwind](./images/northwind.png)
+![Northwind](./images/Northwind.png)
 
 This demo-database has originally been published to Microsoft Access 2000. We analyse it using Sqlite3. However, keep in mind that you can repeat the following analysis by connecting to many other databases, like SAP. In the following, we use some basic SQL statements. However, this course is not about SQL, so we do not go deeper in that direction.
 
@@ -77,6 +77,8 @@ JOIN Orders ON Orders.Id=OrderDetails.OrderID
 JOIN Employees ON Employees.Id=Orders.EmployeeId
 JOIN Products ON Products.ID=OrderDetails.ProductId
 JOIN Categories ON Categories.ID=Products.CategoryID""", connection)
+
+query_df
 
 Now that we have everything neatly in a Pandas dataframe, we can do many kinds of analyses. The other chapters focus more on the Pandas functionality, but let's try something that we can do.
 
@@ -138,6 +140,7 @@ plt.show()
 We can also use bar charts. Here are the sales of different salesperson and product categories. We first do a two-level grouping, sum the values in those groups, and pick **TotalPrice**. Adding **plot.barh()** to the end turns the 2-level grouping table into a bar chart. 
 
 query_df.groupby(['LastName','CategoryName']).sum()['TotalPrice'].plot.barh(figsize=(5,15))
+plt.show()
 
 We can also use percentage values in tables. (I admit, the following command is a mess!). It divides the values of a **LastName/CategoryName** -pivot table with the row sums of that table. Then, it multiplies these numbers by hundred. **style.format** is used to decrease the number of decimals to 2 **2f**, and to add **%** to the end.
 
