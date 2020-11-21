@@ -278,24 +278,68 @@
      1.3.2. Scikit-learn
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   1.4. Regression
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#linear-model">
-     1.3.3. Linear model
+     1.4.1. Linear model
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ridge-regression">
-     1.3.4. Ridge regression
+     1.4.2. Ridge regression
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-lasso">
-     1.3.5. The Lasso
+     1.4.3. The Lasso
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bayesian-ridge-regression">
-     1.3.6. Bayesian ridge regression
+    <a class="reference internal nav-link" href="#linear-reference-model">
+     1.4.4. Linear reference model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest">
+     1.4.5. Random forest
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gradient-boosting">
+   1.5. Gradient boosting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification">
+   1.6. Classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-discriminant-analysis">
+     1.6.1. Linear discriminant analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.6.2. Support vector machines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-trees">
+     1.6.3. Decision trees
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest-revisited">
+     1.6.4. Random forest revisited
     </a>
    </li>
   </ul>
@@ -1317,7 +1361,6 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 <p>A very convenient feature in Scikit-learn is <strong>pipeline</strong> that you can use to construct full workflows of machine learning analyses.</p>
 <p>There should be now difficulties to install Scikit-learn. With Python/Pip you just execute <strong>pip install scikit-learn</strong> and with Anaconda you just install it from the menu (or use <strong>conda install scikit-learn</strong> in the command line). (Actually, you should not need to do that as Scikit-learn is installed in Anaconda by default.)</p>
 <p>Again, the best way to learn Scikit-learn is by going through examples. Thus, more  details are in the following examples.</p>
-<p>Our sample dataset consists of few key financials of the largest US companies. Let’s load it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1339,8 +1382,19 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ml_data.csv&#39;</span><span class="p">)[[</span><span class="s1">&#39;Attr1&#39;</span><span class="p">,</span><span class="s1">&#39;Attr8&#39;</span><span class="p">,</span><span class="s1">&#39;Attr21&#39;</span><span class="p">,</span><span class="s1">&#39;Attr4&#39;</span><span class="p">,</span>
-                                       <span class="s1">&#39;Attr5&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span><span class="p">,</span><span class="s1">&#39;Attr20&#39;</span><span class="p">,</span><span class="s1">&#39;Attr12&#39;</span><span class="p">,</span>
-                                       <span class="s1">&#39;Attr15&#39;</span><span class="p">,</span><span class="s1">&#39;Attr6&#39;</span><span class="p">,</span><span class="s1">&#39;Attr24&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span><span class="p">,</span><span class="s1">&#39;Attr47&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">]]</span>
+                                       <span class="s1">&#39;Attr5&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span><span class="p">,</span><span class="s1">&#39;Attr20&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;Attr15&#39;</span><span class="p">,</span><span class="s1">&#39;Attr6&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above link has the explanation for all the variables. The original data has 65 variables, but we are here using a subsample of 10 variables. With <strong>rename()</strong> we can rename the variables to be more informative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Attr1&#39;</span> <span class="p">:</span> <span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;Attr8&#39;</span> <span class="p">:</span> <span class="s1">&#39;Leverage&#39;</span><span class="p">,</span><span class="s1">&#39;Attr21&#39;</span> <span class="p">:</span> <span class="s1">&#39;Sales-growth&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr4&#39;</span> <span class="p">:</span> <span class="s1">&#39;Current ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr5&#39;</span> <span class="p">:</span> <span class="s1">&#39;Quick ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span> <span class="p">:</span> <span class="s1">&#39;Log(Total assets)&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr20&#39;</span> <span class="p">:</span> <span class="s1">&#39;Inventory*365/sales&#39;</span><span class="p">,</span><span class="s1">&#39;Attr15&#39;</span> <span class="p">:</span> <span class="s1">&#39;Total_liab*365/(gross_prof+depr)&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr6&#39;</span> <span class="p">:</span> <span class="s1">&#39;Ret_earnings/TA&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span> <span class="p">:</span> <span class="s1">&#39;Receiv*365/sales&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1370,20 +1424,16 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Attr1</th>
-      <th>Attr8</th>
-      <th>Attr21</th>
-      <th>Attr4</th>
-      <th>Attr5</th>
-      <th>Attr29</th>
-      <th>Attr20</th>
-      <th>Attr12</th>
-      <th>Attr15</th>
-      <th>Attr6</th>
-      <th>Attr24</th>
-      <th>Attr44</th>
-      <th>Attr47</th>
-      <th>class</th>
+      <th>ROA</th>
+      <th>Leverage</th>
+      <th>Sales-growth</th>
+      <th>Current ratio</th>
+      <th>Quick ratio</th>
+      <th>Log(Total assets)</th>
+      <th>Inventory*365/sales</th>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <th>Ret_earnings/TA</th>
+      <th>Receiv*365/sales</th>
     </tr>
   </thead>
   <tbody>
@@ -1396,13 +1446,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.007406</td>
       <td>-0.631107</td>
       <td>-0.070344</td>
-      <td>-0.036576</td>
       <td>-0.005305</td>
       <td>-0.016047</td>
-      <td>-0.004522</td>
       <td>-0.009084</td>
-      <td>-0.041943</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1413,13 +1459,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.007515</td>
       <td>-1.168550</td>
       <td>-0.047947</td>
-      <td>-0.299606</td>
       <td>-0.119627</td>
       <td>-0.016047</td>
-      <td>0.048932</td>
       <td>-0.009659</td>
-      <td>-0.035025</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1430,13 +1472,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.006572</td>
       <td>0.096212</td>
       <td>0.001761</td>
-      <td>-0.151208</td>
       <td>0.009484</td>
       <td>-0.016047</td>
-      <td>0.030648</td>
       <td>-0.016517</td>
-      <td>-0.012947</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1447,13 +1485,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.007477</td>
       <td>0.296277</td>
       <td>-0.006430</td>
-      <td>-0.145529</td>
       <td>0.045912</td>
       <td>-0.010915</td>
-      <td>-0.038157</td>
       <td>0.020758</td>
-      <td>-0.016611</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1464,20 +1498,12 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.007879</td>
       <td>-0.501471</td>
       <td>-0.043107</td>
-      <td>0.208686</td>
       <td>-0.021015</td>
       <td>-0.016047</td>
-      <td>0.107718</td>
       <td>-0.011036</td>
-      <td>-0.031184</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1498,13 +1524,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.006687</td>
       <td>0.162211</td>
       <td>0.002114</td>
-      <td>-0.165392</td>
       <td>0.081838</td>
       <td>-0.006462</td>
-      <td>-0.035782</td>
       <td>0.006482</td>
-      <td>-0.015742</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>9996</th>
@@ -1515,13 +1537,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.007497</td>
       <td>0.630702</td>
       <td>-0.022646</td>
-      <td>-0.169328</td>
       <td>-0.018260</td>
       <td>-0.034968</td>
-      <td>-0.077787</td>
       <td>-0.017303</td>
-      <td>-0.025363</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>9997</th>
@@ -1532,13 +1550,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.006716</td>
       <td>1.249499</td>
       <td>-0.034307</td>
-      <td>-0.287411</td>
       <td>-0.059516</td>
       <td>-0.013742</td>
-      <td>-0.044481</td>
       <td>-0.006031</td>
-      <td>-0.028940</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>9998</th>
@@ -1549,13 +1563,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.008123</td>
       <td>-0.640261</td>
       <td>-0.059005</td>
-      <td>-0.204565</td>
       <td>0.021498</td>
       <td>-0.018374</td>
-      <td>-0.054959</td>
       <td>0.001036</td>
-      <td>-0.038411</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>9999</th>
@@ -1566,31 +1576,16 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
       <td>0.007850</td>
       <td>0.564555</td>
       <td>-0.062083</td>
-      <td>-0.142172</td>
       <td>-0.012039</td>
       <td>0.001952</td>
-      <td>-0.017473</td>
       <td>-0.015710</td>
-      <td>-0.039692</td>
-      <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>10000 rows × 14 columns</p>
+<p>10000 rows × 10 columns</p>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Attr1&#39;</span> <span class="p">:</span> <span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;Attr8&#39;</span> <span class="p">:</span> <span class="s1">&#39;Leverage&#39;</span><span class="p">,</span><span class="s1">&#39;Attr21&#39;</span> <span class="p">:</span> <span class="s1">&#39;Sales-growth&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;Attr4&#39;</span> <span class="p">:</span> <span class="s1">&#39;Current ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr5&#39;</span> <span class="p">:</span> <span class="s1">&#39;Quick ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span> <span class="p">:</span> <span class="s1">&#39;Log(Total assets)&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;Attr20&#39;</span> <span class="p">:</span> <span class="s1">&#39;Inventory*365/sales&#39;</span><span class="p">,</span><span class="s1">&#39;Attr12&#39;</span> <span class="p">:</span> <span class="s1">&#39;Gross_prof/st_liab&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;Attr15&#39;</span> <span class="p">:</span> <span class="s1">&#39;Total_liab*365/(gross_prof+depr)&#39;</span><span class="p">,</span><span class="s1">&#39;Attr6&#39;</span> <span class="p">:</span> <span class="s1">&#39;Ret_earnings/TA&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;Attr24&#39;</span> <span class="p">:</span> <span class="s1">&#39;Gross_prof/TA(3yr)&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span> <span class="p">:</span> <span class="s1">&#39;Receiv*365/sales&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;Attr47&#39;</span> <span class="p">:</span> <span class="s1">&#39;Inv*365/CoGS&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>With the <strong>clip</strong> method, you can winsorise the data. Here extreme values are moved to 1 % and 99 % quantiles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">table_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span><span class="n">upper</span><span class="o">=</span><span class="n">table_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1598,6 +1593,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>With <strong>hist()</strong> you can check the distributions quickly. The most problematic outliers have been removed by winsorisation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
@@ -1606,12 +1602,186 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_121_0.png" src="_images/7_Introduction_to_ML_in_accounting_121_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_123_0.png" src="_images/7_Introduction_to_ML_in_accounting_123_0.png" />
 </div>
 </div>
+<p>With <strong>corr()</strong> you can check the correlations. There is multicollinearity present, but for example with ensemble methods, multicollinearity is much less of a problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ROA</th>
+      <th>Leverage</th>
+      <th>Sales-growth</th>
+      <th>Current ratio</th>
+      <th>Quick ratio</th>
+      <th>Log(Total assets)</th>
+      <th>Inventory*365/sales</th>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <th>Ret_earnings/TA</th>
+      <th>Receiv*365/sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ROA</th>
+      <td>1.000000</td>
+      <td>0.253631</td>
+      <td>0.198471</td>
+      <td>0.239780</td>
+      <td>0.073774</td>
+      <td>-0.022929</td>
+      <td>-0.199351</td>
+      <td>0.031788</td>
+      <td>0.482101</td>
+      <td>-0.088218</td>
+    </tr>
+    <tr>
+      <th>Leverage</th>
+      <td>0.253631</td>
+      <td>1.000000</td>
+      <td>-0.062703</td>
+      <td>0.678369</td>
+      <td>0.137512</td>
+      <td>0.092470</td>
+      <td>0.017957</td>
+      <td>-0.088598</td>
+      <td>0.277234</td>
+      <td>-0.007704</td>
+    </tr>
+    <tr>
+      <th>Sales-growth</th>
+      <td>0.198471</td>
+      <td>-0.062703</td>
+      <td>1.000000</td>
+      <td>-0.050987</td>
+      <td>0.008612</td>
+      <td>0.124345</td>
+      <td>-0.080525</td>
+      <td>0.005148</td>
+      <td>0.008116</td>
+      <td>-0.018546</td>
+    </tr>
+    <tr>
+      <th>Current ratio</th>
+      <td>0.239780</td>
+      <td>0.678369</td>
+      <td>-0.050987</td>
+      <td>1.000000</td>
+      <td>0.175938</td>
+      <td>-0.055648</td>
+      <td>0.143823</td>
+      <td>-0.059035</td>
+      <td>0.169986</td>
+      <td>0.097054</td>
+    </tr>
+    <tr>
+      <th>Quick ratio</th>
+      <td>0.073774</td>
+      <td>0.137512</td>
+      <td>0.008612</td>
+      <td>0.175938</td>
+      <td>1.000000</td>
+      <td>-0.009259</td>
+      <td>-0.067865</td>
+      <td>-0.067402</td>
+      <td>0.071122</td>
+      <td>0.026820</td>
+    </tr>
+    <tr>
+      <th>Log(Total assets)</th>
+      <td>-0.022929</td>
+      <td>0.092470</td>
+      <td>0.124345</td>
+      <td>-0.055648</td>
+      <td>-0.009259</td>
+      <td>1.000000</td>
+      <td>0.065786</td>
+      <td>0.009114</td>
+      <td>0.199229</td>
+      <td>0.116596</td>
+    </tr>
+    <tr>
+      <th>Inventory*365/sales</th>
+      <td>-0.199351</td>
+      <td>0.017957</td>
+      <td>-0.080525</td>
+      <td>0.143823</td>
+      <td>-0.067865</td>
+      <td>0.065786</td>
+      <td>1.000000</td>
+      <td>0.026625</td>
+      <td>-0.109237</td>
+      <td>0.154436</td>
+    </tr>
+    <tr>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <td>0.031788</td>
+      <td>-0.088598</td>
+      <td>0.005148</td>
+      <td>-0.059035</td>
+      <td>-0.067402</td>
+      <td>0.009114</td>
+      <td>0.026625</td>
+      <td>1.000000</td>
+      <td>0.005612</td>
+      <td>0.018199</td>
+    </tr>
+    <tr>
+      <th>Ret_earnings/TA</th>
+      <td>0.482101</td>
+      <td>0.277234</td>
+      <td>0.008116</td>
+      <td>0.169986</td>
+      <td>0.071122</td>
+      <td>0.199229</td>
+      <td>-0.109237</td>
+      <td>0.005612</td>
+      <td>1.000000</td>
+      <td>-0.052223</td>
+    </tr>
+    <tr>
+      <th>Receiv*365/sales</th>
+      <td>-0.088218</td>
+      <td>-0.007704</td>
+      <td>-0.018546</td>
+      <td>0.097054</td>
+      <td>0.026820</td>
+      <td>0.116596</td>
+      <td>0.154436</td>
+      <td>0.018199</td>
+      <td>-0.052223</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The predictors are everything else but ROA, which is our predicted variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ROA&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1630,11 +1800,11 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
-<p>Let’s make things difficult for OLS (very small train set).</p>
+<p>Let’s make things difficult for OLS (very small train set). Here we use only 1 % of the data for training to demonstrate the strengths of ridge and lasso regression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.995</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1646,14 +1816,17 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="regression">
+<h2><span class="section-number">1.4. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="linear-model">
-<h3><span class="section-number">1.3.3. </span>Linear model<a class="headerlink" href="#linear-model" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.1. </span>Linear model<a class="headerlink" href="#linear-model" title="Permalink to this headline">¶</a></h3>
 <p>Although Scikit-learn is a ML library, it is possible to do a basic linear regression analysis with it. (All ML methods are statistical methods. The separation between them is artificial.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1662,6 +1835,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>We define our LinearRegression object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
@@ -1669,6 +1843,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p><strong>fit()</strong> can be used to fit the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
@@ -1681,6 +1856,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p><strong>coef_</strong> -attribute has the coefficients of each variable and <strong>intercept_</strong> has the intercept of the linear regression model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span>
@@ -1688,9 +1864,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.00677213,  0.77339469, -0.11731442,  0.44628022, -0.01783769,
-       -0.54783636,  0.15551761,  0.24205175,  0.1214785 ,  1.9324954 ,
-        6.64194553,  1.18144939])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-4.95131952e-03, -2.16483361e+01,  2.56318923e-01,  1.57522210e+00,
+       -9.94242834e-03, -4.97093290e-01,  7.12480216e-02,  1.56827847e+00,
+       -2.12876691e+00])
 </pre></div>
 </div>
 </div>
@@ -1702,11 +1878,12 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10151311589661385
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3581128448264698
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>score()</strong> can be used to measure the coefficient of determination of the trained model. How much our variables are explaining of the variation of the predicted variable.*</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -1714,25 +1891,27 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5629508638436238
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14662911115789934
 </pre></div>
 </div>
 </div>
 </div>
+<p>A short code to draw scatter charts between every feature and ROA. The blue dots are the correct values and the red dots are the predictions of the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_136_0.png" src="_images/7_Introduction_to_ML_in_accounting_136_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_147_0.png" src="_images/7_Introduction_to_ML_in_accounting_147_0.png" />
 </div>
 </div>
+<p>Mean squared error can be used to the measure the performance. Less is better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
@@ -1747,30 +1926,31 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0153028503099343
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.029838723728760376
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="ridge-regression">
-<h3><span class="section-number">1.3.4. </span>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.2. </span>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">¶</a></h3>
 <p>Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model.</p>
 <p>We can optimise the alpha parameter of the error function automatically using <strong>RidgeCV</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">RidgeCV</span><span class="p">(</span><span class="n">alphas</span> <span class="o">=</span> <span class="n">alpha_set</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">RidgeCV</span><span class="p">(</span><span class="n">alphas</span> <span class="o">=</span> <span class="n">alpha_set</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Otherwise similar steps. Define the object, use the <strong>fit()</strong> function, analyse the results with <strong>coef_</strong>, <strong>intercept_</strong>, <strong>score()</strong> and <strong>mean_squared_error()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
@@ -1778,10 +1958,12 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RidgeCV(alphas=array([1.e-10, 1.e-09, 1.e-08, 1.e-07, 1.e-06, 1.e-05, 1.e-04, 1.e-03,
-       1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04, 1.e+05,
-       1.e+06, 1.e+07, 1.e+08, 1.e+09, 1.e+10]),
-        cv=5, normalize=True, scoring=&#39;neg_mean_squared_error&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RidgeCV(alphas=array([1.00000000e-05, 3.35981829e-05, 1.12883789e-04, 3.79269019e-04,
+       1.27427499e-03, 4.28133240e-03, 1.43844989e-02, 4.83293024e-02,
+       1.62377674e-01, 5.45559478e-01, 1.83298071e+00, 6.15848211e+00,
+       2.06913808e+01, 6.95192796e+01, 2.33572147e+02, 7.84759970e+02,
+       2.63665090e+03, 8.85866790e+03, 2.97635144e+04, 1.00000000e+05]),
+        cv=10, normalize=True, scoring=&#39;neg_mean_squared_error&#39;)
 </pre></div>
 </div>
 </div>
@@ -1794,9 +1976,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.01540044, -3.12519385, -0.06444324,  0.34387429, -0.00970199,
-       -0.35876438,  0.17407056,  0.20761134,  0.22395114,  1.62630975,
-        4.72095494,  0.8152974 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.50744525e-02, -1.39381411e+01,  1.30736089e-01,  4.81161991e-01,
+       -7.84082924e-03, -3.00898196e-01,  7.75623294e-02,  1.00070461e+00,
+       -1.68304267e+00])
 </pre></div>
 </div>
 </div>
@@ -1808,7 +1990,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01662359231215951
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.22779312775441007
 </pre></div>
 </div>
 </div>
@@ -1820,7 +2002,19 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5455594781168515
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2035076502930907
 </pre></div>
 </div>
 </div>
@@ -1828,7 +2022,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 <p>Ridge regression decreases  the variation of predictions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">ridgecv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -1837,7 +2031,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_150_0.png" src="_images/7_Introduction_to_ML_in_accounting_150_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_164_0.png" src="_images/7_Introduction_to_ML_in_accounting_164_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1847,14 +2041,14 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.012779896672943086
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027849924910402172
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="the-lasso">
-<h3><span class="section-number">1.3.5. </span>The Lasso<a class="headerlink" href="#the-lasso" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.3. </span>The Lasso<a class="headerlink" href="#the-lasso" title="Permalink to this headline">¶</a></h3>
 <p>Let’s try next the lasso.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1865,7 +2059,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">(</span><span class="n">alphas</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">(</span><span class="n">alphas</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1877,12 +2071,12 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LassoCV(cv=10, max_iter=100000, normalize=True)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LassoCV(cv=5, max_iter=100000, normalize=True)
 </pre></div>
 </div>
 </div>
 </div>
-<p>As you can see, the coefficients have decreases. But only a little.</p>
+<p>Lasso is different in that it decreases the coefficients of variables more easily to zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">coef_</span>
@@ -1890,9 +2084,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.        , -0.        ,  0.        , -0.        , -0.        ,
-       -0.        ,  0.04763644,  0.        ,  0.        ,  1.63626873,
-        0.        ,  0.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -3.47515588,  0.17823162,  0.        , -0.        ,
+       -0.10806394,  0.        ,  1.17143038, -0.        ])
 </pre></div>
 </div>
 </div>
@@ -1904,7 +2097,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.00518692530612317
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.036391709169603666
 </pre></div>
 </div>
 </div>
@@ -1916,7 +2109,19 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.004070594118699143
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002034766231861985
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2216681597092679
 </pre></div>
 </div>
 </div>
@@ -1924,7 +2129,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 <p>Ridge regression decreases  the variation of predictions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">lassocv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -1933,7 +2138,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_163_0.png" src="_images/7_Introduction_to_ML_in_accounting_163_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_177_0.png" src="_images/7_Introduction_to_ML_in_accounting_177_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1943,15 +2148,16 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01313240946567904
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02721492970453322
 </pre></div>
 </div>
 </div>
 </div>
 <p>As you can see from the results, the Lasso and ridge regression are usefuly only when n is close to p.</p>
+<p>By using larger alpha value, we can force more variables to zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.003</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1963,7 +2169,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lasso(alpha=0.01, max_iter=100000, normalize=True)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lasso(alpha=0.003, max_iter=100000, normalize=True)
 </pre></div>
 </div>
 </div>
@@ -1976,9 +2182,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.        ,  0.        , -0.        ,  0.        ,
-       -0.        ,  0.        ,  0.        ,  0.        ,  1.15219894,
-        0.        ,  0.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.        ,  0.14767181,  0.        , -0.        ,
+       -0.        ,  0.        ,  0.98729175, -0.        ])
 </pre></div>
 </div>
 </div>
@@ -1990,7 +2195,19 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.015156386510693794
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.017635888536608735
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21680467823704752
 </pre></div>
 </div>
 </div>
@@ -1998,7 +2215,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 <p>Ridge regression decreases  the variation of predictions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">lasso_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -2007,7 +2224,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_173_0.png" src="_images/7_Introduction_to_ML_in_accounting_173_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_188_0.png" src="_images/7_Introduction_to_ML_in_accounting_188_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2017,14 +2234,816 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.016881523757905623
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027384984814107477
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="bayesian-ridge-regression">
-<h3><span class="section-number">1.3.6. </span>Bayesian ridge regression<a class="headerlink" href="#bayesian-ridge-regression" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="linear-reference-model">
+<h3><span class="section-number">1.4.4. </span>Linear reference model<a class="headerlink" href="#linear-reference-model" title="Permalink to this headline">¶</a></h3>
+<p>In the following, we use a more reasonable division between training and testing datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3624295454797145
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">ref_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.022571114141273257
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random-forest">
+<h3><span class="section-number">1.4.5. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Random forest model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestRegressor(random_state=0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_202_0.png" src="_images/7_Introduction_to_ML_in_accounting_202_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Total_liab*365/(gross_prof+depr)</td>
+      <td>0.770332</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Leverage</td>
+      <td>0.133692</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ret_earnings/TA</td>
+      <td>0.018621</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sales-growth</td>
+      <td>0.0143994</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Log(Total assets)</td>
+      <td>0.0143823</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inventory*365/sales</td>
+      <td>0.0132926</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Quick ratio</td>
+      <td>0.0132356</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Current ratio</td>
+      <td>0.0114439</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Receiv*365/sales</td>
+      <td>0.0106012</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8716395282587384
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.004544186196770379
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gradient-boosting">
+<h2><span class="section-number">1.5. </span>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient_model</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GradientBoostingRegressor(random_state=0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">gradient_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_210_0.png" src="_images/7_Introduction_to_ML_in_accounting_210_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">gradient_model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Total_liab*365/(gross_prof+depr)</td>
+      <td>0.850534</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Leverage</td>
+      <td>0.0767628</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ret_earnings/TA</td>
+      <td>0.0379815</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sales-growth</td>
+      <td>0.0168338</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Log(Total assets)</td>
+      <td>0.00885142</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Quick ratio</td>
+      <td>0.00280972</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inventory*365/sales</td>
+      <td>0.0025788</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Current ratio</td>
+      <td>0.00189644</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Receiv*365/sales</td>
+      <td>0.0017513</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8444020113327864
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">gradient_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0055084421454295604
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="classification">
+<h2><span class="section-number">1.6. </span>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_class</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_class</span> <span class="o">=</span> <span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_class</span><span class="p">,</span> <span class="n">y_class</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-discriminant-analysis">
+<h3><span class="section-number">1.6.1. </span>Linear discriminant analysis<a class="headerlink" href="#linear-discriminant-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LDA_class</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LDA_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearDiscriminantAnalysis()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LDA_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7395
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">LDA_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_224_0.png" src="_images/7_Introduction_to_ML_in_accounting_224_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">LDA_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_225_0.png" src="_images/7_Introduction_to_ML_in_accounting_225_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">1.6.2. </span>Support vector machines<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Let’s try to predict positive ROA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC(kernel=&#39;linear&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6935
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_roc_curve</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_precision_recall_curve</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_233_0.png" src="_images/7_Introduction_to_ML_in_accounting_233_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x1efb61116d0&gt;
+</pre></div>
+</div>
+<img alt="_images/7_Introduction_to_ML_in_accounting_234_1.png" src="_images/7_Introduction_to_ML_in_accounting_234_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.724
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_238_0.png" src="_images/7_Introduction_to_ML_in_accounting_238_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x1efcb7dad60&gt;
+</pre></div>
+</div>
+<img alt="_images/7_Introduction_to_ML_in_accounting_239_1.png" src="_images/7_Introduction_to_ML_in_accounting_239_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="decision-trees">
+<h3><span class="section-number">1.6.3. </span>Decision trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_class</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeClassifier(max_depth=3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">tree_class</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_245_0.png" src="_images/7_Introduction_to_ML_in_accounting_245_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.839
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">tree_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x1efcb3e33d0&gt;
+</pre></div>
+</div>
+<img alt="_images/7_Introduction_to_ML_in_accounting_247_1.png" src="_images/7_Introduction_to_ML_in_accounting_247_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">tree_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x1efcb4d0eb0&gt;
+</pre></div>
+</div>
+<img alt="_images/7_Introduction_to_ML_in_accounting_248_1.png" src="_images/7_Introduction_to_ML_in_accounting_248_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="random-forest-revisited">
+<h3><span class="section-number">1.6.4. </span>Random forest revisited<a class="headerlink" href="#random-forest-revisited" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_class</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">rf_class</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Total_liab*365/(gross_prof+depr)</td>
+      <td>0.410528</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ret_earnings/TA</td>
+      <td>0.134742</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Leverage</td>
+      <td>0.103043</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sales-growth</td>
+      <td>0.0699161</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Current ratio</td>
+      <td>0.0586306</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Quick ratio</td>
+      <td>0.0526388</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Log(Total assets)</td>
+      <td>0.0482392</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inventory*365/sales</td>
+      <td>0.0423692</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Inv*365/CoGS</td>
+      <td>0.040502</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Receiv*365/sales</td>
+      <td>0.0393923</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.89
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">rf_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_255_0.png" src="_images/7_Introduction_to_ML_in_accounting_255_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">rf_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7_Introduction_to_ML_in_accounting_256_0.png" src="_images/7_Introduction_to_ML_in_accounting_256_0.png" />
+</div>
+</div>
 </div>
 </div>
 </div>
