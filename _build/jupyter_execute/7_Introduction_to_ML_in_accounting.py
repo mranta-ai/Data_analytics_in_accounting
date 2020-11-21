@@ -311,8 +311,6 @@ There should be now difficulties to install Scikit-learn. With Python/Pip you ju
 
 Again, the best way to learn Scikit-learn is by going through examples. Thus, more  details are in the following examples.
 
-Our sample dataset consists of few key financials of the largest US companies. Let's load it.
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -323,35 +321,47 @@ plt.style.use('bmh')
 Example data from [www.kaggle.com/c/companies-bankruptcy-forecast](https://www.kaggle.com/c/companies-bankruptcy-forecast)
 
 table_df = pd.read_csv('ml_data.csv')[['Attr1','Attr8','Attr21','Attr4',
-                                       'Attr5','Attr29','Attr20','Attr12',
-                                       'Attr15','Attr6','Attr24','Attr44','Attr47','class']]
+                                       'Attr5','Attr29','Attr20',
+                                       'Attr15','Attr6','Attr44']]
 
-table_df
+The above link has the explanation for all the variables. The original data has 65 variables, but we are here using a subsample of 10 variables. With **rename()** we can rename the variables to be more informative.
 
 table_df.rename({'Attr1' : 'ROA','Attr8' : 'Leverage','Attr21' : 'Sales-growth',
                  'Attr4' : 'Current ratio','Attr5' : 'Quick ratio','Attr29' : 'Log(Total assets)',
-                 'Attr20' : 'Inventory*365/sales','Attr12' : 'Gross_prof/st_liab',
-                'Attr15' : 'Total_liab*365/(gross_prof+depr)','Attr6' : 'Ret_earnings/TA',
-                'Attr24' : 'Gross_prof/TA(3yr)','Attr44' : 'Receiv*365/sales',
-                'Attr47' : 'Inv*365/CoGS'},axis=1,inplace=True)
+                 'Attr20' : 'Inventory*365/sales','Attr15' : 'Total_liab*365/(gross_prof+depr)',
+                 'Attr6' : 'Ret_earnings/TA','Attr44' : 'Receiv*365/sales'},axis=1,inplace=True)
+
+table_df
+
+With the **clip** method, you can winsorise the data. Here extreme values are moved to 1 % and 99 % quantiles.
 
 table_df = table_df.clip(lower=table_df.quantile(0.01),upper=table_df.quantile(0.99),axis=1)
+
+With **hist()** you can check the distributions quickly. The most problematic outliers have been removed by winsorisation.
 
 table_df.hist(figsize=(14,14))
 plt.show()
 
-X = table_df.drop(['ROA','class'],axis=1)
+With **corr()** you can check the correlations. There is multicollinearity present, but for example with ensemble methods, multicollinearity is much less of a problem.
+
+table_df.corr()
+
+The predictors are everything else but ROA, which is our predicted variable.
+
+X = table_df.drop(['ROA'],axis=1)
 
 y = table_df['ROA']
 
 from sklearn.model_selection import train_test_split
 
-Let's make things difficult for OLS (very small train set).
+Let's make things difficult for OLS (very small train set). Here we use only 1 % of the data for training to demonstrate the strengths of ridge and lasso regression.
 
 # Split data into training and test sets
-X_train, X_test , y_train, y_test = train_test_split(X, y, test_size=0.995, random_state=1)
+X_train, X_test , y_train, y_test = train_test_split(X, y, test_size=0.99, random_state=1)
 
 len(X_train)
+
+### Regression
 
 #### Linear model
 
@@ -359,21 +369,33 @@ Although Scikit-learn is a ML library, it is possible to do a basic linear regre
 
 import sklearn.linear_model as sk_lm
 
+We define our LinearRegression object.
+
 model = sk_lm.LinearRegression()
 
+**fit()** can be used to fit the data.
+
 model.fit(X_train,y_train)
+
+**coef_** -attribute has the coefficients of each variable and **intercept_** has the intercept of the linear regression model.
 
 model.coef_
 
 model.intercept_
 
+**score()** can be used to measure the coefficient of determination of the trained model. How much our variables are explaining of the variation of the predicted variable.*
+
 model.score(X_test,y_test)
 
-fig, axs = plt.subplots(6,2,figsize=(15,20))
+A short code to draw scatter charts between every feature and ROA. The blue dots are the correct values and the red dots are the predictions of the model.
+
+fig, axs = plt.subplots(3,3,figsize=(15,12))
 for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
-    ax.scatter(X_test[feature],y_test,alpha=0.5)
-    ax.plot(X_test[feature],model.predict(X_test),'r.',alpha=0.5)
+    ax.scatter(X_test[feature],y_test,alpha=0.4)
+    ax.plot(X_test[feature],model.predict(X_test),'r.',alpha=0.2)
     ax.set_title(feature)
+
+Mean squared error can be used to the measure the performance. Less is better.
 
 from sklearn.metrics import mean_squared_error
 
@@ -385,9 +407,11 @@ Ridge regression counters overfitting by adding a penalty on the size if the coe
 
 We can optimise the alpha parameter of the error function automatically using **RidgeCV**.
 
-alpha_set = np.logspace(-10,10,21)
+alpha_set = np.logspace(-5,5,20)
 
-ridgecv = sk_lm.RidgeCV(alphas = alpha_set,cv=5, scoring = 'neg_mean_squared_error', normalize = True)
+ridgecv = sk_lm.RidgeCV(alphas = alpha_set,cv=10, scoring = 'neg_mean_squared_error', normalize = True)
+
+Otherwise similar steps. Define the object, use the **fit()** function, analyse the results with **coef_**, **intercept_**, **score()** and **mean_squared_error()**.
 
 ridgecv.fit(X_train,y_train)
 
@@ -399,9 +423,11 @@ ridgecv.intercept_
 
 ridgecv.alpha_
 
+ridgecv.score(X_test,y_test)
+
 Ridge regression decreases  the variation of predictions.
 
-fig, axs = plt.subplots(3,2,figsize=(15,15))
+fig, axs = plt.subplots(3,3,figsize=(15,12))
 for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
     ax.scatter(X_test[feature],y_test,alpha=0.3)
     ax.plot(X_test[feature],ridgecv.predict(X_test),'r.',alpha=0.3)
@@ -413,15 +439,13 @@ mean_squared_error(y_test,ridgecv.predict(X_test))
 
 Let's try next the lasso.
 
-
-
 alpha_set = np.logspace(-5,5,21)
 
-lassocv = sk_lm.LassoCV(alphas = None,cv=10,max_iter=100000, normalize = True)
+lassocv = sk_lm.LassoCV(alphas = None,cv=5,max_iter=100000, normalize = True)
 
 lassocv.fit(X_train,y_train)
 
-As you can see, the coefficients have decreases. But only a little.
+Lasso is different in that it decreases the coefficients of variables more easily to zero.
 
 lassocv.coef_
 
@@ -429,9 +453,11 @@ lassocv.intercept_
 
 lassocv.alpha_
 
+lassocv.score(X_test,y_test)
+
 Ridge regression decreases  the variation of predictions.
 
-fig, axs = plt.subplots(3,2,figsize=(15,15))
+fig, axs = plt.subplots(3,3,figsize=(15,12))
 for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
     ax.scatter(X_test[feature],y_test,alpha=0.3)
     ax.plot(X_test[feature],lassocv.predict(X_test),'r.',alpha=0.3)
@@ -441,9 +467,9 @@ mean_squared_error(y_test,lassocv.predict(X_test))
 
 As you can see from the results, the Lasso and ridge regression are usefuly only when n is close to p.
 
+By using larger alpha value, we can force more variables to zero.
 
-
-lasso_model = sk_lm.Lasso(alpha = 0.01,max_iter=100000, normalize = True)
+lasso_model = sk_lm.Lasso(alpha = 0.003,max_iter=100000, normalize = True)
 
 lasso_model.fit(X_train,y_train)
 
@@ -453,9 +479,11 @@ lasso_model.coef_
 
 lasso_model.intercept_
 
+lasso_model.score(X_test,y_test)
+
 Ridge regression decreases  the variation of predictions.
 
-fig, axs = plt.subplots(6,2,figsize=(15,20))
+fig, axs = plt.subplots(3,3,figsize=(15,12))
 for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
     ax.scatter(X_test[feature],y_test,alpha=0.3)
     ax.plot(X_test[feature],lasso_model.predict(X_test),'r.',alpha=0.3)
@@ -463,5 +491,156 @@ for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
 
 mean_squared_error(y_test,lasso_model.predict(X_test))
 
-#### Bayesian ridge regression
+#### Linear reference model
+
+In the following, we use a more reasonable division between training and testing datasets.
+
+# Split data into training and test sets
+X_train, X_test , y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+
+ref_model = sk_lm.LinearRegression()
+
+ref_model.fit(X_train,y_train)
+
+ref_model.score(X_test,y_test)
+
+mean_squared_error(y_test,ref_model.predict(X_test))
+
+#### Random forest
+
+from sklearn.ensemble import RandomForestRegressor
+
+Random forest model
+
+r_forest_model = RandomForestRegressor(random_state=0)
+
+r_forest_model.fit(X_train,y_train)
+
+fig, axs = plt.subplots(3,3,figsize=(15,12))
+for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
+    ax.scatter(X_test[feature],y_test,alpha=0.6)
+    ax.plot(X_test[feature],r_forest_model.predict(X_test),'r.',alpha=0.3)
+    ax.set_title(feature)
+
+pd.DataFrame([X_train.columns,r_forest_model.feature_importances_]).transpose().sort_values(1,ascending=False)
+
+r_forest_model.score(X_test,y_test)
+
+mean_squared_error(y_test,r_forest_model.predict(X_test))
+
+### Gradient boosting
+
+from sklearn.ensemble import GradientBoostingRegressor
+
+gradient_model = GradientBoostingRegressor(random_state=0)
+
+gradient_model.fit(X_train,y_train)
+
+fig, axs = plt.subplots(3,3,figsize=(15,12))
+for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
+    ax.scatter(X_test[feature],y_test,alpha=0.6)
+    ax.plot(X_test[feature],gradient_model.predict(X_test),'r.',alpha=0.3)
+    ax.set_title(feature)
+
+pd.DataFrame([X_train.columns,gradient_model.feature_importances_]).transpose().sort_values(1,ascending=False)
+
+gradient_model.score(X_test,y_test)
+
+mean_squared_error(y_test,gradient_model.predict(X_test))
+
+### Classification
+
+table_df['ROA_ind'] = table_df['ROA']>0
+
+X_class = table_df.drop(['ROA','ROA_ind','class'],axis=1)
+
+y_class = table_df['ROA_ind']
+
+# Split data into training and test sets
+X_train, X_test , y_train, y_test = train_test_split(X_class, y_class, test_size=0.2, random_state=1)
+
+#### Linear discriminant analysis
+
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+
+LDA_class = LinearDiscriminantAnalysis()
+
+LDA_class.fit(X_train,y_train)
+
+LDA_class.score(X_test,y_test)
+
+plot_roc_curve(LDA_class,X_test,y_test)
+plt.show()
+
+plot_precision_recall_curve(LDA_class,X_test,y_test)
+plt.show()
+
+#### Support vector machines
+
+Let's try to predict positive ROA.
+
+from sklearn import svm
+
+svm_classifier = svm.SVC(kernel='linear')
+
+svm_classifier.fit(X_train,y_train)
+
+svm_classifier.score(X_test,y_test)
+
+from sklearn.metrics import plot_roc_curve
+from sklearn.metrics import plot_precision_recall_curve
+
+plot_roc_curve(svm_classifier,X_test,y_test)
+plt.show()
+
+plot_precision_recall_curve(svm_classifier,X_test,y_test)
+
+svm_classifier = svm.SVC(kernel='rbf')
+
+svm_classifier.fit(X_train,y_train)
+
+svm_classifier.score(X_test,y_test)
+
+plot_roc_curve(svm_classifier,X_test,y_test)
+plt.show()
+
+plot_precision_recall_curve(svm_classifier,X_test,y_test)
+
+#### Decision trees
+
+from sklearn import tree
+
+tree_class = tree.DecisionTreeClassifier(max_depth=3)
+
+tree_class.fit(X_train, y_train)
+
+from sklearn import tree
+
+plt.figure(figsize=(15,15))
+tree.plot_tree(tree_class,fontsize=12,filled=True)
+plt.show()
+
+tree_class.score(X_test,y_test)
+
+plot_roc_curve(tree_class,X_test,y_test)
+
+plot_precision_recall_curve(tree_class,X_test,y_test)
+
+#### Random forest revisited
+
+from sklearn.ensemble import RandomForestClassifier
+
+rf_class = RandomForestClassifier()
+
+rf_class.fit(X_train,y_train)
+
+pd.DataFrame([X_train.columns,rf_class.feature_importances_]).transpose().sort_values(1,ascending=False)
+
+rf_class.score(X_test,y_test)
+
+plot_roc_curve(rf_class,X_test,y_test)
+plt.show()
+
+plot_precision_recall_curve(rf_class,X_test,y_test)
+plt.show()
 
