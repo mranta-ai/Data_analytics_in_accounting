@@ -296,11 +296,11 @@ np.unique(large_np)
 
 Scikit-learn is a multi-purpose machine learning library. It has modules for many different machine learning approaches. It is not the best library in any machine learning field but very good at most of them. Also, all the approaches use the common workflow approach of the library. Thus, by learning to do one machine learning analysis, you learn to do them all.
 
-Scikit-learn has libraries for classification, regression, clustering, dimensionality reduction, model selection and preprocessing. It also has an extensive library of methods for data pre-processing.
+Scikit-learn has libraries for classification, regression, clustering, dimensionality reduction and model selection. It also has an extensive library of methods for data pre-processing.
 
 A very convenient feature in Scikit-learn is **pipeline** that you can use to construct full workflows of machine learning analyses.
 
-There should be now difficulties to install Scikit-learn. With Python/Pip you just execute **pip install scikit-learn** and with Anaconda you just install it from the menu (or use **conda install scikit-learn** in the command line). (Actually, you should not need to do that as Scikit-learn is installed in Anaconda by default.)
+There should be no difficulties to install Scikit-learn. With Python/Pip you just execute **pip install scikit-learn** and with Anaconda you just install it from the menu (or use **conda install scikit-learn** in the command line). (Actually, you should not need to do that as Scikit-learn is installed in Anaconda by default.)
 
 Again, the best way to learn Scikit-learn is by going through examples. Thus, more  details are in the following examples.
 
