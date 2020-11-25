@@ -415,9 +415,6 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <p><img alt="boosting" src="_images/boost.png" /></p>
 <p>Xgboost has probably been the most succesfull boosting method. It is very often behind the winning solutions of different machine learning competitions (<a class="reference external" href="https://www.kaggle.com">www.kaggle.com</a>). Here is a short info from the Xgboost github-page: “XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It implements machine learning algorithms under the Gradient Boosting framework. XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. The same code runs on major distributed environment (Kubernetes, Hadoop, SGE, MPI, Dask) and can solve problems beyond billions of examples.”</p>
 <p>Later in the book, we will see an example using Xgboost.</p>
-<p>Epälineaarinen vaikutuksen analysointi
-Bootstrapilla mukaan myös tilastollinen merkitsevyys
-Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus muotoa 𝑥, 𝑥^2,𝑥^3 jne…</p>
 </div>
 <div class="section" id="support-vector-machines">
 <h2><span class="section-number">1.2. </span>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h2>
@@ -437,6 +434,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p><strong>randint()</strong> from the <strong>random</strong> module can be used to create random integer values from a specified interval.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -451,10 +449,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[117, 106, 194, 165],
-       [109, 182, 151, 142],
-       [150, 164, 131, 162],
-       [169, 105, 176, 131]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[119, 143, 107, 180],
+       [145, 168, 179, 188],
+       [184, 165, 102, 138],
+       [124, 154, 199, 192]])
 </pre></div>
 </div>
 </div>
@@ -467,10 +465,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1170, 1060, 1940, 1650],
-       [1090, 1820, 1510, 1420],
-       [1500, 1640, 1310, 1620],
-       [1690, 1050, 1760, 1310]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1190, 1430, 1070, 1800],
+       [1450, 1680, 1790, 1880],
+       [1840, 1650, 1020, 1380],
+       [1240, 1540, 1990, 1920]])
 </pre></div>
 </div>
 </div>
@@ -482,10 +480,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.17, 1.06, 1.94, 1.65],
-       [1.09, 1.82, 1.51, 1.42],
-       [1.5 , 1.64, 1.31, 1.62],
-       [1.69, 1.05, 1.76, 1.31]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.19, 1.43, 1.07, 1.8 ],
+       [1.45, 1.68, 1.79, 1.88],
+       [1.84, 1.65, 1.02, 1.38],
+       [1.24, 1.54, 1.99, 1.92]])
 </pre></div>
 </div>
 </div>
@@ -497,10 +495,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[234, 212, 388, 330],
-       [218, 364, 302, 284],
-       [300, 328, 262, 324],
-       [338, 210, 352, 262]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[238, 286, 214, 360],
+       [290, 336, 358, 376],
+       [368, 330, 204, 276],
+       [248, 308, 398, 384]])
 </pre></div>
 </div>
 </div>
@@ -512,10 +510,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.76217393, 4.66343909, 5.26785816, 5.10594547],
-       [4.69134788, 5.20400669, 5.01727984, 4.95582706],
-       [5.01063529, 5.09986643, 4.87519732, 5.08759634],
-       [5.12989871, 4.65396035, 5.170484  , 4.87519732]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.77912349, 4.96284463, 4.67282883, 5.19295685],
+       [4.97673374, 5.12396398, 5.18738581, 5.23644196],
+       [5.21493576, 5.10594547, 4.62497281, 4.92725369],
+       [4.82028157, 5.0369526 , 5.29330482, 5.25749537]])
 </pre></div>
 </div>
 </div>
@@ -548,18 +546,18 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[[14, 15],
-         [17, 10]],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[[19, 19],
+         [14, 10]],
 
-        [[17, 15],
-         [16, 17]]],
+        [[16, 11],
+         [17, 14]]],
 
 
-       [[[18, 19],
-         [16, 18]],
+       [[[12, 17],
+         [10, 18]],
 
-        [[16, 13],
-         [10, 10]]]])
+        [[19, 10],
+         [11, 15]]]])
 </pre></div>
 </div>
 </div>
@@ -747,8 +745,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.67797176, -0.94909179, -1.3507424 ],
-       [-1.91892886,  1.61290875, -1.7005215 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.06819015,  0.9001127 ,  0.39329317],
+       [ 0.17527499, -1.06524224, -0.6335131 ]])
 </pre></div>
 </div>
 </div>
@@ -760,8 +758,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.4596457 , 0.90077523, 1.82450504],
-       [3.68228798, 2.60147463, 2.89177337]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.14103019, 0.81020288, 0.15467951],
+       [0.03072132, 1.13474104, 0.40133885]])
 </pre></div>
 </div>
 </div>
@@ -782,10 +780,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x29bacbe0dc0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x21ee5214220&gt;]
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_44_1.png" src="_images/7_Introduction_to_ML_in_accounting_44_1.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_45_1.png" src="_images/7_Introduction_to_ML_in_accounting_45_1.png" />
 </div>
 </div>
 <p>Dividing with an array works also element-wise.</p>
@@ -839,8 +837,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False,  True],
-       [False,  True]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True,  True],
+       [ True, False]])
 </pre></div>
 </div>
 </div>
@@ -860,9 +858,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 8, 3, 5],
-       [5, 6, 6, 7],
-       [7, 2, 2, 7]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 5, 9, 1],
+       [6, 7, 8, 2],
+       [7, 1, 2, 7]])
 </pre></div>
 </div>
 </div>
@@ -874,7 +872,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 6, 6, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 7, 8, 2])
 </pre></div>
 </div>
 </div>
@@ -887,7 +885,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 2])
 </pre></div>
 </div>
 </div>
@@ -907,9 +905,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 8, 3, 5],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 5, 9, 1],
        [1, 1, 1, 1],
-       [7, 2, 2, 7]])
+       [7, 1, 2, 7]])
 </pre></div>
 </div>
 </div>
@@ -922,7 +920,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3, 1, 1, 1, 1, 2, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1, 1, 1, 2])
 </pre></div>
 </div>
 </div>
@@ -935,8 +933,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 8, 3, 5],
-       [7, 2, 2, 7]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 5, 9, 1],
+       [7, 1, 2, 7]])
 </pre></div>
 </div>
 </div>
@@ -948,7 +946,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 3],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 9],
        [1, 1],
        [7, 2]])
 </pre></div>
@@ -1050,9 +1048,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.32323449, -1.21413189, -0.07163332],
-       [-0.12818076,  1.16629268,  1.90356545],
-       [-0.94237797, -0.20009899,  0.34774801]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.08555592, -0.65782731,  0.37283844],
+       [-0.56768041,  0.7954763 ,  0.38664961],
+       [-1.43126264, -1.68232606, -1.38542267]])
 </pre></div>
 </div>
 </div>
@@ -1064,9 +1062,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.78442039,  0.43540389, -2.22180757],
-       [-1.74472811, -0.5262777 ,  2.52143318],
-       [ 1.12179554,  0.87709316, -1.69446344]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.26555308, -0.904741  , -0.32396334],
+       [-0.78788226,  0.38348814, -0.10500569],
+       [ 1.23106911,  0.46900481, -0.25961   ]])
 </pre></div>
 </div>
 </div>
@@ -1079,9 +1077,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.00000000e+00, -1.25990249e-17, -1.11389608e-16],
-       [-1.09324233e-16,  1.00000000e+00,  2.40105310e-16],
-       [ 6.94025223e-17,  5.47230419e-17,  1.00000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.00000000e+00, -3.71539139e-17,  1.76391529e-17],
+       [ 1.25646888e-16,  1.00000000e+00,  1.32643955e-17],
+       [-1.09622239e-16, -1.42226126e-17,  1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -1094,13 +1092,13 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[-0.50198711, -0.7141179 , -0.4878981 ],
-        [ 0.86310232, -0.44973666, -0.22976362],
-        [-0.05534735, -0.53644436,  0.84211883]]),
- array([2.40192331, 1.86007397, 0.22441303]),
- array([[ 0.25220275,  0.6774502 ,  0.69098119],
-        [ 0.81078839,  0.24184561, -0.53304117],
-        [-0.52821961,  0.69467397, -0.48827463]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[-0.11624681,  0.36401177, -0.92411153],
+        [ 0.17998093, -0.90729564, -0.38002826],
+        [-0.97677712, -0.21049952,  0.03995504]]),
+ array([2.66054766, 0.99544231, 0.64211918]),
+ array([[ 0.49080066,  0.70019362,  0.51850131],
+        [ 0.78878575, -0.6098397 ,  0.07689334],
+        [ 0.37004291,  0.37124714, -0.85161248]]))
 </pre></div>
 </div>
 </div>
@@ -1120,11 +1118,11 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[6, 9, 8],
-        [7, 7, 5]],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[8, 9, 6],
+        [1, 8, 9]],
 
-       [[3, 2, 7],
-        [8, 7, 4]]])
+       [[4, 6, 1],
+        [4, 9, 5]]])
 </pre></div>
 </div>
 </div>
@@ -1136,14 +1134,14 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[6, 3],
-        [7, 8]],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[8, 4],
+        [1, 4]],
 
-       [[9, 2],
-        [7, 7]],
+       [[9, 6],
+        [8, 9]],
 
-       [[8, 7],
-        [5, 4]]])
+       [[6, 1],
+        [9, 5]]])
 </pre></div>
 </div>
 </div>
@@ -1156,11 +1154,11 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[2.44948974, 3.        , 2.82842712],
-        [2.64575131, 2.64575131, 2.23606798]],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[2.82842712, 3.        , 2.44948974],
+        [1.        , 2.82842712, 3.        ]],
 
-       [[1.73205081, 1.41421356, 2.64575131],
-        [2.82842712, 2.64575131, 2.        ]]])
+       [[2.        , 2.44948974, 1.        ],
+        [2.        , 3.        , 2.23606798]]])
 </pre></div>
 </div>
 </div>
@@ -1172,11 +1170,11 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[4.03428793e+02, 8.10308393e+03, 2.98095799e+03],
-        [1.09663316e+03, 1.09663316e+03, 1.48413159e+02]],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[2.98095799e+03, 8.10308393e+03, 4.03428793e+02],
+        [2.71828183e+00, 2.98095799e+03, 8.10308393e+03]],
 
-       [[2.00855369e+01, 7.38905610e+00, 1.09663316e+03],
-        [2.98095799e+03, 1.09663316e+03, 5.45981500e+01]]])
+       [[5.45981500e+01, 4.03428793e+02, 2.71828183e+00],
+        [5.45981500e+01, 8.10308393e+03, 1.48413159e+02]]])
 </pre></div>
 </div>
 </div>
@@ -1196,8 +1194,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 7, 5],
-       [3, 3, 4]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 9, 2],
+       [3, 6, 6]])
 </pre></div>
 </div>
 </div>
@@ -1209,8 +1207,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 7, 7],
-       [7, 9, 2]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 9, 7],
+       [6, 3, 1]])
 </pre></div>
 </div>
 </div>
@@ -1222,8 +1220,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 7, 7],
-       [7, 9, 4]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 9, 7],
+       [6, 6, 6]])
 </pre></div>
 </div>
 </div>
@@ -1245,8 +1243,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 6, 3],
-       [3, 7, 3]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 8, 3],
+       [2, 5, 8]])
 </pre></div>
 </div>
 </div>
@@ -1258,8 +1256,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 7, 3],
-       [5, 6, 6]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 3, 1],
+       [2, 5, 6]])
 </pre></div>
 </div>
 </div>
@@ -1271,8 +1269,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 7, 3],
-       [5, 7, 6]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 3, 3],
+       [2, 5, 6]])
 </pre></div>
 </div>
 </div>
@@ -1285,8 +1283,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 7, 9],
-       [5, 6, 6]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 1, 3],
+       [2, 5, 6]])
 </pre></div>
 </div>
 </div>
@@ -1298,8 +1296,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 6, 3],
-       [9, 7, 6]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 3, 1],
+       [2, 5, 6]])
 </pre></div>
 </div>
 </div>
@@ -1311,7 +1309,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 5, 6, 6, 7, 9])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 3, 5, 6])
 </pre></div>
 </div>
 </div>
@@ -1331,12 +1329,12 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6, 2, 8, 2, 8, 6],
-       [9, 4, 3, 3, 3, 7],
-       [6, 1, 8, 8, 4, 6],
-       [6, 1, 2, 4, 3, 5],
-       [1, 5, 6, 8, 9, 7],
-       [2, 9, 3, 1, 7, 8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 8, 3, 1, 4, 4],
+       [4, 6, 3, 3, 7, 5],
+       [8, 1, 4, 3, 5, 4],
+       [6, 7, 1, 8, 7, 1],
+       [1, 1, 6, 2, 9, 7],
+       [6, 9, 7, 9, 3, 1]])
 </pre></div>
 </div>
 </div>
@@ -1602,7 +1600,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_123_0.png" src="_images/7_Introduction_to_ML_in_accounting_123_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_122_0.png" src="_images/7_Introduction_to_ML_in_accounting_122_0.png" />
 </div>
 </div>
 <p>With <strong>corr()</strong> you can check the correlations. There is multicollinearity present, but for example with ensemble methods, multicollinearity is much less of a problem.</p>
@@ -1800,7 +1798,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
-<p>Let’s make things difficult for OLS (very small train set). Here we use only 1 % of the data for training to demonstrate the strengths of ridge and lasso regression.</p>
+<p>Let’s make things difficult for OLS (very small train set). Here we use only 1 % of the data for training to demonstrate the strengths of ridge and lasso regression, which are usually usefuly only when n is close to p.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
@@ -1827,7 +1825,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 <h2><span class="section-number">1.4. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="linear-model">
 <h3><span class="section-number">1.4.1. </span>Linear model<a class="headerlink" href="#linear-model" title="Permalink to this headline">¶</a></h3>
-<p>Although Scikit-learn is a ML library, it is possible to do a basic linear regression analysis with it. (All ML methods are statistical methods. The separation between them is artificial.)</p>
+<p>Although Scikit-learn is a ML library, it is possible to do a basic linear regression analysis with it. (All ML methods are statistical methods. The separation between them is artificial.)
+<img alt="Linear_regression" src="_images/Linear_regression.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.linear_model</span> <span class="k">as</span> <span class="nn">sk_lm</span>
@@ -1908,7 +1907,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_147_0.png" src="_images/7_Introduction_to_ML_in_accounting_147_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_146_0.png" src="_images/7_Introduction_to_ML_in_accounting_146_0.png" />
 </div>
 </div>
 <p>Mean squared error can be used to the measure the performance. Less is better.</p>
@@ -1934,8 +1933,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="section" id="ridge-regression">
 <h3><span class="section-number">1.4.2. </span>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">¶</a></h3>
-<p>Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model.</p>
+<p>Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model. So it is a regularisation method.</p>
+<p><img alt="Regularisation" src="_images/Regularization.svg" /></p>
 <p>We can optimise the alpha parameter of the error function automatically using <strong>RidgeCV</strong>.</p>
+<p><img alt="Ridge_alpha" src="./images/ridge_alpha.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -2007,6 +2008,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>The coefficient of determination is now much improved (linear regression ~0.15).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2034,6 +2036,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 <img alt="_images/7_Introduction_to_ML_in_accounting_164_0.png" src="_images/7_Introduction_to_ML_in_accounting_164_0.png" />
 </div>
 </div>
+<p>MSE has also improved.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">ridgecv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
@@ -2049,7 +2052,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="section" id="the-lasso">
 <h3><span class="section-number">1.4.3. </span>The Lasso<a class="headerlink" href="#the-lasso" title="Permalink to this headline">¶</a></h3>
-<p>Let’s try next the lasso.</p>
+<p>Let’s try next the lasso. It uses stronger regularisation (the absolute values of parameters in the regularisation term)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
@@ -2114,6 +2117,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>Now the coefficient of determination is even better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2126,7 +2130,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
-<p>Ridge regression decreases  the variation of predictions.</p>
+<p>As you can see from the figure below. Regularisation decreases the sizes of parameters and this decreases the variation of predictions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
@@ -2138,9 +2142,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_177_0.png" src="_images/7_Introduction_to_ML_in_accounting_177_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_179_0.png" src="_images/7_Introduction_to_ML_in_accounting_179_0.png" />
 </div>
 </div>
+<p>MSE has also improved.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">lassocv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
@@ -2153,7 +2158,6 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
-<p>As you can see from the results, the Lasso and ridge regression are usefuly only when n is close to p.</p>
 <p>By using larger alpha value, we can force more variables to zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2174,7 +2178,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
-<p>As you can see, the coefficients have decreases. But only a little.</p>
+<p>Now only two coefficients in our model are different from zero (Current ratio and Retained earnings / Total assets)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span><span class="o">.</span><span class="n">coef_</span>
@@ -2200,6 +2204,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>The score decreases a little because we are forcing alpha to be <em>too</em> large.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2212,7 +2217,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
-<p>Ridge regression decreases  the variation of predictions.</p>
+<p>Now the variation is even smaller.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
@@ -2224,7 +2229,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_188_0.png" src="_images/7_Introduction_to_ML_in_accounting_188_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_191_0.png" src="_images/7_Introduction_to_ML_in_accounting_191_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2242,7 +2247,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="section" id="linear-reference-model">
 <h3><span class="section-number">1.4.4. </span>Linear reference model<a class="headerlink" href="#linear-reference-model" title="Permalink to this headline">¶</a></h3>
-<p>In the following, we use a more reasonable division between training and testing datasets.</p>
+<p>In the following, we use a more reasonable division between training and testing datasets. With so large data, there is no need for Ridge or Lasso regularisation and we use a basic linear model as a reference. 80% / 20% -split is commonly used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
@@ -2251,6 +2256,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>The same steps as before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
@@ -2270,6 +2276,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>With 8000 observations (instead of 100) we get a much better model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2297,6 +2304,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="section" id="random-forest">
 <h3><span class="section-number">1.4.5. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+<p>Random forest has proven to be a very powerful prediction model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
@@ -2304,7 +2312,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
-<p>Random forest model</p>
+<p>The strength of Scikit-learn is that the steps for building a model are similar for every model. Define an object, fit it to data, analyse the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -2324,6 +2332,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>With the RF model, there is a much better fit between the predicted values and the correct test values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
@@ -2335,9 +2344,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_202_0.png" src="_images/7_Introduction_to_ML_in_accounting_202_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_209_0.png" src="_images/7_Introduction_to_ML_in_accounting_209_0.png" />
 </div>
 </div>
+<p>Scikit-Learn has a <strong>feature_importances_</strong> attribute to explain the importance of different parameters in explaining the predictions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -2417,6 +2427,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </table>
 </div></div></div>
 </div>
+<p>The coefficient of determination and MSE are significantly better with the RF model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2445,6 +2456,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="section" id="gradient-boosting">
 <h2><span class="section-number">1.5. </span>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this headline">¶</a></h2>
+<p>Random forest and gradient boosting are often the best ensemble models in applications. The gradient boosting model is defined using the same steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
@@ -2482,7 +2494,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_210_0.png" src="_images/7_Introduction_to_ML_in_accounting_210_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_220_0.png" src="_images/7_Introduction_to_ML_in_accounting_220_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2564,6 +2576,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </table>
 </div></div></div>
 </div>
+<p>This time, the random forest model wins the competition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2591,6 +2604,8 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="section" id="classification">
 <h2><span class="section-number">1.6. </span>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look next ML models can be used for classification.</p>
+<p>The following statement constructs an indicator variable to the dataframe, that has a value 1, if the ROA of that company is larger than zero (and zero otherwise). In the following models we try to classify the companies to these two categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span>
@@ -2600,7 +2615,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_class</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_class</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2612,6 +2627,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>Again, a 80%/20% split for training and testing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
@@ -2622,6 +2638,9 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 <div class="section" id="linear-discriminant-analysis">
 <h3><span class="section-number">1.6.1. </span>Linear discriminant analysis<a class="headerlink" href="#linear-discriminant-analysis" title="Permalink to this headline">¶</a></h3>
+<p>Linear discriminant analysis is the simplest approach. It tries to separate classes using a linear combination of features.</p>
+<p><img alt="LinDis" src="_images/LinDis.png" /></p>
+<p>The models are build like in the regression examples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
@@ -2648,6 +2667,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>Now the score measueres the correct prediction rate. 73.95 % of the companies in the test data are catgorised correctly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LDA_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2655,7 +2675,16 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7395
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7335
+</pre></div>
+</div>
+</div>
+</div>
+<p>A ROC curve is a popular way to analyse classification performance of a model. The more the line bends to the upper-left corner, the better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_roc_curve</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_precision_recall_curve</span>
 </pre></div>
 </div>
 </div>
@@ -2668,9 +2697,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_224_0.png" src="_images/7_Introduction_to_ML_in_accounting_224_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_243_0.png" src="_images/7_Introduction_to_ML_in_accounting_243_0.png" />
 </div>
 </div>
+<p>A precision-recall curve is an alternative and especially suitable for imbalanced data (the sizes of the categories are not equal). The more the line bends to the upper-<em>right</em> corner, the better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">LDA_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2679,13 +2709,13 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_225_0.png" src="_images/7_Introduction_to_ML_in_accounting_225_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_245_0.png" src="_images/7_Introduction_to_ML_in_accounting_245_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="id1">
 <h3><span class="section-number">1.6.2. </span>Support vector machines<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Let’s try to predict positive ROA.</p>
+<p>Usually SVMs are powerfull classifiers, but for this data, they do not perform as well as the LDA model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
@@ -2693,6 +2723,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>Kernel can be thought as the type of the separation zone between the categories. <strong>Linear</strong>  is the simplest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
@@ -2719,7 +2750,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6935
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6915
 </pre></div>
 </div>
 </div>
@@ -2740,7 +2771,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_233_0.png" src="_images/7_Introduction_to_ML_in_accounting_233_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_254_0.png" src="_images/7_Introduction_to_ML_in_accounting_254_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2750,12 +2781,13 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x1efb61116d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x21eeff0e1f0&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_234_1.png" src="_images/7_Introduction_to_ML_in_accounting_234_1.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_255_1.png" src="_images/7_Introduction_to_ML_in_accounting_255_1.png" />
 </div>
 </div>
+<p>Radial basis function is more powerful kernel for SVMs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
@@ -2775,6 +2807,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 </div>
+<p>The results improve slightly but are still not as good as with the LDA model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2782,7 +2815,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.724
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.725
 </pre></div>
 </div>
 </div>
@@ -2795,7 +2828,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_238_0.png" src="_images/7_Introduction_to_ML_in_accounting_238_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_261_0.png" src="_images/7_Introduction_to_ML_in_accounting_261_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2805,15 +2838,16 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x1efcb7dad60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x21ef06e2d60&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_239_1.png" src="_images/7_Introduction_to_ML_in_accounting_239_1.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_262_1.png" src="_images/7_Introduction_to_ML_in_accounting_262_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="decision-trees">
 <h3><span class="section-number">1.6.3. </span>Decision trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">¶</a></h3>
+<p>Decision tree classifies companies by using features to catogorise companies to different branches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
@@ -2856,9 +2890,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_245_0.png" src="_images/7_Introduction_to_ML_in_accounting_245_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_269_0.png" src="_images/7_Introduction_to_ML_in_accounting_269_0.png" />
 </div>
 </div>
+<p>The decision tree model has the best performance so far.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -2878,10 +2913,10 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x1efcb3e33d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x21ee7fdedf0&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_247_1.png" src="_images/7_Introduction_to_ML_in_accounting_247_1.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_272_1.png" src="_images/7_Introduction_to_ML_in_accounting_272_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2891,15 +2926,16 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x1efcb4d0eb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x21ef02d2a00&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_248_1.png" src="_images/7_Introduction_to_ML_in_accounting_248_1.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_273_1.png" src="_images/7_Introduction_to_ML_in_accounting_273_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="random-forest-revisited">
 <h3><span class="section-number">1.6.4. </span>Random forest revisited<a class="headerlink" href="#random-forest-revisited" title="Permalink to this headline">¶</a></h3>
+<p>If the decision tree model was performin so well, we could anticipate that many decision trees (= random forest) would perform even better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
@@ -2959,57 +2995,53 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
     <tr>
       <th>6</th>
       <td>Total_liab*365/(gross_prof+depr)</td>
-      <td>0.410528</td>
+      <td>0.407003</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Ret_earnings/TA</td>
-      <td>0.134742</td>
+      <td>0.143208</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Leverage</td>
-      <td>0.103043</td>
+      <td>0.113747</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Sales-growth</td>
-      <td>0.0699161</td>
+      <td>0.0706896</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Current ratio</td>
-      <td>0.0586306</td>
+      <td>0.0658559</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Quick ratio</td>
-      <td>0.0526388</td>
+      <td>0.0582151</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Log(Total assets)</td>
-      <td>0.0482392</td>
+      <td>0.0502041</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Inventory*365/sales</td>
-      <td>0.0423692</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Inv*365/CoGS</td>
-      <td>0.040502</td>
+      <td>0.048922</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Receiv*365/sales</td>
-      <td>0.0393923</td>
+      <td>0.042155</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p>The performance is clearly the best one so far when measured usin all three metrics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
@@ -3017,7 +3049,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.89
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.895
 </pre></div>
 </div>
 </div>
@@ -3030,7 +3062,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_255_0.png" src="_images/7_Introduction_to_ML_in_accounting_255_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_282_0.png" src="_images/7_Introduction_to_ML_in_accounting_282_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3041,7 +3073,7 @@ Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_256_0.png" src="_images/7_Introduction_to_ML_in_accounting_256_0.png" />
+<img alt="_images/7_Introduction_to_ML_in_accounting_283_0.png" src="_images/7_Introduction_to_ML_in_accounting_283_0.png" />
 </div>
 </div>
 </div>

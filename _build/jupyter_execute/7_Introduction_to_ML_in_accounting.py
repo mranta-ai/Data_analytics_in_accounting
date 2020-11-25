@@ -57,11 +57,6 @@ Xgboost has probably been the most succesfull boosting method. It is very often 
 
 Later in the book, we will see an example using Xgboost.
 
-Epälineaarinen vaikutuksen analysointi
-Bootstrapilla mukaan myös tilastollinen merkitsevyys
-Automaattinen mallin etsintä. Analyytikon ei tarvitse keksiä, onko riippuvuus muotoa 𝑥, 𝑥^2,𝑥^3 jne…
-
-
 ### Support vector machines
 The Support Vector Machine (SVM) was previously one of the most popular algorithms in modern machine learning. It often provides very impressive classification performance on reasonably sized datasets. However, SVMs have difficulties with large datasets since the computations don’t scale well with the number of training examples. This poor performance with large datasets hinders somewhat their success in big data and is the reason why neural networks have partly replaced SVMs in that field. However, in accounting we have often datasets of modest size and SVMs work very well with them.
 
@@ -76,6 +71,8 @@ Although Numpy is not exactly a machine learning library, it is the backbone of 
 The key feature of Numpy is its flexible and fast multidimensional **ndarray** that can contain large datasets. It enables mathematical operations between arrays in a way that is very similar to calculations with scalars.
 
 import numpy as np
+
+**randint()** from the **random** module can be used to create random integer values from a specified interval.
 
 random_values = np.random.randint(100,200,(4,4))
 
@@ -198,8 +195,6 @@ rand3_np[1] = 1
 
 rand3_np
 
-
-
 You can use booleans to pick values that satisfy a certain criteria. Notice that the result here is transformend as a one-dimensional array.
 
 rand3_np[rand3_np < 5]
@@ -297,8 +292,6 @@ large_np
 
 np.unique(large_np)
 
-
-
 #### Scikit-learn
 
 Scikit-learn is a multi-purpose machine learning library. It has modules for many different machine learning approaches. It is not the best library in any machine learning field but very good at most of them. Also, all the approaches use the common workflow approach of the library. Thus, by learning to do one machine learning analysis, you learn to do them all.
@@ -354,7 +347,7 @@ y = table_df['ROA']
 
 from sklearn.model_selection import train_test_split
 
-Let's make things difficult for OLS (very small train set). Here we use only 1 % of the data for training to demonstrate the strengths of ridge and lasso regression.
+Let's make things difficult for OLS (very small train set). Here we use only 1 % of the data for training to demonstrate the strengths of ridge and lasso regression, which are usually usefuly only when n is close to p.
 
 # Split data into training and test sets
 X_train, X_test , y_train, y_test = train_test_split(X, y, test_size=0.99, random_state=1)
@@ -366,6 +359,7 @@ len(X_train)
 #### Linear model
 
 Although Scikit-learn is a ML library, it is possible to do a basic linear regression analysis with it. (All ML methods are statistical methods. The separation between them is artificial.)
+![Linear_regression](./images/Linear_regression.svg)
 
 import sklearn.linear_model as sk_lm
 
@@ -403,9 +397,13 @@ mean_squared_error(y_test,model.predict(X_test))
 
 #### Ridge regression
 
-Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model.
+Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model. So it is a regularisation method.
+
+![Regularisation](./images/Regularization.svg)
 
 We can optimise the alpha parameter of the error function automatically using **RidgeCV**.
+
+![Ridge_alpha](./images/ridge_alpha.png)
 
 alpha_set = np.logspace(-5,5,20)
 
@@ -423,6 +421,8 @@ ridgecv.intercept_
 
 ridgecv.alpha_
 
+The coefficient of determination is now much improved (linear regression ~0.15).
+
 ridgecv.score(X_test,y_test)
 
 Ridge regression decreases  the variation of predictions.
@@ -433,11 +433,13 @@ for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
     ax.plot(X_test[feature],ridgecv.predict(X_test),'r.',alpha=0.3)
     ax.set_title(feature)
 
+MSE has also improved.
+
 mean_squared_error(y_test,ridgecv.predict(X_test))
 
 #### The Lasso
 
-Let's try next the lasso.
+Let's try next the lasso. It uses stronger regularisation (the absolute values of parameters in the regularisation term)
 
 alpha_set = np.logspace(-5,5,21)
 
@@ -453,9 +455,11 @@ lassocv.intercept_
 
 lassocv.alpha_
 
+Now the coefficient of determination is even better.
+
 lassocv.score(X_test,y_test)
 
-Ridge regression decreases  the variation of predictions.
+As you can see from the figure below. Regularisation decreases the sizes of parameters and this decreases the variation of predictions.
 
 fig, axs = plt.subplots(3,3,figsize=(15,12))
 for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
@@ -463,9 +467,9 @@ for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
     ax.plot(X_test[feature],lassocv.predict(X_test),'r.',alpha=0.3)
     ax.set_title(feature)
 
-mean_squared_error(y_test,lassocv.predict(X_test))
+MSE has also improved.
 
-As you can see from the results, the Lasso and ridge regression are usefuly only when n is close to p.
+mean_squared_error(y_test,lassocv.predict(X_test))
 
 By using larger alpha value, we can force more variables to zero.
 
@@ -473,15 +477,17 @@ lasso_model = sk_lm.Lasso(alpha = 0.003,max_iter=100000, normalize = True)
 
 lasso_model.fit(X_train,y_train)
 
-As you can see, the coefficients have decreases. But only a little.
+Now only two coefficients in our model are different from zero (Current ratio and Retained earnings / Total assets)
 
 lasso_model.coef_
 
 lasso_model.intercept_
 
+The score decreases a little because we are forcing alpha to be *too* large.
+
 lasso_model.score(X_test,y_test)
 
-Ridge regression decreases  the variation of predictions.
+Now the variation is even smaller.
 
 fig, axs = plt.subplots(3,3,figsize=(15,12))
 for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
@@ -493,14 +499,18 @@ mean_squared_error(y_test,lasso_model.predict(X_test))
 
 #### Linear reference model
 
-In the following, we use a more reasonable division between training and testing datasets.
+In the following, we use a more reasonable division between training and testing datasets. With so large data, there is no need for Ridge or Lasso regularisation and we use a basic linear model as a reference. 80% / 20% -split is commonly used.
 
 # Split data into training and test sets
 X_train, X_test , y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
+The same steps as before.
+
 ref_model = sk_lm.LinearRegression()
 
 ref_model.fit(X_train,y_train)
+
+With 8000 observations (instead of 100) we get a much better model.
 
 ref_model.score(X_test,y_test)
 
@@ -508,13 +518,17 @@ mean_squared_error(y_test,ref_model.predict(X_test))
 
 #### Random forest
 
+Random forest has proven to be a very powerful prediction model.
+
 from sklearn.ensemble import RandomForestRegressor
 
-Random forest model
+The strength of Scikit-learn is that the steps for building a model are similar for every model. Define an object, fit it to data, analyse the results.
 
 r_forest_model = RandomForestRegressor(random_state=0)
 
 r_forest_model.fit(X_train,y_train)
+
+With the RF model, there is a much better fit between the predicted values and the correct test values.
 
 fig, axs = plt.subplots(3,3,figsize=(15,12))
 for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
@@ -522,13 +536,19 @@ for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
     ax.plot(X_test[feature],r_forest_model.predict(X_test),'r.',alpha=0.3)
     ax.set_title(feature)
 
+Scikit-Learn has a **feature_importances_** attribute to explain the importance of different parameters in explaining the predictions.
+
 pd.DataFrame([X_train.columns,r_forest_model.feature_importances_]).transpose().sort_values(1,ascending=False)
+
+The coefficient of determination and MSE are significantly better with the RF model.
 
 r_forest_model.score(X_test,y_test)
 
 mean_squared_error(y_test,r_forest_model.predict(X_test))
 
 ### Gradient boosting
+
+Random forest and gradient boosting are often the best ensemble models in applications. The gradient boosting model is defined using the same steps.
 
 from sklearn.ensemble import GradientBoostingRegressor
 
@@ -544,22 +564,36 @@ for ax,feature,coef in zip(axs.flat,X_test.columns,model.coef_):
 
 pd.DataFrame([X_train.columns,gradient_model.feature_importances_]).transpose().sort_values(1,ascending=False)
 
+This time, the random forest model wins the competition.
+
 gradient_model.score(X_test,y_test)
 
 mean_squared_error(y_test,gradient_model.predict(X_test))
 
 ### Classification
 
+Let's look next ML models can be used for classification.
+
+The following statement constructs an indicator variable to the dataframe, that has a value 1, if the ROA of that company is larger than zero (and zero otherwise). In the following models we try to classify the companies to these two categories.
+
 table_df['ROA_ind'] = table_df['ROA']>0
 
-X_class = table_df.drop(['ROA','ROA_ind','class'],axis=1)
+X_class = table_df.drop(['ROA','ROA_ind'],axis=1)
 
 y_class = table_df['ROA_ind']
+
+Again, a 80%/20% split for training and testing.
 
 # Split data into training and test sets
 X_train, X_test , y_train, y_test = train_test_split(X_class, y_class, test_size=0.2, random_state=1)
 
 #### Linear discriminant analysis
+
+Linear discriminant analysis is the simplest approach. It tries to separate classes using a linear combination of features.
+
+![LinDis](./images/LinDis.png)
+
+The models are build like in the regression examples.
 
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
@@ -567,19 +601,30 @@ LDA_class = LinearDiscriminantAnalysis()
 
 LDA_class.fit(X_train,y_train)
 
+Now the score measueres the correct prediction rate. 73.95 % of the companies in the test data are catgorised correctly.
+
 LDA_class.score(X_test,y_test)
+
+A ROC curve is a popular way to analyse classification performance of a model. The more the line bends to the upper-left corner, the better.
+
+from sklearn.metrics import plot_roc_curve
+from sklearn.metrics import plot_precision_recall_curve
 
 plot_roc_curve(LDA_class,X_test,y_test)
 plt.show()
+
+A precision-recall curve is an alternative and especially suitable for imbalanced data (the sizes of the categories are not equal). The more the line bends to the upper-*right* corner, the better.
 
 plot_precision_recall_curve(LDA_class,X_test,y_test)
 plt.show()
 
 #### Support vector machines
 
-Let's try to predict positive ROA.
+Usually SVMs are powerfull classifiers, but for this data, they do not perform as well as the LDA model.
 
 from sklearn import svm
+
+Kernel can be thought as the type of the separation zone between the categories. **Linear**  is the simplest.
 
 svm_classifier = svm.SVC(kernel='linear')
 
@@ -595,9 +640,13 @@ plt.show()
 
 plot_precision_recall_curve(svm_classifier,X_test,y_test)
 
+Radial basis function is more powerful kernel for SVMs.
+
 svm_classifier = svm.SVC(kernel='rbf')
 
 svm_classifier.fit(X_train,y_train)
+
+The results improve slightly but are still not as good as with the LDA model.
 
 svm_classifier.score(X_test,y_test)
 
@@ -607,6 +656,8 @@ plt.show()
 plot_precision_recall_curve(svm_classifier,X_test,y_test)
 
 #### Decision trees
+
+Decision tree classifies companies by using features to catogorise companies to different branches.
 
 from sklearn import tree
 
@@ -620,6 +671,8 @@ plt.figure(figsize=(15,15))
 tree.plot_tree(tree_class,fontsize=12,filled=True)
 plt.show()
 
+The decision tree model has the best performance so far.
+
 tree_class.score(X_test,y_test)
 
 plot_roc_curve(tree_class,X_test,y_test)
@@ -627,6 +680,8 @@ plot_roc_curve(tree_class,X_test,y_test)
 plot_precision_recall_curve(tree_class,X_test,y_test)
 
 #### Random forest revisited
+
+If the decision tree model was performin so well, we could anticipate that many decision trees (= random forest) would perform even better.
 
 from sklearn.ensemble import RandomForestClassifier
 
@@ -636,6 +691,8 @@ rf_class.fit(X_train,y_train)
 
 pd.DataFrame([X_train.columns,rf_class.feature_importances_]).transpose().sort_values(1,ascending=False)
 
+The performance is clearly the best one so far when measured usin all three metrics.
+
 rf_class.score(X_test,y_test)
 
 plot_roc_curve(rf_class,X_test,y_test)
@@ -643,4 +700,3 @@ plt.show()
 
 plot_precision_recall_curve(rf_class,X_test,y_test)
 plt.show()
-
