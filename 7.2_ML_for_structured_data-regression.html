@@ -1,0 +1,1941 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Machine learning for structured data - Regression &#8212; Data analytics in accounting</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Xgboost, state-of-the-art ensemble method for structured data" href="7.3_ML_for_structured_data-xgboost_example.html" />
+    <link rel="prev" title="1. Machine learning for structured data - Classification" href="7.1_ML_for_structured_data-classification.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="book_intro.html">
+   Introduction to data analytics in accounting
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic data analytics in accounting
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_installing_Python.html">
+   1. Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Intro_to_Python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Pandas_basics.html">
+   3. Pandas data basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
+   4. Pandas Data preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
+   5. Connecting with accounting databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Visualisation_with_Python.html">
+   6. Visualisations with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
+   7. Basic statistics and time series analysis with Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Machine learning in accounting
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
+   1. Machine learning for structured data - Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#training-approaches">
+   2. Training approaches
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#analysing-classification-models">
+   3. Analysing classification models
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Machine learning for structured data - Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
+   5. Xgboost, state-of-the-art ensemble method for structured data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
+   6. SHAP analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
+   7. GAM MODEL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Decision_making_in_accounting.html">
+   8. Decision making with ML in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
+   9. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.1_Bonus_example.html">
+   10. Example - starting from scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_NLP_in_accounting.html">
+   11. Introduction to natural language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_LDA_bonus_example.html">
+   12. Basic LDA example - An analysis of ~200 scientific articles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html">
+   13. Neural network models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
+   14. Pretrained language models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
+   15. Sentiment Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
+   16. NLP example - IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
+   17. Densely connected network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
+   18. Recurrent neural networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
+   19. Long short-term memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
+   20. Neural topic analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
+   21. Named entity recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
+   22. Advanced summarisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
+   23. Processing unstructured data
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/7.2_ML_for_structured_data-regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/7.2_ML_for_structured_data-regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-vs-regression">
+   4.1. Classification vs. regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outliers">
+     4.1.1. Outliers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression">
+   4.2. Linear regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regularised-regression">
+   4.3. Regularised regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge-regression">
+     4.3.1. Ridge regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lasso-regression">
+     4.3.2. LASSO regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensemble-methods-for-regression">
+   4.4. Ensemble methods for regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shallow-neural-network">
+   4.5. Shallow neural network
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#neural-networks">
+     4.5.1. Neural networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multilayer-perceptron">
+     4.5.2. Multilayer perceptron
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#performance-of-regression-models">
+   4.6. Performance of regression models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coefficient-of-determination">
+     4.6.1. Coefficient of determination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mse">
+     4.6.2. MSE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bias-variance-tradeoff">
+     4.6.3. Bias-Variance tradeoff
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scikit-learn">
+     4.6.4. Scikit-learn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   4.7. Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-model">
+     4.7.1. Linear model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.7.2. Ridge regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-lasso">
+     4.7.3. The Lasso
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-reference-model">
+     4.7.4. Linear reference model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest">
+     4.7.5. Random forest
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gradient-boosting">
+   4.8. Gradient boosting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neural-networks-multi-layer-perceptron">
+   4.9. Neural networks (multi-layer perceptron)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="machine-learning-for-structured-data-regression">
+<h1><span class="section-number">4. </span>Machine learning for structured data - Regression<a class="headerlink" href="#machine-learning-for-structured-data-regression" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="classification-vs-regression">
+<h2><span class="section-number">4.1. </span>Classification vs. regression<a class="headerlink" href="#classification-vs-regression" title="Permalink to this headline">¶</a></h2>
+<p>Regression and classification are usually considered as two types of supervised machine learning. Although, for example, clustering can be considered as classification, there are significant differences between them.  Regression and classification both aim to utilise a training dataset to make predictions. Basically, the only difference is that the output variable in a regression model is numerical. The aim in regression is to build a function that models the connection between the input values and the output value (values).</p>
+<div class="section" id="outliers">
+<h3><span class="section-number">4.1.1. </span>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h3>
+<p>It is important to identify any existence of unusual observations in a data set. An observation that is unusual in the vertical direction is called an outlier. If we are sure that observation is an outlier and should be removed, we have two options. Either we move those outliers to specific quantiles, which is called winsorisation. Or we remove those outliers altogether.</p>
+</div>
+</div>
+<div class="section" id="linear-regression">
+<h2><span class="section-number">4.2. </span>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>A linear regression model assumes that the regression function <span class="math notranslate nohighlight">\(E(Y|X)\)</span> is linear in the inputs <span class="math notranslate nohighlight">\(x_1,...,x_k\)</span>. The basic model is of the form
+$<span class="math notranslate nohighlight">\(\hat{y}=b_0+b_1x_1+...+b_kx_k,\)</span><span class="math notranslate nohighlight">\(
+where the training data is used to learn the optimal parameters \)</span>b_0,…,b_k$. Linear models are very old and were the most important prediction tools in the precomputer era. However, they are still useful today as they are simple and often provide an adequate and interpretable description of how the inputs affect the output. Furthermore, they sometimes outperform nonlinear models in prediction, especially when the number of training cases is low. Their scope can be considerably expanded if we apply these methods to the transformation of the inputs.</p>
+<p><img alt="Linear_regression" src="_images/Linear_regression.svg" /></p>
+</div>
+<div class="section" id="regularised-regression">
+<h2><span class="section-number">4.3. </span>Regularised regression<a class="headerlink" href="#regularised-regression" title="Permalink to this headline">¶</a></h2>
+<p>One way to expand the scope of linear models is to include <em>regularisation</em> to them. This method constrains the coefficient estimates and forces them towards zero. It can be easily proven that this approach is an efficient way to counter overfitting and makes more robust models. The two best-known regularisation techniques are ridge regression and the lasso.</p>
+<div class="section" id="ridge-regression">
+<h3><span class="section-number">4.3.1. </span>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">¶</a></h3>
+<p>In the ordinary least squares regression, we aim to minimise <em>residual sum of squares</em>.
+$<span class="math notranslate nohighlight">\(\sum_{i=1}^n{y_i-\hat{y_i}}\)</span><span class="math notranslate nohighlight">\(
+In ridge regression, we minimise a slightly different quantity
+\)</span><span class="math notranslate nohighlight">\(\sum_{i=1}^n{y_i-\hat{y_i}}+\lambda\sum_{j=1}^k{\beta_j^2}\)</span><span class="math notranslate nohighlight">\(
+Thus, there is a penalty term that can be decreased by decreasing the size of the parameters. The lambda \)</span>\lambda<span class="math notranslate nohighlight">\( in the model is a hyperparameter that needs to be selected beforehand. For example, cross-validation can be used to select the optimal lambda value. If we increase lambda, the second term becomes more important, decreasing the size of the parameters. This will decrease the variance of the predictions but increase the bias (bias-variance tradeoff will be discussed more later). Thus, the solution of ridge regression depends on the lambda parameter. One thing to remember is that the intercept \)</span>b_o$ should not be included in the regularisation term.</p>
+<p>Usually, ridge regression is useful when the number of variables is almost as large as the number of observations. In these situations, the OLS estimates will be extremely variable. Ridge regression works even when the number of parameters is larger than the number of observations.</p>
+</div>
+<div class="section" id="lasso-regression">
+<h3><span class="section-number">4.3.2. </span>LASSO regression<a class="headerlink" href="#lasso-regression" title="Permalink to this headline">¶</a></h3>
+<p>Although ridge regression decreases the size of the parameters, it is not decreasing them to zero. Thus, the complexity of the model is not decreasing. Lasso regression solves this issue with a small change. In the penalty term, the lasso uses the parameters’ absolute values instead of the squared values
+$<span class="math notranslate nohighlight">\(\sum_{i=1}^n{y_i-\hat{y_i}}+\lambda\sum_{j=1}^k{|\beta_j|}\)</span><span class="math notranslate nohighlight">\(
+As with ridge regression, the lasso shrinks the coefficient estimates towards zero. However, the small change in the penalty term can force some of the coefficients to zero if the lambda parameter is large enough. Hence, the lasso performs also variable selection making the interpretation of the model easier. Depending on the value of \)</span>\lambda$, the lasso can produce a model involving any number of variables.</p>
+</div>
+</div>
+<div class="section" id="ensemble-methods-for-regression">
+<h2><span class="section-number">4.4. </span>Ensemble methods for regression<a class="headerlink" href="#ensemble-methods-for-regression" title="Permalink to this headline">¶</a></h2>
+<p>We already discussed ensemble methods in the previous section, and the details of these methods can be read there. They can also be used for regression. As ensemble methods often use decision trees as weak estimators, and for regression purposes, we only need to use CARTs as weak estimators.</p>
+</div>
+<div class="section" id="shallow-neural-network">
+<h2><span class="section-number">4.5. </span>Shallow neural network<a class="headerlink" href="#shallow-neural-network" title="Permalink to this headline">¶</a></h2>
+<p>Although we will mainly discuss neural networks in the following chapters, I will shortly introduce shallow neural networks. They were already used 30 years ago and often in similar situations where other methods of this section are used. As structured data is still an essential form of accounting data, it is important to know those neural network architectures often used to analyse them.</p>
+<div class="section" id="neural-networks">
+<h3><span class="section-number">4.5.1. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h3>
+<p>Neural networks are a large class of models and learning methods. The most traditional is the single hidden layer back-propagation network or a single layer perceptron.</p>
+<p><img alt="trad_nnetwork" src="_images/trad_nnetwork.svg" /></p>
+<p>The above networks belong to a class of networks called feed-forward neural networks. The name comes from the fact that we calculate linear combinations of inputs at different layers, pass the results to a non-linear activation function and feed the value forward. By combining these non-linear functions of linear combinations into a network, we get a very powerful non-linear estimator.</p>
+<p>Basically, deep learning means that we add many layers to the network. (The paradigm of deep learning is a little bit <em>deeper</em> than that, but we do not go into details at this point.)</p>
+<p>Despite the hype surrounding neural networks, they are no different from other non-linear statistical models. They are just networks of neurons that calculate linear combinations of input values and input these linear combinations to non-linear activation functions. The result is a powerful learning method with widespread applications in many fields.</p>
+</div>
+<div class="section" id="multilayer-perceptron">
+<h3><span class="section-number">4.5.2. </span>Multilayer perceptron<a class="headerlink" href="#multilayer-perceptron" title="Permalink to this headline">¶</a></h3>
+<p>In this chapter, we will use multilayer perceptron as an example of a shallow neural network. The multilayer perceptron adds neurons between the input nodes and the outputs, and this will make more complex neural networks. The MLP is one of the most common neural networks in use.  The training happens in two phases. The forward phase calculates predictions from input values, and the predictions are then compared to the correct output values with a suitable loss function. In the backward phase, <em>gradient descent</em> is used to optimise the network parameters so that the difference between the predictions and the correct output values is decreased.</p>
+</div>
+</div>
+<div class="section" id="performance-of-regression-models">
+<h2><span class="section-number">4.6. </span>Performance of regression models<a class="headerlink" href="#performance-of-regression-models" title="Permalink to this headline">¶</a></h2>
+<p>Evaluating the performance of regression models is important because there is no one method that would dominate other models all the time. Hence it is an important task to decide for any given set of data which method produces the best results.
+Selecting the best model is far from trivial and can be the most challenging task in a practical ML project.</p>
+<p>This section will briefly discuss some of the concepts when doing performance analysis of regression models.</p>
+<div class="section" id="coefficient-of-determination">
+<h3><span class="section-number">4.6.1. </span>Coefficient of determination<a class="headerlink" href="#coefficient-of-determination" title="Permalink to this headline">¶</a></h3>
+<p>One of the ways to measure the contribution of input values <span class="math notranslate nohighlight">\(x\)</span> in predicting <span class="math notranslate nohighlight">\(y\)</span> is to consider how much the prediction errors were reduced by using the information provided by the variables <span class="math notranslate nohighlight">\(x\)</span>. The coefficient of determination <span class="math notranslate nohighlight">\(R^2\)</span> is a value between zero and one that can be interpreted to be the proportion of variability explained by the regression model.  Thus, a value of <span class="math notranslate nohighlight">\(R^2=0.75\)</span> means that the model explains 75 % of the variation of y. So, the best model is the one that has the highest <span class="math notranslate nohighlight">\(R^2\)</span> and thus, explains most of the predicted variables’ variation.</p>
+</div>
+<div class="section" id="mse">
+<h3><span class="section-number">4.6.2. </span>MSE<a class="headerlink" href="#mse" title="Permalink to this headline">¶</a></h3>
+<p>To evaluate the performance of a statistical learning method on a given data set, we need some way to measure how well its predictions match the observed data. We need to quantify the extent to which the predicted response value for a given observation is close to the true response value for that observation. The coefficient of determination is the standard way to evaluate models in the traditional statistics community. However, the machine learning community prefers using the mean squared error. The MSE is the theoretically correct approach to evaluate models. It is defined as $<span class="math notranslate nohighlight">\(MSE=\frac{1}{n}\sum_{i=1}^n{(y_i-\hat{y_i})^2}\)</span>$. The MSE will be small if the predicted responses are very close to the correct responses and will be large if the predicted and true responses differ substantially for some of the observations</p>
+<p>The MSE can be computed using the training data, and then it is called the in-sample MSE. However, more important for practical applications is the out-of-sample MSE. In general, we do not care how well the method works on the training data. Instead, we are interested in the accuracy of the predictions we obtain when applying our method to previously unseen test data. For example, if we are developing an algorithm to predict a stock’s price based on the previous values, we do not care how well our method predicts last week’s stock price because we already know that. We instead care about how well it will predict tomorrow’s price or next month’s price. Therefore, when comparing ML models, we should always compare them with the out-of-sample MSE using a test set.</p>
+<p>In some settings, we may have a test data set available. We can then evaluate the MSE on the test observations and select the learning method for which the test MSE is the smallest. If there are no test observations available, one might think that the second-best option would be to use the in-sample MSE for model comparison. Unfortunately, there is no guarantee that the method with the lowest training MSE will also have the lowest test MSE. This is related to the fact that many ML models specifically optimise the coefficients so that the in-sample MSE is minimised.</p>
+<p>As model flexibility increases, training MSE will decrease, but the test MSE may not. When a given method yields a small training MSE but a large test MSE, we are said to be overfitting the data. This happens because our statistical learning procedure is picking up some patterns that are just caused by random chance rather than by real associations between the predictors and the predicted value. When we overfit the training data, the test MSE can grow to very large values, because the algorithm tries to model complex patterns caused by pure chance. Overfitting refers specifically to the case in which a less flexible model would have yielded a smaller test MSE.</p>
+</div>
+<div class="section" id="bias-variance-tradeoff">
+<h3><span class="section-number">4.6.3. </span>Bias-Variance tradeoff<a class="headerlink" href="#bias-variance-tradeoff" title="Permalink to this headline">¶</a></h3>
+<p>Mean square error measures, on average, how close a model comes to the true values. Hence, this could be used as a criterion for determining the best model. It can proven that MSE is a composition of two parts, bias and variance.</p>
+<p>Variance refers to the sensitivity of the model if we estimated it using a different training data set. Even if sampling is perferct, different training sets will results in a slightly different model. But ideally the model should not vary too much between training sets. However, if a model has high variance then small changes in the training data can result in large changes. In general, more flexible models (what machine learning models usually are) have higher variance.</p>
+<p>On the other hand, bias refers to the error that is introduced by approximating an association, which may be extremely complicated, by a much simpler model. For example, linear regression assumes that there is a linear relationship between the predicted value and the predictors. It is unlikely that any association truly has a simple linear relationship, and so linear regressiom models will always have some bias in the estimates. Generally, more flexible methods result in less bias.</p>
+<p>To conclude, as we use more flexible methods, the variance will increase and the bias will decrease. The relative rate of change of these two quantities determines whether the test MSE increases or decreases. As we increase the flexibility of a model, the bias tends to initially decrease faster than the variance increases. Consequently, the expected test MSE declines. However, at some point increasing flexibility does not decrease bias any more but variance continues to increase, thus, increasing also the overall MSE. This phenomenon is referred as the bias-variance trade-off, because it is easy to obtain a model with extremely low bias but high variance (for instance, by drawing a curve that passes through every single training observation) or a model with very low variance but high bias (by fitting a horizontal line to the data). The challenge lies in finding a method for which both the variance and the squared bias are low.  Machine learning methods are usually extremely flexible and hence can essentially eliminate bias. However, this does not guarantee that they will outperform a much simpler method such as linear regression due to higher variance. Cross-validation, which we discussed in the previous chapter, is a way to estimate the test MSE using the training data, and search for the best model.</p>
+</div>
+<div class="section" id="scikit-learn">
+<h3><span class="section-number">4.6.4. </span>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-learn is a multi-purpose machine learning library. It has modules for many different machine learning approaches. It is not the best library in any machine learning field but very good at most of them. Also, all the approaches use the common workflow approach of the library. Thus, by learning to do one machine learning analysis, you learn to do them all.</p>
+<p>Scikit-learn has libraries for classification, regression, clustering, dimensionality reduction and model selection. It also has an extensive library of methods for data pre-processing.</p>
+<p>A very convenient feature in Scikit-learn is <strong>pipeline</strong> that you can use to construct full workflows of machine learning analyses.</p>
+<p>There should be no difficulties to install Scikit-learn. With Python/Pip you just execute <strong>pip install scikit-learn</strong> and with Anaconda you just install it from the menu (or use <strong>conda install scikit-learn</strong> in the command line). (Actually, you should not need to do that as Scikit-learn is installed in Anaconda by default.)</p>
+<p>Again, the best way to learn Scikit-learn is by going through examples. Thus, more  details are in the following examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._xkcd at 0x298f7745fa0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example data from <a class="reference external" href="https://www.kaggle.com/c/companies-bankruptcy-forecast">www.kaggle.com/c/companies-bankruptcy-forecast</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ml_data.csv&#39;</span><span class="p">)[[</span><span class="s1">&#39;Attr1&#39;</span><span class="p">,</span><span class="s1">&#39;Attr8&#39;</span><span class="p">,</span><span class="s1">&#39;Attr21&#39;</span><span class="p">,</span><span class="s1">&#39;Attr4&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;Attr5&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span><span class="p">,</span><span class="s1">&#39;Attr20&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;Attr15&#39;</span><span class="p">,</span><span class="s1">&#39;Attr6&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above link has the explanation for all the variables. The original data has 65 variables, but we are here using a subsample of 10 variables. With <strong>rename()</strong> we can rename the variables to be more informative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Attr1&#39;</span> <span class="p">:</span> <span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;Attr8&#39;</span> <span class="p">:</span> <span class="s1">&#39;Leverage&#39;</span><span class="p">,</span><span class="s1">&#39;Attr21&#39;</span> <span class="p">:</span> <span class="s1">&#39;Sales-growth&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr4&#39;</span> <span class="p">:</span> <span class="s1">&#39;Current ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr5&#39;</span> <span class="p">:</span> <span class="s1">&#39;Quick ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span> <span class="p">:</span> <span class="s1">&#39;Log(Total assets)&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr20&#39;</span> <span class="p">:</span> <span class="s1">&#39;Inventory*365/sales&#39;</span><span class="p">,</span><span class="s1">&#39;Attr15&#39;</span> <span class="p">:</span> <span class="s1">&#39;Total_liab*365/(gross_prof+depr)&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr6&#39;</span> <span class="p">:</span> <span class="s1">&#39;Ret_earnings/TA&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span> <span class="p">:</span> <span class="s1">&#39;Receiv*365/sales&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ROA</th>
+      <th>Leverage</th>
+      <th>Sales-growth</th>
+      <th>Current ratio</th>
+      <th>Quick ratio</th>
+      <th>Log(Total assets)</th>
+      <th>Inventory*365/sales</th>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <th>Ret_earnings/TA</th>
+      <th>Receiv*365/sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.031545</td>
+      <td>0.641242</td>
+      <td>-0.016440</td>
+      <td>-0.013529</td>
+      <td>0.007406</td>
+      <td>-0.631107</td>
+      <td>-0.070344</td>
+      <td>-0.005305</td>
+      <td>-0.016047</td>
+      <td>-0.009084</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.231729</td>
+      <td>0.074710</td>
+      <td>-0.016961</td>
+      <td>-0.080975</td>
+      <td>0.007515</td>
+      <td>-1.168550</td>
+      <td>-0.047947</td>
+      <td>-0.119627</td>
+      <td>-0.016047</td>
+      <td>-0.009659</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.058602</td>
+      <td>-0.456287</td>
+      <td>-0.017504</td>
+      <td>-0.189489</td>
+      <td>0.006572</td>
+      <td>0.096212</td>
+      <td>0.001761</td>
+      <td>0.009484</td>
+      <td>-0.016047</td>
+      <td>-0.016517</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.069376</td>
+      <td>-0.462971</td>
+      <td>-0.016114</td>
+      <td>-0.140032</td>
+      <td>0.007477</td>
+      <td>0.296277</td>
+      <td>-0.006430</td>
+      <td>0.045912</td>
+      <td>-0.010915</td>
+      <td>0.020758</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.236424</td>
+      <td>0.097183</td>
+      <td>-0.016046</td>
+      <td>-0.014680</td>
+      <td>0.007879</td>
+      <td>-0.501471</td>
+      <td>-0.043107</td>
+      <td>-0.021015</td>
+      <td>-0.016047</td>
+      <td>-0.011036</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9995</th>
+      <td>-0.079533</td>
+      <td>-0.374739</td>
+      <td>-0.016179</td>
+      <td>-0.189873</td>
+      <td>0.006687</td>
+      <td>0.162211</td>
+      <td>0.002114</td>
+      <td>0.081838</td>
+      <td>-0.006462</td>
+      <td>0.006482</td>
+    </tr>
+    <tr>
+      <th>9996</th>
+      <td>-0.081046</td>
+      <td>0.689695</td>
+      <td>-0.016507</td>
+      <td>0.021280</td>
+      <td>0.007497</td>
+      <td>0.630702</td>
+      <td>-0.022646</td>
+      <td>-0.018260</td>
+      <td>-0.034968</td>
+      <td>-0.017303</td>
+    </tr>
+    <tr>
+      <th>9997</th>
+      <td>-0.230571</td>
+      <td>-0.471830</td>
+      <td>-0.016167</td>
+      <td>-0.222373</td>
+      <td>0.006716</td>
+      <td>1.249499</td>
+      <td>-0.034307</td>
+      <td>-0.059516</td>
+      <td>-0.013742</td>
+      <td>-0.006031</td>
+    </tr>
+    <tr>
+      <th>9998</th>
+      <td>-0.108156</td>
+      <td>-0.355796</td>
+      <td>-0.016352</td>
+      <td>-0.042692</td>
+      <td>0.008123</td>
+      <td>-0.640261</td>
+      <td>-0.059005</td>
+      <td>0.021498</td>
+      <td>-0.018374</td>
+      <td>0.001036</td>
+    </tr>
+    <tr>
+      <th>9999</th>
+      <td>-0.068674</td>
+      <td>0.293253</td>
+      <td>-0.016174</td>
+      <td>0.039538</td>
+      <td>0.007850</td>
+      <td>0.564555</td>
+      <td>-0.062083</td>
+      <td>-0.012039</td>
+      <td>0.001952</td>
+      <td>-0.015710</td>
+    </tr>
+  </tbody>
+</table>
+<p>10000 rows × 10 columns</p>
+</div></div></div>
+</div>
+<p>With the <strong>clip</strong> method, you can winsorise the data. Here extreme values are moved to 1 % and 99 % quantiles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">table_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span><span class="n">upper</span><span class="o">=</span><span class="n">table_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <strong>hist()</strong> you can check the distributions quickly. The most problematic outliers have been removed by winsorisation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">),</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_28_0.png" src="_images/7.2_ML_for_structured_data-regression_28_0.png" />
+</div>
+</div>
+<p>With <strong>corr()</strong> you can check the correlations. There is multicollinearity present, but for example with ensemble methods, multicollinearity is much less of a problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ROA</th>
+      <th>Leverage</th>
+      <th>Sales-growth</th>
+      <th>Current ratio</th>
+      <th>Quick ratio</th>
+      <th>Log(Total assets)</th>
+      <th>Inventory*365/sales</th>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <th>Ret_earnings/TA</th>
+      <th>Receiv*365/sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ROA</th>
+      <td>1.000000</td>
+      <td>0.253631</td>
+      <td>0.198471</td>
+      <td>0.239780</td>
+      <td>0.073774</td>
+      <td>-0.022929</td>
+      <td>-0.199351</td>
+      <td>0.031788</td>
+      <td>0.482101</td>
+      <td>-0.088218</td>
+    </tr>
+    <tr>
+      <th>Leverage</th>
+      <td>0.253631</td>
+      <td>1.000000</td>
+      <td>-0.062703</td>
+      <td>0.678369</td>
+      <td>0.137512</td>
+      <td>0.092470</td>
+      <td>0.017957</td>
+      <td>-0.088598</td>
+      <td>0.277234</td>
+      <td>-0.007704</td>
+    </tr>
+    <tr>
+      <th>Sales-growth</th>
+      <td>0.198471</td>
+      <td>-0.062703</td>
+      <td>1.000000</td>
+      <td>-0.050987</td>
+      <td>0.008612</td>
+      <td>0.124345</td>
+      <td>-0.080525</td>
+      <td>0.005148</td>
+      <td>0.008116</td>
+      <td>-0.018546</td>
+    </tr>
+    <tr>
+      <th>Current ratio</th>
+      <td>0.239780</td>
+      <td>0.678369</td>
+      <td>-0.050987</td>
+      <td>1.000000</td>
+      <td>0.175938</td>
+      <td>-0.055648</td>
+      <td>0.143823</td>
+      <td>-0.059035</td>
+      <td>0.169986</td>
+      <td>0.097054</td>
+    </tr>
+    <tr>
+      <th>Quick ratio</th>
+      <td>0.073774</td>
+      <td>0.137512</td>
+      <td>0.008612</td>
+      <td>0.175938</td>
+      <td>1.000000</td>
+      <td>-0.009259</td>
+      <td>-0.067865</td>
+      <td>-0.067402</td>
+      <td>0.071122</td>
+      <td>0.026820</td>
+    </tr>
+    <tr>
+      <th>Log(Total assets)</th>
+      <td>-0.022929</td>
+      <td>0.092470</td>
+      <td>0.124345</td>
+      <td>-0.055648</td>
+      <td>-0.009259</td>
+      <td>1.000000</td>
+      <td>0.065786</td>
+      <td>0.009114</td>
+      <td>0.199229</td>
+      <td>0.116596</td>
+    </tr>
+    <tr>
+      <th>Inventory*365/sales</th>
+      <td>-0.199351</td>
+      <td>0.017957</td>
+      <td>-0.080525</td>
+      <td>0.143823</td>
+      <td>-0.067865</td>
+      <td>0.065786</td>
+      <td>1.000000</td>
+      <td>0.026625</td>
+      <td>-0.109237</td>
+      <td>0.154436</td>
+    </tr>
+    <tr>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <td>0.031788</td>
+      <td>-0.088598</td>
+      <td>0.005148</td>
+      <td>-0.059035</td>
+      <td>-0.067402</td>
+      <td>0.009114</td>
+      <td>0.026625</td>
+      <td>1.000000</td>
+      <td>0.005612</td>
+      <td>0.018199</td>
+    </tr>
+    <tr>
+      <th>Ret_earnings/TA</th>
+      <td>0.482101</td>
+      <td>0.277234</td>
+      <td>0.008116</td>
+      <td>0.169986</td>
+      <td>0.071122</td>
+      <td>0.199229</td>
+      <td>-0.109237</td>
+      <td>0.005612</td>
+      <td>1.000000</td>
+      <td>-0.052223</td>
+    </tr>
+    <tr>
+      <th>Receiv*365/sales</th>
+      <td>-0.088218</td>
+      <td>-0.007704</td>
+      <td>-0.018546</td>
+      <td>0.097054</td>
+      <td>0.026820</td>
+      <td>0.116596</td>
+      <td>0.154436</td>
+      <td>0.018199</td>
+      <td>-0.052223</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The predictors are everything else but ROA, which is our predicted variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ROA&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make things difficult for OLS (very small train set). Here we use only 1 % of the data for training to demonstrate the strengths of ridge and lasso regression, which are usually usefuly only when n is close to p.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regression">
+<h2><span class="section-number">4.7. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linear-model">
+<h3><span class="section-number">4.7.1. </span>Linear model<a class="headerlink" href="#linear-model" title="Permalink to this headline">¶</a></h3>
+<p>Although Scikit-learn is a ML library, it is possible to do a basic linear regression analysis with it. (All ML methods are statistical methods. The separation between them is artificial.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.linear_model</span> <span class="k">as</span> <span class="nn">sk_lm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We define our LinearRegression object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>fit()</strong> can be used to fit the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>coef_</strong> -attribute has the coefficients of each variable and <strong>intercept_</strong> has the intercept of the linear regression model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-4.95131952e-03, -2.16483361e+01,  2.56318923e-01,  1.57522210e+00,
+       -9.94242834e-03, -4.97093290e-01,  7.12480216e-02,  1.56827847e+00,
+       -2.12876691e+00])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3581128448264647
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>score()</strong> can be used to measure the coefficient of determination of the trained model. How much our variables are explaining of the variation of the predicted variable.*</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14662911115790167
+</pre></div>
+</div>
+</div>
+</div>
+<p>A short code to draw scatter charts between every feature and ROA. The blue dots are the correct values and the red dots are the predictions of the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcdefaults</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_53_0.png" src="_images/7.2_ML_for_structured_data-regression_53_0.png" />
+</div>
+</div>
+<p>Mean squared error can be used to the measure the performance. Less is better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.029838723728760296
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">4.7.2. </span>Ridge regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model. So it is a regularisation method.</p>
+<p><img alt="Regularisation" src="_images/Regularization.svg" /></p>
+<p>We can optimise the alpha parameter of the error function automatically using <strong>RidgeCV</strong>.</p>
+<p><img alt="Ridge_alpha" src="./images/ridge_alpha.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">RidgeCV</span><span class="p">(</span><span class="n">alphas</span> <span class="o">=</span> <span class="n">alpha_set</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otherwise similar steps. Define the object, use the <strong>fit()</strong> function, analyse the results with <strong>coef_</strong>, <strong>intercept_</strong>, <strong>score()</strong> and <strong>mean_squared_error()</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RidgeCV(alphas=array([1.00000000e-05, 3.35981829e-05, 1.12883789e-04, 3.79269019e-04,
+       1.27427499e-03, 4.28133240e-03, 1.43844989e-02, 4.83293024e-02,
+       1.62377674e-01, 5.45559478e-01, 1.83298071e+00, 6.15848211e+00,
+       2.06913808e+01, 6.95192796e+01, 2.33572147e+02, 7.84759970e+02,
+       2.63665090e+03, 8.85866790e+03, 2.97635144e+04, 1.00000000e+05]),
+        cv=10, normalize=True, scoring=&#39;neg_mean_squared_error&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the coefficients have decreases. But only a little.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.50744525e-02, -1.39381411e+01,  1.30736089e-01,  4.81161991e-01,
+       -7.84082924e-03, -3.00898196e-01,  7.75623294e-02,  1.00070461e+00,
+       -1.68304267e+00])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.22779312775441024
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">alpha_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5455594781168515
+</pre></div>
+</div>
+</div>
+</div>
+<p>The coefficient of determination is now much improved (linear regression ~0.15).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridgecv</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2035076502930907
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ridge regression decreases  the variation of predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">ridgecv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_71_0.png" src="_images/7.2_ML_for_structured_data-regression_71_0.png" />
+</div>
+</div>
+<p>MSE has also improved.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">ridgecv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027849924910402172
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-lasso">
+<h3><span class="section-number">4.7.3. </span>The Lasso<a class="headerlink" href="#the-lasso" title="Permalink to this headline">¶</a></h3>
+<p>Let’s try next the lasso. It uses stronger regularisation (the absolute values of parameters in the regularisation term)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">(</span><span class="n">alphas</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LassoCV(cv=5, max_iter=100000, normalize=True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lasso is different in that it decreases the coefficients of variables more easily to zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -3.47515588,  0.17823162,  0.        , -0.        ,
+       -0.10806394,  0.        ,  1.17143038, -0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.03639170916960472
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">alpha_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002034766231861985
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the coefficient of determination is even better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lassocv</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.22166815970926756
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see from the figure below. Regularisation decreases the sizes of parameters and this decreases the variation of predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">lassocv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_86_0.png" src="_images/7.2_ML_for_structured_data-regression_86_0.png" />
+</div>
+</div>
+<p>MSE has also improved.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">lassocv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02721492970453323
+</pre></div>
+</div>
+</div>
+</div>
+<p>By using larger alpha value, we can force more variables to zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.003</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lasso(alpha=0.003, max_iter=100000, normalize=True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now only two coefficients in our model are different from zero (Current ratio and Retained earnings / Total assets)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.        ,  0.14767181,  0.        , -0.        ,
+       -0.        ,  0.        ,  0.98729175, -0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01763588853660874
+</pre></div>
+</div>
+</div>
+</div>
+<p>The score decreases a little because we are forcing alpha to be <em>too</em> large.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21680467823704752
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the variation is even smaller.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">lasso_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_98_0.png" src="_images/7.2_ML_for_structured_data-regression_98_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">lasso_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027384984814107477
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-reference-model">
+<h3><span class="section-number">4.7.4. </span>Linear reference model<a class="headerlink" href="#linear-reference-model" title="Permalink to this headline">¶</a></h3>
+<p>In the following, we use a more reasonable division between training and testing datasets. With so large data, there is no need for Ridge or Lasso regularisation and we use a basic linear model as a reference. 80% / 20% -split is commonly used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The same steps as before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<p>With 8000 observations (instead of 100) we get a much better model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.36242954547971373
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">ref_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.022571114141273284
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random-forest">
+<h3><span class="section-number">4.7.5. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+<p>Random forest has proven to be a very powerful prediction model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The strength of Scikit-learn is that the steps for building a model are similar for every model. Define an object, fit it to data, analyse the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestRegressor(random_state=0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the RF model, there is a much better fit between the predicted values and the correct test values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_116_0.png" src="_images/7.2_ML_for_structured_data-regression_116_0.png" />
+</div>
+</div>
+<p>Scikit-Learn has a <strong>feature_importances_</strong> attribute to explain the importance of different parameters in explaining the predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Total_liab*365/(gross_prof+depr)</td>
+      <td>0.770289</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Leverage</td>
+      <td>0.133804</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ret_earnings/TA</td>
+      <td>0.018549</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Log(Total assets)</td>
+      <td>0.014619</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sales-growth</td>
+      <td>0.014376</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inventory*365/sales</td>
+      <td>0.013384</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Quick ratio</td>
+      <td>0.013282</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Current ratio</td>
+      <td>0.011366</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Receiv*365/sales</td>
+      <td>0.010330</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The coefficient of determination and MSE are significantly better with the RF model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8711978080679903
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">r_forest_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.004559823867514363
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gradient-boosting">
+<h2><span class="section-number">4.8. </span>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this headline">¶</a></h2>
+<p>Random forest and gradient boosting are often the best ensemble models in applications. The gradient boosting model is defined using the same steps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient_model</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GradientBoostingRegressor(random_state=0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">gradient_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_127_0.png" src="_images/7.2_ML_for_structured_data-regression_127_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">gradient_model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Total_liab*365/(gross_prof+depr)</td>
+      <td>0.850534</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Leverage</td>
+      <td>0.076763</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ret_earnings/TA</td>
+      <td>0.037968</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sales-growth</td>
+      <td>0.016838</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Log(Total assets)</td>
+      <td>0.008851</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Quick ratio</td>
+      <td>0.002994</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inventory*365/sales</td>
+      <td>0.002630</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Current ratio</td>
+      <td>0.001712</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Receiv*365/sales</td>
+      <td>0.001708</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This time, the random forest model wins the competition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8442057645656127
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">gradient_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.005515389625743821
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="neural-networks-multi-layer-perceptron">
+<h2><span class="section-number">4.9. </span>Neural networks (multi-layer perceptron)<a class="headerlink" href="#neural-networks-multi-layer-perceptron" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPRegressor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlp_model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlp_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MLPRegressor(hidden_layer_sizes=100, max_iter=5000)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span><span class="p">,</span><span class="n">coef</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">y_test</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span><span class="n">mlp_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span><span class="s1">&#39;r.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.2_ML_for_structured_data-regression_136_0.png" src="_images/7.2_ML_for_structured_data-regression_136_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlp_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5702717022511561
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">mlp_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.015213136665064223
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="7.1_ML_for_structured_data-classification.html" title="previous page"><span class="section-number">1. </span>Machine learning for structured data - Classification</a>
+    <a class='right-next' id="next-link" href="7.3_ML_for_structured_data-xgboost_example.html" title="next page"><span class="section-number">5. </span>Xgboost, state-of-the-art ensemble method for structured data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Mikko Ranta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

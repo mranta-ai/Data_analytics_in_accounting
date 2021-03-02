@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Introduction to natural language processing &#8212; Data analytics in accounting</title>
+    <title>11. Introduction to natural language processing &#8212; Data analytics in accounting</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,18 +34,19 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,7 +56,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="3. Deep learning in accounting" href="9_Deep_learning_in_accounting.html" />
+    <link rel="next" title="12. Basic LDA example - An analysis of ~200 scientific articles" href="10.1_LDA_bonus_example.html" />
+    <link rel="prev" title="10. Example - starting from scratch" href="9.1_Bonus_example.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -80,22 +82,19 @@
   <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="book_intro.html">
    Introduction to data analytics in accounting
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Basic data analytics in accounting
  </span>
@@ -133,41 +132,134 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   7. Basic statistics with Python
+   7. Basic statistics and time series analysis with Python
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Machine learning in accounting
  </span>
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
-   1. Introduction Machine learning in accounting
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
+   1. Machine learning for structured data - Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#training-approaches">
+   2. Training approaches
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#analysing-classification-models">
+   3. Analysing classification models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
+   4. Machine learning for structured data - Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
+   5. Xgboost, state-of-the-art ensemble method for structured data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
+   6. SHAP analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
+   7. GAM MODEL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   2. Decision making with ML in accounting
+   8. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   3. Deep learning in accounting
+   9. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.1_Bonus_example.html">
+   10. Example - starting from scratch
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Introduction to natural language processing
+   11. Introduction to natural language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_LDA_bonus_example.html">
+   12. Basic LDA example - An analysis of ~200 scientific articles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html">
+   13. Neural network models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
+   14. Pretrained language models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
+   15. Sentiment Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
+   16. NLP example - IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
+   17. Densely connected network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
+   18. Recurrent neural networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
+   19. Long short-term memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
+   20. Neural topic analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
+   21. Named entity recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
+   22. Advanced summarisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
+   23. Processing unstructured data
   </a>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -196,11 +288,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -212,8 +304,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 
@@ -254,74 +346,32 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#topic-models">
-   4.1. Topic models
+   11.1. Topic models
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#neural-network-models">
-   4.2. Neural network models
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pretrained-language-models">
-   4.3. Pretrained language models
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bert">
-     4.3.1. BERT
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gpt-3">
-     4.3.2. GPT-3
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nlp-example-lda-and-other-summarisation-tools">
-   4.4. NLP example - LDA and other summarisation tools
+   11.2. NLP example - LDA and other summarisation tools
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lda">
-   4.5. LDA
+   11.3. LDA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summarisation">
-   4.6. Summarisation
+   11.4. Summarisation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#similarities">
-   4.7. Similarities
+   11.5. Similarities
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cluster-model">
-   4.8. Cluster model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nlp-example-imdb">
-   4.9. NLP example - IMDB
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#densely-connected-network">
-   4.10. Densely connected network
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recurrent-neural-networks">
-   4.11. Recurrent neural networks
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#long-short-term-memory">
-   4.12. Long short-term memory
+   11.6. Cluster model
   </a>
  </li>
 </ul>
@@ -336,7 +386,7 @@
               <div>
                 
   <div class="section" id="introduction-to-natural-language-processing">
-<h1><span class="section-number">4. </span>Introduction to natural language processing<a class="headerlink" href="#introduction-to-natural-language-processing" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">11. </span>Introduction to natural language processing<a class="headerlink" href="#introduction-to-natural-language-processing" title="Permalink to this headline">¶</a></h1>
 <p>Natural language processing (NLP) is a collective term referring to computational processing of human languages. It includes methods that analyse human-produced text, and methods that create natural language as output. Compared to many other machine learning tasks, natural language processing is very challenging, as human language is inherently ambiguous, ever-changing, and not well-defined.</p>
 <p><img alt="read_robot" src="_images/read_robot.jpg" /></p>
 <p>There is a need for better and better NLP-algorithms, as information in the textual format is increasing exponentially.</p>
@@ -347,42 +397,13 @@
 </div>
 <p>Until 2014, core NLP techniques were dominated by linear modelling approaches that use supervised learning. Key algorithms were simple neural networks, support vector machines and logistic regression, trained over high dimensional and sparse feature vectors (bag-of-words -vectors).</p>
 <p><img alt="SVM" src="_images/svm.png" /></p>
-<p>Around 2014, the field has started to see some success in switching from linear models over sparse inputs to nonlinear complex neural network models over dense inputs. A key difference is how words are presented as relatively low-dimensional vectors that contain semantic information about the word. Two key training algorithms are <strong>continuous-bag-of-words</strong> and <strong>skip-gram</strong> -algorithms.</p>
-<p>The CBOW model architecture tries to predict the current target word (the centre word) based on the source context words (surrounding words).</p>
-<p>The Skip-gram model architecture usually tries to achieve the reverse of what the CBOW model does. It tries to predict the source context words (surrounding words) given a target word (the centre word).</p>
-<p><img alt="word2vec" src="_images/word2vec.png" /></p>
-<p>Some of the neural-network techniques are generalisations of the linear models and can be just replaced in place of the linear classifiers. Others have a totally new approach for a natural language processing task and provide new modelling opportunities. In particular, a family of approaches based on recurrent neural networks (RNNs) removes the reliance on the Markov assumption that was prevalent in sequence models, allowing to condition on arbitrarily long sequences and produce effective feature extractors. This enables the models to analyse whole sentences (and even more) instead of words, which has led to breakthroughs in language modelling, automatic machine translation, and various other applications.</p>
-<p>Also, recent transformers-based models have achieved revolutionary results. The success of the architecture is based on a concept called attention that improves the learning by focusing on the key features and ignoring features that do not help in the task at hand. This conceptually simple innovation is largely behind the success of pre-trained models like BERT and GPT-3. The transformer is an architecture for transforming one sequence into another one with the help of two parts (Encoder and Decoder), but it differs from the previously described/existing sequence-to-sequence models because it does not imply any recurrent architectures.</p>
-<p>(The Markov assumption means that The Markov property holds. A stochastic process has the Markov property if the conditional probability distribution of future states of the process (conditional on both past and present states) depends only upon the present state, not on the sequence of events that preceded it.)</p>
 <div class="section" id="topic-models">
-<h2><span class="section-number">4.1. </span>Topic models<a class="headerlink" href="#topic-models" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.1. </span>Topic models<a class="headerlink" href="#topic-models" title="Permalink to this headline">¶</a></h2>
 <p>A topic model is a type of statistical model for inferring the “topics” or “themes” that occur in a collection of documents. Topic modelling is a popular tool for the discovery of hidden semantic structures in a text body. Topic models assume that there are typical words that appear more frequently in a document with a certain topic. Moreover, some words are especially rare for a certain topic and for some words, there is no difference between a document with the topic and other documents. The “topics” produced by topic modelling techniques are clusters of similar words. For example, a very popular topic model called Latent Dirichlet Allocation assumes that documents are distributions of topics and topics are distributions of words.</p>
 <p><img alt="topic_model" src="_images/topic_model.gif" /></p>
 </div>
-<div class="section" id="neural-network-models">
-<h2><span class="section-number">4.2. </span>Neural network models<a class="headerlink" href="#neural-network-models" title="Permalink to this headline">¶</a></h2>
-<p>Neural language models almost always use continuous representations or embeddings of words to make their predictions. These embeddings are usually implemented as layers in a neural language model. The embeddings help to alleviate the curse of dimensionality in language modelling: larger corpus –&gt; larger vocabulary –&gt; exponentially larger number of possible sequences of words.</p>
-<p>Neural language models represent words in a distributed way, as a combination of weights in a neural network. Typical neural network architectures are feed-forward, recurrent, LSTM and transformers architectures.</p>
-</div>
-<div class="section" id="pretrained-language-models">
-<h2><span class="section-number">4.3. </span>Pretrained language models<a class="headerlink" href="#pretrained-language-models" title="Permalink to this headline">¶</a></h2>
-<p><img alt="elmo" src="_images/elmo.jpg" /></p>
-<div class="section" id="bert">
-<h3><span class="section-number">4.3.1. </span>BERT<a class="headerlink" href="#bert" title="Permalink to this headline">¶</a></h3>
-<p>Bidirectional Encoder Representations from Transformers (BERT) is a pre-trained NLP model developed by Google.</p>
-<p>The original English-language BERT model comes with two pre-trained general types: (1) the BERTBASE which uses the BooksCorpus with 800M words, and (2) the BERTLARGE that uses the English Wikipedia with 2,500M words.</p>
-<p>At the time introduction, BERT achieved state-of-the-art in many NLP tasks, like language understanding and question answering. BERT started the revolution of modern language models.</p>
-<p>(In the picture above is Elmo, not Bert. However, there is also a language model called Elmo:<a class="reference external" href="https://allennlp.org/elmo">allennlp.org</a></p>
-</div>
-<div class="section" id="gpt-3">
-<h3><span class="section-number">4.3.2. </span>GPT-3<a class="headerlink" href="#gpt-3" title="Permalink to this headline">¶</a></h3>
-<p>GPT-3 is the current state-of-the-art language model that has achieved revolutionary results. It is also the largest ML model to date, with 175 billion parameters. It was trained with data that has 499 billion tokens (words). For example, GPT-3 can create news articles that are difficult to distinguish from human-created news. It is also able to have conversations with a human. However, despite its’ stellar performance in creating meaningful text, it still does not understand anything that it is saying.
-Below is an example article generated by GPT-3.</p>
-<p><img alt="gpt3_text" src="_images/gpt3_desc_text.jpg" /></p>
-</div>
-</div>
 <div class="section" id="nlp-example-lda-and-other-summarisation-tools">
-<h2><span class="section-number">4.4. </span>NLP example - LDA and other summarisation tools<a class="headerlink" href="#nlp-example-lda-and-other-summarisation-tools" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2. </span>NLP example - LDA and other summarisation tools<a class="headerlink" href="#nlp-example-lda-and-other-summarisation-tools" title="Permalink to this headline">¶</a></h2>
 <p>In this example, we analyse a collection of academic journals with Latent Dirichlet Allocation (LDA) and other summarisation tools.</p>
 <p>To manipulate and list files in directories, we need the <strong>os</strong> -library.</p>
 <div class="cell docutils container">
@@ -481,7 +502,7 @@ Below is an example article generated by GPT-3.</p>
 <img alt="_images/10_NLP_in_accounting_19_0.png" src="_images/10_NLP_in_accounting_19_0.png" />
 </div>
 </div>
-<p>The common practice is to remove <strong>stopwords</strong> from documents. These are common fill words that do not contain information about the content of documents. We use the stopwords-list from the NLTK library (www.nltk.org). Here is a short description of NLTK from their web page: “NLTK is a leading platform for building Python programs to work with human language data. It provides easy-to-use interfaces to over 50 corpora and lexical resources such as WordNet, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning, wrappers for industrial-strength NLP libraries, and an active discussion forum.”</p>
+<p>The common practice is to remove <strong>stopwords</strong> from documents. These are common fill words that do not contain information about the content of documents. We use the stopwords-list from the NLTK library (<a class="reference external" href="http://www.nltk.org">www.nltk.org</a>). Here is a short description of NLTK from their web page: “NLTK is a leading platform for building Python programs to work with human language data. It provides easy-to-use interfaces to over 50 corpora and lexical resources such as WordNet, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning, wrappers for industrial-strength NLP libraries, and an active discussion forum.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
@@ -712,7 +733,7 @@ Features:</p>
 </div>
 </div>
 <div class="section" id="lda">
-<h2><span class="section-number">4.5. </span>LDA<a class="headerlink" href="#lda" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.3. </span>LDA<a class="headerlink" href="#lda" title="Permalink to this headline">¶</a></h2>
 <p><img alt="lda" src="_images/topic_model.gif" /></p>
 <p>Okay, let’s start our LDA analysis. For this, we need the <strong>corpora</strong> module from Gensim.</p>
 <div class="cell docutils container">
@@ -1341,7 +1362,7 @@ Name: Top topic, dtype: int64
 </div>
 </div>
 <div class="section" id="summarisation">
-<h2><span class="section-number">4.6. </span>Summarisation<a class="headerlink" href="#summarisation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Summarisation<a class="headerlink" href="#summarisation" title="Permalink to this headline">¶</a></h2>
 <p>Let’s do something else. Gensim also includes efficient summarisation-functions (these are not related to LDA any more):</p>
 <p>From the <strong>summarization</strong> -module, we can use <strong>summarize</strong> to automatically build a short summarisation of the document. Notice that we use the original documents for this and not the preprocessed ones. <strong>ratio = 0.01</strong> means that the length of the summarisation should be 1 % from the original document.</p>
 <div class="cell docutils container">
@@ -1621,7 +1642,7 @@ Name: Top topic, dtype: int64
 </div>
 </div>
 <div class="section" id="similarities">
-<h2><span class="section-number">4.7. </span>Similarities<a class="headerlink" href="#similarities" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5. </span>Similarities<a class="headerlink" href="#similarities" title="Permalink to this headline">¶</a></h2>
 <p>As a next example, we analyse the similarities between the documents.</p>
 <p>Gensim has a specific function for that: <strong>SparseMatrixSimilarity</strong></p>
 <div class="cell docutils container">
@@ -1655,7 +1676,7 @@ Name: Top topic, dtype: int64
 </div>
 </div>
 </div>
-<p><strong>Seaborn</strong> (https://seaborn.pydata.org/) has a convenient heatmap function to plot similarities. Here is information about Seaborn from their web page: Seaborn is a Python data visualization library based on Matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.</p>
+<p><strong>Seaborn</strong> (<a class="reference external" href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a>) has a convenient heatmap function to plot similarities. Here is information about Seaborn from their web page: Seaborn is a Python data visualization library based on Matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">sim_matrix</span><span class="p">)</span>
@@ -1805,7 +1826,7 @@ Name: Top topic, dtype: int64
 </div>
 </div>
 <div class="section" id="cluster-model">
-<h2><span class="section-number">4.8. </span>Cluster model<a class="headerlink" href="#cluster-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.6. </span>Cluster model<a class="headerlink" href="#cluster-model" title="Permalink to this headline">¶</a></h2>
 <p>Next, we build a topic analysis using a different approach. We create a TF-IDF model from the corpus and apply K-means clustering for that model.</p>
 <p>Explanation of TF-IDF from Wikipedia: “In information retrieval, TF–IDF or TFIDF, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus. It is often used as a weighting factor in searches of information retrieval, text mining, and user modelling. The TF–IDF value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general.”</p>
 <p>Explanation of K-means clustering from Wikipedia: “k-means clustering is a method of vector quantization, originally from signal processing, that aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean (cluster centres or cluster centroid), serving as a prototype of the cluster…k-means clustering minimizes within-cluster variances (squared Euclidean distances)…”</p>
@@ -2298,875 +2319,6 @@ Cluster 10 words: price, inventory, retailer, supplier, pricing, contract, profi
 </div></div></div>
 </div>
 </div>
-<div class="section" id="nlp-example-imdb">
-<h2><span class="section-number">4.9. </span>NLP example - IMDB<a class="headerlink" href="#nlp-example-imdb" title="Permalink to this headline">¶</a></h2>
-<p>In this example, we build a simple neural network model to predict the sentiment of movie reviews.</p>
-<p>First, we load the IMDB data that is included in the <strong>Keras</strong> library (part of <strong>Tensorflow</strong>). Also, we load the <strong>preprocessing</strong> module.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">imdb</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">preprocessing</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is a dataset of 25,000 movies reviews from IMDB, labelled by sentiment (positive/negative). The reviews have been preprocessed, and each review is encoded as a list of word indexes (integers).</p>
-<p>Words are ranked by how often they occur (in the training set) and only the <strong>num_words</strong> most frequent words are kept. Any less frequent word will appear as <code class="docutils literal notranslate"><span class="pre">oov_char</span></code> value in the sequence data. If we use <strong>num_words = None</strong>, all words are kept.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">num_words</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The following commands pad sequences to the same length, in this case, to 20 words.</p>
-<p><strong>pad_sequences()</strong> creates a 2D Numpy array of shape (number of samples x number of words) from a list of sequences.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">sequence</span><span class="o">.</span><span class="n">pad_sequences</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">x_test</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">sequence</span><span class="o">.</span><span class="n">pad_sequences</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25000, 20)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25000,)
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="densely-connected-network">
-<h2><span class="section-number">4.10. </span>Densely connected network<a class="headerlink" href="#densely-connected-network" title="Permalink to this headline">¶</a></h2>
-<p>We first build a traditional densely connected feed-forward-network. We also need an Embedding layer to code our words efficiently and a Flatten layer to transform our 2D-tensor to 1D-vector.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Embedding</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Our embedding layer codes 10000 words to 8-element vectors. The output layer has one neuron and a sigmoid-activation function that gives a probability for positive/negative. <strong>model.sequential()</strong> defines the network type, and the <strong>add()</strong> -functions are used to add layers to the model.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Like with the examples of the computer vision section, we can stick with the <strong>RMSprop</strong> gradient descent optimiser. Because we are doing positive/negative classification, binary_crossentropy is the correct loss function. We measure the model performance with prediction accuracy.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The model has 80161 parameters.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding (Embedding)        (None, 20, 8)             80000     
-_________________________________________________________________
-flatten (Flatten)            (None, 160)               0         
-_________________________________________________________________
-dense (Dense)                (None, 1)                 161       
-=================================================================
-Total params: 80,161
-Trainable params: 80,161
-Non-trainable params: 0
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<p>The data is split into training and validation parts with 80/20% division. We go through the data ten times (<strong>epochs=10</strong>). The data is fed to the model in 32 unit batches and, thus, each epoch has 625 steps (32 * 625 = 20000). Our prediction accuracy with the validation data is 0.75. However, the model appears to be overfitting as the validation loss is increasing, and there is a wide gap between the training accuracy and the validation accuracy in the last epochs.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span>
-                    <span class="n">y_train</span><span class="p">,</span>
-                    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
-                    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.6664 - acc: 0.6326 - val_loss: 0.6148 - val_acc: 0.7040
-Epoch 2/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.5389 - acc: 0.7514 - val_loss: 0.5266 - val_acc: 0.7302
-Epoch 3/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.4611 - acc: 0.7863 - val_loss: 0.5022 - val_acc: 0.7434
-Epoch 4/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.4223 - acc: 0.8091 - val_loss: 0.4948 - val_acc: 0.7552
-Epoch 5/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.3964 - acc: 0.8225 - val_loss: 0.4934 - val_acc: 0.7582
-Epoch 6/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.3738 - acc: 0.8342 - val_loss: 0.4964 - val_acc: 0.7578
-Epoch 7/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.3538 - acc: 0.8462 - val_loss: 0.5011 - val_acc: 0.7562
-Epoch 8/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.3347 - acc: 0.8584 - val_loss: 0.5081 - val_acc: 0.7564
-Epoch 9/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.3171 - acc: 0.8663 - val_loss: 0.5143 - val_acc: 0.7548
-Epoch 10/10
-625/625 [==============================] - 1s 2ms/step - loss: 0.3000 - acc: 0.8749 - val_loss: 0.5226 - val_acc: 0.7516
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
-<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
-<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
-<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10_NLP_in_accounting_174_0.png" src="_images/10_NLP_in_accounting_174_0.png" />
-<img alt="_images/10_NLP_in_accounting_174_1.png" src="_images/10_NLP_in_accounting_174_1.png" />
-</div>
-</div>
-<p>As our first improvement, we could try to use pre-trained embeddings in our model. Word embeddings include semantic information about our words (words appearing in similar contexts are close to each other). Pretrained embeddings are trained using vast amounts of text (billions of words). One could assume that the semantic information in these pre-trained embeddings is of higher quality and should improve our predictions. Let’s see…</p>
-<p>To be able to use this approach, we need the original IMBD data. Search for aclimdb.zip from the internet.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>My raw data is in the <em>aclImdb</em> -folder under the work folder</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imdb_raw</span> <span class="o">=</span> <span class="s1">&#39;./aclImdb/&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>First, we define empty lists for the reviews and their sentiment labels. Then we collect the negative reviews from <em>./aclImdb/train/neg</em> -folder. We also add to the labels-list zero for these cases. A similar approach is repeated for the positive reviews. Thus, in our lists, we have first the negative reviews and the positive reviews.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">texts</span> <span class="o">=</span> <span class="p">[]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect negative reviews</span>
-<span class="n">train_neg_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">imdb_raw</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;neg&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">train_neg_dir</span><span class="p">):</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_neg_dir</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
-    <span class="n">texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect positive reviews</span>
-<span class="n">train_neg_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">imdb_raw</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">,</span><span class="s1">&#39;pos&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">train_neg_dir</span><span class="p">):</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_neg_dir</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
-    <span class="n">texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Below is an example text and its’ sentiment (0=negative).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;There are some bad movies out there. Most of them are rather fun. &quot;Criminally Insane 1&quot; was one of those flicks. So bad that it was enjoyable and had re-watch value to it. &quot;Criminally Insane 2&quot; has to be one of the worst movies ever made and coming from me, that\&#39;s saying a lot because I am not the type of person to say anything is the worst. But trust me, this was just completely awful and running just 1 hour is 1 hour too long.&lt;br /&gt;&lt;br /&gt;The movie has a rather incoherent storyline, but who cares about story when all you want to see is a big fat woman running around killing people because she isn\&#39;t being fed. Well, you don\&#39;t see that in this movie, except for all of the flashback sequences that are from the first one. The new storyline could have been really funny with Ethel being sent to a halfway house and murdering everyone in there, but nothing happens until the last 20 minutes of the movie and at that point you are already falling asleep.&lt;br /&gt;&lt;br /&gt;The camera work in this movie is just atrocious. This literally reminds me of something I shot with friends of mine back when I was 15. The sound quality is something else as you can\&#39;t understand a word most of the characters are saying. To give an example of how bad it is, go into a New York Subway and try to understand what is being said over the loud speakers, that is what this movie sounds like. Not that it matters what they are talking about anyway because the actors are about as dry as a dead piece of wood.&lt;br /&gt;&lt;br /&gt;Now I know that saying this is the worst movie out there is pretty harsh but words can\&#39;t describe just how bad this movie is. If you don\&#39;t believe me, see it for yourself. 1/10&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
-</div>
-<p>We need Numpy and text-processing tools from the Keras libary.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.text</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The following commands tokenise words into vectors.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">num_words</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The following commands transform each text in texts to a sequence of integers.</p>
-<p>Only words known by the tokenizer will be taken into account. It will take into account only the 10000 most frequent words.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sequences</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now, we use longer texts. We keep the 200 first words from each review.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The following command transforms the labels list to a numpy array.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25000, 200)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25000,)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Because the reviews are in order (all the negative reviews first and then the positive reviews), we have to shuffle the data before feeding it to the model.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">25000</span><span class="p">)</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>80 / 20 % separation of the data to training and validation parts.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">20000</span><span class="p">]</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[:</span><span class="mi">20000</span><span class="p">]</span>
-<span class="n">x_val</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">20000</span><span class="p">:</span> <span class="mi">25000</span><span class="p">]</span>
-<span class="n">y_val</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="mi">20000</span><span class="p">:</span> <span class="mi">25000</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The Stanford NLP group offers GLOVE pre-trained embeddings. You can download them from <a class="reference external" href="https://nlp.stanford.edu/projects/glove/">nlp.stanford.edu/projects/glove/</a>. We use the glove6B.zip that is trained using 6 billion tokens. Each word is represented as a 100-dimensional vector.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we use 100-dimensional vectors</span>
-<span class="n">embeddings_index</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;./glove.6B/&#39;</span><span class="p">,</span> <span class="s1">&#39;glove.6B.100d.txt&#39;</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">word</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
-    <span class="n">embeddings_index</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefs</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>GLOVE has 400k tokens.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">embeddings_index</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400000
-</pre></div>
-</div>
-</div>
-</div>
-<p>We build the embedding matrix by going through our word index and adding its’ embeddings from the Glove model (if it is found).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
-        <span class="n">embedding_vector</span> <span class="o">=</span> <span class="n">embeddings_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">embedding_vector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">embedding_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">embedding_vector</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Because our model uses now 100-dimensional word vectors, the network also has a lot of more parameters. Our network also has a new 32-neuron dense layer after the Flatten-layer.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_5&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_5 (Embedding)      (None, 200, 100)          1000000   
-_________________________________________________________________
-flatten_3 (Flatten)          (None, 20000)             0         
-_________________________________________________________________
-dense_7 (Dense)              (None, 32)                640032    
-_________________________________________________________________
-dense_8 (Dense)              (None, 1)                 33        
-=================================================================
-Total params: 1,640,065
-Trainable params: 1,640,065
-Non-trainable params: 0
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<p>We set the weights of the embedding layer using the Glove weights in the embedding matrix. The weights need to be locked so that we are not retraining them with our small dataset.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_weights</span><span class="p">([</span><span class="n">embedding_matrix</span><span class="p">])</span>
-<span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, we use the RMSprop optimiser, the binary_crossentropy loss function and accuracy as our performance metric.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.6591 - acc: 0.6439 - val_loss: 0.5575 - val_acc: 0.7138
-Epoch 2/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.5045 - acc: 0.7554 - val_loss: 0.5326 - val_acc: 0.7366
-Epoch 3/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.4155 - acc: 0.8091 - val_loss: 0.5454 - val_acc: 0.7398
-Epoch 4/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.3605 - acc: 0.8390 - val_loss: 0.7307 - val_acc: 0.6964
-Epoch 5/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.3113 - acc: 0.8618 - val_loss: 0.6184 - val_acc: 0.7422
-Epoch 6/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.2661 - acc: 0.8821 - val_loss: 0.6603 - val_acc: 0.7364
-Epoch 7/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.2195 - acc: 0.9068 - val_loss: 0.8240 - val_acc: 0.7044
-Epoch 8/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.1820 - acc: 0.9250 - val_loss: 0.9258 - val_acc: 0.7028
-Epoch 9/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.1494 - acc: 0.9391 - val_loss: 1.0480 - val_acc: 0.6916
-Epoch 10/10
-625/625 [==============================] - 2s 3ms/step - loss: 0.1251 - acc: 0.9506 - val_loss: 1.4292 - val_acc: 0.6804
-</pre></div>
-</div>
-</div>
-</div>
-<p>Not a good performance. Heavy overfitting and worse accuracy. Let’s try something else.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
-<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
-<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
-<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training acc&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation acc&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10_NLP_in_accounting_217_0.png" src="_images/10_NLP_in_accounting_217_0.png" />
-<img alt="_images/10_NLP_in_accounting_217_1.png" src="_images/10_NLP_in_accounting_217_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="recurrent-neural-networks">
-<h2><span class="section-number">4.11. </span>Recurrent neural networks<a class="headerlink" href="#recurrent-neural-networks" title="Permalink to this headline">¶</a></h2>
-<p>Next thing that we can try is to use Recurrent neural networks. They are especially efficient for sequences like texts.</p>
-<p><img alt="RNN" src="_images/rnn.svg" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">SimpleRNN</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now, instead of a Flatten() layer, we have a SimpleRNN() layer.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">SimpleRNN</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_6&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_6 (Embedding)      (None, 200, 100)          1000000   
-_________________________________________________________________
-simple_rnn_2 (SimpleRNN)     (None, 100)               20100     
-_________________________________________________________________
-dense_9 (Dense)              (None, 1)                 101       
-=================================================================
-Total params: 1,020,201
-Trainable params: 1,020,201
-Non-trainable params: 0
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, we use the GLOVE weights.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load GLove wieghts</span>
-<span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_weights</span><span class="p">([</span><span class="n">embedding_matrix</span><span class="p">])</span>
-<span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_6&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_6 (Embedding)      (None, 200, 100)          1000000   
-_________________________________________________________________
-simple_rnn_2 (SimpleRNN)     (None, 100)               20100     
-_________________________________________________________________
-dense_9 (Dense)              (None, 1)                 101       
-=================================================================
-Total params: 1,020,201
-Trainable params: 20,201
-Non-trainable params: 1,000,000
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<p>Nothing has changed in the compile() and fit() -steps.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-625/625 [==============================] - 24s 38ms/step - loss: 0.6528 - acc: 0.6186 - val_loss: 0.6096 - val_acc: 0.6786
-Epoch 2/10
-625/625 [==============================] - 28s 45ms/step - loss: 0.5957 - acc: 0.6887 - val_loss: 0.5760 - val_acc: 0.7066
-Epoch 3/10
-625/625 [==============================] - 29s 46ms/step - loss: 0.5761 - acc: 0.7047 - val_loss: 0.5618 - val_acc: 0.7272
-Epoch 4/10
-625/625 [==============================] - 28s 44ms/step - loss: 0.5618 - acc: 0.7147 - val_loss: 0.5384 - val_acc: 0.7428
-Epoch 5/10
-625/625 [==============================] - 28s 45ms/step - loss: 0.5534 - acc: 0.7227 - val_loss: 0.5499 - val_acc: 0.7248
-Epoch 6/10
-625/625 [==============================] - 28s 45ms/step - loss: 0.5553 - acc: 0.7169 - val_loss: 0.5894 - val_acc: 0.6918
-Epoch 7/10
-625/625 [==============================] - 28s 45ms/step - loss: 0.5374 - acc: 0.7325 - val_loss: 0.5234 - val_acc: 0.7494
-Epoch 8/10
-625/625 [==============================] - 28s 45ms/step - loss: 0.5137 - acc: 0.7479 - val_loss: 0.5315 - val_acc: 0.7498
-Epoch 9/10
-625/625 [==============================] - 28s 45ms/step - loss: 0.5132 - acc: 0.7489 - val_loss: 0.5621 - val_acc: 0.7284
-Epoch 10/10
-625/625 [==============================] - 28s 44ms/step - loss: 0.4911 - acc: 0.7660 - val_loss: 0.6154 - val_acc: 0.6886
-</pre></div>
-</div>
-</div>
-</div>
-<p>Well, overfitting is not such a serious problem any more, but the performance is not improving still.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
-<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
-<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
-<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10_NLP_in_accounting_230_0.png" src="_images/10_NLP_in_accounting_230_0.png" />
-<img alt="_images/10_NLP_in_accounting_230_1.png" src="_images/10_NLP_in_accounting_230_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="long-short-term-memory">
-<h2><span class="section-number">4.12. </span>Long short-term memory<a class="headerlink" href="#long-short-term-memory" title="Permalink to this headline">¶</a></h2>
-<p>As our last idea, we try the LSTM-version of RNN. It has achieved very good performance in practice, so, let’s hope for the best.
-<img alt="lstm" src="_images/lstm.svg" /></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">LSTM</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_7&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_7 (Embedding)      (None, 200, 100)          1000000   
-_________________________________________________________________
-lstm (LSTM)                  (None, 100)               80400     
-_________________________________________________________________
-dense_10 (Dense)             (None, 1)                 101       
-=================================================================
-Total params: 1,080,501
-Trainable params: 1,080,501
-Non-trainable params: 0
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load GLove wieghts</span>
-<span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_weights</span><span class="p">([</span><span class="n">embedding_matrix</span><span class="p">])</span>
-<span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_7&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_7 (Embedding)      (None, 200, 100)          1000000   
-_________________________________________________________________
-lstm (LSTM)                  (None, 100)               80400     
-_________________________________________________________________
-dense_10 (Dense)             (None, 1)                 101       
-=================================================================
-Total params: 1,080,501
-Trainable params: 80,501
-Non-trainable params: 1,000,000
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-625/625 [==============================] - 8s 12ms/step - loss: 0.5607 - acc: 0.7138 - val_loss: 0.4525 - val_acc: 0.7844
-Epoch 2/10
-625/625 [==============================] - 8s 12ms/step - loss: 0.4275 - acc: 0.8061 - val_loss: 0.6175 - val_acc: 0.7750
-Epoch 3/10
-625/625 [==============================] - 7s 12ms/step - loss: 0.3619 - acc: 0.8458 - val_loss: 0.3399 - val_acc: 0.8524
-Epoch 4/10
-625/625 [==============================] - 8s 12ms/step - loss: 0.3254 - acc: 0.8616 - val_loss: 0.3284 - val_acc: 0.8594
-Epoch 5/10
-625/625 [==============================] - 7s 12ms/step - loss: 0.2937 - acc: 0.8752 - val_loss: 0.3091 - val_acc: 0.8728
-Epoch 6/10
-625/625 [==============================] - 7s 12ms/step - loss: 0.2712 - acc: 0.8884 - val_loss: 0.2998 - val_acc: 0.8716
-Epoch 7/10
-625/625 [==============================] - 8s 12ms/step - loss: 0.2455 - acc: 0.9002 - val_loss: 0.3528 - val_acc: 0.8560
-Epoch 8/10
-625/625 [==============================] - 7s 11ms/step - loss: 0.2222 - acc: 0.9116 - val_loss: 0.3320 - val_acc: 0.8600
-Epoch 9/10
-625/625 [==============================] - 8s 12ms/step - loss: 0.1977 - acc: 0.9230 - val_loss: 0.3221 - val_acc: 0.8760
-Epoch 10/10
-625/625 [==============================] - 8s 12ms/step - loss: 0.1756 - acc: 0.9322 - val_loss: 0.3241 - val_acc: 0.8684
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finally, we see some progress! Now the accuracy is around 87 %. So, a very significant improvement in performance. For the exact evaluation of performance, we should use a separate test set. However, the validation dataset accuracy gives a good indication of the performance of our model.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
-<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
-<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
-<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10_NLP_in_accounting_240_0.png" src="_images/10_NLP_in_accounting_240_0.png" />
-<img alt="_images/10_NLP_in_accounting_240_1.png" src="_images/10_NLP_in_accounting_240_1.png" />
-</div>
-</div>
-<p>As our final model, let’s test what kind of effect the predetermined weights have for the performance and train an LSTM model from scratch.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_8&quot;
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_8 (Embedding)      (None, 200, 32)           320000    
-_________________________________________________________________
-lstm_1 (LSTM)                (None, 32)                8320      
-_________________________________________________________________
-dense_11 (Dense)             (None, 1)                 33        
-=================================================================
-Total params: 328,353
-Trainable params: 328,353
-Non-trainable params: 0
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
-625/625 [==============================] - 7s 11ms/step - loss: 0.4124 - acc: 0.8138 - val_loss: 0.3248 - val_acc: 0.8686
-Epoch 2/10
-625/625 [==============================] - 6s 10ms/step - loss: 0.2546 - acc: 0.9002 - val_loss: 0.3000 - val_acc: 0.8792
-Epoch 3/10
-625/625 [==============================] - 7s 11ms/step - loss: 0.2125 - acc: 0.9188 - val_loss: 0.3030 - val_acc: 0.8734
-Epoch 4/10
-625/625 [==============================] - 7s 11ms/step - loss: 0.1897 - acc: 0.9281 - val_loss: 0.3205 - val_acc: 0.8782
-Epoch 5/10
-625/625 [==============================] - 8s 14ms/step - loss: 0.1685 - acc: 0.9387 - val_loss: 0.3162 - val_acc: 0.8716
-Epoch 6/10
-625/625 [==============================] - 7s 11ms/step - loss: 0.1592 - acc: 0.9424 - val_loss: 0.3449 - val_acc: 0.8752
-Epoch 7/10
-625/625 [==============================] - 6s 10ms/step - loss: 0.1416 - acc: 0.9490 - val_loss: 0.3605 - val_acc: 0.8742
-Epoch 8/10
-625/625 [==============================] - 7s 11ms/step - loss: 0.1298 - acc: 0.9536 - val_loss: 0.3191 - val_acc: 0.8720
-Epoch 9/10
-625/625 [==============================] - 7s 11ms/step - loss: 0.1181 - acc: 0.9588 - val_loss: 0.3642 - val_acc: 0.8778
-Epoch 10/10
-625/625 [==============================] - 8s 13ms/step - loss: 0.1088 - acc: 0.9633 - val_loss: 0.3751 - val_acc: 0.8652
-</pre></div>
-</div>
-</div>
-</div>
-<p>Because there are no locked parameters, the number of trainable parameters increases, and this causes some overfitting. However, the performance is at the same level as in the previous model. So, the predetermined weights do not appear to improve the accuracy, but they help at fighting overfitting.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
-<span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span>
-<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_acc&#39;</span><span class="p">]</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
-<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation accuracy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10_NLP_in_accounting_246_0.png" src="_images/10_NLP_in_accounting_246_0.png" />
-<img alt="_images/10_NLP_in_accounting_246_1.png" src="_images/10_NLP_in_accounting_246_1.png" />
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -3197,7 +2349,8 @@ Epoch 10/10
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="9_Deep_learning_in_accounting.html" title="previous page"><span class="section-number">3. </span>Deep learning in accounting</a>
+    <a class='left-prev' id="prev-link" href="9.1_Bonus_example.html" title="previous page"><span class="section-number">10. </span>Example - starting from scratch</a>
+    <a class='right-next' id="next-link" href="10.1_LDA_bonus_example.html" title="next page"><span class="section-number">12. </span>Basic LDA example - An analysis of ~200 scientific articles</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -3217,7 +2370,7 @@ Epoch 10/10
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
