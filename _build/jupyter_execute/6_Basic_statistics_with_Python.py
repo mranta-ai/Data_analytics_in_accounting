@@ -1,36 +1,45 @@
-## Basic statistics with Python
+## Basic statistics and time series analysis with Python
+This chapter shortly introduces the methods and libraries Python has to offer for basic statistics and time series analysis.
 
-Numpy has some statistical functions and they are useful when you have huge amounts of data. We will analyse Numpy more in the next chapter. Here we check only the main statistical functions.
+Let's start by analysing what kind statistical functions Numpy has to offer. The selection is somewhat limited and usually it is better to use some other libraries for statistical analysis, like Pandas or Statsmodels. However, sometimes you have to use Numpy for data manipulations. For example, if your accounting datasets are very large, Numpy is the most efficient solution in Python. Therefore, it is also useful to know the  basic statistical functions that Numpy has to offer. We will learn more about Numpy in the next chapter. Here we check only the main statistical functions.
 
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('bmh')
+plt.xkcd()
+#plt.style.use('bmh')
+
+
+The following function creates an array of random values from the normal distribution. The mean of the distribution is 0 and the standard deviation (scale) 1. The last parameter (5,3) defines the shape of the array.
 
 array_np = np.random.normal(0,1,(5,3))
 
 array_np
 
-The default is a statistic calculated from a whole array, but you can also define if you want them calculated for rows or colums.
+The default is a statistic calculated from the whole array, but you can also define if you want them calculated for rows or colums.
 
-array_np.mean()
+array_np.mean()  # The mean for the whole array
 
-array_np.mean(0)
+array_np.mean(0) # The mean for the columns
 
-array_np.mean(1)
+array_np.mean(1) # The mean for the rows
+
+Numpy also has the function to calculate the sum of the values.
 
 array_np.sum()
 
+Standard deviation
+
 array_np.std()
 
-By default, **argmin** and **argmax** return the index of a flattened array (transformed to one dimension). You can also define the axis.
+*argmin* and *argmax* return the position of the minimum and maximum value. By default, *argmin* and *argmax* return the index of a flattened array (transformed to one dimension). You can also define the axis.
 
-array_np.argmin()
+array_np.argmin() # The position of the smallest value.
 
-array_np.argmin(0)
+array_np.argmin(0) # The position of the largest value in columns.
 
-array_np.argmin(1)
+array_np.argmin(1) # The position of the largest value in rows.
 
-**cumsum()** also flattens arrays by default.
+Cumulative sum of the array. **cumsum()** also flattens arrays by default.
 
 array_np.cumsum()
 
@@ -47,7 +56,7 @@ stat_df = pd.read_csv('stat_data.csv',index_col=0)
 
 stat_df
 
-stat_df.set_index('NAME',inplace=True)
+stat_df.set_index('NAME',inplace=True) # Set the NAME variable as index of the dataframe
 
 Usually, the default setting with the Pandas statistical functions is that they calculate column statistics. For example, here is the **sum** function (does not make much sense here).
 
@@ -60,6 +69,8 @@ stat_df.sum(axis=1)
 There is also a cumulative sum similar to Numpy's equivalent. Notice that it calculates the cumulative sum series for columns by default.
 
 stat_df[['DIV. YIELD','ROE (%)']].cumsum()
+
+The mean value of the columns. Notice how non-numerical columns are automatically excluded.
 
 stat_df.mean()
 
@@ -80,16 +91,16 @@ You can also use **describe** for string-data.
 
 stat_df['ACCOUNTING STANDARD'].describe()
 
-Quick histograms are also to easy draw with Pandas **hist()**.
+Quick histograms are easy to draw with Pandas **hist()**.
 
 import matplotlib.pyplot as plt
 
-stat_df.hist(figsize=(10,10))
+stat_df.hist(figsize=(10,10),grid=False,edgecolor='k')
 plt.show()
 
 It is also easy to draw bar plots, line plots, etc. from variables.
 
-stat_df.iloc[0:10]['ROE (%)'].plot.bar()
+stat_df.iloc[0:10]['ROE (%)'].plot.bar(grid=False,edgecolor='k')
 plt.show()
 
 Pandas also has functions for quantiles, median, mean absolute deviation, variance, st. dev., skewness, kurtosis etc.
@@ -106,36 +117,39 @@ stat_df.mad() # Mean absolute deviation
 
 There are also functions for first differences (**diff**) and percentage changes (**pct_change**) that are useful for time series. We check them more closely when we discuss time series.
 
-Correlation matrix can be calculated with **corr()**.
+A correlation matrix can be calculated with **corr()**.
 
 stat_df.corr()
+
+Seaborn can be used to visualise the correlation matrix.
 
 import seaborn as sns
 
 sns.heatmap(stat_df.corr())
+plt.show()
 
 There is also a function for covariance.
 
 stat_df.cov()
 
-If you want to calculate correlations between two dataframe, you can use **corr_with()**.
+If you want to calculate correlations between two dataframes, you can use **corr_with()**.
 
 To collect the unique values of a Pandas series, you can use **unique()**.
 
 stat_df['IBES COUNTRY CODE'].unique()
 
-**value_counts** can be used to collect frequencies of values. Here the counts are presented as a bar chart.
+**value_counts** can be used to collect frequencies of values. Here the counts are presented as a bar chart. Notice how we chain dataframe functions.
 
-stat_df['IBES COUNTRY CODE'].value_counts().plot.bar(figsize=(12,8))
+stat_df['IBES COUNTRY CODE'].value_counts().plot.bar(figsize=(12,8),grid=False)
 plt.show()
 
 ### Probability and statistics functions
 
 What we mainly need in data analysis from probability theory are random variables and distributions. Numpy has a large collection of random number generators that are located in module **numpy.random**. There are random number generators for every distribution that you will ever need.
 
-x_np = np.random.normal(size=500)
+x_np = np.random.normal(size=500) # Create 500 normal random variables with *mean=0* and *std=1*
 y_np = np.random.normal(size=500)
-plt.hist2d(x_np,y_np,bins=30)
+plt.hist2d(x_np,y_np,bins=30) # Visualise the joint frequency distribution using 2D-histogram.
 plt.show()
 
 hyper_np = np.random.hypergeometric(8,9,12,size=(3,3))
@@ -144,16 +158,16 @@ hyper_np
 
 Probably the most important distributions are the standard normal distribution, the chi2 distribution and the binomial distribution.
 
-plt.hist(np.random.normal(size=2000),bins=20)
+plt.hist(np.random.normal(size=2000),bins=20,color='lightgray',edgecolor='k')
 plt.show()
 
-plt.hist(np.random.chisquare(1,size=1000),bins=20)
+plt.hist(np.random.chisquare(1,size=1000),bins=20,color='lightgray',edgecolor='k')
 plt.show()
 
-plt.hist(np.random.chisquare(6,size=1000),bins=20)
+plt.hist(np.random.chisquare(6,size=1000),bins=20,color='lightgray',edgecolor='k')
 plt.show()
 
-sns.countplot(x=np.random.binomial(20,0.7,size=1000),color='gray')
+sns.countplot(x=np.random.binomial(20,0.7,size=1000),color='lightgray',edgecolor='k')
 plt.show()
 
 It is good to remember that computer-generated random numbers are not truly random numbers. They are so called pseudorandom numbers. It is because they are generated using a deterministic algorithm and a seed value.
@@ -162,7 +176,7 @@ It is good to remember that computer-generated random numbers are not truly rand
 
 Pandas (and Numpy) has only functions for basic statistical analysis, like descriptive statistics. If you want to do more advanced (traditional) statistical analysis, the **statsmodels** library is a good option.
 
-For example, linear regerssion models are very easy to build with **statsmodels**.
+For example, linear regerssion models are very easy to build with **statsmodels**. Let's model the dividend yield as a function of the R&D intensity.
 
 import statsmodels.api as sm
 import seaborn as sns
@@ -183,31 +197,32 @@ model = sm.OLS(reduced_df['DIV. YIELD'],x,missing='drop')
 
 results = model.fit()
 
+The parameters and t-values of the model.
+
 results.params
 
 results.tvalues
 
+With **summary()**, you can output all the key regression results.
+
 results.summary()
 
-results.summary2()
+results.summary2() # Different format for the results.
 
-import matplotlib
-
-Seaborn regression plot is not working correctly, if we use **bmh** style in Matplotlib.
-
-matplotlib.rcdefaults()
-
-sns.set_theme(color_codes=True)
+**Regplot** can be usd to plot the model over observations.
 
 sns.regplot(x='R&D/SALES (%)',y='DIV. YIELD',data=reduced_df)
 plt.show()
-plt.style.use('bmh')
 
-It is easy to add dummy-variables to your model using the Pandas **get_dummes()** -function. Let's chance also the dependent  variable to **ROE**.
+It is easy to add dummy-variables to your model using the Pandas **get_dummes()** -function. For more than two categories, it creates more than one dummmy-variables. 
+
+Create a new variable **acc_dummy** that has a value one if the company has accounting controversies.
 
 reduced_df['acc_dummy'] = pd.get_dummies(stat_df['Accounting Controversies'],drop_first=True)
 
 x = sm.add_constant(reduced_df[['R&D/SALES (%)','acc_dummy']])
+
+Let's chance also the dependent  variable to **ROE**.
 
 model = sm.OLS(reduced_df['ROE (%)'],x,missing='drop')
 
@@ -217,7 +232,7 @@ results.summary()
 
 As you can see, there is something wrong. If you observed the histograms carefully, you'd seen that there is a clear outlier in **ROE** values.
 
-reduced_df['ROE (%)'].hist()
+reduced_df['ROE (%)'].hist(grid=False)
 
 reduced_df['ROE (%)'].describe()
 
@@ -226,7 +241,8 @@ A maximum value of 31560! We can remove it, or we can winsorise the data. Let's 
 reduced_df['ROE (%)'].clip(lower = reduced_df['ROE (%)'].quantile(0.025),
                            upper = reduced_df['ROE (%)'].quantile(0.975),inplace=True)
 
-reduced_df['ROE (%)'].hist()
+reduced_df['ROE (%)'].hist(grid=False)
+plt.show()
 
 Let's try to build the regression model again.
 
@@ -240,9 +256,9 @@ results.summary()
 
 Although accounting controversies has a negative coefficient, it is not statisticall significant.
 
-Statsmodels is a very comprehensive statistical library. It has solutions for nonparametric statistics, generalised linear models, robust regression, time series analysis. We do not go into more details of Statsmodels at this point. If you want to learn more, check the Statsmodels documentation: [www.statsmodels.org/stable/index.html](https://www.statsmodels.org/stable/index.html)
+Statsmodels is a very comprehensive statistical library. It has modules for nonparametric statistics, generalised linear models, robust regression and time series analysis. We do not go into more details of Statsmodels at this point. If you want to learn more, check the Statsmodels documentation: [www.statsmodels.org/stable/index.html](https://www.statsmodels.org/stable/index.html)
 
-### Statistical analysi with scipy.stats
+### Statistical analysis with scipy.stats
 
 Another option for statistical analysis in Python is the **stats** module of **Scipy**. It has many functions that are not included in other statistical libraries. However, Scipy does not handle automatically nan-values. Accounting data almost always has missing values, thus, they need to be manually handled, which is a bit annoying.
 
@@ -254,27 +270,37 @@ In SciPy, random variables with different distributions are presented as classes
 
 norm_rv = ss.norm(loc=1.0, scale=0.5)
 
+Expected value
+
 norm_rv.expect()
+
+The value of probability distribution function at 0.
 
 norm_rv.pdf(0.)
 
+The value of cumulative distribution function at 1.
+
 norm_rv.cdf(1.)
 
+Standard deviation
+
 norm_rv.std()
+
+The visualisation of the pdf and cdf of the RV.
 
 plt.plot(np.linspace(-1,3,100),[norm_rv.pdf(x) for x in np.linspace(-1,3,100)])
 plt.plot(np.linspace(-1,3,100),[norm_rv.cdf(x) for x in np.linspace(-1,3,100)],'r--')
 plt.show()
 
-The list of distributions is very long. Here you can read more about them: [docs.scipy.org/doc/scipy/reference/stats.html](https://docs.scipy.org/doc/scipy/reference/stats.html)
+The list of distributions in Scipy is long. Here you can read more about them: [docs.scipy.org/doc/scipy/reference/stats.html](https://docs.scipy.org/doc/scipy/reference/stats.html)
 
 There are many functions for descriptive statistics. The full list can be found also from the link above.
 
 ss.describe(stat_df['DIV. YIELD'])
 
-With trimmed mean, we can define the limits to the values of a variable from which the mean is calculated. There are **trimmed** versions for many other statistics too.
+ss.describe(stat_df['ROE (%)'],nan_policy='omit') # Omit missing values
 
-ss.describe(stat_df['ROE (%)'],nan_policy='omit')
+With trimmed mean, we can define the limits to the values of a variable from which the mean is calculated. There are **trimmed** versions for many other statistics too.
 
 ss.tmean(stat_df['ROE (%)'].dropna(),limits=(-50,50))
 
@@ -296,14 +322,18 @@ temp_df = stat_df[['DIV. YIELD','SG%A/SALES 5Y (%)']].dropna()
 
 The output of SciPy is a bit ascetic. The first value is the correlation coefficient and the second value is the p-value.
 
-ss.pearsonr(temp_df['DIV. YIELD'],temp_df['SG%A/SALES 5Y (%)'])
+Pearson's correlation coefficient
+
+ss.pearsonr(temp_df['DIV. YIELD'],temp_df['SG%A/SALES 5Y (%)']) 
+
+Spearman's rank correlation coefficient
 
 ss.spearmanr(temp_df['DIV. YIELD'],temp_df['SG%A/SALES 5Y (%)'])
 
 There are many statistical tests included. Let's divide our data to US companies and others to test the Scipy **ttest()**
 
-us_df = stat_df[stat_df['IBES COUNTRY CODE'] == '  US']
-nonus_df = stat_df[~(stat_df['IBES COUNTRY CODE'] == 'US')]
+us_df = stat_df[stat_df['IBES COUNTRY CODE'] == '  US'] # US
+nonus_df = stat_df[~(stat_df['IBES COUNTRY CODE'] == 'US')] # Non-US (notice the tilde symbol)
 
 This test assumes equal variance for both groups. The result implies that the (mean) dividend yield is higher in non-US companies.
 
@@ -321,7 +351,7 @@ Python has modules for date/time -handling by default, the most important being 
 
 from datetime import datetime
 
-datetime.now()
+datetime.now() # Date and time now
 
 datetime.now().year
 
@@ -379,13 +409,13 @@ parse('8/3/2015',dayfirst = True)
 
 The most important Pandas function for handling dates is **to_datetime**. We will see many applications of it in the following, but let's first load an interesting time series.
 
-Accountants and auditors as a percent of the US labor force 1850 to 2016. This data is a little bit difficult, because the frequency is irregular. The first datapoints have a ten-year interval, and from 2000 onwards the interval is one year.
+The data contains accountants and auditors as a percent of the US labor force 1850 to 2016. This data is a little bit difficult, because the frequency is irregular. The first datapoints have a ten-year interval, and from 2000 onwards the interval is one year.
 
 times_df =pd.read_csv('https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/AccountantsAuditorsPct.csv')
 
 times_df.head()
 
-times_df.rename({'Unnamed: 0':'Year'},axis=1,inplace=True)
+times_df.rename({'Unnamed: 0':'Year'},axis=1,inplace=True) # Correct the name of the year variable
 
 times_df.head()
 
@@ -458,15 +488,20 @@ rwalk_df = pd.Series(np.cumsum(temp_np), index=sample_period)
 
 rwalk_df.head(15)
 
+Resample as weekly data where the daily values are aggregated together with **mean()**.
+
 rwalk_df.resample('W').mean()
 
 rwalk_df.plot(linewidth=0.5)
-rwalk_df.resample('W').mean().plot()
+rwalk_df.resample('W').mean().plot(figsize=(10,10))
 plt.show()
 
 A very common way to aggregate data in finance, is open-high-low-close.
 
 rwalk_df.resample('W').ohlc().tail()
+
+rwalk_df.resample('W').ohlc().plot(figsize=(10,10))
+plt.show()
 
 A very important topic in time series analysis is filtering with moving windows.
 
@@ -474,21 +509,26 @@ With rolling, we can easily create a moving average from a time series.
 
 rwalk_df.plot(linewidth=0.5)
 rwalk_df.rolling(25).mean().plot()
+plt.show()
 
 As you can see, by default the function calculates the average only when all values are awailable, and therefore, there are missing values at the beginning. You can avoid this with the **min_periods** parameter. With the **center** parameter, you can remove the lag in the average:
 
 rwalk_df.plot(linewidth=0.5)
 rwalk_df.rolling(25,min_periods=1,center=True).mean().plot()
+plt.show()
 
 Very often, the moving average is calculated using an exponentially weighted filter. Pandas has the **ewm** function for that.
 
 rwalk_df.plot(linewidth=0.5)
-rwalk_df.ewm(span = 25,min_periods=1).mean().plot(color='darkred')
+rwalk_df.ewm(span = 25,min_periods=1).mean().plot(color='darkred',figsize=(10,10))
 rwalk_df.rolling(25,min_periods=1).mean().plot(color='darkgreen')
+plt.show()
 
 With **rolling**, we can even calculate correlations from aggregates. Let's load a more interesting data for that.
 
 euro_df = pd.read_csv('https://vincentarelbundock.github.io/Rdatasets/csv/datasets/EuStockMarkets.csv',index_col=0)
+
+**freg='B'** means business day frequency. Here is the full list aliases for frequencies: [Offset aliases](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases)
 
 euro_df.index = pd.date_range('1991-01-01', '1998-02-16', freq='B')
 
@@ -499,19 +539,80 @@ The returns of stock indices.
 
 euro_ret_df = euro_df.pct_change()
 
-euro_ret_df.iloc[:100].plot()
+euro_ret_df.iloc[:100].plot(figsize=(10,5))
 plt.show()
 
 The correlation between DAX and the other indices calculated from a 64-day window.
 
-euro_ret_df['DAX'].rolling(64).corr(euro_ret_df[['SMI','CAC','FTSE']]).plot(linewidth=1)
+euro_ret_df['DAX'].rolling(64).corr(euro_ret_df[['SMI','CAC','FTSE']]).plot(linewidth=1,figsize=(10,5))
 
 With **apply**, you can even define your own functions to calculate an aggregate value from windows. The following calculates an interquartile range from the window.
 
 inter_quart = lambda x: np.quantile(x,0.75)-np.quantile(x,0.25)
 
-euro_ret_df.rolling(64).apply(inter_quart).plot(linewidth=1)
+euro_ret_df.rolling(64).apply(inter_quart).plot(linewidth=1,figsize=(10,5))
 plt.show()
 
 Time series analysis in Pandas is a vast topic, and we have only scratched a surface. If you want to learn more, check [pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html)
+
+#### ARIMA models
+
+In this section, I will shortly introduce ARIMA models. They assume that in a time series the present valua depends on the previous values (AR = autoregressive). They also include moving averages (MA). "I" in the name means that the modeled time series is the n:th difference of the original time series (I = integrated):
+
+Let's build an ARIMA model for the euro dataset.
+
+One essential tool to assess how the data depends on the previous values and select a model that reflects this is the sample autocorrelation function. The sample ACF will provide us with an estimate of the ACF and suggests a time series model suitable for representing the data's dependence. For example, a sample ACF close to zero for all nonzero lags suggests that an appropriate model for the data might be iid noise.
+
+from pandas.plotting import autocorrelation_plot
+
+Lags 1, 6, 11 and 13 appear to be statistically signficant.
+
+autocorrelation_plot(euro_ret_df['FTSE'][1:],marker='o')
+plt.xlim(0,20)
+plt.ylim(-0.1,0.1)
+plt.show()
+
+from statsmodels.tsa.arima.model import ARIMA
+
+Let's separate the last 100 observations from the data for testing.
+
+train_set, test_set = euro_df['FTSE'][:-100].to_list(), euro_df['FTSE'][-100:].to_list()
+
+Based on the ACF plot, 13 lags, integrated=1 (first difference of the original series) and first order moving average.
+
+model = ARIMA(train_set, order=(13,1,1))
+model_fit = model.fit()
+
+model_fit.summary()
+
+The residuals of the model (difference between the prediction and the true value).
+
+plt.plot(model_fit.resid[1:50])
+plt.show()
+
+The distribution of the residuals.
+
+sns.kdeplot(model_fit.resid[1:])
+plt.show()
+
+Prediction 100 steps forward and comparison to real values. As you can see from the plot below, the prediction is heavily based on the current value. The best prediction for tomorrow is the current value.
+
+temp_set = train_set
+predictions = []
+
+for step in range(len(test_set)):
+    model=ARIMA(temp_set, order=(5,1,1))
+    results = model.fit()
+    prediction = results.forecast()[0]
+    predictions.append(prediction)
+    temp_set.append(test_set[step])
+
+plt.figure(figsize=(10,5))
+plt.plot(predictions,color='red')
+plt.plot(test_set)
+plt.show()
+
+A comprehensive list of model diagnostics can be plotted with **plot_diagnostics**.
+
+model_fit.plot_diagnostics(figsize=(10,10))
 

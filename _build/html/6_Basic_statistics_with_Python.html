@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Basic statistics with Python &#8212; Data analytics in accounting</title>
+    <title>7. Basic statistics and time series analysis with Python &#8212; Data analytics in accounting</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,18 +34,19 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,7 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Introduction Machine learning in accounting" href="7_Introduction_to_ML_in_accounting.html" />
+    <link rel="next" title="1. Machine learning for structured data - Classification" href="7.1_ML_for_structured_data-classification.html" />
     <link rel="prev" title="6. Visualisations with Python" href="5_Visualisation_with_Python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,22 +82,19 @@
   <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="book_intro.html">
    Introduction to data analytics in accounting
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Basic data analytics in accounting
  </span>
@@ -134,41 +132,134 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Basic statistics with Python
+   7. Basic statistics and time series analysis with Python
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Machine learning in accounting
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
-   1. Introduction Machine learning in accounting
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
+   1. Machine learning for structured data - Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#training-approaches">
+   2. Training approaches
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#analysing-classification-models">
+   3. Analysing classification models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
+   4. Machine learning for structured data - Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
+   5. Xgboost, state-of-the-art ensemble method for structured data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
+   6. SHAP analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
+   7. GAM MODEL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   2. Decision making with ML in accounting
+   8. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   3. Deep learning in accounting
+   9. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.1_Bonus_example.html">
+   10. Example - starting from scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_NLP_in_accounting.html">
-   4. Introduction to natural language processing
+   11. Introduction to natural language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_LDA_bonus_example.html">
+   12. Basic LDA example - An analysis of ~200 scientific articles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html">
+   13. Neural network models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
+   14. Pretrained language models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
+   15. Sentiment Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
+   16. NLP example - IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
+   17. Densely connected network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
+   18. Recurrent neural networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
+   19. Long short-term memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
+   20. Neural topic analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
+   21. Named entity recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
+   22. Advanced summarisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
+   23. Processing unstructured data
   </a>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -197,11 +288,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -213,8 +304,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 
@@ -269,8 +360,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#statistical-analysi-with-scipy-stats">
-   7.4. Statistical analysi with scipy.stats
+  <a class="reference internal nav-link" href="#statistical-analysis-with-scipy-stats">
+   7.4. Statistical analysis with scipy.stats
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -281,6 +372,11 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#datetime">
      7.5.1. Datetime
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arima-models">
+     7.5.2. ARIMA models
     </a>
    </li>
   </ul>
@@ -296,18 +392,26 @@
         
               <div>
                 
-  <div class="section" id="basic-statistics-with-python">
-<h1><span class="section-number">7. </span>Basic statistics with Python<a class="headerlink" href="#basic-statistics-with-python" title="Permalink to this headline">¶</a></h1>
-<p>Numpy has some statistical functions and they are useful when you have huge amounts of data. We will analyse Numpy more in the next chapter. Here we check only the main statistical functions.</p>
+  <div class="section" id="basic-statistics-and-time-series-analysis-with-python">
+<h1><span class="section-number">7. </span>Basic statistics and time series analysis with Python<a class="headerlink" href="#basic-statistics-and-time-series-analysis-with-python" title="Permalink to this headline">¶</a></h1>
+<p>This chapter shortly introduces the methods and libraries Python has to offer for basic statistics and time series analysis.</p>
+<p>Let’s start by analysing what kind statistical functions Numpy has to offer. The selection is somewhat limited and usually it is better to use some other libraries for statistical analysis, like Pandas or Statsmodels. However, sometimes you have to use Numpy for data manipulations. For example, if your accounting datasets are very large, Numpy is the most efficient solution in Python. Therefore, it is also useful to know the  basic statistical functions that Numpy has to offer. We will learn more about Numpy in the next chapter. Here we check only the main statistical functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+<span class="c1">#plt.style.use(&#39;bmh&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._xkcd at 0x2d8de151af0&gt;
 </pre></div>
 </div>
 </div>
 </div>
+<p>The following function creates an array of random values from the normal distribution. The mean of the distribution is 0 and the standard deviation (scale) 1. The last parameter (5,3) defines the shape of the array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -322,52 +426,53 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.714338  ,  1.01891027,  0.35344183],
-       [ 1.50259603, -0.66006508,  1.34495049],
-       [ 0.9917887 , -0.23782813, -0.04736366],
-       [ 0.7870151 ,  1.78839831,  0.14713495],
-       [-0.75027424, -0.12751795,  0.3725113 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.88147694, -0.23012054,  0.4697334 ],
+       [ 1.20887621, -0.59576469,  2.31689053],
+       [ 0.83545298,  0.04339869, -1.03295269],
+       [-0.32116686, -0.33231894,  0.25805056],
+       [-0.10434287, -1.78014454, -0.43249477]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>The default is a statistic calculated from a whole array, but you can also define if you want them calculated for rows or colums.</p>
+<p>The default is a statistic calculated from the whole array, but you can also define if you want them calculated for rows or colums.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># The mean for the whole array</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3846239949035046
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.36335752, 0.35637949, 0.43413498])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14563822735019785
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># The mean for the columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.21933804,  0.72916048,  0.23553231,  0.90751612, -0.16842696])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.70005928, -0.57899   ,  0.31584541])
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># The mean for the rows</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.70702993,  0.97666735, -0.05136701, -0.13181174, -0.77232739])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy also has the function to calculate the sum of the values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -375,11 +480,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.769359923552568
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.184573410252968
 </pre></div>
 </div>
 </div>
 </div>
+<p>Standard deviation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -387,49 +493,49 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7981860097924148
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0358116382691998
 </pre></div>
 </div>
 </div>
 </div>
-<p>By default, <strong>argmin</strong> and <strong>argmax</strong> return the index of a flattened array (transformed to one dimension). You can also define the axis.</p>
+<p><em>argmin</em> and <em>argmax</em> return the position of the minimum and maximum value. By default, <em>argmin</em> and <em>argmax</em> return the index of a flattened array (transformed to one dimension). You can also define the axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span> <span class="c1"># The position of the smallest value.</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 1, 2], dtype=int64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># The position of the largest value in columns.</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 1, 2, 0], dtype=int64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 4, 2], dtype=int64)
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>cumsum()</strong> also flattens arrays by default.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># The position of the largest value in rows.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 1, 1], dtype=int64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cumulative sum of the array. <strong>cumsum()</strong> also flattens arrays by default.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
@@ -437,9 +543,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.714338  ,  0.30457227,  0.65801411,  2.16061013,  1.50054506,
-        2.84549555,  3.83728425,  3.59945612,  3.55209246,  4.33910756,
-        6.12750587,  6.27464082,  5.52436658,  5.39684862,  5.76935992])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.88147694, 1.65135639, 2.1210898 , 3.32996601, 2.73420132,
+       5.05109185, 5.88654483, 5.92994352, 4.89699082, 4.57582397,
+       4.24350503, 4.50155559, 4.39721272, 2.61706818, 2.18457341])
 </pre></div>
 </div>
 </div>
@@ -452,7 +558,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_17_0.png" src="_images/6_Basic_statistics_with_Python_17_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_20_0.png" src="_images/6_Basic_statistics_with_Python_20_0.png" />
 </div>
 </div>
 <div class="section" id="descriptive-statistics-with-pandas">
@@ -672,7 +778,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Set the NAME variable as index of the dataframe</span>
 </pre></div>
 </div>
 </div>
@@ -817,6 +923,7 @@ Length: 300, dtype: float64
 <p>300 rows × 2 columns</p>
 </div></div></div>
 </div>
+<p>The mean value of the columns. Notice how non-numerical columns are automatically excluded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1001,7 +1108,7 @@ Name: ACCOUNTING STANDARD, dtype: object
 </div>
 </div>
 </div>
-<p>Quick histograms are also to easy draw with Pandas <strong>hist()</strong>.</p>
+<p>Quick histograms are easy to draw with Pandas <strong>hist()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1011,25 +1118,25 @@ Name: ACCOUNTING STANDARD, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_41_0.png" src="_images/6_Basic_statistics_with_Python_41_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_45_0.png" src="_images/6_Basic_statistics_with_Python_45_0.png" />
 </div>
 </div>
 <p>It is also easy to draw bar plots, line plots, etc. from variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">][</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">][</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_43_0.png" src="_images/6_Basic_statistics_with_Python_43_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_47_0.png" src="_images/6_Basic_statistics_with_Python_47_0.png" />
 </div>
 </div>
 <p>Pandas also has functions for quantiles, median, mean absolute deviation, variance, st. dev., skewness, kurtosis etc.</p>
@@ -1124,7 +1231,7 @@ dtype: float64
 </div>
 </div>
 <p>There are also functions for first differences (<strong>diff</strong>) and percentage changes (<strong>pct_change</strong>) that are useful for time series. We check them more closely when we discuss time series.</p>
-<p>Correlation matrix can be calculated with <strong>corr()</strong>.</p>
+<p>A correlation matrix can be calculated with <strong>corr()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
@@ -1217,6 +1324,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
+<p>Seaborn can be used to visualise the correlation matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -1227,14 +1335,12 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">stat_df</span><span class="o">.</span><span class="n">corr</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/6_Basic_statistics_with_Python_54_1.png" src="_images/6_Basic_statistics_with_Python_54_1.png" />
+<img alt="_images/6_Basic_statistics_with_Python_59_0.png" src="_images/6_Basic_statistics_with_Python_59_0.png" />
 </div>
 </div>
 <p>There is also a function for covariance.</p>
@@ -1330,7 +1436,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>If you want to calculate correlations between two dataframe, you can use <strong>corr_with()</strong>.</p>
+<p>If you want to calculate correlations between two dataframes, you can use <strong>corr_with()</strong>.</p>
 <p>To collect the unique values of a Pandas series, you can use <strong>unique()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1347,16 +1453,16 @@ dtype: float64
 </div>
 </div>
 </div>
-<p><strong>value_counts</strong> can be used to collect frequencies of values. Here the counts are presented as a bar chart.</p>
+<p><strong>value_counts</strong> can be used to collect frequencies of values. Here the counts are presented as a bar chart. Notice how we chain dataframe functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;IBES COUNTRY CODE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;IBES COUNTRY CODE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_61_0.png" src="_images/6_Basic_statistics_with_Python_61_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_66_0.png" src="_images/6_Basic_statistics_with_Python_66_0.png" />
 </div>
 </div>
 </div>
@@ -1365,15 +1471,15 @@ dtype: float64
 <p>What we mainly need in data analysis from probability theory are random variables and distributions. Numpy has a large collection of random number generators that are located in module <strong>numpy.random</strong>. There are random number generators for every distribution that you will ever need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># Create 500 normal random variables with *mean=0* and *std=1*</span>
 <span class="n">y_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">x_np</span><span class="p">,</span><span class="n">y_np</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">x_np</span><span class="p">,</span><span class="n">y_np</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># Visualise the joint frequency distribution using 2D-histogram.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_64_0.png" src="_images/6_Basic_statistics_with_Python_64_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_69_0.png" src="_images/6_Basic_statistics_with_Python_69_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1390,9 +1496,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 5, 7],
-       [5, 5, 6],
-       [6, 5, 6]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6, 5, 7],
+       [7, 4, 6],
+       [6, 4, 5]])
 </pre></div>
 </div>
 </div>
@@ -1400,46 +1506,46 @@ dtype: float64
 <p>Probably the most important distributions are the standard normal distribution, the chi2 distribution and the binomial distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_68_0.png" src="_images/6_Basic_statistics_with_Python_68_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_73_0.png" src="_images/6_Basic_statistics_with_Python_73_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_69_0.png" src="_images/6_Basic_statistics_with_Python_69_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_74_0.png" src="_images/6_Basic_statistics_with_Python_74_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_70_0.png" src="_images/6_Basic_statistics_with_Python_70_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_75_0.png" src="_images/6_Basic_statistics_with_Python_75_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_71_0.png" src="_images/6_Basic_statistics_with_Python_71_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_76_0.png" src="_images/6_Basic_statistics_with_Python_76_0.png" />
 </div>
 </div>
 <p>It is good to remember that computer-generated random numbers are not truly random numbers. They are so called pseudorandom numbers. It is because they are generated using a deterministic algorithm and a seed value.</p>
@@ -1447,7 +1553,7 @@ dtype: float64
 <div class="section" id="statistical-analysis-with-statsmodels">
 <h2><span class="section-number">7.3. </span>Statistical analysis with statsmodels<a class="headerlink" href="#statistical-analysis-with-statsmodels" title="Permalink to this headline">¶</a></h2>
 <p>Pandas (and Numpy) has only functions for basic statistical analysis, like descriptive statistics. If you want to do more advanced (traditional) statistical analysis, the <strong>statsmodels</strong> library is a good option.</p>
-<p>For example, linear regerssion models are very easy to build with <strong>statsmodels</strong>.</p>
+<p>For example, linear regerssion models are very easy to build with <strong>statsmodels</strong>. Let’s model the dividend yield as a function of the R&amp;D intensity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
@@ -1700,6 +1806,7 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>The parameters and t-values of the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">params</span>
@@ -1728,6 +1835,7 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>With <strong>summary()</strong>, you can output all the key regression results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -1747,10 +1855,10 @@ dtype: float64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   16.14</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 23 Oct 2020</td> <th>  Prob (F-statistic):</th> <td>8.87e-05</td>
+  <th>Date:</th>             <td>Tue, 02 Mar 2021</td> <th>  Prob (F-statistic):</th> <td>8.87e-05</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>10:30:52</td>     <th>  Log-Likelihood:    </th> <td> -383.71</td>
+  <th>Time:</th>                 <td>10:59:21</td>     <th>  Log-Likelihood:    </th> <td> -383.71</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   169</td>      <th>  AIC:               </th> <td>   771.4</td>
@@ -1793,7 +1901,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">summary2</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">summary2</span><span class="p">()</span> <span class="c1"># Different format for the results.</span>
 </pre></div>
 </div>
 </div>
@@ -1806,7 +1914,7 @@ dtype: float64
   <td>Dependent Variable:</td>    <td>DIV. YIELD</td>           <td>AIC:</td>         <td>771.4227</td>
 </tr>
 <tr>
-         <td>Date:</td>        <td>2020-10-23 10:30</td>        <td>BIC:</td>         <td>777.6824</td>
+         <td>Date:</td>        <td>2021-03-02 10:59</td>        <td>BIC:</td>         <td>777.6824</td>
 </tr>
 <tr>
    <td>No. Observations:</td>         <td>169</td>         <td>Log-Likelihood:</td>    <td>-383.71</td>
@@ -1847,36 +1955,20 @@ dtype: float64
 </tr>
 </table></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Seaborn regression plot is not working correctly, if we use <strong>bmh</strong> style in Matplotlib.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">rcdefaults</span><span class="p">()</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>Regplot</strong> can be usd to plot the model over observations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;R&amp;D/SALES (%)&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;DIV. YIELD&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">reduced_df</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_92_0.png" src="_images/6_Basic_statistics_with_Python_92_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_97_0.png" src="_images/6_Basic_statistics_with_Python_97_0.png" />
 </div>
 </div>
-<p>It is easy to add dummy-variables to your model using the Pandas <strong>get_dummes()</strong> -function. Let’s chance also the dependent  variable to <strong>ROE</strong>.</p>
+<p>It is easy to add dummy-variables to your model using the Pandas <strong>get_dummes()</strong> -function. For more than two categories, it creates more than one dummmy-variables.</p>
+<p>Create a new variable <strong>acc_dummy</strong> that has a value one if the company has accounting controversies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced_df</span><span class="p">[</span><span class="s1">&#39;acc_dummy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Accounting Controversies&#39;</span><span class="p">],</span><span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1891,6 +1983,7 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>Let’s chance also the dependent  variable to <strong>ROE</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">reduced_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">],</span><span class="n">x</span><span class="p">,</span><span class="n">missing</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span>
@@ -1924,10 +2017,10 @@ dtype: float64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>  0.3493</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 10 Oct 2020</td> <th>  Prob (F-statistic):</th>  <td> 0.706</td> 
+  <th>Date:</th>             <td>Tue, 02 Mar 2021</td> <th>  Prob (F-statistic):</th>  <td> 0.706</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>18:30:50</td>     <th>  Log-Likelihood:    </th> <td> -1521.4</td>
+  <th>Time:</th>                 <td>10:59:26</td>     <th>  Log-Likelihood:    </th> <td> -1521.4</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   165</td>      <th>  AIC:               </th> <td>   3049.</td>
@@ -1974,7 +2067,7 @@ dtype: float64
 <p>As you can see, there is something wrong. If you observed the histograms carefully, you’d seen that there is a clear outlier in <strong>ROE</strong> values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1982,7 +2075,7 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/6_Basic_statistics_with_Python_100_1.png" src="_images/6_Basic_statistics_with_Python_100_1.png" />
+<img alt="_images/6_Basic_statistics_with_Python_107_1.png" src="_images/6_Basic_statistics_with_Python_107_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2016,15 +2109,13 @@ Name: ROE (%), dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/6_Basic_statistics_with_Python_104_1.png" src="_images/6_Basic_statistics_with_Python_104_1.png" />
+<img alt="_images/6_Basic_statistics_with_Python_111_0.png" src="_images/6_Basic_statistics_with_Python_111_0.png" />
 </div>
 </div>
 <p>Let’s try to build the regression model again.</p>
@@ -2068,10 +2159,10 @@ Name: ROE (%), dtype: float64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1.307</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sat, 10 Oct 2020</td> <th>  Prob (F-statistic):</th>  <td> 0.273</td> 
+  <th>Date:</th>             <td>Tue, 02 Mar 2021</td> <th>  Prob (F-statistic):</th>  <td> 0.273</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>18:31:00</td>     <th>  Log-Likelihood:    </th> <td> -801.47</td>
+  <th>Time:</th>                 <td>10:59:31</td>     <th>  Log-Likelihood:    </th> <td> -801.47</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   165</td>      <th>  AIC:               </th> <td>   1609.</td>
@@ -2116,10 +2207,10 @@ Name: ROE (%), dtype: float64
 </table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 <p>Although accounting controversies has a negative coefficient, it is not statisticall significant.</p>
-<p>Statsmodels is a very comprehensive statistical library. It has solutions for nonparametric statistics, generalised linear models, robust regression, time series analysis. We do not go into more details of Statsmodels at this point. If you want to learn more, check the Statsmodels documentation: <a class="reference external" href="https://www.statsmodels.org/stable/index.html">www.statsmodels.org/stable/index.html</a></p>
+<p>Statsmodels is a very comprehensive statistical library. It has modules for nonparametric statistics, generalised linear models, robust regression and time series analysis. We do not go into more details of Statsmodels at this point. If you want to learn more, check the Statsmodels documentation: <a class="reference external" href="https://www.statsmodels.org/stable/index.html">www.statsmodels.org/stable/index.html</a></p>
 </div>
-<div class="section" id="statistical-analysi-with-scipy-stats">
-<h2><span class="section-number">7.4. </span>Statistical analysi with scipy.stats<a class="headerlink" href="#statistical-analysi-with-scipy-stats" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="statistical-analysis-with-scipy-stats">
+<h2><span class="section-number">7.4. </span>Statistical analysis with scipy.stats<a class="headerlink" href="#statistical-analysis-with-scipy-stats" title="Permalink to this headline">¶</a></h2>
 <p>Another option for statistical analysis in Python is the <strong>stats</strong> module of <strong>Scipy</strong>. It has many functions that are not included in other statistical libraries. However, Scipy does not handle automatically nan-values. Accounting data almost always has missing values, thus, they need to be manually handled, which is a bit annoying.</p>
 <p>Like Numpy, it has an extensive range of random number generators and probability distributions. It also has a long list of statistical tests.</p>
 <div class="cell docutils container">
@@ -2137,6 +2228,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
+<p>Expected value</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm_rv</span><span class="o">.</span><span class="n">expect</span><span class="p">()</span>
@@ -2149,6 +2241,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
+<p>The value of probability distribution function at 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm_rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
@@ -2161,6 +2254,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
+<p>The value of cumulative distribution function at 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm_rv</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
@@ -2173,6 +2267,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
+<p>Standard deviation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm_rv</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -2185,6 +2280,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
+<p>The visualisation of the pdf and cdf of the RV.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">),[</span><span class="n">norm_rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)])</span>
@@ -2194,10 +2290,10 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_122_0.png" src="_images/6_Basic_statistics_with_Python_122_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_134_0.png" src="_images/6_Basic_statistics_with_Python_134_0.png" />
 </div>
 </div>
-<p>The list of distributions is very long. Here you can read more about them: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">docs.scipy.org/doc/scipy/reference/stats.html</a></p>
+<p>The list of distributions in Scipy is long. Here you can read more about them: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">docs.scipy.org/doc/scipy/reference/stats.html</a></p>
 <p>There are many functions for descriptive statistics. The full list can be found also from the link above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2211,10 +2307,9 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
-<p>With trimmed mean, we can define the limits to the values of a variable from which the mean is calculated. There are <strong>trimmed</strong> versions for many other statistics too.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">],</span><span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">],</span><span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">)</span> <span class="c1"># Omit missing values</span>
 </pre></div>
 </div>
 </div>
@@ -2230,6 +2325,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
+<p>With trimmed mean, we can define the limits to the values of a variable from which the mean is calculated. There are <strong>trimmed</strong> versions for many other statistics too.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">tmean</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;ROE (%)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
@@ -2292,9 +2388,10 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <p>The output of SciPy is a bit ascetic. The first value is the correlation coefficient and the second value is the p-value.</p>
+<p>Pearson’s correlation coefficient</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;DIV. YIELD&#39;</span><span class="p">],</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;SG%A/SALES 5Y (%)&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;DIV. YIELD&#39;</span><span class="p">],</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;SG%A/SALES 5Y (%)&#39;</span><span class="p">])</span> 
 </pre></div>
 </div>
 </div>
@@ -2304,6 +2401,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 </div>
+<p>Spearman’s rank correlation coefficient</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;DIV. YIELD&#39;</span><span class="p">],</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;SG%A/SALES 5Y (%)&#39;</span><span class="p">])</span>
@@ -2319,8 +2417,8 @@ Name: ROE (%), dtype: float64
 <p>There are many statistical tests included. Let’s divide our data to US companies and others to test the Scipy <strong>ttest()</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="p">[</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;IBES COUNTRY CODE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;  US&#39;</span><span class="p">]</span>
-<span class="n">nonus_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;IBES COUNTRY CODE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;US&#39;</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="p">[</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;IBES COUNTRY CODE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;  US&#39;</span><span class="p">]</span> <span class="c1"># US</span>
+<span class="n">nonus_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;IBES COUNTRY CODE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;US&#39;</span><span class="p">)]</span> <span class="c1"># Non-US (notice the tilde symbol)</span>
 </pre></div>
 </div>
 </div>
@@ -2355,12 +2453,12 @@ Name: ROE (%), dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="c1"># Date and time now</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2020, 10, 10, 19, 55, 58, 244463)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2021, 3, 2, 10, 59, 43, 813494)
 </pre></div>
 </div>
 </div>
@@ -2372,7 +2470,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021
 </pre></div>
 </div>
 </div>
@@ -2384,7 +2482,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44
 </pre></div>
 </div>
 </div>
@@ -2555,7 +2653,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <p>The most important Pandas function for handling dates is <strong>to_datetime</strong>. We will see many applications of it in the following, but let’s first load an interesting time series.</p>
-<p>Accountants and auditors as a percent of the US labor force 1850 to 2016. This data is a little bit difficult, because the frequency is irregular. The first datapoints have a ten-year interval, and from 2000 onwards the interval is one year.</p>
+<p>The data contains accountants and auditors as a percent of the US labor force 1850 to 2016. This data is a little bit difficult, because the frequency is irregular. The first datapoints have a ten-year interval, and from 2000 onwards the interval is one year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times_df</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://vincentarelbundock.github.io/Rdatasets/csv/Ecdat/AccountantsAuditorsPct.csv&#39;</span><span class="p">)</span>
@@ -2624,7 +2722,7 @@ Name: ROE (%), dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">:</span><span class="s1">&#39;Year&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">:</span><span class="s1">&#39;Year&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Correct the name of the year variable</span>
 </pre></div>
 </div>
 </div>
@@ -2927,7 +3025,7 @@ Name: 1940-01-01 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_200_0.png" src="_images/6_Basic_statistics_with_Python_200_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_214_0.png" src="_images/6_Basic_statistics_with_Python_214_0.png" />
 </div>
 </div>
 <p>Everything works nicely, although we have a dataset with irregular frequency.</p>
@@ -3135,7 +3233,7 @@ Name: 1940-01-01 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_206_0.png" src="_images/6_Basic_statistics_with_Python_206_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_220_0.png" src="_images/6_Basic_statistics_with_Python_220_0.png" />
 </div>
 </div>
 <p>If we want, we can fill the missing values with <strong>fillna</strong>.</p>
@@ -3244,7 +3342,7 @@ Name: 1940-01-01 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_209_0.png" src="_images/6_Basic_statistics_with_Python_209_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_223_0.png" src="_images/6_Basic_statistics_with_Python_223_0.png" />
 </div>
 </div>
 <p>We can also decrease the frequency and decide how the original data is aggregated. Let’s simulate a stock price using a random walk series.</p>
@@ -3273,8 +3371,8 @@ Name: 1940-01-01 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2010-06-01   -1
-2010-06-02    0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2010-06-01    1
+2010-06-02    2
 2010-06-03    1
 2010-06-04    2
 2010-06-05    1
@@ -3282,17 +3380,18 @@ Name: 1940-01-01 00:00:00, dtype: float64
 2010-06-07    3
 2010-06-08    4
 2010-06-09    5
-2010-06-10    4
+2010-06-10    6
 2010-06-11    5
-2010-06-12    6
-2010-06-13    7
-2010-06-14    8
-2010-06-15    7
+2010-06-12    4
+2010-06-13    5
+2010-06-14    6
+2010-06-15    5
 Freq: D, dtype: int32
 </pre></div>
 </div>
 </div>
 </div>
+<p>Resample as weekly data where the daily values are aggregated together with <strong>mean()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rwalk_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -3300,17 +3399,17 @@ Freq: D, dtype: int32
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2010-06-06     0.833333
-2010-06-13     4.857143
-2010-06-20     6.142857
-2010-06-27     3.714286
-2010-07-04     7.000000
-                ...    
-2011-09-18     8.571429
-2011-09-25     9.000000
-2011-10-02    12.000000
-2011-10-09    15.000000
-2011-10-16    16.500000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2010-06-06    1.500000
+2010-06-13    4.571429
+2010-06-20    5.857143
+2010-06-27    7.142857
+2010-07-04    5.285714
+                ...   
+2011-09-18   -3.142857
+2011-09-25   -4.142857
+2011-10-02   -4.285714
+2011-10-09   -5.285714
+2011-10-16   -3.500000
 Freq: W-SUN, Length: 72, dtype: float64
 </pre></div>
 </div>
@@ -3319,13 +3418,13 @@ Freq: W-SUN, Length: 72, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rwalk_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">rwalk_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">rwalk_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_215_0.png" src="_images/6_Basic_statistics_with_Python_215_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_230_0.png" src="_images/6_Basic_statistics_with_Python_230_0.png" />
 </div>
 </div>
 <p>A very common way to aggregate data in finance, is open-high-low-close.</p>
@@ -3363,42 +3462,53 @@ Freq: W-SUN, Length: 72, dtype: float64
   <tbody>
     <tr>
       <th>2011-09-18</th>
-      <td>9</td>
-      <td>9</td>
-      <td>8</td>
-      <td>9</td>
+      <td>-3</td>
+      <td>-2</td>
+      <td>-5</td>
+      <td>-5</td>
     </tr>
     <tr>
       <th>2011-09-25</th>
-      <td>10</td>
-      <td>10</td>
-      <td>8</td>
-      <td>10</td>
+      <td>-4</td>
+      <td>-2</td>
+      <td>-6</td>
+      <td>-2</td>
     </tr>
     <tr>
       <th>2011-10-02</th>
-      <td>11</td>
-      <td>13</td>
-      <td>11</td>
-      <td>13</td>
+      <td>-3</td>
+      <td>-3</td>
+      <td>-5</td>
+      <td>-5</td>
     </tr>
     <tr>
       <th>2011-10-09</th>
-      <td>14</td>
-      <td>17</td>
-      <td>13</td>
-      <td>16</td>
+      <td>-6</td>
+      <td>-4</td>
+      <td>-6</td>
+      <td>-4</td>
     </tr>
     <tr>
       <th>2011-10-16</th>
-      <td>17</td>
-      <td>17</td>
-      <td>16</td>
-      <td>16</td>
+      <td>-3</td>
+      <td>-3</td>
+      <td>-4</td>
+      <td>-4</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rwalk_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ohlc</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6_Basic_statistics_with_Python_233_0.png" src="_images/6_Basic_statistics_with_Python_233_0.png" />
+</div>
 </div>
 <p>A very important topic in time series analysis is filtering with moving windows.</p>
 <p>With rolling, we can easily create a moving average from a time series.</p>
@@ -3406,14 +3516,12 @@ Freq: W-SUN, Length: 72, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rwalk_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">rwalk_df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/6_Basic_statistics_with_Python_220_1.png" src="_images/6_Basic_statistics_with_Python_220_1.png" />
+<img alt="_images/6_Basic_statistics_with_Python_236_0.png" src="_images/6_Basic_statistics_with_Python_236_0.png" />
 </div>
 </div>
 <p>As you can see, by default the function calculates the average only when all values are awailable, and therefore, there are missing values at the beginning. You can avoid this with the <strong>min_periods</strong> parameter. With the <strong>center</strong> parameter, you can remove the lag in the average:</p>
@@ -3421,30 +3529,26 @@ Freq: W-SUN, Length: 72, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rwalk_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">rwalk_df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/6_Basic_statistics_with_Python_222_1.png" src="_images/6_Basic_statistics_with_Python_222_1.png" />
+<img alt="_images/6_Basic_statistics_with_Python_238_0.png" src="_images/6_Basic_statistics_with_Python_238_0.png" />
 </div>
 </div>
 <p>Very often, the moving average is calculated using an exponentially weighted filter. Pandas has the <strong>ewm</strong> function for that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rwalk_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">rwalk_df</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span><span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+<span class="n">rwalk_df</span><span class="o">.</span><span class="n">ewm</span><span class="p">(</span><span class="n">span</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span><span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">rwalk_df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/6_Basic_statistics_with_Python_224_1.png" src="_images/6_Basic_statistics_with_Python_224_1.png" />
+<img alt="_images/6_Basic_statistics_with_Python_240_0.png" src="_images/6_Basic_statistics_with_Python_240_0.png" />
 </div>
 </div>
 <p>With <strong>rolling</strong>, we can even calculate correlations from aggregates. Let’s load a more interesting data for that.</p>
@@ -3455,6 +3559,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 </div>
+<p><strong>freg=’B’</strong> means business day frequency. Here is the full list aliases for frequencies: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases">Offset aliases</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1991-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1998-02-16&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
@@ -3470,7 +3575,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_228_0.png" src="_images/6_Basic_statistics_with_Python_228_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_245_0.png" src="_images/6_Basic_statistics_with_Python_245_0.png" />
 </div>
 </div>
 <p>The returns of stock indices.</p>
@@ -3483,19 +3588,19 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_ret_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_ret_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_231_0.png" src="_images/6_Basic_statistics_with_Python_231_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_248_0.png" src="_images/6_Basic_statistics_with_Python_248_0.png" />
 </div>
 </div>
 <p>The correlation between DAX and the other indices calculated from a 64-day window.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_ret_df</span><span class="p">[</span><span class="s1">&#39;DAX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">euro_ret_df</span><span class="p">[[</span><span class="s1">&#39;SMI&#39;</span><span class="p">,</span><span class="s1">&#39;CAC&#39;</span><span class="p">,</span><span class="s1">&#39;FTSE&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_ret_df</span><span class="p">[</span><span class="s1">&#39;DAX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">euro_ret_df</span><span class="p">[[</span><span class="s1">&#39;SMI&#39;</span><span class="p">,</span><span class="s1">&#39;CAC&#39;</span><span class="p">,</span><span class="s1">&#39;FTSE&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3503,7 +3608,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/6_Basic_statistics_with_Python_233_1.png" src="_images/6_Basic_statistics_with_Python_233_1.png" />
+<img alt="_images/6_Basic_statistics_with_Python_250_1.png" src="_images/6_Basic_statistics_with_Python_250_1.png" />
 </div>
 </div>
 <p>With <strong>apply</strong>, you can even define your own functions to calculate an aggregate value from windows. The following calculates an interquartile range from the window.</p>
@@ -3516,16 +3621,233 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_ret_df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">inter_quart</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro_ret_df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">inter_quart</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_236_0.png" src="_images/6_Basic_statistics_with_Python_236_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_253_0.png" src="_images/6_Basic_statistics_with_Python_253_0.png" />
 </div>
 </div>
 <p>Time series analysis in Pandas is a vast topic, and we have only scratched a surface. If you want to learn more, check <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html">pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html</a></p>
+</div>
+<div class="section" id="arima-models">
+<h3><span class="section-number">7.5.2. </span>ARIMA models<a class="headerlink" href="#arima-models" title="Permalink to this headline">¶</a></h3>
+<p>In this section, I will shortly introduce ARIMA models. They assume that in a time series the present valua depends on the previous values (AR = autoregressive). They also include moving averages (MA). “I” in the name means that the modeled time series is the n:th difference of the original time series (I = integrated):</p>
+<p>Let’s build an ARIMA model for the euro dataset.</p>
+<p>One essential tool to assess how the data depends on the previous values and select a model that reflects this is the sample autocorrelation function. The sample ACF will provide us with an estimate of the ACF and suggests a time series model suitable for representing the data’s dependence. For example, a sample ACF close to zero for all nonzero lags suggests that an appropriate model for the data might be iid noise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">autocorrelation_plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lags 1, 6, 11 and 13 appear to be statistically signficant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">autocorrelation_plot</span><span class="p">(</span><span class="n">euro_ret_df</span><span class="p">[</span><span class="s1">&#39;FTSE&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6_Basic_statistics_with_Python_261_0.png" src="_images/6_Basic_statistics_with_Python_261_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s separate the last 100 observations from the data for testing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">euro_df</span><span class="p">[</span><span class="s1">&#39;FTSE&#39;</span><span class="p">][:</span><span class="o">-</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">euro_df</span><span class="p">[</span><span class="s1">&#39;FTSE&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">100</span><span class="p">:]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Based on the ACF plot, 13 lags, integrated=1 (first difference of the original series) and first order moving average.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_fit</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>           <td>y</td>        <th>  No. Observations:  </th>   <td>1760</td>   
+</tr>
+<tr>
+  <th>Model:</th>            <td>ARIMA(13, 1, 1)</td> <th>  Log Likelihood     </th> <td>-8345.813</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Wed, 24 Feb 2021</td> <th>  AIC                </th> <td>16721.627</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>14:01:39</td>     <th>  BIC                </th> <td>16803.714</td>
+</tr>
+<tr>
+  <th>Sample:</th>                  <td>0</td>        <th>  HQIC               </th> <td>16751.964</td>
+</tr>
+<tr>
+  <th></th>                      <td> - 1760</td>     <th>                     </th>     <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>     <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <td></td>       <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>ar.L1</th>  <td>    0.3538</td> <td>    0.359</td> <td>    0.985</td> <td> 0.325</td> <td>   -0.350</td> <td>    1.058</td>
+</tr>
+<tr>
+  <th>ar.L2</th>  <td>   -0.0475</td> <td>    0.043</td> <td>   -1.097</td> <td> 0.273</td> <td>   -0.132</td> <td>    0.037</td>
+</tr>
+<tr>
+  <th>ar.L3</th>  <td>    0.0187</td> <td>    0.019</td> <td>    0.975</td> <td> 0.330</td> <td>   -0.019</td> <td>    0.056</td>
+</tr>
+<tr>
+  <th>ar.L4</th>  <td>   -0.0326</td> <td>    0.021</td> <td>   -1.531</td> <td> 0.126</td> <td>   -0.074</td> <td>    0.009</td>
+</tr>
+<tr>
+  <th>ar.L5</th>  <td>   -0.0324</td> <td>    0.022</td> <td>   -1.461</td> <td> 0.144</td> <td>   -0.076</td> <td>    0.011</td>
+</tr>
+<tr>
+  <th>ar.L6</th>  <td>   -0.0331</td> <td>    0.023</td> <td>   -1.461</td> <td> 0.144</td> <td>   -0.078</td> <td>    0.011</td>
+</tr>
+<tr>
+  <th>ar.L7</th>  <td>   -0.0292</td> <td>    0.028</td> <td>   -1.055</td> <td> 0.292</td> <td>   -0.084</td> <td>    0.025</td>
+</tr>
+<tr>
+  <th>ar.L8</th>  <td>    0.0376</td> <td>    0.025</td> <td>    1.504</td> <td> 0.133</td> <td>   -0.011</td> <td>    0.087</td>
+</tr>
+<tr>
+  <th>ar.L9</th>  <td>    0.0543</td> <td>    0.023</td> <td>    2.414</td> <td> 0.016</td> <td>    0.010</td> <td>    0.098</td>
+</tr>
+<tr>
+  <th>ar.L10</th> <td>   -0.0099</td> <td>    0.029</td> <td>   -0.344</td> <td> 0.731</td> <td>   -0.066</td> <td>    0.046</td>
+</tr>
+<tr>
+  <th>ar.L11</th> <td>    0.0572</td> <td>    0.019</td> <td>    2.956</td> <td> 0.003</td> <td>    0.019</td> <td>    0.095</td>
+</tr>
+<tr>
+  <th>ar.L12</th> <td>   -0.0438</td> <td>    0.029</td> <td>   -1.498</td> <td> 0.134</td> <td>   -0.101</td> <td>    0.014</td>
+</tr>
+<tr>
+  <th>ar.L13</th> <td>    0.0529</td> <td>    0.020</td> <td>    2.594</td> <td> 0.009</td> <td>    0.013</td> <td>    0.093</td>
+</tr>
+<tr>
+  <th>ma.L1</th>  <td>   -0.2452</td> <td>    0.358</td> <td>   -0.684</td> <td> 0.494</td> <td>   -0.947</td> <td>    0.457</td>
+</tr>
+<tr>
+  <th>sigma2</th> <td>  773.8240</td> <td>   16.100</td> <td>   48.063</td> <td> 0.000</td> <td>  742.269</td> <td>  805.380</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.02</td> <th>  Jarque-Bera (JB):  </th> <td>1049.11</td>
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.87</td> <th>  Prob(JB):          </th>  <td>0.00</td>  
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>2.90</td> <th>  Skew:              </th>  <td>0.05</td>  
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.00</td> <th>  Kurtosis:          </th>  <td>6.78</td>  
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div></div>
+</div>
+<p>The residuals of the model (difference between the prediction and the true value).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_fit</span><span class="o">.</span><span class="n">resid</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6_Basic_statistics_with_Python_269_0.png" src="_images/6_Basic_statistics_with_Python_269_0.png" />
+</div>
+</div>
+<p>The distribution of the residuals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">model_fit</span><span class="o">.</span><span class="n">resid</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6_Basic_statistics_with_Python_271_0.png" src="_images/6_Basic_statistics_with_Python_271_0.png" />
+</div>
+</div>
+<p>Prediction 100 steps forward and comparison to real values. As you can see from the plot below, the prediction is heavily based on the current value. The best prediction for tomorrow is the current value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_set</span> <span class="o">=</span> <span class="n">train_set</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_set</span><span class="p">)):</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">ARIMA</span><span class="p">(</span><span class="n">temp_set</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">forecast</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+    <span class="n">temp_set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_set</span><span class="p">[</span><span class="n">step</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_set</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6_Basic_statistics_with_Python_275_0.png" src="_images/6_Basic_statistics_with_Python_275_0.png" />
+</div>
+</div>
+<p>A comprehensive list of model diagnostics can be plotted with <strong>plot_diagnostics</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_fit</span><span class="o">.</span><span class="n">plot_diagnostics</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6_Basic_statistics_with_Python_277_0.png" src="_images/6_Basic_statistics_with_Python_277_0.png" />
+<img alt="_images/6_Basic_statistics_with_Python_277_1.png" src="_images/6_Basic_statistics_with_Python_277_1.png" />
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -3559,7 +3881,7 @@ Freq: W-SUN, Length: 72, dtype: float64
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="5_Visualisation_with_Python.html" title="previous page"><span class="section-number">6. </span>Visualisations with Python</a>
-    <a class='right-next' id="next-link" href="7_Introduction_to_ML_in_accounting.html" title="next page"><span class="section-number">1. </span>Introduction Machine learning in accounting</a>
+    <a class='right-next' id="next-link" href="7.1_ML_for_structured_data-classification.html" title="next page"><span class="section-number">1. </span>Machine learning for structured data - Classification</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -3579,7 +3901,7 @@ Freq: W-SUN, Length: 72, dtype: float64
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

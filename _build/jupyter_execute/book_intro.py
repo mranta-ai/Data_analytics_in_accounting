@@ -20,7 +20,7 @@ Have a nice journey!
 ```{toctree}
 :hidden:
 :titlesonly:
-:numbered: 
+:numbered: True
 :caption: Basic data analytics in accounting
 
 0_installing_Python
@@ -36,11 +36,17 @@ Have a nice journey!
 ```{toctree}
 :hidden:
 :titlesonly:
-:numbered: 
+:numbered: True
 :caption: Machine learning in accounting
 
-7_Introduction_to_ML_in_accounting
+7.1_ML_for_structured_data-classification
+7.2_ML_for_structured_data-regression
+7.3_ML_for_structured_data-xgboost_example
 8_Decision_making_in_accounting
 9_Deep_learning_in_accounting
+9.1_Bonus_example
 10_NLP_in_accounting
+10.1_LDA_bonus_example
+11_Neural_NLP_methods
+12_BONUS-processing_unstructured_data
 ```

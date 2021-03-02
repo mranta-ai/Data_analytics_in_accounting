@@ -1,0 +1,2880 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Machine learning for structured data - Classification &#8212; Data analytics in accounting</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Machine learning for structured data - Regression" href="7.2_ML_for_structured_data-regression.html" />
+    <link rel="prev" title="7. Basic statistics and time series analysis with Python" href="6_Basic_statistics_with_Python.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="book_intro.html">
+   Introduction to data analytics in accounting
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic data analytics in accounting
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_installing_Python.html">
+   1. Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Intro_to_Python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Pandas_basics.html">
+   3. Pandas data basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
+   4. Pandas Data preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
+   5. Connecting with accounting databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Visualisation_with_Python.html">
+   6. Visualisations with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
+   7. Basic statistics and time series analysis with Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Machine learning in accounting
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Machine learning for structured data - Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#training-approaches">
+   2. Training approaches
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#analysing-classification-models">
+   3. Analysing classification models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
+   4. Machine learning for structured data - Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
+   5. Xgboost, state-of-the-art ensemble method for structured data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
+   6. SHAP analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
+   7. GAM MODEL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Decision_making_in_accounting.html">
+   8. Decision making with ML in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
+   9. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.1_Bonus_example.html">
+   10. Example - starting from scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_NLP_in_accounting.html">
+   11. Introduction to natural language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_LDA_bonus_example.html">
+   12. Basic LDA example - An analysis of ~200 scientific articles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html">
+   13. Neural network models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
+   14. Pretrained language models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
+   15. Sentiment Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
+   16. NLP example - IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
+   17. Densely connected network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
+   18. Recurrent neural networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
+   19. Long short-term memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
+   20. Neural topic analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
+   21. Named entity recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
+   22. Advanced summarisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
+   23. Processing unstructured data
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/7.1_ML_for_structured_data-classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/7.1_ML_for_structured_data-classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1. Machine learning for structured data - Classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction-to-classification">
+     1.1. Introduction to classification
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#supervised-and-unsupervised-classification">
+       1.1.1. Supervised and unsupervised classification
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#binary-multi-class-and-multi-label-classification">
+       1.1.2. Binary, multi-class and multi-label classification
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression">
+     1.2. Logistic regression
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-discrimant-analysis">
+     1.3. Linear discrimant analysis
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-nearest-neighbours">
+     1.4. K Nearest neighbours
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naive-bayes">
+     1.5. Naive Bayes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-methods">
+     1.6. Ensemble methods
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#support-vector-machines">
+     1.7. Support vector machines
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsupervised-classification">
+     1.8. Unsupervised classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-means-clustering">
+     1.9. K-means clustering
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#self-organising-maps">
+     1.10. Self organising maps
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pca-models">
+     1.11. PCA models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-approaches">
+   2. Training approaches
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sampling-and-hyperparameters">
+     2.1. Sampling and hyperparameters
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing">
+     2.2. Testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysing-classification-models">
+   3. Analysing classification models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performance-measures">
+     3.1. Performance measures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#roc-and-others">
+       3.1.1. ROC and others
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#imbalanced-data-and-other-challenges">
+       3.1.2. Imbalanced data and other challenges
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-examples">
+     3.2. Classification examples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scikit-learn">
+       3.2.1. Scikit-learn
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-discriminant-analysis">
+       3.2.2. Linear discriminant analysis
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#k-nearest-neigbours">
+       3.2.3. K nearest neigbours
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       3.2.4. Logistic regression
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       3.2.5. Support vector machines
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decision-trees">
+       3.2.6. Decision trees
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       3.2.7. Naive Bayes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#random-forest">
+       3.2.8. Random forest
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#boosting-classifier">
+       3.2.9. Boosting classifier
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsupervised-approach">
+     3.3. Unsupervised approach
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="machine-learning-for-structured-data-classification">
+<h1><span class="section-number">1. </span>Machine learning for structured data - Classification<a class="headerlink" href="#machine-learning-for-structured-data-classification" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will discuss <em>traditional</em> machine learning models, meaning that we postpone the discussion of deep learning models to Chapters 9 and 11. However, this chapter’s importance should not be underestimated as most of the accounting datasets are such that deep learning models do not offer benefits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;remove-cell&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._xkcd at 0x1e1c2bd0970&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="introduction-to-classification">
+<h2><span class="section-number">1.1. </span>Introduction to classification<a class="headerlink" href="#introduction-to-classification" title="Permalink to this headline">¶</a></h2>
+<p>Classification means predicting the class of given data points. Sometimes, these classes are called labels or categories. If we want to give a more formal definition of classification, it is the task of estimating a function <em>f</em> from input variables <em>x</em> to <strong>discrete</strong> output variable <em>y</em>.</p>
+<p>Examples of classification tasks in accounting include:</p>
+<ul class="simple">
+<li><p>Fraud detection in auditing. An ML model is trained to recognise fraud, for example, in the financial statements of a firm.</p></li>
+<li><p>Bankruptcy detection. An ML model is trained to recognise companies that are in danger of bankrupt.</p></li>
+<li><p>To detect accounting misstatements.</p></li>
+<li><p>Customer churn prediction</p></li>
+<li><p>Employee churn prediction</p></li>
+<li><p>Categorise company disclosure</p></li>
+<li><p>The credit approval of bank’s customers</p></li>
+</ul>
+<div class="section" id="supervised-and-unsupervised-classification">
+<h3><span class="section-number">1.1.1. </span>Supervised and unsupervised classification<a class="headerlink" href="#supervised-and-unsupervised-classification" title="Permalink to this headline">¶</a></h3>
+<p>The classification ML models’ training can be divided broadly into two different types, supervised and unsupervised training. The key difference is that there is an outcome variable guiding the learning process in the supervised setting.</p>
+<p>In supervised machine learning models, the predictions are based on the already known input-output pairs <span class="math notranslate nohighlight">\((x_1,y_1),...,(x_N,y_N)\)</span>. During training, the model presents a prediction <span class="math notranslate nohighlight">\(y_i\)</span> for each input vector <span class="math notranslate nohighlight">\(\bar{x_i}\)</span>. The algorithm then informs the model whether the prediction was correct or gives some kind of error associated with the model’s answer. The error is usually characterised by some loss function. For example, if the model gives a probability of a class in a binary setting, the common choice is binary cross-entropy loss: $<span class="math notranslate nohighlight">\(BCE=\frac{1}{N}\sum_{i=1}^N{y_i\cdot\log{\hat{y_i}}+(1-y_i)\cdot\log{1-\hat{y_i}}}\)</span>$</p>
+<p>More formally, supervised learning can be considered as density estimation where the task is to estimate the conditional distribution <span class="math notranslate nohighlight">\(P(y|\vec{x})\)</span>. There are two approaches for supervised classification:</p>
+<ul class="simple">
+<li><p>Lazy learning, where the training data is stored, and classification is accomplished by comparing a test observation to the training data. The correct class is based on the most similar observation in the training data. K-nearest neighbours -classifier is an example of a lazy learner. Lazy learners do not take much time to train, but the prediction step can be computationally intensive.</p></li>
+<li><p>Eager learning, where a classification model based on the given training data is constructed and used to predict the correct class of a test observation. The model aims to model the whole input space. An example of an eager learner is a decision tree. Opposite to lazy learners, eager learners can predict with minimal effort, but the training phase is computationally intensive.</p></li>
+</ul>
+<p>In unsupervised learning, there is no training set with correct output values, and we observe only the features. Our task is rather to describe how the data are organised or clustered. More formally, the task is to directly infer the properties of the distribution <span class="math notranslate nohighlight">\(P(\vec{x})\)</span> for the input values <span class="math notranslate nohighlight">\((x_1,x_2,...,x_N)\)</span>.</p>
+<p>For a low-dimensional problem (only a few features), this is an easy task because there are efficient methods to estimate, for example, 3-dimensional probability distribution from observations. However, things get complicated when the distribution is high-dimensional. Then, the goal is to identify important low-dimensional manifolds within the original high-dimensional space that represent areas of high probability. Another simple option is to use descriptive statistics to identify key characteristics of the distribution. Cluster analysis generalises this approach and tries to identify areas of high probability within the distribution.</p>
+<p>Thus, with supervised learning, things are in some sense easier because we have clear goals. Furthermore, comparing different ML models is easier in the supervised setting, where metrics like prediction accuracy can be used to evaluate the models. Also, the training is more straightforward because, for example, cross-validation can be used to control that the model does not overfit. With unsupervised learning, there is no clear measure of success, and the goodness of the model is much more difficult to estimate. There, the validity of the model predictions is difficult to ascertain, and often heuristic arguments have to be used to motivate the results of the model.</p>
+</div>
+<div class="section" id="binary-multi-class-and-multi-label-classification">
+<h3><span class="section-number">1.1.2. </span>Binary, multi-class and multi-label classification<a class="headerlink" href="#binary-multi-class-and-multi-label-classification" title="Permalink to this headline">¶</a></h3>
+<p>The simplest classification model is a binary classifier, which tries to classify elements of a set into two groups. Many classification applications in accounting are binary classification tasks, like bankruptcy or fraud detection. When training a binary classifier model, the easiest situation is when the two groups are of equal size. However, this is often not the case, like, for example, in bankruptcy prediction, where often only a few per cent of the observations are of financially distressed companies. In these cases, overall accuracy is not the best measure of performance. Instead, the relative proportion of different error types is the correct thing to analyse. The mistake of predicting a distressed company when, in reality, it is not and predicting a healthy company when, in reality, it is distressed are not equally serious mistakes.</p>
+<p>Multiclass classification aims to identify the correct class for instances from more than two classes. The famous example present in almost every ML book is the MNIST dataset of 28x28 images of handwritten digits and the task of identifying the correct digit from these images. An example from accounting could be the task of classifying accounting texts (for example, 10-Ks) using natural language processing algorithms. Some binary classifiers are easy to transform as multiclass algorithms, like binary logistic regression. However, for some binary classifiers, it is not easily achievable.</p>
+<p>Multi-label classification changes the multiclass setting so that each instance can have multiple classes (labels). More formally, multi-label classification is the problem of finding a mapping from instance <em>x</em> to a vector of probabilities <em>y</em>. The vector contains a probability for each class.</p>
+</div>
+</div>
+<div class="section" id="logistic-regression">
+<h2><span class="section-number">1.2. </span>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>Logistic regression, sometimes called the logistic model or logit model, is usually used to predict the probability of a binary class. However, it is easy to change the setting so that the model gives a probability to several classes that sum up to one.</p>
+<p>Logistic regression solves the issues when we want to use regression to predict probabilities. In principle, ordinary regression could be used to predict the probability of a binary class. The problem with this approach is that the predicted value is not limited between 0 and 1. By adding a logistic function after an ordinary regression model,$<span class="math notranslate nohighlight">\(p(x)=\frac{1}{1+e^{-\beta_0+\sum_{i=1}^n{\beta_ix_i}}},\)</span>$ we can force the prediction to be between 0 and 1.</p>
+<p>One of the seminal papers in bankruptcy prediction is Ohlson (1980). He was one of the first to use Logistic regression for bankruptcy prediction. (<em>Ohlson, J. A. (1980). Financial ratios and the probabilistic prediction of bankruptcy. Journal of Accounting Research, 18(1), 109-131.</em>) –&gt; <a class="reference external" href="https://www.jstor.org/stable/2490395?seq=1">Link to paper</a></p>
+<p><img alt="Logistic" src="_images/logistic_curve.jpeg" /></p>
+<p><strong>Simple example of logistic regression</strong></p>
+<p>Let’s analyse why logistic regression is better when we want to predict probabilities.</p>
+<p>The following command creates random values where the first 50 are distributed close to zero and the following 50 close to ten. The first 50 companies are thought of being low-leverage companies, and the last 50 high-leverage companies. The purpose is to simulate data that is meaningful to model with logistic regression.</p>
+<p>Numpy <em>append</em>-function is used to merge two Numpy arrays. The distribution of the arrays is visualised below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leverage_metric_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s visualise the distributions of the first and the last 50 instances.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leverage_metric_np</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">leverage_metric_np</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_11_0.png" src="_images/7.1_ML_for_structured_data-classification_11_0.png" />
+</div>
+</div>
+<p>The following command creates a variable, which describes whether the company bankrupt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distress_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see from the figure, there is a higher risk for the high-leverage companies to bankrupt. Thus, we simulated data that indicates a connection between high leverage and a higher risk of bankrupt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">leverage_metric_np</span><span class="p">,</span><span class="n">distress_np</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_15_0.png" src="_images/7.1_ML_for_structured_data-classification_15_0.png" />
+</div>
+</div>
+<p>The following reshape operation is needed for Scikit-learn to recognise the data correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leverage_metric_np</span> <span class="o">=</span> <span class="n">leverage_metric_np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s fit the data first to an ordinary linear regression model. As I mentioned previously, it is possible, but we will soon see how this approach has problems.</p>
+<p>Linear regression is easy to implement with Scikit-learn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.linear_model</span> <span class="k">as</span> <span class="nn">sk_lm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the model to the data.</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">leverage_metric_np</span><span class="p">,</span><span class="n">distress_np</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, we can fit an OLS model to the data, but interpreting it is difficult. For example, with the leverage metric above 9, the predicted value is over 1. What does that mean? At least not a probability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># Sample x-points that are used to draw the line below.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">leverage_metric_np</span><span class="p">,</span><span class="n">distress_np</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="c1"># This plots the original data points.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">*</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="o">+</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span> <span class="c1"># This plots the orange line.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_23_0.png" src="_images/7.1_ML_for_structured_data-classification_23_0.png" />
+</div>
+</div>
+<p>Let’s proceed by fitting a logistic regression model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the model</span>
+<span class="n">logit_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the model to the data.</span>
+<span class="n">logit_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">leverage_metric_np</span><span class="p">,</span><span class="n">distress_np</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the prediction describes a probability of financial distress and the domain is restricted between 0 and 1. The results are much easier to interpret.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">leverage_metric_np</span><span class="p">,</span><span class="n">distress_np</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="c1"># Reshape is again needed for Scikit-learn to recognise the data correctly</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">logit_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))[:,</span><span class="mi">1</span><span class="p">])</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Leverage metric&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Prob. of distress&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_28_0.png" src="_images/7.1_ML_for_structured_data-classification_28_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="linear-discrimant-analysis">
+<h2><span class="section-number">1.3. </span>Linear discrimant analysis<a class="headerlink" href="#linear-discrimant-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Linear discriminant analysis is one of the simplest approaches for classification as it aims to create boundaries between classes using a linear combination of features. It is easily applied for two and more classes. Although the algorithm can be used for classification, more often it is used for dimensionality reduction. One of the best-known statisticians of the 20th century, R.A. Fisher, is credited to be the inventor of Linear Discriminant Analysis. He invented the binary version of LDA in 1936.</p>
+<p>Edward Altman’s famous bankruptcy prediction model uses Linear discriminant analysis. (<em>Altman, Edward I. (September 1968). “Financial Ratios, Discriminant Analysis and the Prediction of Corporate Bankruptcy”. Journal of Finance. 23 (4): 189–209.</em>) –&gt; <a class="reference external" href="https://www.jstor.org/stable/2978933?seq=1">Link to paper</a></p>
+<p><img alt="LinDis" src="_images/LinDis.png" /></p>
+</div>
+<div class="section" id="k-nearest-neighbours">
+<h2><span class="section-number">1.4. </span>K Nearest neighbours<a class="headerlink" href="#k-nearest-neighbours" title="Permalink to this headline">¶</a></h2>
+<p>The K nearest neighbours algorithm is an example lazy classification method. It stores training data and classifies new instances based on the similarity with specific training data values. The similarity can be measured in several ways, <em>cosine similarity</em> being one example. KNN is a good approach when there is little knowledge about the model that could describe our accounting dataset. The best we can do is to predict the new instance to be in the same class as the most similar instances in the training data.</p>
+<p><img alt="KNN" src="_images/knn.svg" /></p>
+<p>The algorithm is very sensitive to the <em>K</em> parameter that describes how many nearest neighbours the prediction is based on. <em>K=1</em> means that we select the class to be the same as the nearest single training observation. <em>K=10</em> means that pick the mode class of the ten nearest training observations. Below is an example where <em>K=1</em>. As you can see, this model overfits a lot and is very sensitive to noise. However, <em>K</em> cannot be too large either because it decreases the method’s accuracy as too distant observations are considered in the prediction.</p>
+<p><img alt="1NN_map" src="_images/Map1NN.png" /></p>
+<p>Huang &amp; Li (2011) use KNN for multi-label classification of risk factors in SEC 10-K. <em>(Ke-Wei Huang and Zhuolun Li. 2011. A multi-label text classification algorithm for labelling risk factors in SEC form 10-K. ACM Trans. Manage. Inf. Syst. 2, 3, Article 18)</em> –&gt; <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/2019618.2019624">Link to paper</a></p>
+</div>
+<div class="section" id="naive-bayes">
+<h2><span class="section-number">1.5. </span>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this headline">¶</a></h2>
+<p>Naive Bayes classifiers are a collection of classification algorithms based on Bayes’ Theorem $<span class="math notranslate nohighlight">\(P(A|B)=\frac{P(B|A)P(A)}{P(B)}.\)</span>$</p>
+<p>The common principle behind all of these algorithms is the assumption that features are independent of each other, and we can classify them separately.</p>
+<p>An example of Naive Bayes applications in accounting is Ngai et al. (2011), who compare several classification algorithms for fraud detection. One of the algorithms implemented is the Naive Bayes algorithm. <em>(Ngai, E. W., Hu, Y., Wong, Y. H., Chen, Y., &amp; Sun, X. (2011). The application of data mining techniques in financial fraud detection: A classification framework and an academic review of literature. Decision support systems, 50(3), 559-569.)</em> –&gt; <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0167923610001302">Link to paper</a></p>
+<p><img alt="NBC" src="_images/NBC.gif" /></p>
+</div>
+<div class="section" id="ensemble-methods">
+<h2><span class="section-number">1.6. </span>Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h2>
+<p>There is a saying: Two heads are better than one. What about even more heads? At least with machine learning, more heads are helpful (I am not sure about humans. :))</p>
+<p>The idea of ensemble methods is to join many weak estimators as one efficient estimator. With this approach, these methods achieve strong results. It is enough that the weak estimator is only slightly better than pure chance; their ensemble can still be a very efficient machine learning method.</p>
+<p><strong>Example:</strong> Let’s assume that we have a weak estimator that can correctly predict the bankruptcy of a company 52 % of the time. Thus, the predictor is only slightly better than pure chance (50 %).</p>
+<p>However, an ensemble consisting of 100 weak estimators is correct 69,2 % of the time, and an ensemble consisting of 1000 weak estimators is correct 90,3 % of the time!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">ss</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binom_rv</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.52</span><span class="p">)</span>
+<span class="nb">sum</span><span class="p">([</span><span class="n">binom_rv</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">101</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6918454716593883
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binom_rv</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mf">0.52</span><span class="p">)</span>
+<span class="nb">sum</span><span class="p">([</span><span class="n">binom_rv</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">1001</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9027460086409557
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following figure, one ellipse (a weak estimator) would be a very bad classifier due to its incompatible shape with the two classes (the dots and diamonds). However, their ensemble can classify observations very well.</p>
+<p><img alt="Boost_ellips" src="_images/boost_ellips.png" /></p>
+<p>There are many options on how the aggregate is calculated. It can be the weighted average, majority, etc., depending on the application.</p>
+<p>Very often, the simple estimator in ensemble methods is a decision tree. In a decision tree, the tree structure is constructed based on the features of the model. From the leaves of the tree, a prediction for the correct value/class can be inferred. The standard decision tree structure gives only predictions for the correct class. The classification and regression trees (CART) have numerical values instead of classes in the leaves. This allows much more versatile interpretation and allows regression trees to be also used in regression applications.</p>
+<p>Below is an example of how decision trees are constructed. We have two features, equity ratio (ER) and return on assets (ROA). Based on these features, the companies are divided into three groups. First, they are divided into two groups (ROA over or under <em>r</em>). Then companies in the (ROA &lt; <em>r</em>) -group are divided based on the equity ratio (over or under <em>p</em>).</p>
+<p><img alt="dec_tree" src="_images/dec_tree.png" /></p>
+<p>The interpretation of symbols: diamond: no bankruptcy risk, cross: low bankruptcy risk, circle: high bankruptcy risk</p>
+<p><img alt="dec_tree" src="_images/dec_tree2.png" /></p>
+<p>The most common ensemble methods are bagging, random forest and boosting. They differ in how they decrease the correlation between their predictions. The benefit of ensemble methods increases when the correlation decreases.</p>
+<p>The bagging (bootstrap aggregating) method decreases the correlation by feeding bootstrap samples to the weak estimators.</p>
+<p><img alt="bagging" src="_images/bagging.png" /></p>
+<p>The original random forest algorithm decreased correlation by feeding a subsample of features to the weak estimators (random subspace method). Later, the bootstrap aggregating of bagging was added to the method.</p>
+<p><img alt="random_forest" src="_images/rand_forest.png" /></p>
+<p>In recent years, boosting and especially gradient boosting has been a very popular ensemble method in applications.
+In Boosting, weak estimators work in series. The idea is to feed the data again to a new weak learner so that the weight of misclassified points is increased. After training, the aggregate estimate of the weak learners is calculated as a weighted mean. The largest weight is given to those learners whose error function value was the smallest.</p>
+<p><img alt="boosting" src="_images/boost.png" /></p>
+<p>Xgboost has probably been the most successful boosting method. It is very often behind the winning solutions of different machine learning competitions (<a class="reference external" href="https://www.kaggle.com">www.kaggle.com</a>). Here is short info from the Xgboost GitHub-page: “XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It implements machine learning algorithms under the Gradient Boosting framework. XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. The same code runs on major distributed environment (Kubernetes, Hadoop, SGE, MPI, Dask) and can solve problems beyond billions of examples.”</p>
+<p>Later in the book, we will see an example using Xgboost.</p>
+<p>An example of an accounting application using ensemble methods is Bao et al. (2020), who use a boosting model for fraud detection. <em>(Bao, Y., Ke, B., Li, B., Yu, Y. J., &amp; Zhang, J. (2020). Detecting Accounting Fraud in Publicly Traded U.S. Firms Using a Machine Learning Approach. Journal of Accounting Research, 58(1), 199–235.)</em> –&gt; <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1475-679X.12292">Link_to_paper</a></p>
+</div>
+<div class="section" id="support-vector-machines">
+<h2><span class="section-number">1.7. </span>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h2>
+<p>The Support Vector Machine (SVM) was previously one of the most popular algorithms in modern machine learning. It often provides very impressive classification performance on reasonably sized datasets. However, SVMs have difficulties with large datasets since the computations don’t scale well with the number of training examples. This poor performance with large datasets hinders somewhat their success in big data and is the reason why neural networks have partly replaced SVMs in that field. However, in accounting, we have often datasets of modest size, and SVMs work very well with them.</p>
+<p><strong>Optimal separation</strong>
+One of the key innovations of the SVM is the use of optimal separation boundaries in classification. The image below explains the benefit of optimal boundaries. Although all three lines separate the classes, we would probably pick up the middle model as the best one. And so would the SVM. However, other ML models do not work that way, and they would stop training when they reach any of the three models.</p>
+<p><img alt="separ" src="_images/optimal_separ.png" /></p>
+<p>The idea of the SVM is to search for a separator that is far as possible from both classes. The SVM implements this by maximising the yellow area in the image below (in two feature settings).</p>
+<p><img alt="SVM" src="_images/SVM_margin.png" /></p>
+<p>An example of accounting applications is Öğüt et al. (2009), who use support vector machines to predict financial information manipulation. <em>(Öğüt, H., Aktaş, R., Alp, A., &amp; Doğanay, M. M. (2009). Prediction of financial information manipulation by using support vector machine and probabilistic neural network. Expert Systems with Applications, 36(3), 5419-5423.)</em> –&gt; <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0957417408003588">Link to paper</a></p>
+</div>
+<div class="section" id="unsupervised-classification">
+<h2><span class="section-number">1.8. </span>Unsupervised classification<a class="headerlink" href="#unsupervised-classification" title="Permalink to this headline">¶</a></h2>
+<p>Next, we will move our discussion to unsupervised classification algorithms.</p>
+</div>
+<div class="section" id="k-means-clustering">
+<h2><span class="section-number">1.9. </span>K-means clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h2>
+<p>K-means clustering algorithm was used initially in signal processing. It aims to partition observations into k clusters without supervision. In the algorithm, observations are assigned to cluster centroids that are the mean values of the cluster. The training algorithm in K-means minimises within-cluster variances (squared Euclidean distances). The instances are moved to other clusters in order to minimise the variance.</p>
+<p><img alt="kmeans" src="_images/kmeans.svg" /></p>
+<p>An example of the K-means algorithm in accounting is Münnix et al. (2012), who use the algorithm to identify states of a financial market. <em>(Münnix, M. C., Shimada, T., Schäfer, R., Leyvraz, F., Seligman, T. H., Guhr, T., &amp; Stanley, H. E. (2012). Identifying states of a financial market. Scientific reports, 2(1), 1-6.)</em> –&gt; <a class="reference external" href="https://www.nature.com/articles/srep00644">Link_to_paper</a></p>
+</div>
+<div class="section" id="self-organising-maps">
+<h2><span class="section-number">1.10. </span>Self organising maps<a class="headerlink" href="#self-organising-maps" title="Permalink to this headline">¶</a></h2>
+<p>The origin of the self-organising maps is also in signal processing. Teuvo Kohonen proposed them in 1988. It is an unsupervised neural network that is based on the idea that the neurons of the network adapt to the features of the input data. The goal is to make different parts of the network to react similarly to specific input data. The animation below shows the training of a SOM in a two-feature setting.</p>
+<p><img alt="SOM" src="./images/traiSOM.gif" /></p>
+<p>An example of a self-organising map application in accounting research is Haga et al. (2015), who use SOMs for estimating accounting quality measures.<em>(Haga, J., Siekkinen, J., &amp; Sundvik, D. (2015). Initial stage clustering when estimating accounting quality measures with self-organising maps. Expert Systems with Applications, 42(21), 8327-8336.)</em> –&gt; <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0957417415004510">Link to paper</a></p>
+</div>
+<div class="section" id="pca-models">
+<h2><span class="section-number">1.11. </span>PCA models<a class="headerlink" href="#pca-models" title="Permalink to this headline">¶</a></h2>
+<p>Principal Component Analysis, or PCA, is used to reduce the dimensionality of large data sets by transforming a large set of variables into a smaller one that still contains most of the information (variation) in the large set. Although mapping the data to a lower dimension inevitably loses information and accuracy is decreased, the algorithm is designed so that the loss in accuracy is minimal while the simplicity of the model is maximised.</p>
+<p>So, to sum up, the idea of PCA is simple — reduce the number of variables of a data set while preserving as much information as possible.</p>
+<p><img alt="PCA" src="_images/PCA.svg" /></p>
+<p>An example of PCA in accounting/finance applications is Back &amp; Weigend (1997). <em>(Back, A. D., &amp; Weigend, A. S. (1997). A first application of independent component analysis to extracting structure from stock returns. International journal of neural systems, 8(04), 473-484.)</em> –&gt; <a class="reference external" href="https://www.worldscientific.com/doi/abs/10.1142/S0129065797000458">Link to paper</a></p>
+</div>
+</div>
+<div class="section" id="training-approaches">
+<h1><span class="section-number">2. </span>Training approaches<a class="headerlink" href="#training-approaches" title="Permalink to this headline">¶</a></h1>
+<p>Next we dive deeper into how training of ML classifiers is implemented.</p>
+<div class="section" id="sampling-and-hyperparameters">
+<h2><span class="section-number">2.1. </span>Sampling and hyperparameters<a class="headerlink" href="#sampling-and-hyperparameters" title="Permalink to this headline">¶</a></h2>
+<p>In statistics, sampling is a process of picking up a sample from a population. In the context of ML, we need the tools of sampling to implement efficient training algorithms that control overfitting. There are different approaches to sample values from the training data, and we’ll discuss them soon. But before that, we need to discuss a little bit about hyperparameters.</p>
+<p><img alt="systematic_sampling" src="_images/sampling.png" /></p>
+<p>When training an ML model, we want to optimise its’ hyperparameters so that the model is as efficient as possible. These parameters are such that we can finetune them to control the learning process. Thus, they are separate from ordinary model parameters that are optimised by the training process. In the Bayesian setting, the separation between these two types of parameters is vague because we can redesign the model so that a hyperparameter becomes a parameter that the model optimises. Overall, hyperparameters are related to the model selection task or algorithm nuances that, in principle, do not affect the performance of the model. An example of a model hyperparameter is the depth of decision trees in ensemble methods, and an example of an algorithm hyperparameter is the weight parameter of boosting models.</p>
+<p>The number of hyperparameters is related to the complexity of a model. Linear regression has no hyperparameters, but for example, LASSO, which adds regularisation to OLS regression, has one hyperparameter that controls the strength of regularisation. Boosting models that are much more complex than linear regression can have over ten hyperparameters. Finding optimal hyperparameters is a computationally-intensive process and can take a lot of time, especially with the grid-search approach, where all possible values between the specified interval for every hyperparameter are tested.</p>
+<p><img alt="grid_search" src="_images/grid_search.svg" /></p>
+<p>Cross-validation is an efficient approach to test different hyperparameter settings. It can be used to test the (prediction) performance of the model and control overfitting. The basic idea is to divide the training set so that the data used for training is not used to test the performance. Instead, a separate validation set is used for that. In general, when training ML models, the performance of the model when finetuning the hyperparameters, should always be evaluated using the validation part of the data.</p>
+<p><img alt="cross_validation" src="_images/cross_validation.svg" /></p>
+</div>
+<div class="section" id="testing">
+<h2><span class="section-number">2.2. </span>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Alongside training and validation sets, we should also separate part of the data for testing. This test dataset should not be used in any way during the training phase. Otherwise, there is a danger that hyperparameters are optimised for the testing set, and the model would not generalise well to new data. A test set should only be used to assess the performance of a fully specified classifier.</p>
+<p><img alt="train_validation_test" src="_images/train_validation_test.png" /></p>
+<p>Therefore, a test set is a set of examples used only to assess the performance (i.e. generalisation) of a fully specified classifier. The final model is used to predict the classifications of examples in the test set. Those predictions are compared to the examples’ proper classifications to assess the model’s accuracy.</p>
+</div>
+</div>
+<div class="section" id="analysing-classification-models">
+<h1><span class="section-number">3. </span>Analysing classification models<a class="headerlink" href="#analysing-classification-models" title="Permalink to this headline">¶</a></h1>
+<p>Analysing the performance of classifiers is not trivial. There are numerous ways to measure the performance, and the correct metric depends on the context where the classifier is used.</p>
+<div class="section" id="performance-measures">
+<h2><span class="section-number">3.1. </span>Performance measures<a class="headerlink" href="#performance-measures" title="Permalink to this headline">¶</a></h2>
+<p>The following figures will help to understand the different metrics that we will discuss in the following. In the figure, we have the following numbers that are related to binary classifiers:</p>
+<ul class="simple">
+<li><p>True positives (TP): The number of predictions of the “positive” class that truly are “positive”.</p></li>
+<li><p>True negatives (TN): The number of predictions of the “negative” class that truly are “negative”.</p></li>
+<li><p>False positives (FP): The number of cases where the model predicted the “positive” class, although the instance belongs to the “negative” class. This is known as “Type I error”.</p></li>
+<li><p>False negatives (FN): The number of cases where the model predicted the “negative” class, although the instance belongs to the “positive” class. This is known as “Type II error”.</p></li>
+</ul>
+<p><img alt="binary_conf_matrix" src="./images/binary_confusion_matrix.png" />
+<img alt="bin_class" src="_images/bin_class.png" /></p>
+<p><strong>Accuracy</strong>
+Accuracy is the most common performance metric and can be used for binary and multiclass classification. Accuracy is defined to be the proportion of correct predictions.
+$<span class="math notranslate nohighlight">\(ACC=\frac{TP+TN}{TP+TN+FP+FN}\)</span>$
+Accuracy works well as a performance metric when the data is balanced, and there is an approximately equal amount of observations in each class. It is not working well for imbalanced data. For example, if we are predicting financial distress and 99 % of our data is healthy companies, the model that always predicts that a company is healthy gets an accuracy of 99 %. However, this model is quite useless for practical applications.</p>
+<p><strong>Precision</strong>
+Precision is defined to be the proportion of true positives from all the positives predicted by the model.
+$<span class="math notranslate nohighlight">\(PREC=\frac{TP}{TP+FP}\)</span>$
+In the bankruptcy example above, the precision of the model is zero because it never predicted bankruptcy. Precision is a useful metric when we want to be sure about our predictions of positive cases. In the example above, the model that predicts bankruptcy only for companies that truly are bankrupt gets a precision of 1. On the downside, if we predict only bankruptcy for certain cases, we miss many bankrupt companies. So, for example, banks should not use this metric when deciding loan applications. It is better to reject a loan application too often than too seldom.</p>
+<p><strong>Recall</strong>
+Recall, also called <strong>True positive rate</strong> is closely related to precision. It is the proportion of correctly predicted positives from all the positive values in the data.
+$<span class="math notranslate nohighlight">\(REC=\frac{TP}{TP+FN}\)</span><span class="math notranslate nohighlight">\(
+In the bankrupt example, we always predicted that a company is healthy, so \)</span>TP=0$ and recall is zero. Recall is the best metric when we want to maximise the number of identified positive cases. So this metric is better for banks because they want to catch all the companies that might bankrupt, even if it is not certain. The problem with recall is that it gets a value one if we always predict the “positive” class. Thus, if banks only use recall as their metric, the best model would predict that all companies will bankrupt.</p>
+<p><strong>F1 score</strong>
+Both precision and recall have good features, but only relying on one of them is not wise. The F1 score tries to combine these metrics and is the harmonic mean of precision and recall. It is a number that is always between 0 and 1.</p>
+<p>Let’s think about how the F1 score will work with our bankruptcy problem. If we always predict a healthy company, precision is 0, and recall is 0, so the F1 score is also 0. However, accuracy would be 0.99. But we all know a predictor such as this is worthless. What if we always predict a company will bankrupt? Recall was not working because it is now 1. Accuracy is much more meaningful because it is now 0.01. What about precision? The model always predicts that a company will bankrupt, and for 1 % of the cases, this is true. Thus, precision is 0.01, and the F1 score is the harmonic mean of precision and recall:
+$<span class="math notranslate nohighlight">\(F1=\frac{2}{\frac{1}{PREC}+\frac{1}{REC}}=0.198\)</span>$</p>
+<p>The F1 score is a good metric if we want to have both good precision and recall.</p>
+<p><strong>Log Loss/Binary Crossentropy</strong>
+Binary cross-entropy is a completely different type of performance metric. It is also used as an optimisation objective for some ML classifiers. It evaluates models that give probabilities for categories and takes into account how close probabilities are to the true value, thus giving a more detailed view of the performance of our classifier. Binary cross-entropy is defined with the equation
+$<span class="math notranslate nohighlight">\(H_p(q)=-\frac{1}{2}(y_0\cdot\log{p(y_0)}+(1-y_0)\cdot\log{1-p(y_0)}+y_1\cdot\log{p(y_1)}+(1-y_1)\cdot\log{1-p(y_1)})\)</span>$
+When a classifier is giving probabilities as predictions, binary cross-entropy is a good option as an evaluation metric. It also generalises easily to more than two classes. Categorical cross-entropy is a loss function and an evaluation metric that can be used to evaluate multiclass ML models.</p>
+<p><strong>Confusion matrix</strong></p>
+<p>Although we have already defined quite many metrics to evaluate ML classifiers, things are much more complicated, as you can see from the image below. It has been given a descriptive name <em>confusion matrix</em>. Let’s go through some of the metrics in that matrix.</p>
+<p><img alt="conf_matrix" src="_images/conf_matrix.png" /></p>
+<p><strong>Error Rate</strong>: Overall, how often a classifier model is wrong?
+$<span class="math notranslate nohighlight">\(ER=\frac{FP+FN}{TP+TN+FP+FN}=1-ACC\)</span>$</p>
+<p><strong>False Positive Rate</strong>: When the true value is negative, how often a model predicts yes?
+$<span class="math notranslate nohighlight">\(FPR=\frac{FP}{TN+FP}\)</span>$</p>
+<p><strong>True Negative Rate</strong>: When the true value is negative, how often a model predicts negative? Also known as <em>specificity</em>.
+$<span class="math notranslate nohighlight">\(TNR=\frac{TN}{TN+FP}=1-FPR\)</span>$</p>
+<p><strong>Prevalence</strong>: The number of positive occurrences in our sample?
+$<span class="math notranslate nohighlight">\(PREV=\frac{TP+FN}{TP+TN+FP+FN}\)</span>$</p>
+<div class="section" id="roc-and-others">
+<h3><span class="section-number">3.1.1. </span>ROC and others<a class="headerlink" href="#roc-and-others" title="Permalink to this headline">¶</a></h3>
+<p>A receiver operating characteristic curve, or ROC curve, is a graphical plot that illustrates a binary classifier model’s performance. The ROC curve is created by plotting the recall against the false positive rate at various threshold settings. The ROC curve is thus the recall as a function of the false-positive rate.</p>
+<p>ROC analysis can be used to evaluate models. The more the curve bends to the top-left corner, the better the classifier. ROC analysis is related directly and naturally to cost/benefit analysis of diagnostic decision making.</p>
+<p><img alt="ROC" src="_images/roc_xkcd.svg" /></p>
+<p>AUC is the area under the ROC curve.</p>
+<p><img alt="AUC" src="_images/Inkedauc.jpg" /></p>
+</div>
+<div class="section" id="imbalanced-data-and-other-challenges">
+<h3><span class="section-number">3.1.2. </span>Imbalanced data and other challenges<a class="headerlink" href="#imbalanced-data-and-other-challenges" title="Permalink to this headline">¶</a></h3>
+<p>An imbalanced classification problem means a situation where the distribution of examples across the known classes is skewed. In the extreme imbalance case, there is one example in the minority class for hundreds, thousands, or millions of examples in the majority class or classes. In accounting applications, bankruptcy or fraud detection are such that the training data is heavily imbalanced. Usually, ML algorithms and standard metrics are designed for balanced data. These models will be very poor at predicting the minority class. This is problematic because often, the minority class is more important. For example, we would specifically like to identify fraud or a distressed company. Identifying healthy companies is of much less importance.</p>
+<p><img alt="imbalanced" src="_images/imbalanced.png" /></p>
+<p>The <strong>precision-recall curve</strong> is similar to the ROC curve. It is a plot of the precision (y-axis) and the recall (x-axis) for different probability thresholds. Now for the optimal model, the curve would bend to the top-right corner of the image. As the precision-recall curve focuses on the minority class, it is an effective diagnostic for imbalanced binary classification models. This is because neither precision nor recall is calculated using true negatives. They both focus on the prediction of the minority class.</p>
+<p>The following section that implements different ML models to classification with a traditional accounting dataset also includes many precision-recall curves.</p>
+</div>
+</div>
+<div class="section" id="classification-examples">
+<h2><span class="section-number">3.2. </span>Classification examples<a class="headerlink" href="#classification-examples" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look next how ML models can be used for classification tasks with accounting datasets.</p>
+<div class="section" id="scikit-learn">
+<h3><span class="section-number">3.2.1. </span>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-learn is a multi-purpose machine learning library. It has modules for many different machine learning algorithms. It is not the best library in any machine learning field but very good at most of them. Also, all the tools use the common workflow approach of the library. Thus, by learning to do one machine learning analysis, you learn to do them all.</p>
+<p>Scikit-learn has libraries for classification, regression, clustering, dimensionality reduction and model selection. It also has an extensive library of methods for data pre-processing.</p>
+<p>A very convenient feature in Scikit-learn is <strong>pipeline</strong> that you can use to construct full workflows of machine learning analyses.</p>
+<p>There should be no difficulties to install Scikit-learn. With Python/Pip you just execute <strong>pip install scikit-learn</strong> and with Anaconda you just install it from the menu (or use <strong>conda install scikit-learn</strong> in the command line). (Actually, you should not need to do that as Scikit-learn is installed in Anaconda by default.)</p>
+<p>Again, the best way to learn Scikit-learn is by going through examples. Thus, more details are in the following examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example data from <a class="reference external" href="https://www.kaggle.com/c/companies-bankruptcy-forecast">www.kaggle.com/c/companies-bankruptcy-forecast</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ml_data.csv&#39;</span><span class="p">)[[</span><span class="s1">&#39;Attr1&#39;</span><span class="p">,</span><span class="s1">&#39;Attr8&#39;</span><span class="p">,</span><span class="s1">&#39;Attr21&#39;</span><span class="p">,</span><span class="s1">&#39;Attr4&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;Attr5&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span><span class="p">,</span><span class="s1">&#39;Attr20&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;Attr15&#39;</span><span class="p">,</span><span class="s1">&#39;Attr6&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above link has an explanation for all the variables. The original data has 65 variables, but we are here using a subsample of 10 variables. With <strong>rename()</strong>, we can rename the variables to be more informative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Attr1&#39;</span> <span class="p">:</span> <span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;Attr8&#39;</span> <span class="p">:</span> <span class="s1">&#39;Leverage&#39;</span><span class="p">,</span><span class="s1">&#39;Attr21&#39;</span> <span class="p">:</span> <span class="s1">&#39;Sales-growth&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr4&#39;</span> <span class="p">:</span> <span class="s1">&#39;Current ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr5&#39;</span> <span class="p">:</span> <span class="s1">&#39;Quick ratio&#39;</span><span class="p">,</span><span class="s1">&#39;Attr29&#39;</span> <span class="p">:</span> <span class="s1">&#39;Log(Total assets)&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr20&#39;</span> <span class="p">:</span> <span class="s1">&#39;Inventory*365/sales&#39;</span><span class="p">,</span><span class="s1">&#39;Attr15&#39;</span> <span class="p">:</span> <span class="s1">&#39;Total_liab*365/(gross_prof+depr)&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Attr6&#39;</span> <span class="p">:</span> <span class="s1">&#39;Ret_earnings/TA&#39;</span><span class="p">,</span><span class="s1">&#39;Attr44&#39;</span> <span class="p">:</span> <span class="s1">&#39;Receiv*365/sales&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ROA</th>
+      <th>Leverage</th>
+      <th>Sales-growth</th>
+      <th>Current ratio</th>
+      <th>Quick ratio</th>
+      <th>Log(Total assets)</th>
+      <th>Inventory*365/sales</th>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <th>Ret_earnings/TA</th>
+      <th>Receiv*365/sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.031545</td>
+      <td>0.641242</td>
+      <td>-0.016440</td>
+      <td>-0.013529</td>
+      <td>0.007406</td>
+      <td>-0.631107</td>
+      <td>-0.070344</td>
+      <td>-0.005305</td>
+      <td>-0.016047</td>
+      <td>-0.009084</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.231729</td>
+      <td>0.074710</td>
+      <td>-0.016961</td>
+      <td>-0.080975</td>
+      <td>0.007515</td>
+      <td>-1.168550</td>
+      <td>-0.047947</td>
+      <td>-0.119627</td>
+      <td>-0.016047</td>
+      <td>-0.009659</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.058602</td>
+      <td>-0.456287</td>
+      <td>-0.017504</td>
+      <td>-0.189489</td>
+      <td>0.006572</td>
+      <td>0.096212</td>
+      <td>0.001761</td>
+      <td>0.009484</td>
+      <td>-0.016047</td>
+      <td>-0.016517</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.069376</td>
+      <td>-0.462971</td>
+      <td>-0.016114</td>
+      <td>-0.140032</td>
+      <td>0.007477</td>
+      <td>0.296277</td>
+      <td>-0.006430</td>
+      <td>0.045912</td>
+      <td>-0.010915</td>
+      <td>0.020758</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.236424</td>
+      <td>0.097183</td>
+      <td>-0.016046</td>
+      <td>-0.014680</td>
+      <td>0.007879</td>
+      <td>-0.501471</td>
+      <td>-0.043107</td>
+      <td>-0.021015</td>
+      <td>-0.016047</td>
+      <td>-0.011036</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9995</th>
+      <td>-0.079533</td>
+      <td>-0.374739</td>
+      <td>-0.016179</td>
+      <td>-0.189873</td>
+      <td>0.006687</td>
+      <td>0.162211</td>
+      <td>0.002114</td>
+      <td>0.081838</td>
+      <td>-0.006462</td>
+      <td>0.006482</td>
+    </tr>
+    <tr>
+      <th>9996</th>
+      <td>-0.081046</td>
+      <td>0.689695</td>
+      <td>-0.016507</td>
+      <td>0.021280</td>
+      <td>0.007497</td>
+      <td>0.630702</td>
+      <td>-0.022646</td>
+      <td>-0.018260</td>
+      <td>-0.034968</td>
+      <td>-0.017303</td>
+    </tr>
+    <tr>
+      <th>9997</th>
+      <td>-0.230571</td>
+      <td>-0.471830</td>
+      <td>-0.016167</td>
+      <td>-0.222373</td>
+      <td>0.006716</td>
+      <td>1.249499</td>
+      <td>-0.034307</td>
+      <td>-0.059516</td>
+      <td>-0.013742</td>
+      <td>-0.006031</td>
+    </tr>
+    <tr>
+      <th>9998</th>
+      <td>-0.108156</td>
+      <td>-0.355796</td>
+      <td>-0.016352</td>
+      <td>-0.042692</td>
+      <td>0.008123</td>
+      <td>-0.640261</td>
+      <td>-0.059005</td>
+      <td>0.021498</td>
+      <td>-0.018374</td>
+      <td>0.001036</td>
+    </tr>
+    <tr>
+      <th>9999</th>
+      <td>-0.068674</td>
+      <td>0.293253</td>
+      <td>-0.016174</td>
+      <td>0.039538</td>
+      <td>0.007850</td>
+      <td>0.564555</td>
+      <td>-0.062083</td>
+      <td>-0.012039</td>
+      <td>0.001952</td>
+      <td>-0.015710</td>
+    </tr>
+  </tbody>
+</table>
+<p>10000 rows × 10 columns</p>
+</div></div></div>
+</div>
+<p>With the <strong>clip</strong> method, you can winsorise the data. Here extreme values are moved to 1 % and 99 % quantiles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">table_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span><span class="n">upper</span><span class="o">=</span><span class="n">table_df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <strong>hist()</strong> you can check the distributions quickly. The most problematic outliers have been removed by winsorisation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">),</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_66_0.png" src="_images/7.1_ML_for_structured_data-classification_66_0.png" />
+</div>
+</div>
+<p>With <strong>corr()</strong> you can check the correlations. The variables we aim to use as predictor should not correlate too much if we use the traditional linear regression model. This problem is called multicollinearity. However, for example, with ensemble methods, multicollinearity is much less of a problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ROA</th>
+      <th>Leverage</th>
+      <th>Sales-growth</th>
+      <th>Current ratio</th>
+      <th>Quick ratio</th>
+      <th>Log(Total assets)</th>
+      <th>Inventory*365/sales</th>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <th>Ret_earnings/TA</th>
+      <th>Receiv*365/sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ROA</th>
+      <td>1.000000</td>
+      <td>0.253631</td>
+      <td>0.198471</td>
+      <td>0.239780</td>
+      <td>0.073774</td>
+      <td>-0.022929</td>
+      <td>-0.199351</td>
+      <td>0.031788</td>
+      <td>0.482101</td>
+      <td>-0.088218</td>
+    </tr>
+    <tr>
+      <th>Leverage</th>
+      <td>0.253631</td>
+      <td>1.000000</td>
+      <td>-0.062703</td>
+      <td>0.678369</td>
+      <td>0.137512</td>
+      <td>0.092470</td>
+      <td>0.017957</td>
+      <td>-0.088598</td>
+      <td>0.277234</td>
+      <td>-0.007704</td>
+    </tr>
+    <tr>
+      <th>Sales-growth</th>
+      <td>0.198471</td>
+      <td>-0.062703</td>
+      <td>1.000000</td>
+      <td>-0.050987</td>
+      <td>0.008612</td>
+      <td>0.124345</td>
+      <td>-0.080525</td>
+      <td>0.005148</td>
+      <td>0.008116</td>
+      <td>-0.018546</td>
+    </tr>
+    <tr>
+      <th>Current ratio</th>
+      <td>0.239780</td>
+      <td>0.678369</td>
+      <td>-0.050987</td>
+      <td>1.000000</td>
+      <td>0.175938</td>
+      <td>-0.055648</td>
+      <td>0.143823</td>
+      <td>-0.059035</td>
+      <td>0.169986</td>
+      <td>0.097054</td>
+    </tr>
+    <tr>
+      <th>Quick ratio</th>
+      <td>0.073774</td>
+      <td>0.137512</td>
+      <td>0.008612</td>
+      <td>0.175938</td>
+      <td>1.000000</td>
+      <td>-0.009259</td>
+      <td>-0.067865</td>
+      <td>-0.067402</td>
+      <td>0.071122</td>
+      <td>0.026820</td>
+    </tr>
+    <tr>
+      <th>Log(Total assets)</th>
+      <td>-0.022929</td>
+      <td>0.092470</td>
+      <td>0.124345</td>
+      <td>-0.055648</td>
+      <td>-0.009259</td>
+      <td>1.000000</td>
+      <td>0.065786</td>
+      <td>0.009114</td>
+      <td>0.199229</td>
+      <td>0.116596</td>
+    </tr>
+    <tr>
+      <th>Inventory*365/sales</th>
+      <td>-0.199351</td>
+      <td>0.017957</td>
+      <td>-0.080525</td>
+      <td>0.143823</td>
+      <td>-0.067865</td>
+      <td>0.065786</td>
+      <td>1.000000</td>
+      <td>0.026625</td>
+      <td>-0.109237</td>
+      <td>0.154436</td>
+    </tr>
+    <tr>
+      <th>Total_liab*365/(gross_prof+depr)</th>
+      <td>0.031788</td>
+      <td>-0.088598</td>
+      <td>0.005148</td>
+      <td>-0.059035</td>
+      <td>-0.067402</td>
+      <td>0.009114</td>
+      <td>0.026625</td>
+      <td>1.000000</td>
+      <td>0.005612</td>
+      <td>0.018199</td>
+    </tr>
+    <tr>
+      <th>Ret_earnings/TA</th>
+      <td>0.482101</td>
+      <td>0.277234</td>
+      <td>0.008116</td>
+      <td>0.169986</td>
+      <td>0.071122</td>
+      <td>0.199229</td>
+      <td>-0.109237</td>
+      <td>0.005612</td>
+      <td>1.000000</td>
+      <td>-0.052223</td>
+    </tr>
+    <tr>
+      <th>Receiv*365/sales</th>
+      <td>-0.088218</td>
+      <td>-0.007704</td>
+      <td>-0.018546</td>
+      <td>0.097054</td>
+      <td>0.026820</td>
+      <td>0.116596</td>
+      <td>0.154436</td>
+      <td>0.018199</td>
+      <td>-0.052223</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The following statement constructs an indicator variable to the dataframe that has a value one if the ROA of that company is larger than zero (and zero otherwise). In the following models, we try to classify the companies into these two categories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use as predictors everything else except ROA and ROA_ind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_class</span> <span class="o">=</span> <span class="n">table_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ROA&#39;</span><span class="p">,</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Predicted variable is the indicator variable ROA_ind. (ROA &gt; 0 –&gt; 1, ROA &lt; 0 –&gt; 0)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_class</span> <span class="o">=</span> <span class="n">table_df</span><span class="p">[</span><span class="s1">&#39;ROA_ind&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>train_test_split</em> can be used to easily divide a dataset to training and testing parts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use a 80%/20% split for training and testing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into training and test sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_class</span><span class="p">,</span> <span class="n">y_class</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The workflow with Scikit-learn is almost always the same. Define a model object, fit data to the object, analyse the results using the functions of the object. Let’s start examining different ML classifiers with linear discriminant analysis.</p>
+</div>
+<div class="section" id="linear-discriminant-analysis">
+<h3><span class="section-number">3.2.2. </span>Linear discriminant analysis<a class="headerlink" href="#linear-discriminant-analysis" title="Permalink to this headline">¶</a></h3>
+<p>Linear discriminant analysis was the method Edward Altman used in his seminal bankruptcy prediction paper.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Define the LDA object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LDA_class</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fit the data to the model using the <em>fit</em> function of the object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LDA_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearDiscriminantAnalysis()
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>score</em> measures the correct prediction rate. 73.95 % of the companies in the test data are catgorised correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LDA_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7335
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>classification_report</em> is a convenient tool to quickly calculate many popular classification metrics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">LDA_class</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.72      0.85      0.78      1094
+        True       0.76      0.60      0.67       906
+
+    accuracy                           0.73      2000
+   macro avg       0.74      0.72      0.72      2000
+weighted avg       0.74      0.73      0.73      2000
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>log_loss</em> is the same as binary cross-entropy we discussed in the theory part of this chapter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">LDA_class</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.204651075427833
+</pre></div>
+</div>
+</div>
+</div>
+<p>A ROC curve for the LDA model. Remember, the more it bends to the top-left corner, the better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_roc_curve</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_precision_recall_curve</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">LDA_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_97_0.png" src="_images/7.1_ML_for_structured_data-classification_97_0.png" />
+</div>
+</div>
+<p>As we discussed,  precision-recall curve is especially suitable for imbalanced data (the sizes of the categories are not equal). The more the line bends to the upper-<em>right</em> corner, the better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">LDA_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_99_0.png" src="_images/7.1_ML_for_structured_data-classification_99_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="k-nearest-neigbours">
+<h3><span class="section-number">3.2.3. </span>K nearest neigbours<a class="headerlink" href="#k-nearest-neigbours" title="Permalink to this headline">¶</a></h3>
+<p>Let’s next investigate the K nearest neighbours -method. Overall the model appears to perform little worse when compared to the LDA model. However, the recall metric for the ROA &gt; 0 class is better. <em>n_neighbors=3</em> defines that the classification is based on the three closest samples in the training set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="n">neigh_cls</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">neigh_cls</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neigh_cls</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.691
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">neigh_cls</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.72      0.71      0.71      1094
+        True       0.66      0.67      0.66       906
+
+    accuracy                           0.69      2000
+   macro avg       0.69      0.69      0.69      2000
+weighted avg       0.69      0.69      0.69      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">neigh_cls</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.672609441817517
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">neigh_cls</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_105_0.png" src="_images/7.1_ML_for_structured_data-classification_105_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">neigh_cls</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_106_0.png" src="_images/7.1_ML_for_structured_data-classification_106_0.png" />
+</div>
+</div>
+<p>Let’s see how results change when change the <em>n_neighbors</em> parameter to 5. There are only minor changes in the results. The precision metric and the F1 score is slightly better, when <em>n_neighbors=5</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neigh_cls</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">neigh_cls</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neigh_cls</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6935
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">neigh_cls</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.72      0.71      0.72      1094
+        True       0.66      0.67      0.67       906
+
+    accuracy                           0.69      2000
+   macro avg       0.69      0.69      0.69      2000
+weighted avg       0.69      0.69      0.69      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">neigh_cls</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.58626170123281
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">neigh_cls</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_112_0.png" src="_images/7.1_ML_for_structured_data-classification_112_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">neigh_cls</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_113_0.png" src="_images/7.1_ML_for_structured_data-classification_113_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">3.2.4. </span>Logistic regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Let’s continue with the logistic regression model. This was another classic methods used in bankruptcy prediction (Ohlson, 1980).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.linear_model</span> <span class="k">as</span> <span class="nn">sk_lm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit_model</span> <span class="o">=</span> <span class="n">sk_lm</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Based on accuracy, performance is better than KNN but worse than LDA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.703
+</pre></div>
+</div>
+</div>
+</div>
+<p>Interestinly, performance is very similar to two previous models, but the recall metric is better for the (ROA &lt; 0) -class and worse for the (ROA &gt; 0) -class, making the average recall to be approximately the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">logit_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.68      0.86      0.76      1094
+        True       0.75      0.51      0.61       906
+
+    accuracy                           0.70      2000
+   macro avg       0.72      0.69      0.69      2000
+weighted avg       0.71      0.70      0.69      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">logit_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.258077358693168
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">logit_model</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_123_0.png" src="_images/7.1_ML_for_structured_data-classification_123_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">logit_model</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_124_0.png" src="_images/7.1_ML_for_structured_data-classification_124_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">3.2.5. </span>Support vector machines<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Usually SVMs are powerfull classifiers, but for this data, they do not perform better than the previous models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kernel can be thought as the type of the separation zone between the categories. <strong>Linear</strong>  is the simplest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC(kernel=&#39;linear&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6915
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, the average metrics are close to the performance of the previous models. However, again the recall metric has poor performance for the (ROA &gt; 0) class and good performance for the (ROA &lt; 0) class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.66      0.91      0.76      1094
+        True       0.79      0.43      0.56       906
+
+    accuracy                           0.69      2000
+   macro avg       0.73      0.67      0.66      2000
+weighted avg       0.72      0.69      0.67      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.655252897500171
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_135_0.png" src="_images/7.1_ML_for_structured_data-classification_135_0.png" />
+</div>
+</div>
+<p>Area under the precision-recall curve is the best so far (0.75).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_137_0.png" src="_images/7.1_ML_for_structured_data-classification_137_0.png" />
+</div>
+</div>
+<p>Radial basis function is a more powerful kernel for SVMs. Using it slightly improves the results and makes the SVM the best model so far according to different metrics. Only the area under ROC is better in the LDA model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC()
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results improve slightly but are still not as good as with the LDA model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.725
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.71      0.85      0.77      1094
+        True       0.76      0.58      0.65       906
+
+    accuracy                           0.73      2000
+   macro avg       0.73      0.71      0.71      2000
+weighted avg       0.73      0.72      0.72      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.498229475388431
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_145_0.png" src="_images/7.1_ML_for_structured_data-classification_145_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">svm_classifier</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_146_0.png" src="_images/7.1_ML_for_structured_data-classification_146_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="decision-trees">
+<h3><span class="section-number">3.2.6. </span>Decision trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">¶</a></h3>
+<p>Decision tree uses features to categorise companies to different branches.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>max_depth</em> defines how many times new branches are created in the tree (see the figure below).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_class</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeClassifier(max_depth=3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">tree_class</span><span class="p">,</span><span class="n">feature_names</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_153_0.png" src="_images/7.1_ML_for_structured_data-classification_153_0.png" />
+</div>
+</div>
+<p>The decision tree model has the best performance so far.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.839
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tree_class</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.91      0.79      0.84      1094
+        True       0.78      0.90      0.84       906
+
+    accuracy                           0.84      2000
+   macro avg       0.84      0.84      0.84      2000
+weighted avg       0.85      0.84      0.84      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">tree_class</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.5608369522786685
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">tree_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x1e22e3d3ee0&gt;
+</pre></div>
+</div>
+<img alt="_images/7.1_ML_for_structured_data-classification_158_1.png" src="_images/7.1_ML_for_structured_data-classification_158_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">tree_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_159_0.png" src="_images/7.1_ML_for_structured_data-classification_159_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">3.2.7. </span>Naive Bayes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Let’s continue with a Naive Bayes -model. We use the Gaussian Naive Bayes model in Scikit-learn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="n">naive_clf</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">naive_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB()
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results are almost as good as the results of the decision tree model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">naive_clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8005
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">naive_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.91      0.71      0.80      1094
+        True       0.72      0.91      0.81       906
+
+    accuracy                           0.80      2000
+   macro avg       0.81      0.81      0.80      2000
+weighted avg       0.82      0.80      0.80      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">naive_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.890613026776083
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">naive_clf</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_166_0.png" src="_images/7.1_ML_for_structured_data-classification_166_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">naive_clf</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_167_0.png" src="_images/7.1_ML_for_structured_data-classification_167_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="random-forest">
+<h3><span class="section-number">3.2.8. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+<p>If the decision tree model was performing so well, we could anticipate that many decision trees (= random forest) would perform even better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_class</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_class</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier()
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the random forest classifier, there is an additonal possibility to rank the improtance of the features. The calculated importance is called <em>Gini importance</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">rf_class</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Total_liab*365/(gross_prof+depr)</td>
+      <td>0.395666</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ret_earnings/TA</td>
+      <td>0.147671</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Leverage</td>
+      <td>0.115949</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sales-growth</td>
+      <td>0.074085</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Current ratio</td>
+      <td>0.065185</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Quick ratio</td>
+      <td>0.059002</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Log(Total assets)</td>
+      <td>0.050552</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inventory*365/sales</td>
+      <td>0.049746</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Receiv*365/sales</td>
+      <td>0.042145</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The performance is clearly the best one so far when measured using all the metrics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_class</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8945
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">rf_class</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.90      0.91      0.90      1094
+        True       0.89      0.88      0.88       906
+
+    accuracy                           0.89      2000
+   macro avg       0.89      0.89      0.89      2000
+weighted avg       0.89      0.89      0.89      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">rf_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_178_0.png" src="_images/7.1_ML_for_structured_data-classification_178_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">rf_class</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_179_0.png" src="_images/7.1_ML_for_structured_data-classification_179_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="boosting-classifier">
+<h3><span class="section-number">3.2.9. </span>Boosting classifier<a class="headerlink" href="#boosting-classifier" title="Permalink to this headline">¶</a></h3>
+<p>The boosting classifier model is very similar to the random forest model. For example, they both use decision trees as weak classifiers. Thus, the performance is probably very close to the performance of the random forest model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boosting_clf</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boosting_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GradientBoostingClassifier()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">boosting_clf</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Total_liab*365/(gross_prof+depr)</td>
+      <td>0.780337</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Leverage</td>
+      <td>0.100223</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ret_earnings/TA</td>
+      <td>0.075315</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sales-growth</td>
+      <td>0.023974</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Log(Total assets)</td>
+      <td>0.006188</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Quick ratio</td>
+      <td>0.005888</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Current ratio</td>
+      <td>0.003503</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inventory*365/sales</td>
+      <td>0.00249</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Receiv*365/sales</td>
+      <td>0.002083</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The performance is slightly better than the performance of the random forest model. Furthermore, the boosting model has the best performance of all the models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boosting_clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.898
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">boosting_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.91      0.91      0.91      1094
+        True       0.89      0.89      0.89       906
+
+    accuracy                           0.90      2000
+   macro avg       0.90      0.90      0.90      2000
+weighted avg       0.90      0.90      0.90      2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">boosting_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.522995571951115
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_roc_curve</span><span class="p">(</span><span class="n">boosting_clf</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_190_0.png" src="_images/7.1_ML_for_structured_data-classification_190_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">boosting_clf</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_191_0.png" src="_images/7.1_ML_for_structured_data-classification_191_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="unsupervised-approach">
+<h2><span class="section-number">3.3. </span>Unsupervised approach<a class="headerlink" href="#unsupervised-approach" title="Permalink to this headline">¶</a></h2>
+<p>It is difficult to design a meaningful unsupervised classification (clustering) example from the data at hand. Thus, we investigate unsupervised methods using the Iris dataset included in Scikit-learn. We will encounter more accounting-related unsupervised methods in Chapter 10, where we discuss ML text analysis methods in accounting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Iris dataset consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features are included: the length and the width of the sepals and petals. Our aim is to use an unsupervised method to separate these three flower types using the four features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_data</span><span class="o">.</span><span class="n">target_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span><span class="n">columns</span><span class="o">=</span><span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+      <th>Flower</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>As you can see from the figure below. Setosa should be easy to separate. Versicolor and Virginica is probably more difficult.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Setosa&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Versicolor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Virginica&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;sepal length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sepal width&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_202_0.png" src="_images/7.1_ML_for_structured_data-classification_202_0.png" />
+</div>
+</div>
+<p>Let’s construt a K-means clustering model and fit it to the data. As a parameter, we need to define how many clusters we want to have.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we try to learn the clusters using only two features, the petal length and the sepal length.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>  <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">,</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">labels_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centers</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">cluster_centers_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The cluster centers learned by the model are quite good. The learned clustes are almost the same as the correct categories in the previous figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster 0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centers</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">centers</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;sepal length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sepal width&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_210_0.png" src="_images/7.1_ML_for_structured_data-classification_210_0.png" />
+</div>
+</div>
+<p>The bar plots below can be used to check how many misclassified observations there were.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cluster</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">cluster</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cluster &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_212_0.png" src="_images/7.1_ML_for_structured_data-classification_212_0.png" />
+</div>
+</div>
+<p>Let’s now use all the variables in the clustering model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>  <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal width (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;petal length (cm)&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;petal width (cm)&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">labels_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centers</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">cluster_centers_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster 0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centers</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">centers</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;sepal length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sepal width&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_218_0.png" src="_images/7.1_ML_for_structured_data-classification_218_0.png" />
+</div>
+</div>
+<p>The results slightly improve as there is less misclassified observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cluster</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Flower&#39;</span><span class="p">][</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">cluster</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cluster &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7.1_ML_for_structured_data-classification_220_0.png" src="_images/7.1_ML_for_structured_data-classification_220_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="6_Basic_statistics_with_Python.html" title="previous page"><span class="section-number">7. </span>Basic statistics and time series analysis with Python</a>
+    <a class='right-next' id="next-link" href="7.2_ML_for_structured_data-regression.html" title="next page"><span class="section-number">4. </span>Machine learning for structured data - Regression</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Mikko Ranta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

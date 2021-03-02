@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to data analytics in accounting &#8212; Data analytics in accounting</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,18 +34,19 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -80,22 +81,19 @@
   <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="#">
    Introduction to data analytics in accounting
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Basic data analytics in accounting
  </span>
@@ -133,41 +131,134 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   7. Basic statistics with Python
+   7. Basic statistics and time series analysis with Python
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Machine learning in accounting
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="7_Introduction_to_ML_in_accounting.html">
-   1. Introduction to Machine learning in accounting
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
+   1. Machine learning for structured data - Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#training-approaches">
+   2. Training approaches
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#analysing-classification-models">
+   3. Analysing classification models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
+   4. Machine learning for structured data - Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
+   5. Xgboost, state-of-the-art ensemble method for structured data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
+   6. SHAP analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
+   7. GAM MODEL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   2. Decision making with ML in accounting
+   8. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   3. Deep learning in accounting
+   9. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.1_Bonus_example.html">
+   10. Example - starting from scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_NLP_in_accounting.html">
-   4. Introduction to natural language processing
+   11. Introduction to natural language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_LDA_bonus_example.html">
+   12. Basic LDA example - An analysis of ~200 scientific articles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html">
+   13. Neural network models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
+   14. Pretrained language models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
+   15. Sentiment Modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
+   16. NLP example - IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
+   17. Densely connected network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
+   18. Recurrent neural networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
+   19. Long short-term memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
+   20. Neural topic analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
+   21. Named entity recognition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
+   22. Advanced summarisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
+   23. Processing unstructured data
   </a>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -196,11 +287,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -212,8 +303,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 
@@ -317,7 +408,7 @@
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
