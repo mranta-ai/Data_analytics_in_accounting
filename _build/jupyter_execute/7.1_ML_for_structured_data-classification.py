@@ -49,7 +49,7 @@ Multiclass classification aims to identify the correct class for instances from 
 
 Multi-label classification changes the multiclass setting so that each instance can have multiple classes (labels). More formally, multi-label classification is the problem of finding a mapping from instance *x* to a vector of probabilities *y*. The vector contains a probability for each class.
 
-### Logistic regression
+#### Logistic regression
 Logistic regression, sometimes called the logistic model or logit model, is usually used to predict the probability of a binary class. However, it is easy to change the setting so that the model gives a probability to several classes that sum up to one.
 
 Logistic regression solves the issues when we want to use regression to predict probabilities. In principle, ordinary regression could be used to predict the probability of a binary class. The problem with this approach is that the predicted value is not limited between 0 and 1. By adding a logistic function after an ordinary regression model,$$p(x)=\frac{1}{1+e^{-\beta_0+\sum_{i=1}^n{\beta_ix_i}}},$$ we can force the prediction to be between 0 and 1.
@@ -124,7 +124,7 @@ plt.xlabel('Leverage metric')
 plt.ylabel('Prob. of distress')
 plt.show()
 
-### Linear discrimant analysis
+#### Linear discrimant analysis
 
 Linear discriminant analysis is one of the simplest approaches for classification as it aims to create boundaries between classes using a linear combination of features. It is easily applied for two and more classes. Although the algorithm can be used for classification, more often it is used for dimensionality reduction. One of the best-known statisticians of the 20th century, R.A. Fisher, is credited to be the inventor of Linear Discriminant Analysis. He invented the binary version of LDA in 1936.
 
@@ -132,7 +132,7 @@ Edward Altman's famous bankruptcy prediction model uses Linear discriminant anal
 
 ![LinDis](./images/LinDis.png)
 
-### K Nearest neighbours
+#### K Nearest neighbours
 
 The K nearest neighbours algorithm is an example lazy classification method. It stores training data and classifies new instances based on the similarity with specific training data values. The similarity can be measured in several ways, *cosine similarity* being one example. KNN is a good approach when there is little knowledge about the model that could describe our accounting dataset. The best we can do is to predict the new instance to be in the same class as the most similar instances in the training data.
 
@@ -144,7 +144,7 @@ The algorithm is very sensitive to the *K* parameter that describes how many nea
 
 Huang & Li (2011) use KNN for multi-label classification of risk factors in SEC 10-K. *(Ke-Wei Huang and Zhuolun Li. 2011. A multi-label text classification algorithm for labelling risk factors in SEC form 10-K. ACM Trans. Manage. Inf. Syst. 2, 3, Article 18)* --> [Link to paper](https://dl.acm.org/doi/abs/10.1145/2019618.2019624)
 
-### Naive Bayes
+#### Naive Bayes
 Naive Bayes classifiers are a collection of classification algorithms based on Bayes’ Theorem $$P(A|B)=\frac{P(B|A)P(A)}{P(B)}.$$
 
 The common principle behind all of these algorithms is the assumption that features are independent of each other, and we can classify them separately.
@@ -153,7 +153,7 @@ An example of Naive Bayes applications in accounting is Ngai et al. (2011), who 
 
 ![NBC](./images/NBC.gif)
 
-### Ensemble methods
+#### Ensemble methods
 
 There is a saying: Two heads are better than one. What about even more heads? At least with machine learning, more heads are helpful (I am not sure about humans. :))
 
@@ -208,7 +208,7 @@ Later in the book, we will see an example using Xgboost.
 
 An example of an accounting application using ensemble methods is Bao et al. (2020), who use a boosting model for fraud detection. *(Bao, Y., Ke, B., Li, B., Yu, Y. J., & Zhang, J. (2020). Detecting Accounting Fraud in Publicly Traded U.S. Firms Using a Machine Learning Approach. Journal of Accounting Research, 58(1), 199–235.)* --> [Link_to_paper](https://onlinelibrary.wiley.com/doi/abs/10.1111/1475-679X.12292)
 
-### Support vector machines
+#### Support vector machines
 The Support Vector Machine (SVM) was previously one of the most popular algorithms in modern machine learning. It often provides very impressive classification performance on reasonably sized datasets. However, SVMs have difficulties with large datasets since the computations don’t scale well with the number of training examples. This poor performance with large datasets hinders somewhat their success in big data and is the reason why neural networks have partly replaced SVMs in that field. However, in accounting, we have often datasets of modest size, and SVMs work very well with them.
 
 **Optimal separation**
@@ -226,7 +226,7 @@ An example of accounting applications is Öğüt et al. (2009), who use support 
 
 Next, we will move our discussion to unsupervised classification algorithms.
 
-### K-means clustering
+#### K-means clustering
 
 K-means clustering algorithm was used initially in signal processing. It aims to partition observations into k clusters without supervision. In the algorithm, observations are assigned to cluster centroids that are the mean values of the cluster. The training algorithm in K-means minimises within-cluster variances (squared Euclidean distances). The instances are moved to other clusters in order to minimise the variance.
 
@@ -234,7 +234,7 @@ K-means clustering algorithm was used initially in signal processing. It aims to
 
 An example of the K-means algorithm in accounting is Münnix et al. (2012), who use the algorithm to identify states of a financial market. *(Münnix, M. C., Shimada, T., Schäfer, R., Leyvraz, F., Seligman, T. H., Guhr, T., & Stanley, H. E. (2012). Identifying states of a financial market. Scientific reports, 2(1), 1-6.)* --> [Link_to_paper](https://www.nature.com/articles/srep00644)
 
-### Self organising maps
+#### Self organising maps
 
 The origin of the self-organising maps is also in signal processing. Teuvo Kohonen proposed them in 1988. It is an unsupervised neural network that is based on the idea that the neurons of the network adapt to the features of the input data. The goal is to make different parts of the network to react similarly to specific input data. The animation below shows the training of a SOM in a two-feature setting.
 
@@ -242,7 +242,7 @@ The origin of the self-organising maps is also in signal processing. Teuvo Kohon
 
 An example of a self-organising map application in accounting research is Haga et al. (2015), who use SOMs for estimating accounting quality measures.*(Haga, J., Siekkinen, J., & Sundvik, D. (2015). Initial stage clustering when estimating accounting quality measures with self-organising maps. Expert Systems with Applications, 42(21), 8327-8336.)* --> [Link to paper](https://www.sciencedirect.com/science/article/abs/pii/S0957417415004510)
 
-### PCA models
+#### PCA models
 
 Principal Component Analysis, or PCA, is used to reduce the dimensionality of large data sets by transforming a large set of variables into a smaller one that still contains most of the information (variation) in the large set. Although mapping the data to a lower dimension inevitably loses information and accuracy is decreased, the algorithm is designed so that the loss in accuracy is minimal while the simplicity of the model is maximised.
 
@@ -252,7 +252,7 @@ So, to sum up, the idea of PCA is simple — reduce the number of variables of a
 
 An example of PCA in accounting/finance applications is Back & Weigend (1997). *(Back, A. D., & Weigend, A. S. (1997). A first application of independent component analysis to extracting structure from stock returns. International journal of neural systems, 8(04), 473-484.)* --> [Link to paper](https://www.worldscientific.com/doi/abs/10.1142/S0129065797000458)
 
-## Training approaches
+### Training approaches
 Next we dive deeper into how training of ML classifiers is implemented.
 
 #### Sampling and hyperparameters
@@ -278,10 +278,10 @@ Alongside training and validation sets, we should also separate part of the data
 
 Therefore, a test set is a set of examples used only to assess the performance (i.e. generalisation) of a fully specified classifier. The final model is used to predict the classifications of examples in the test set. Those predictions are compared to the examples' proper classifications to assess the model's accuracy.
 
-## Analysing classification models
+### Analysing classification models
 Analysing the performance of classifiers is not trivial. There are numerous ways to measure the performance, and the correct metric depends on the context where the classifier is used.
 
-### Performance measures
+#### Performance measures
 The following figures will help to understand the different metrics that we will discuss in the following. In the figure, we have the following numbers that are related to binary classifiers:
 * True positives (TP): The number of predictions of the "positive" class that truly are "positive".
 * True negatives (TN): The number of predictions of the "negative" class that truly are "negative".

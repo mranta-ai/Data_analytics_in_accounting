@@ -4,17 +4,19 @@
 
 Regression and classification are usually considered as two types of supervised machine learning. Although, for example, clustering can be considered as classification, there are significant differences between them.  Regression and classification both aim to utilise a training dataset to make predictions. Basically, the only difference is that the output variable in a regression model is numerical. The aim in regression is to build a function that models the connection between the input values and the output value (values).
 
-#### Outliers
+### Outliers
 It is important to identify any existence of unusual observations in a data set. An observation that is unusual in the vertical direction is called an outlier. If we are sure that observation is an outlier and should be removed, we have two options. Either we move those outliers to specific quantiles, which is called winsorisation. Or we remove those outliers altogether.
 
-### Linear regression
+### Regression models
+
+#### Linear regression
 A linear regression model assumes that the regression function $E(Y|X)$ is linear in the inputs $x_1,...,x_k$. The basic model is of the form
 $$\hat{y}=b_0+b_1x_1+...+b_kx_k,$$
 where the training data is used to learn the optimal parameters $b_0,...,b_k$. Linear models are very old and were the most important prediction tools in the precomputer era. However, they are still useful today as they are simple and often provide an adequate and interpretable description of how the inputs affect the output. Furthermore, they sometimes outperform nonlinear models in prediction, especially when the number of training cases is low. Their scope can be considerably expanded if we apply these methods to the transformation of the inputs.
 
 ![Linear_regression](./images/Linear_regression.svg)
 
-### Regularised regression
+#### Regularised regression
 One way to expand the scope of linear models is to include *regularisation* to them. This method constrains the coefficient estimates and forces them towards zero. It can be easily proven that this approach is an efficient way to counter overfitting and makes more robust models. The two best-known regularisation techniques are ridge regression and the lasso.
 
 #### Ridge regression
@@ -31,10 +33,10 @@ Although ridge regression decreases the size of the parameters, it is not decrea
 $$\sum_{i=1}^n{y_i-\hat{y_i}}+\lambda\sum_{j=1}^k{|\beta_j|}$$
 As with ridge regression, the lasso shrinks the coefficient estimates towards zero. However, the small change in the penalty term can force some of the coefficients to zero if the lambda parameter is large enough. Hence, the lasso performs also variable selection making the interpretation of the model easier. Depending on the value of $\lambda$, the lasso can produce a model involving any number of variables.
 
-### Ensemble methods for regression
+#### Ensemble methods for regression
 We already discussed ensemble methods in the previous section, and the details of these methods can be read there. They can also be used for regression. As ensemble methods often use decision trees as weak estimators, and for regression purposes, we only need to use CARTs as weak estimators.
 
-### Shallow neural network
+#### Shallow neural network
 Although we will mainly discuss neural networks in the following chapters, I will shortly introduce shallow neural networks. They were already used 30 years ago and often in similar situations where other methods of this section are used. As structured data is still an essential form of accounting data, it is important to know those neural network architectures often used to analyse them.
 
 #### Neural networks
@@ -79,6 +81,8 @@ Variance refers to the sensitivity of the model if we estimated it using a diffe
 On the other hand, bias refers to the error that is introduced by approximating an association, which may be extremely complicated, by a much simpler model. For example, linear regression assumes that there is a linear relationship between the predicted value and the predictors. It is unlikely that any association truly has a simple linear relationship, and so linear regressiom models will always have some bias in the estimates. Generally, more flexible methods result in less bias.
 
 To conclude, as we use more flexible methods, the variance will increase and the bias will decrease. The relative rate of change of these two quantities determines whether the test MSE increases or decreases. As we increase the flexibility of a model, the bias tends to initially decrease faster than the variance increases. Consequently, the expected test MSE declines. However, at some point increasing flexibility does not decrease bias any more but variance continues to increase, thus, increasing also the overall MSE. This phenomenon is referred as the bias-variance trade-off, because it is easy to obtain a model with extremely low bias but high variance (for instance, by drawing a curve that passes through every single training observation) or a model with very low variance but high bias (by fitting a horizontal line to the data). The challenge lies in finding a method for which both the variance and the squared bias are low.  Machine learning methods are usually extremely flexible and hence can essentially eliminate bias. However, this does not guarantee that they will outperform a much simpler method such as linear regression due to higher variance. Cross-validation, which we discussed in the previous chapter, is a way to estimate the test MSE using the training data, and search for the best model.
+
+### Examples
 
 #### Scikit-learn
 
@@ -140,8 +144,6 @@ Let's make things difficult for OLS (very small train set). Here we use only 1 %
 X_train, X_test , y_train, y_test = train_test_split(X, y, test_size=0.99, random_state=1)
 
 len(X_train)
-
-### Regression
 
 #### Linear model
 
@@ -335,7 +337,7 @@ r_forest_model.score(X_test,y_test)
 
 mean_squared_error(y_test,r_forest_model.predict(X_test))
 
-### Gradient boosting
+#### Gradient boosting
 
 Random forest and gradient boosting are often the best ensemble models in applications. The gradient boosting model is defined using the same steps.
 
@@ -359,7 +361,7 @@ gradient_model.score(X_test,y_test)
 
 mean_squared_error(y_test,gradient_model.predict(X_test))
 
-### Neural networks (multi-layer perceptron)
+#### Neural networks (multi-layer perceptron)
 
 from sklearn.neural_network import MLPRegressor
 

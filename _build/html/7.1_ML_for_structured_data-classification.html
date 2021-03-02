@@ -56,7 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Machine learning for structured data - Regression" href="7.2_ML_for_structured_data-regression.html" />
+    <link rel="next" title="2. Machine learning for structured data - Regression" href="7.2_ML_for_structured_data-regression.html" />
     <link rel="prev" title="7. Basic statistics and time series analysis with Python" href="6_Basic_statistics_with_Python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -148,113 +148,103 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#training-approaches">
-   2. Training approaches
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#analysing-classification-models">
-   3. Analysing classification models
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
-   4. Machine learning for structured data - Regression
+   2. Machine learning for structured data - Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
-   5. Xgboost, state-of-the-art ensemble method for structured data
+   3. Xgboost, state-of-the-art ensemble method for structured data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
-   6. SHAP analysis
+   4. SHAP analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
-   7. GAM MODEL
+   5. GAM MODEL
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   8. Decision making with ML in accounting
+   6. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   9. Deep learning in accounting
+   7. Deep learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9.1_Bonus_example.html">
-   10. Example - starting from scratch
+   8. Example - starting from scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_NLP_in_accounting.html">
-   11. Introduction to natural language processing
+   9. Introduction to natural language processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   12. Basic LDA example - An analysis of ~200 scientific articles
+   10. Basic LDA example - An analysis of ~200 scientific articles
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html">
-   13. Neural network models
+   11. Neural network models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
-   14. Pretrained language models
+   12. Pretrained language models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
-   15. Sentiment Modelling
+   13. Sentiment Modelling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
-   16. NLP example - IMDB
+   14. NLP example - IMDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
-   17. Densely connected network
+   15. Densely connected network
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
-   18. Recurrent neural networks
+   16. Recurrent neural networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
-   19. Long short-term memory
+   17. Long short-term memory
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
-   20. Neural topic analysis
+   18. Neural topic analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
-   21. Named entity recognition
+   19. Named entity recognition
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
-   22. Advanced summarisation
+   20. Advanced summarisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   23. Processing unstructured data
+   21. Processing unstructured data
   </a>
  </li>
 </ul>
@@ -344,177 +334,170 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   1. Machine learning for structured data - Classification
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-classification">
+   1.1. Introduction to classification
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#introduction-to-classification">
-     1.1. Introduction to classification
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supervised-and-unsupervised-classification">
+     1.1.1. Supervised and unsupervised classification
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#supervised-and-unsupervised-classification">
-       1.1.1. Supervised and unsupervised classification
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#binary-multi-class-and-multi-label-classification">
-       1.1.2. Binary, multi-class and multi-label classification
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary-multi-class-and-multi-label-classification">
+     1.1.2. Binary, multi-class and multi-label classification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#logistic-regression">
-     1.2. Logistic regression
+     1.1.3. Logistic regression
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#linear-discrimant-analysis">
-     1.3. Linear discrimant analysis
+     1.1.4. Linear discrimant analysis
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#k-nearest-neighbours">
-     1.4. K Nearest neighbours
+     1.1.5. K Nearest neighbours
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#naive-bayes">
-     1.5. Naive Bayes
+     1.1.6. Naive Bayes
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ensemble-methods">
-     1.6. Ensemble methods
+     1.1.7. Ensemble methods
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#support-vector-machines">
-     1.7. Support vector machines
+     1.1.8. Support vector machines
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unsupervised-classification">
-     1.8. Unsupervised classification
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-classification">
+   1.2. Unsupervised classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#k-means-clustering">
-     1.9. K-means clustering
+     1.2.1. K-means clustering
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#self-organising-maps">
-     1.10. Self organising maps
+     1.2.2. Self organising maps
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pca-models">
-     1.11. PCA models
+     1.2.3. PCA models
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#training-approaches">
-   2. Training approaches
+   1.3. Training approaches
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sampling-and-hyperparameters">
-     2.1. Sampling and hyperparameters
+     1.3.1. Sampling and hyperparameters
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#testing">
-     2.2. Testing
+     1.3.2. Testing
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analysing-classification-models">
-   3. Analysing classification models
+   1.4. Analysing classification models
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#performance-measures">
-     3.1. Performance measures
+     1.4.1. Performance measures
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#roc-and-others">
-       3.1.1. ROC and others
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#imbalanced-data-and-other-challenges">
-       3.1.2. Imbalanced data and other challenges
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classification-examples">
-     3.2. Classification examples
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roc-and-others">
+     1.4.2. ROC and others
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#scikit-learn">
-       3.2.1. Scikit-learn
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#linear-discriminant-analysis">
-       3.2.2. Linear discriminant analysis
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-nearest-neigbours">
-       3.2.3. K nearest neigbours
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       3.2.4. Logistic regression
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       3.2.5. Support vector machines
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#decision-trees">
-       3.2.6. Decision trees
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       3.2.7. Naive Bayes
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#random-forest">
-       3.2.8. Random forest
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#boosting-classifier">
-       3.2.9. Boosting classifier
-      </a>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unsupervised-approach">
-     3.3. Unsupervised approach
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imbalanced-data-and-other-challenges">
+     1.4.3. Imbalanced data and other challenges
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-examples">
+   1.5. Classification examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scikit-learn">
+     1.5.1. Scikit-learn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-discriminant-analysis">
+     1.5.2. Linear discriminant analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-nearest-neigbours">
+     1.5.3. K nearest neigbours
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.5.4. Logistic regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     1.5.5. Support vector machines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-trees">
+     1.5.6. Decision trees
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.5.7. Naive Bayes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest">
+     1.5.8. Random forest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boosting-classifier">
+     1.5.9. Boosting classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-approach">
+   1.6. Unsupervised approach
+  </a>
  </li>
 </ul>
 
@@ -587,9 +570,8 @@
 <p>Multiclass classification aims to identify the correct class for instances from more than two classes. The famous example present in almost every ML book is the MNIST dataset of 28x28 images of handwritten digits and the task of identifying the correct digit from these images. An example from accounting could be the task of classifying accounting texts (for example, 10-Ks) using natural language processing algorithms. Some binary classifiers are easy to transform as multiclass algorithms, like binary logistic regression. However, for some binary classifiers, it is not easily achievable.</p>
 <p>Multi-label classification changes the multiclass setting so that each instance can have multiple classes (labels). More formally, multi-label classification is the problem of finding a mapping from instance <em>x</em> to a vector of probabilities <em>y</em>. The vector contains a probability for each class.</p>
 </div>
-</div>
 <div class="section" id="logistic-regression">
-<h2><span class="section-number">1.2. </span>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.1.3. </span>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h3>
 <p>Logistic regression, sometimes called the logistic model or logit model, is usually used to predict the probability of a binary class. However, it is easy to change the setting so that the model gives a probability to several classes that sum up to one.</p>
 <p>Logistic regression solves the issues when we want to use regression to predict probabilities. In principle, ordinary regression could be used to predict the probability of a binary class. The problem with this approach is that the predicted value is not limited between 0 and 1. By adding a logistic function after an ordinary regression model,$<span class="math notranslate nohighlight">\(p(x)=\frac{1}{1+e^{-\beta_0+\sum_{i=1}^n{\beta_ix_i}}},\)</span>$ we can force the prediction to be between 0 and 1.</p>
 <p>One of the seminal papers in bankruptcy prediction is Ohlson (1980). He was one of the first to use Logistic regression for bankruptcy prediction. (<em>Ohlson, J. A. (1980). Financial ratios and the probabilistic prediction of bankruptcy. Journal of Accounting Research, 18(1), 109-131.</em>) –&gt; <a class="reference external" href="https://www.jstor.org/stable/2490395?seq=1">Link to paper</a></p>
@@ -732,13 +714,13 @@
 </div>
 </div>
 <div class="section" id="linear-discrimant-analysis">
-<h2><span class="section-number">1.3. </span>Linear discrimant analysis<a class="headerlink" href="#linear-discrimant-analysis" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.1.4. </span>Linear discrimant analysis<a class="headerlink" href="#linear-discrimant-analysis" title="Permalink to this headline">¶</a></h3>
 <p>Linear discriminant analysis is one of the simplest approaches for classification as it aims to create boundaries between classes using a linear combination of features. It is easily applied for two and more classes. Although the algorithm can be used for classification, more often it is used for dimensionality reduction. One of the best-known statisticians of the 20th century, R.A. Fisher, is credited to be the inventor of Linear Discriminant Analysis. He invented the binary version of LDA in 1936.</p>
 <p>Edward Altman’s famous bankruptcy prediction model uses Linear discriminant analysis. (<em>Altman, Edward I. (September 1968). “Financial Ratios, Discriminant Analysis and the Prediction of Corporate Bankruptcy”. Journal of Finance. 23 (4): 189–209.</em>) –&gt; <a class="reference external" href="https://www.jstor.org/stable/2978933?seq=1">Link to paper</a></p>
 <p><img alt="LinDis" src="_images/LinDis.png" /></p>
 </div>
 <div class="section" id="k-nearest-neighbours">
-<h2><span class="section-number">1.4. </span>K Nearest neighbours<a class="headerlink" href="#k-nearest-neighbours" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.1.5. </span>K Nearest neighbours<a class="headerlink" href="#k-nearest-neighbours" title="Permalink to this headline">¶</a></h3>
 <p>The K nearest neighbours algorithm is an example lazy classification method. It stores training data and classifies new instances based on the similarity with specific training data values. The similarity can be measured in several ways, <em>cosine similarity</em> being one example. KNN is a good approach when there is little knowledge about the model that could describe our accounting dataset. The best we can do is to predict the new instance to be in the same class as the most similar instances in the training data.</p>
 <p><img alt="KNN" src="_images/knn.svg" /></p>
 <p>The algorithm is very sensitive to the <em>K</em> parameter that describes how many nearest neighbours the prediction is based on. <em>K=1</em> means that we select the class to be the same as the nearest single training observation. <em>K=10</em> means that pick the mode class of the ten nearest training observations. Below is an example where <em>K=1</em>. As you can see, this model overfits a lot and is very sensitive to noise. However, <em>K</em> cannot be too large either because it decreases the method’s accuracy as too distant observations are considered in the prediction.</p>
@@ -746,14 +728,14 @@
 <p>Huang &amp; Li (2011) use KNN for multi-label classification of risk factors in SEC 10-K. <em>(Ke-Wei Huang and Zhuolun Li. 2011. A multi-label text classification algorithm for labelling risk factors in SEC form 10-K. ACM Trans. Manage. Inf. Syst. 2, 3, Article 18)</em> –&gt; <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/2019618.2019624">Link to paper</a></p>
 </div>
 <div class="section" id="naive-bayes">
-<h2><span class="section-number">1.5. </span>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.1.6. </span>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this headline">¶</a></h3>
 <p>Naive Bayes classifiers are a collection of classification algorithms based on Bayes’ Theorem $<span class="math notranslate nohighlight">\(P(A|B)=\frac{P(B|A)P(A)}{P(B)}.\)</span>$</p>
 <p>The common principle behind all of these algorithms is the assumption that features are independent of each other, and we can classify them separately.</p>
 <p>An example of Naive Bayes applications in accounting is Ngai et al. (2011), who compare several classification algorithms for fraud detection. One of the algorithms implemented is the Naive Bayes algorithm. <em>(Ngai, E. W., Hu, Y., Wong, Y. H., Chen, Y., &amp; Sun, X. (2011). The application of data mining techniques in financial fraud detection: A classification framework and an academic review of literature. Decision support systems, 50(3), 559-569.)</em> –&gt; <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0167923610001302">Link to paper</a></p>
 <p><img alt="NBC" src="_images/NBC.gif" /></p>
 </div>
 <div class="section" id="ensemble-methods">
-<h2><span class="section-number">1.6. </span>Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.1.7. </span>Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h3>
 <p>There is a saying: Two heads are better than one. What about even more heads? At least with machine learning, more heads are helpful (I am not sure about humans. :))</p>
 <p>The idea of ensemble methods is to join many weak estimators as one efficient estimator. With this approach, these methods achieve strong results. It is enough that the weak estimator is only slightly better than pure chance; their ensemble can still be a very efficient machine learning method.</p>
 <p><strong>Example:</strong> Let’s assume that we have a weak estimator that can correctly predict the bankruptcy of a company 52 % of the time. Thus, the predictor is only slightly better than pure chance (50 %).</p>
@@ -812,7 +794,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <p>An example of an accounting application using ensemble methods is Bao et al. (2020), who use a boosting model for fraud detection. <em>(Bao, Y., Ke, B., Li, B., Yu, Y. J., &amp; Zhang, J. (2020). Detecting Accounting Fraud in Publicly Traded U.S. Firms Using a Machine Learning Approach. Journal of Accounting Research, 58(1), 199–235.)</em> –&gt; <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1475-679X.12292">Link_to_paper</a></p>
 </div>
 <div class="section" id="support-vector-machines">
-<h2><span class="section-number">1.7. </span>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.1.8. </span>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h3>
 <p>The Support Vector Machine (SVM) was previously one of the most popular algorithms in modern machine learning. It often provides very impressive classification performance on reasonably sized datasets. However, SVMs have difficulties with large datasets since the computations don’t scale well with the number of training examples. This poor performance with large datasets hinders somewhat their success in big data and is the reason why neural networks have partly replaced SVMs in that field. However, in accounting, we have often datasets of modest size, and SVMs work very well with them.</p>
 <p><strong>Optimal separation</strong>
 One of the key innovations of the SVM is the use of optimal separation boundaries in classification. The image below explains the benefit of optimal boundaries. Although all three lines separate the classes, we would probably pick up the middle model as the best one. And so would the SVM. However, other ML models do not work that way, and they would stop training when they reach any of the three models.</p>
@@ -821,24 +803,24 @@ One of the key innovations of the SVM is the use of optimal separation boundarie
 <p><img alt="SVM" src="_images/SVM_margin.png" /></p>
 <p>An example of accounting applications is Öğüt et al. (2009), who use support vector machines to predict financial information manipulation. <em>(Öğüt, H., Aktaş, R., Alp, A., &amp; Doğanay, M. M. (2009). Prediction of financial information manipulation by using support vector machine and probabilistic neural network. Expert Systems with Applications, 36(3), 5419-5423.)</em> –&gt; <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0957417408003588">Link to paper</a></p>
 </div>
-<div class="section" id="unsupervised-classification">
-<h2><span class="section-number">1.8. </span>Unsupervised classification<a class="headerlink" href="#unsupervised-classification" title="Permalink to this headline">¶</a></h2>
-<p>Next, we will move our discussion to unsupervised classification algorithms.</p>
 </div>
+<div class="section" id="unsupervised-classification">
+<h2><span class="section-number">1.2. </span>Unsupervised classification<a class="headerlink" href="#unsupervised-classification" title="Permalink to this headline">¶</a></h2>
+<p>Next, we will move our discussion to unsupervised classification algorithms.</p>
 <div class="section" id="k-means-clustering">
-<h2><span class="section-number">1.9. </span>K-means clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.2.1. </span>K-means clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h3>
 <p>K-means clustering algorithm was used initially in signal processing. It aims to partition observations into k clusters without supervision. In the algorithm, observations are assigned to cluster centroids that are the mean values of the cluster. The training algorithm in K-means minimises within-cluster variances (squared Euclidean distances). The instances are moved to other clusters in order to minimise the variance.</p>
 <p><img alt="kmeans" src="_images/kmeans.svg" /></p>
 <p>An example of the K-means algorithm in accounting is Münnix et al. (2012), who use the algorithm to identify states of a financial market. <em>(Münnix, M. C., Shimada, T., Schäfer, R., Leyvraz, F., Seligman, T. H., Guhr, T., &amp; Stanley, H. E. (2012). Identifying states of a financial market. Scientific reports, 2(1), 1-6.)</em> –&gt; <a class="reference external" href="https://www.nature.com/articles/srep00644">Link_to_paper</a></p>
 </div>
 <div class="section" id="self-organising-maps">
-<h2><span class="section-number">1.10. </span>Self organising maps<a class="headerlink" href="#self-organising-maps" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.2.2. </span>Self organising maps<a class="headerlink" href="#self-organising-maps" title="Permalink to this headline">¶</a></h3>
 <p>The origin of the self-organising maps is also in signal processing. Teuvo Kohonen proposed them in 1988. It is an unsupervised neural network that is based on the idea that the neurons of the network adapt to the features of the input data. The goal is to make different parts of the network to react similarly to specific input data. The animation below shows the training of a SOM in a two-feature setting.</p>
 <p><img alt="SOM" src="./images/traiSOM.gif" /></p>
 <p>An example of a self-organising map application in accounting research is Haga et al. (2015), who use SOMs for estimating accounting quality measures.<em>(Haga, J., Siekkinen, J., &amp; Sundvik, D. (2015). Initial stage clustering when estimating accounting quality measures with self-organising maps. Expert Systems with Applications, 42(21), 8327-8336.)</em> –&gt; <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0957417415004510">Link to paper</a></p>
 </div>
 <div class="section" id="pca-models">
-<h2><span class="section-number">1.11. </span>PCA models<a class="headerlink" href="#pca-models" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.2.3. </span>PCA models<a class="headerlink" href="#pca-models" title="Permalink to this headline">¶</a></h3>
 <p>Principal Component Analysis, or PCA, is used to reduce the dimensionality of large data sets by transforming a large set of variables into a smaller one that still contains most of the information (variation) in the large set. Although mapping the data to a lower dimension inevitably loses information and accuracy is decreased, the algorithm is designed so that the loss in accuracy is minimal while the simplicity of the model is maximised.</p>
 <p>So, to sum up, the idea of PCA is simple — reduce the number of variables of a data set while preserving as much information as possible.</p>
 <p><img alt="PCA" src="_images/PCA.svg" /></p>
@@ -846,10 +828,10 @@ One of the key innovations of the SVM is the use of optimal separation boundarie
 </div>
 </div>
 <div class="section" id="training-approaches">
-<h1><span class="section-number">2. </span>Training approaches<a class="headerlink" href="#training-approaches" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.3. </span>Training approaches<a class="headerlink" href="#training-approaches" title="Permalink to this headline">¶</a></h2>
 <p>Next we dive deeper into how training of ML classifiers is implemented.</p>
 <div class="section" id="sampling-and-hyperparameters">
-<h2><span class="section-number">2.1. </span>Sampling and hyperparameters<a class="headerlink" href="#sampling-and-hyperparameters" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.3.1. </span>Sampling and hyperparameters<a class="headerlink" href="#sampling-and-hyperparameters" title="Permalink to this headline">¶</a></h3>
 <p>In statistics, sampling is a process of picking up a sample from a population. In the context of ML, we need the tools of sampling to implement efficient training algorithms that control overfitting. There are different approaches to sample values from the training data, and we’ll discuss them soon. But before that, we need to discuss a little bit about hyperparameters.</p>
 <p><img alt="systematic_sampling" src="_images/sampling.png" /></p>
 <p>When training an ML model, we want to optimise its’ hyperparameters so that the model is as efficient as possible. These parameters are such that we can finetune them to control the learning process. Thus, they are separate from ordinary model parameters that are optimised by the training process. In the Bayesian setting, the separation between these two types of parameters is vague because we can redesign the model so that a hyperparameter becomes a parameter that the model optimises. Overall, hyperparameters are related to the model selection task or algorithm nuances that, in principle, do not affect the performance of the model. An example of a model hyperparameter is the depth of decision trees in ensemble methods, and an example of an algorithm hyperparameter is the weight parameter of boosting models.</p>
@@ -859,17 +841,17 @@ One of the key innovations of the SVM is the use of optimal separation boundarie
 <p><img alt="cross_validation" src="_images/cross_validation.svg" /></p>
 </div>
 <div class="section" id="testing">
-<h2><span class="section-number">2.2. </span>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.3.2. </span>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
 <p>Alongside training and validation sets, we should also separate part of the data for testing. This test dataset should not be used in any way during the training phase. Otherwise, there is a danger that hyperparameters are optimised for the testing set, and the model would not generalise well to new data. A test set should only be used to assess the performance of a fully specified classifier.</p>
 <p><img alt="train_validation_test" src="_images/train_validation_test.png" /></p>
 <p>Therefore, a test set is a set of examples used only to assess the performance (i.e. generalisation) of a fully specified classifier. The final model is used to predict the classifications of examples in the test set. Those predictions are compared to the examples’ proper classifications to assess the model’s accuracy.</p>
 </div>
 </div>
 <div class="section" id="analysing-classification-models">
-<h1><span class="section-number">3. </span>Analysing classification models<a class="headerlink" href="#analysing-classification-models" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.4. </span>Analysing classification models<a class="headerlink" href="#analysing-classification-models" title="Permalink to this headline">¶</a></h2>
 <p>Analysing the performance of classifiers is not trivial. There are numerous ways to measure the performance, and the correct metric depends on the context where the classifier is used.</p>
 <div class="section" id="performance-measures">
-<h2><span class="section-number">3.1. </span>Performance measures<a class="headerlink" href="#performance-measures" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.4.1. </span>Performance measures<a class="headerlink" href="#performance-measures" title="Permalink to this headline">¶</a></h3>
 <p>The following figures will help to understand the different metrics that we will discuss in the following. In the figure, we have the following numbers that are related to binary classifiers:</p>
 <ul class="simple">
 <li><p>True positives (TP): The number of predictions of the “positive” class that truly are “positive”.</p></li>
@@ -911,8 +893,9 @@ $<span class="math notranslate nohighlight">\(FPR=\frac{FP}{TN+FP}\)</span>$</p>
 $<span class="math notranslate nohighlight">\(TNR=\frac{TN}{TN+FP}=1-FPR\)</span>$</p>
 <p><strong>Prevalence</strong>: The number of positive occurrences in our sample?
 $<span class="math notranslate nohighlight">\(PREV=\frac{TP+FN}{TP+TN+FP+FN}\)</span>$</p>
+</div>
 <div class="section" id="roc-and-others">
-<h3><span class="section-number">3.1.1. </span>ROC and others<a class="headerlink" href="#roc-and-others" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.2. </span>ROC and others<a class="headerlink" href="#roc-and-others" title="Permalink to this headline">¶</a></h3>
 <p>A receiver operating characteristic curve, or ROC curve, is a graphical plot that illustrates a binary classifier model’s performance. The ROC curve is created by plotting the recall against the false positive rate at various threshold settings. The ROC curve is thus the recall as a function of the false-positive rate.</p>
 <p>ROC analysis can be used to evaluate models. The more the curve bends to the top-left corner, the better the classifier. ROC analysis is related directly and naturally to cost/benefit analysis of diagnostic decision making.</p>
 <p><img alt="ROC" src="_images/roc_xkcd.svg" /></p>
@@ -920,7 +903,7 @@ $<span class="math notranslate nohighlight">\(PREV=\frac{TP+FN}{TP+TN+FP+FN}\)</
 <p><img alt="AUC" src="_images/Inkedauc.jpg" /></p>
 </div>
 <div class="section" id="imbalanced-data-and-other-challenges">
-<h3><span class="section-number">3.1.2. </span>Imbalanced data and other challenges<a class="headerlink" href="#imbalanced-data-and-other-challenges" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.3. </span>Imbalanced data and other challenges<a class="headerlink" href="#imbalanced-data-and-other-challenges" title="Permalink to this headline">¶</a></h3>
 <p>An imbalanced classification problem means a situation where the distribution of examples across the known classes is skewed. In the extreme imbalance case, there is one example in the minority class for hundreds, thousands, or millions of examples in the majority class or classes. In accounting applications, bankruptcy or fraud detection are such that the training data is heavily imbalanced. Usually, ML algorithms and standard metrics are designed for balanced data. These models will be very poor at predicting the minority class. This is problematic because often, the minority class is more important. For example, we would specifically like to identify fraud or a distressed company. Identifying healthy companies is of much less importance.</p>
 <p><img alt="imbalanced" src="_images/imbalanced.png" /></p>
 <p>The <strong>precision-recall curve</strong> is similar to the ROC curve. It is a plot of the precision (y-axis) and the recall (x-axis) for different probability thresholds. Now for the optimal model, the curve would bend to the top-right corner of the image. As the precision-recall curve focuses on the minority class, it is an effective diagnostic for imbalanced binary classification models. This is because neither precision nor recall is calculated using true negatives. They both focus on the prediction of the minority class.</p>
@@ -928,10 +911,10 @@ $<span class="math notranslate nohighlight">\(PREV=\frac{TP+FN}{TP+TN+FP+FN}\)</
 </div>
 </div>
 <div class="section" id="classification-examples">
-<h2><span class="section-number">3.2. </span>Classification examples<a class="headerlink" href="#classification-examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5. </span>Classification examples<a class="headerlink" href="#classification-examples" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look next how ML models can be used for classification tasks with accounting datasets.</p>
 <div class="section" id="scikit-learn">
-<h3><span class="section-number">3.2.1. </span>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.1. </span>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
 <p>Scikit-learn is a multi-purpose machine learning library. It has modules for many different machine learning algorithms. It is not the best library in any machine learning field but very good at most of them. Also, all the tools use the common workflow approach of the library. Thus, by learning to do one machine learning analysis, you learn to do them all.</p>
 <p>Scikit-learn has libraries for classification, regression, clustering, dimensionality reduction and model selection. It also has an extensive library of methods for data pre-processing.</p>
 <p>A very convenient feature in Scikit-learn is <strong>pipeline</strong> that you can use to construct full workflows of machine learning analyses.</p>
@@ -1395,7 +1378,7 @@ $<span class="math notranslate nohighlight">\(PREV=\frac{TP+FN}{TP+TN+FP+FN}\)</
 <p>The workflow with Scikit-learn is almost always the same. Define a model object, fit data to the object, analyse the results using the functions of the object. Let’s start examining different ML classifiers with linear discriminant analysis.</p>
 </div>
 <div class="section" id="linear-discriminant-analysis">
-<h3><span class="section-number">3.2.2. </span>Linear discriminant analysis<a class="headerlink" href="#linear-discriminant-analysis" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.2. </span>Linear discriminant analysis<a class="headerlink" href="#linear-discriminant-analysis" title="Permalink to this headline">¶</a></h3>
 <p>Linear discriminant analysis was the method Edward Altman used in his seminal bankruptcy prediction paper.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1519,7 +1502,7 @@ weighted avg       0.74      0.73      0.73      2000
 </div>
 </div>
 <div class="section" id="k-nearest-neigbours">
-<h3><span class="section-number">3.2.3. </span>K nearest neigbours<a class="headerlink" href="#k-nearest-neigbours" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.3. </span>K nearest neigbours<a class="headerlink" href="#k-nearest-neigbours" title="Permalink to this headline">¶</a></h3>
 <p>Let’s next investigate the K nearest neighbours -method. Overall the model appears to perform little worse when compared to the LDA model. However, the recall metric for the ROA &gt; 0 class is better. <em>n_neighbors=3</em> defines that the classification is based on the three closest samples in the training set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1681,7 +1664,7 @@ weighted avg       0.69      0.69      0.69      2000
 </div>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">3.2.4. </span>Logistic regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.4. </span>Logistic regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Let’s continue with the logistic regression model. This was another classic methods used in bankruptcy prediction (Ohlson, 1980).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1778,7 +1761,7 @@ weighted avg       0.71      0.70      0.69      2000
 </div>
 </div>
 <div class="section" id="id2">
-<h3><span class="section-number">3.2.5. </span>Support vector machines<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.5. </span>Support vector machines<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Usually SVMs are powerfull classifiers, but for this data, they do not perform better than the previous models.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1962,7 +1945,7 @@ weighted avg       0.73      0.72      0.72      2000
 </div>
 </div>
 <div class="section" id="decision-trees">
-<h3><span class="section-number">3.2.6. </span>Decision trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.6. </span>Decision trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">¶</a></h3>
 <p>Decision tree uses features to categorise companies to different branches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2073,7 +2056,7 @@ weighted avg       0.85      0.84      0.84      2000
 </div>
 </div>
 <div class="section" id="id3">
-<h3><span class="section-number">3.2.7. </span>Naive Bayes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.7. </span>Naive Bayes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Let’s continue with a Naive Bayes -model. We use the Gaussian Naive Bayes model in Scikit-learn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2157,7 +2140,7 @@ weighted avg       0.82      0.80      0.80      2000
 </div>
 </div>
 <div class="section" id="random-forest">
-<h3><span class="section-number">3.2.8. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.8. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
 <p>If the decision tree model was performing so well, we could anticipate that many decision trees (= random forest) would perform even better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2321,7 +2304,7 @@ weighted avg       0.89      0.89      0.89      2000
 </div>
 </div>
 <div class="section" id="boosting-classifier">
-<h3><span class="section-number">3.2.9. </span>Boosting classifier<a class="headerlink" href="#boosting-classifier" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.9. </span>Boosting classifier<a class="headerlink" href="#boosting-classifier" title="Permalink to this headline">¶</a></h3>
 <p>The boosting classifier model is very similar to the random forest model. For example, they both use decision trees as weak classifiers. Thus, the performance is probably very close to the performance of the random forest model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2497,7 +2480,7 @@ weighted avg       0.90      0.90      0.90      2000
 </div>
 </div>
 <div class="section" id="unsupervised-approach">
-<h2><span class="section-number">3.3. </span>Unsupervised approach<a class="headerlink" href="#unsupervised-approach" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6. </span>Unsupervised approach<a class="headerlink" href="#unsupervised-approach" title="Permalink to this headline">¶</a></h2>
 <p>It is difficult to design a meaningful unsupervised classification (clustering) example from the data at hand. Thus, we investigate unsupervised methods using the Iris dataset included in Scikit-learn. We will encounter more accounting-related unsupervised methods in Chapter 10, where we discuss ML text analysis methods in accounting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2852,7 +2835,7 @@ weighted avg       0.90      0.90      0.90      2000
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="6_Basic_statistics_with_Python.html" title="previous page"><span class="section-number">7. </span>Basic statistics and time series analysis with Python</a>
-    <a class='right-next' id="next-link" href="7.2_ML_for_structured_data-regression.html" title="next page"><span class="section-number">4. </span>Machine learning for structured data - Regression</a>
+    <a class='right-next' id="next-link" href="7.2_ML_for_structured_data-regression.html" title="next page"><span class="section-number">2. </span>Machine learning for structured data - Regression</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
