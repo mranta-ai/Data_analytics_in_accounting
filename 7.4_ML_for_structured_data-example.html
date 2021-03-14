@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example for structured data &#8212; Data analytics in accounting</title>
+    <title>Example of grid-search &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -146,113 +146,93 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#training-approaches">
-   2. Training approaches
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html#analysing-classification-models">
-   3. Analysing classification models
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
-   4. Machine learning for structured data - Regression
+   2. Machine learning for structured data - Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
-   5. Xgboost, state-of-the-art ensemble method for structured data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
-   6. SHAP analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
-   7. GAM MODEL
+   3. Example - Xgboost, state-of-the-art ensemble method for structured data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   8. Decision making with ML in accounting
+   4. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   9. Deep learning in accounting
+   5. Deep learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9.1_Bonus_example.html">
-   10. Example - starting from scratch
+   6. Example - starting from scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_NLP_in_accounting.html">
-   11. Introduction to natural language processing
+   7. Introduction to natural language processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   12. Basic LDA example - An analysis of ~200 scientific articles
+   8. Basic LDA example - An analysis of ~200 scientific articles
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html">
-   13. Neural network models
+   9. Neural network models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
-   14. Pretrained language models
+   10. Pretrained language models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
-   15. Sentiment Modelling
+   11. Sentiment Modelling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
-   16. NLP example - IMDB
+   12. NLP example - IMDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
-   17. Densely connected network
+   13. Densely connected network
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
-   18. Recurrent neural networks
+   14. Recurrent neural networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
-   19. Long short-term memory
+   15. Long short-term memory
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
-   20. Neural topic analysis
+   16. Neural topic analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
-   21. Named entity recognition
+   17. Named entity recognition
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
-   22. Advanced summarisation
+   18. Advanced summarisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   23. Processing unstructured data
+   19. Processing unstructured data
   </a>
  </li>
 </ul>
@@ -344,35 +324,20 @@
         
               <div>
                 
-  <div class="section" id="example-for-structured-data">
-<h1>Example for structured data<a class="headerlink" href="#example-for-structured-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="example-of-grid-search">
+<h1>Example of grid-search<a class="headerlink" href="#example-of-grid-search" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xgboost</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#path = &quot;C:/Users/mran/OneDrive - University of Vaasa/Data\TobinQ_Board/&quot;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/mikko/OneDrive - University of Vaasa/Data\TobinQ_Board/&quot;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">b50f657ca806</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#path = &quot;C:/Users/mran/OneDrive - University of Vaasa/Data\TobinQ_Board/&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/mikko/OneDrive - University of Vaasa/Data\TobinQ_Board/&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [WinError 3] Määritettyä polkua ei löydy: &#39;C:/Users/mikko/OneDrive - University of Vaasa/Data\\TobinQ_Board/&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._xkcd at 0x24a3040fcd0&gt;
 </pre></div>
 </div>
 </div>
@@ -380,13 +345,6 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">errors_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;AbnormalQ.csv&quot;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">errors_df</span>
 </pre></div>
 </div>
 </div>
@@ -419,334 +377,119 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\mran\AppData\Local\Continuum\anaconda3\envs\Boost\lib\site-packages\xgboost\core.py:587: FutureWarning: Series.base is deprecated and will be removed in a future version
-  if getattr(data, &#39;base&#39;, None) is not None and \
+</div>
+<p>Let’s lock the number of trees to 150. Also subsample = 0.8 and colsample_bytree = 0.8 usually work well enough.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_rounds</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="n">subsample</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">colsample_bytree</span> <span class="o">=</span> <span class="mf">0.8</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Scikit-learn has an easy-to-use function for grid-search.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#param = {&#39;max_depth&#39;: 1, &#39;eta&#39;: 0.9}</span>
-<span class="c1">#param = {}</span>
-<span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;eta&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Let’s create a dictionary of values that we want to try in our parameters. I’ using list comprehension to create the value lists. Below is an example what kind of values are created for the gamma parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Cross-validation</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">cv</span><span class="p">(</span><span class="n">param</span><span class="p">,</span><span class="n">dtrain</span><span class="p">,</span><span class="n">num_boost_round</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span><span class="n">nfold</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;test-rmse-mean&#39;</span><span class="p">][</span><span class="mi">50</span><span class="p">:</span><span class="mi">400</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mf">5.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1c2d4860978&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
 </pre></div>
 </div>
-<img alt="_images/7.4_ML_for_structured_data-example_11_1.png" src="_images/7.4_ML_for_structured_data-example_11_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## 120 boosting rounds selected. Then the fine tuning of tree parameters.</span>
-<span class="n">b_rounds</span> <span class="o">=</span> <span class="mi">150</span>
-<span class="n">m_depth</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">10.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)],</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;gamma&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">5.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)],</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">b_rounds</span><span class="p">,</span> <span class="n">subsample</span> <span class="o">=</span> <span class="n">subsample</span><span class="p">,</span> <span class="n">colsample_bytree</span> <span class="o">=</span> <span class="n">colsample_bytree</span><span class="p">,</span><span class="n">objective</span><span class="o">=</span><span class="s1">&#39;reg:squarederror&#39;</span><span class="p">,</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">12</span><span class="p">),</span>
+                        <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">param_grid</span> <span class="o">=</span> <span class="n">param_values</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following step will take a very long time, because the grid-search algorithm is calculating numerous boosting models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_df</span><span class="p">,</span><span class="n">y_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=5,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    colsample_bylevel=None,
+                                    colsample_bynode=None, colsample_bytree=0.8,
+                                    gamma=None, gpu_id=None,
+                                    importance_type=&#39;gain&#39;,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_delta_step=None,
+                                    max_depth=None, min_child_weight=None,
+                                    missing=nan, monotone_constraints=None,
+                                    n_estimators=150, n_jobs=None,
+                                    num_parallel_tree=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None,
+                                    scale_pos_weight=None, seed=12,
+                                    subsample=0.8, tree_method=None,
+                                    validate_parameters=None, verbosity=None),
+             n_jobs=-1,
+             param_grid={&#39;gamma&#39;: [0.0, 0.2, 0.4, 0.6, 0.8],
+                         &#39;learning_rate&#39;: [0.1, 0.2, 0.3, 0.4],
+                         &#39;max_depth&#39;: range(1, 5),
+                         &#39;min_child_weight&#39;: range(1, 3)})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;gamma&#39;: 0.8, &#39;learning_rate&#39;: 0.1, &#39;max_depth&#39;: 1, &#39;min_child_weight&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch</span><span class="o">.</span><span class="n">best_score_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01604761893762985
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_rounds</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="n">m_depth</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">ssample</span> <span class="o">=</span> <span class="mf">0.8</span>
 <span class="n">col_tree</span> <span class="o">=</span> <span class="mf">0.8</span>
 <span class="n">m_child_w</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">gam</span> <span class="o">=</span> <span class="mf">0.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from sklearn import cross_validation, metrics   #Additional scklearn functions</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>   <span class="c1">#Perforing grid search</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fine tune gamma</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#param_test3 = {&#39;gamma&#39;:[i/10.0 for i in range(0,40)]}</span>
-<span class="c1">#super_param = {&#39;gamma&#39;:[i/5.0 for i in range(0,11)],&#39;min_child_weight&#39;:range(1,8,1),</span>
-<span class="c1">#               &#39;subsample&#39;:[i/20.0 for i in range(15,20)],&#39;colsample_bytree&#39;:[i/20.0 for i in range(15,20)]}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#super_param</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#gsearch3 = GridSearchCV(estimator = xgboost.XGBRegressor(njobs = -1, learning_rate = eta, n_estimators=b_rounds, max_depth=m_depth,</span>
-<span class="c1">#     min_child_weight=m_child_w, gamma = gam, subsample=ssample, colsample_bytree=col_tree,objective=&#39;reg:squarederror&#39;,seed = 12),</span>
-<span class="c1">#            n_jobs = -1, param_grid = param_test3,iid=False, cv=5)</span>
-<span class="c1">#gsearch3 = GridSearchCV(estimator = xgboost.XGBRegressor(njobs = -1, learning_rate = eta, n_estimators=b_rounds, max_depth=m_depth,</span>
-<span class="c1">#     min_child_weight=m_child_w, gamma = gam, subsample=ssample, colsample_bytree=col_tree,objective=&#39;reg:squarederror&#39;,seed = 12),</span>
-<span class="c1">#            n_jobs = -1, param_grid = super_param,iid=False, cv=5)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#gsearch3.fit(x_df,y_df)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#gsearch3.best_params_</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#gsearch3.best_score_</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#gam = 2.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fine tune max_depth and min_child_weight</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#param_test1 = {&#39;min_child_weight&#39;:range(1,9,1),&#39;n_estimators&#39;:range(0,200,10)}</span>
-<span class="c1">#param_test1 = {&#39;max_depth&#39;:range(1,5,1),&#39;min_child_weight&#39;:range(1,9,1)}</span>
-<span class="c1">#param_test1 = {&#39;max_depth&#39;:range(1,5,1)}</span>
-<span class="n">param_test1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">10</span><span class="p">)}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch1</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">(</span><span class="n">njobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">eta</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="n">b_rounds</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">m_depth</span><span class="p">,</span>
-     <span class="n">min_child_weight</span><span class="o">=</span><span class="n">m_child_w</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">gam</span><span class="p">,</span><span class="n">subsample</span><span class="o">=</span><span class="n">ssample</span><span class="p">,</span> <span class="n">colsample_bytree</span><span class="o">=</span><span class="n">col_tree</span><span class="p">,</span><span class="n">objective</span><span class="o">=</span><span class="s1">&#39;reg:squarederror&#39;</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">10</span><span class="p">),</span>
-        <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">param_grid</span> <span class="o">=</span> <span class="n">param_test1</span><span class="p">,</span><span class="n">iid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_df</span><span class="p">,</span><span class="n">y_df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=5, error_score=&#39;raise-deprecating&#39;,
-             estimator=XGBRegressor(base_score=0.5, booster=&#39;gbtree&#39;,
-                                    colsample_bylevel=1, colsample_bynode=1,
-                                    colsample_bytree=0.8, gamma=0.0,
-                                    importance_type=&#39;gain&#39;, learning_rate=0.1,
-                                    max_delta_step=0, max_depth=5,
-                                    min_child_weight=1, missing=None,
-                                    n_estimators=150, n_jobs=1, njobs=-1,
-                                    nthread=None, objective=&#39;reg:squarederror&#39;,
-                                    random_state=0, reg_alpha=0, reg_lambda=1,
-                                    scale_pos_weight=1, seed=10, silent=None,
-                                    subsample=0.8, verbosity=1),
-             iid=False, n_jobs=-1,
-             param_grid={&#39;n_estimators&#39;: range(0, 200, 10)},
-             pre_dispatch=&#39;2*n_jobs&#39;, refit=True, return_train_score=False,
-             scoring=None, verbose=0)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch1</span><span class="o">.</span><span class="n">best_params_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_estimators&#39;: 40}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch1</span><span class="o">.</span><span class="n">best_score_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.00024709331025318804
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_child_w</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">m_depth</span> <span class="o">=</span> <span class="mi">4</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsample and col_sample_bytree</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_test4</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;subsample&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">20.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">)],</span><span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">20.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">)]}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_test4</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;subsample&#39;: [0.75, 0.8, 0.85, 0.9, 0.95],
- &#39;colsample_bytree&#39;: [0.75, 0.8, 0.85, 0.9, 0.95]}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch4</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">(</span><span class="n">njobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">eta</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="n">b_rounds</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">m_depth</span><span class="p">,</span>
-     <span class="n">min_child_weight</span><span class="o">=</span><span class="n">m_child_w</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">gam</span><span class="p">,</span> <span class="n">subsample</span><span class="o">=</span><span class="n">ssample</span><span class="p">,</span> <span class="n">colsample_bytree</span><span class="o">=</span><span class="n">col_tree</span><span class="p">,</span><span class="n">objective</span><span class="o">=</span><span class="s1">&#39;reg:squarederror&#39;</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">12</span><span class="p">),</span>
-            <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">param_grid</span> <span class="o">=</span> <span class="n">param_test4</span><span class="p">,</span><span class="n">iid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch4</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_df</span><span class="p">,</span><span class="n">y_df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=10, error_score=&#39;raise-deprecating&#39;,
-             estimator=XGBRegressor(base_score=0.5, booster=&#39;gbtree&#39;,
-                                    colsample_bylevel=1, colsample_bynode=1,
-                                    colsample_bytree=0.8, gamma=2.0,
-                                    importance_type=&#39;gain&#39;, learning_rate=0.1,
-                                    max_delta_step=0, max_depth=4,
-                                    min_child_weight=1, missing=None,
-                                    n_estimators=200, n_jobs=1, njobs=-1,
-                                    nthread=None, objective=&#39;reg:squareder...
-                                    subsample=0.8, verbosity=1),
-             iid=False, n_jobs=-1,
-             param_grid={&#39;colsample_bytree&#39;: [0.8, 0.81, 0.82, 0.83, 0.84, 0.85,
-                                              0.86, 0.87, 0.88, 0.89, 0.9, 0.91,
-                                              0.92, 0.93, 0.94, 0.95, 0.96,
-                                              0.97, 0.98, 0.99],
-                         &#39;subsample&#39;: [0.8, 0.81, 0.82, 0.83, 0.84, 0.85, 0.86,
-                                       0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93,
-                                       0.94, 0.95, 0.96, 0.97, 0.98, 0.99]},
-             pre_dispatch=&#39;2*n_jobs&#39;, refit=True, return_train_score=False,
-             scoring=None, verbose=0)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch4</span><span class="o">.</span><span class="n">best_params_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;colsample_bytree&#39;: 0.86, &#39;subsample&#39;: 0.81}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch4</span><span class="o">.</span><span class="n">best_score_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.014519596373679144
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssample</span> <span class="o">=</span> <span class="mf">0.81</span>
-<span class="n">col_tree</span> <span class="o">=</span> <span class="mf">0.86</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Again optimizing learning rate and boosting rounds</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_rounds</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">m_depth</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="n">ssample</span> <span class="o">=</span> <span class="mf">0.8</span>
-<span class="n">col_tree</span> <span class="o">=</span> <span class="mf">0.8</span>
-<span class="n">m_child_w</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">gam</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">gam</span> <span class="o">=</span> <span class="mf">0.8</span>
 </pre></div>
 </div>
 </div>
@@ -760,57 +503,29 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">cv</span><span class="p">(</span><span class="n">param</span><span class="p">,</span><span class="n">dtrain</span><span class="p">,</span><span class="n">num_boost_round</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">nfold</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtrain</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">DMatrix</span><span class="p">(</span><span class="n">x_df</span><span class="p">,</span><span class="n">y_df</span><span class="p">,</span><span class="n">nthread</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;test-rmse-mean&#39;</span><span class="p">][</span><span class="mi">200</span><span class="p">:</span><span class="mi">600</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bst_model</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">param</span><span class="p">,</span><span class="n">dtrain</span><span class="p">,</span><span class="n">num_boost_round</span><span class="o">=</span><span class="n">b_rounds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgboost</span><span class="o">.</span><span class="n">plot_importance</span><span class="p">(</span><span class="n">bst_model</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1c2de01fba8&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Feature importance&#39;}, xlabel=&#39;F score&#39;, ylabel=&#39;Features&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/7.4_ML_for_structured_data-example_41_1.png" src="_images/7.4_ML_for_structured_data-example_41_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># BEST MODEL AT THE MOMENT</span>
-<span class="c1">#b_rounds = 400</span>
-<span class="c1">#m_depth = 6</span>
-<span class="c1">#eta = 0.05</span>
-<span class="c1">#ssample = 0.8</span>
-<span class="c1">#col_tree = 0.8</span>
-<span class="c1">#m_child_w = 6</span>
-<span class="c1">#gam = 0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bst</span> <span class="o">=</span> <span class="n">xgboost</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">param</span><span class="p">,</span><span class="n">dtrain</span><span class="p">,</span><span class="n">num_boost_round</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">split_bars</span> <span class="o">=</span> <span class="n">bst</span><span class="o">.</span><span class="n">get_split_value_histogram</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="s1">&#39;BOARD_GENDER_DIVERSITY_P&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">split_bars</span><span class="p">[</span><span class="s1">&#39;SplitValue&#39;</span><span class="p">],</span><span class="n">split_bars</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 81 artists&gt;
-</pre></div>
-</div>
-<img alt="_images/7.4_ML_for_structured_data-example_44_1.png" src="_images/7.4_ML_for_structured_data-example_44_1.png" />
+<img alt="_images/7.4_ML_for_structured_data-example_22_1.png" src="_images/7.4_ML_for_structured_data-example_22_1.png" />
 </div>
 </div>
 </div>

@@ -56,7 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Xgboost, state-of-the-art ensemble method for structured data" href="7.3_ML_for_structured_data-xgboost_example.html" />
+    <link rel="next" title="3. Example - Xgboost, state-of-the-art ensemble method for structured data" href="7.3_ML_for_structured_data-xgboost_example.html" />
     <link rel="prev" title="1. Machine learning for structured data - Classification" href="7.1_ML_for_structured_data-classification.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -154,97 +154,87 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
-   3. Xgboost, state-of-the-art ensemble method for structured data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#shap-analysis">
-   4. SHAP analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html#gam-model">
-   5. GAM MODEL
+   3. Example - Xgboost, state-of-the-art ensemble method for structured data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   6. Decision making with ML in accounting
+   4. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   7. Deep learning in accounting
+   5. Deep learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9.1_Bonus_example.html">
-   8. Example - starting from scratch
+   6. Example - starting from scratch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_NLP_in_accounting.html">
-   9. Introduction to natural language processing
+   7. Introduction to natural language processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   10. Basic LDA example - An analysis of ~200 scientific articles
+   8. Basic LDA example - An analysis of ~200 scientific articles
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html">
-   11. Neural network models
+   9. Neural network models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
-   12. Pretrained language models
+   10. Pretrained language models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
-   13. Sentiment Modelling
+   11. Sentiment Modelling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
-   14. NLP example - IMDB
+   12. NLP example - IMDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
-   15. Densely connected network
+   13. Densely connected network
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
-   16. Recurrent neural networks
+   14. Recurrent neural networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
-   17. Long short-term memory
+   15. Long short-term memory
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
-   18. Neural topic analysis
+   16. Neural topic analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
-   19. Named entity recognition
+   17. Named entity recognition
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
-   20. Advanced summarisation
+   18. Advanced summarisation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   21. Processing unstructured data
+   19. Processing unstructured data
   </a>
  </li>
 </ul>
@@ -502,16 +492,28 @@ In ridge regression, we minimise a slightly different quantity
 \)</span><span class="math notranslate nohighlight">\(\sum_{i=1}^n{y_i-\hat{y_i}}+\lambda\sum_{j=1}^k{\beta_j^2}\)</span><span class="math notranslate nohighlight">\(
 Thus, there is a penalty term that can be decreased by decreasing the size of the parameters. The lambda \)</span>\lambda<span class="math notranslate nohighlight">\( in the model is a hyperparameter that needs to be selected beforehand. For example, cross-validation can be used to select the optimal lambda value. If we increase lambda, the second term becomes more important, decreasing the size of the parameters. This will decrease the variance of the predictions but increase the bias (bias-variance tradeoff will be discussed more later). Thus, the solution of ridge regression depends on the lambda parameter. One thing to remember is that the intercept \)</span>b_o$ should not be included in the regularisation term.</p>
 <p>Usually, ridge regression is useful when the number of variables is almost as large as the number of observations. In these situations, the OLS estimates will be extremely variable. Ridge regression works even when the number of parameters is larger than the number of observations.</p>
+<p>Moradi &amp; Badrinarayanan (2021) use ridge regression as one of the models to analyse the effects of brand prominence and narrative features on crowdfunding success for entrepreneurial aftermarket enterprises (<em>Moradi, M., &amp; Badrinarayanan, V. (2021). The effects of brand prominence and narrative features on crowdfunding success for entrepreneurial aftermarket enterprises. Journal of Business Research, 124, 286–298.</em>)</p>
 </div>
 <div class="section" id="lasso-regression">
 <h3><span class="section-number">2.3.4. </span>LASSO regression<a class="headerlink" href="#lasso-regression" title="Permalink to this headline">¶</a></h3>
 <p>Although ridge regression decreases the size of the parameters, it is not decreasing them to zero. Thus, the complexity of the model is not decreasing. Lasso regression solves this issue with a small change. In the penalty term, the lasso uses the parameters’ absolute values instead of the squared values
 $<span class="math notranslate nohighlight">\(\sum_{i=1}^n{y_i-\hat{y_i}}+\lambda\sum_{j=1}^k{|\beta_j|}\)</span><span class="math notranslate nohighlight">\(
 As with ridge regression, the lasso shrinks the coefficient estimates towards zero. However, the small change in the penalty term can force some of the coefficients to zero if the lambda parameter is large enough. Hence, the lasso performs also variable selection making the interpretation of the model easier. Depending on the value of \)</span>\lambda$, the lasso can produce a model involving any number of variables.</p>
+<p>Lasso can be used as a preliminary step for variable selection, like in the reseaarch of Sheehan et al. (2020) (<em>Sheehan, M., Garavan, T. N., &amp; Morley, M. J. (2020). Transformational leadership and work unit innovation: A dyadic two-wave investigation. Journal of Business Research, 109, 399–412.</em>)</p>
 </div>
 <div class="section" id="ensemble-methods-for-regression">
 <h3><span class="section-number">2.3.5. </span>Ensemble methods for regression<a class="headerlink" href="#ensemble-methods-for-regression" title="Permalink to this headline">¶</a></h3>
 <p>We already discussed ensemble methods in the previous section, and the details of these methods can be read there. They can also be used for regression. As ensemble methods often use decision trees as weak estimators, and for regression purposes, we only need to use CARTs as weak estimators.</p>
+<p>Some examples of accounting/finance research that use ensemble methods:</p>
+<ul class="simple">
+<li><p>Bao, Y., Ke, B., Li, B., Yu, Y. J., &amp; Zhang, J. (2020). Detecting Accounting Fraud in Publicly Traded U.S. Firms Using a Machine Learning Approach. Journal of Accounting Research, 58(1), 199–235.</p></li>
+<li><p>Jones, S. (2017). Corporate bankruptcy prediction: A high dimensional analysis. Review of Accounting Studies, 22(3), 1366–1422.</p></li>
+<li><p>Gregory, B. (2018). Predicting Customer Churn: Extreme Gradient Boosting with Temporal Data. ArXiv:1802.03396</p></li>
+<li><p>Barboza, F., Kimura, H., &amp; Altman, E. (2017). Machine learning models and bankruptcy prediction. Expert Systems with Applications, 83, 405–417.</p></li>
+<li><p>Carmona, P., Climent, F., &amp; Momparler, A. (2019). Predicting failure in the U.S. banking sector: An extreme gradient boosting approach. International Review of Economics &amp; Finance, 61, 304–323.</p></li>
+<li><p>Chang, Y.-C., Chang, K.-H., &amp; Wu, G.-J. (2018). Application of eXtreme gradient boosting trees in the construction of credit risk assessment models for financial institutions. Applied Soft Computing, 73, 914–920.</p></li>
+<li><p>Pierdzioch, C., Risse, M., &amp; Rohloff, S. (2015). Forecasting gold-price fluctuations: A real-time boosting approach. Applied Economics Letters, 22(1), 46–50.</p></li>
+</ul>
 </div>
 <div class="section" id="shallow-neural-network">
 <h3><span class="section-number">2.3.6. </span>Shallow neural network<a class="headerlink" href="#shallow-neural-network" title="Permalink to this headline">¶</a></h3>
@@ -528,6 +530,14 @@ As with ridge regression, the lasso shrinks the coefficient estimates towards ze
 <div class="section" id="multilayer-perceptron">
 <h3><span class="section-number">2.3.8. </span>Multilayer perceptron<a class="headerlink" href="#multilayer-perceptron" title="Permalink to this headline">¶</a></h3>
 <p>In this chapter, we will use multilayer perceptron as an example of a shallow neural network. The multilayer perceptron adds neurons between the input nodes and the outputs, and this will make more complex neural networks. The MLP is one of the most common neural networks in use.  The training happens in two phases. The forward phase calculates predictions from input values, and the predictions are then compared to the correct output values with a suitable loss function. In the backward phase, <em>gradient descent</em> is used to optimise the network parameters so that the difference between the predictions and the correct output values is decreased.</p>
+<p>Some examples of accounting/finance research that use neural networks:</p>
+<ul class="simple">
+<li><p>Barboza, F., Kimura, H., &amp; Altman, E. (2017). Machine learning models and bankruptcy prediction. Expert Systems with Applications, 83, 405–417.</p></li>
+<li><p>Gu, S., Kelly, B., &amp; Xiu, D. (2020). Empirical Asset Pricing via Machine Learning. The Review of Financial Studies, 33(5), 2223–2273.</p></li>
+<li><p>Hosaka, T. (2019). Bankruptcy prediction using imaged financial ratios and convolutional neural networks. Expert Systems with Applications, 117, 287–299.</p></li>
+<li><p>Kumar, M., &amp; Thenmozhi, M. (2014). Forecasting stock index returns using ARIMA-SVM, ARIMA-ANN, and ARIMA-random forest hybrid models. International Journal of Banking, Accounting and Finance, 5(3), 284–308.</p></li>
+<li><p>Mai, F., Tian, S., Lee, C., &amp; Ma, L. (2019). Deep learning models for bankruptcy prediction using textual disclosures. European Journal of Operational Research, 274(2), 743–758.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="performance-of-regression-models">
@@ -803,7 +813,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_30_0.png" src="_images/7.2_ML_for_structured_data-regression_30_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_32_0.png" src="_images/7.2_ML_for_structured_data-regression_32_0.png" />
 </div>
 </div>
 <p>With <strong>corr()</strong> you can check the correlations. There is multicollinearity present, but for example with ensemble methods, multicollinearity is much less of a problem.</p>
@@ -1114,7 +1124,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_54_0.png" src="_images/7.2_ML_for_structured_data-regression_54_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_56_0.png" src="_images/7.2_ML_for_structured_data-regression_56_0.png" />
 </div>
 </div>
 <p>Mean squared error can be used to the measure the performance. Less is better.</p>
@@ -1240,7 +1250,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_72_0.png" src="_images/7.2_ML_for_structured_data-regression_72_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_74_0.png" src="_images/7.2_ML_for_structured_data-regression_74_0.png" />
 </div>
 </div>
 <p>MSE has also improved.</p>
@@ -1349,7 +1359,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_87_0.png" src="_images/7.2_ML_for_structured_data-regression_87_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_89_0.png" src="_images/7.2_ML_for_structured_data-regression_89_0.png" />
 </div>
 </div>
 <p>MSE has also improved.</p>
@@ -1436,7 +1446,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_99_0.png" src="_images/7.2_ML_for_structured_data-regression_99_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_101_0.png" src="_images/7.2_ML_for_structured_data-regression_101_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1551,7 +1561,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_117_0.png" src="_images/7.2_ML_for_structured_data-regression_117_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_119_0.png" src="_images/7.2_ML_for_structured_data-regression_119_0.png" />
 </div>
 </div>
 <p>Scikit-Learn has a <strong>feature_importances_</strong> attribute to explain the importance of different parameters in explaining the predictions.</p>
@@ -1700,7 +1710,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_128_0.png" src="_images/7.2_ML_for_structured_data-regression_128_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_130_0.png" src="_images/7.2_ML_for_structured_data-regression_130_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1847,7 +1857,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_137_0.png" src="_images/7.2_ML_for_structured_data-regression_137_0.png" />
+<img alt="_images/7.2_ML_for_structured_data-regression_139_0.png" src="_images/7.2_ML_for_structured_data-regression_139_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1907,7 +1917,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="7.1_ML_for_structured_data-classification.html" title="previous page"><span class="section-number">1. </span>Machine learning for structured data - Classification</a>
-    <a class='right-next' id="next-link" href="7.3_ML_for_structured_data-xgboost_example.html" title="next page"><span class="section-number">3. </span>Xgboost, state-of-the-art ensemble method for structured data</a>
+    <a class='right-next' id="next-link" href="7.3_ML_for_structured_data-xgboost_example.html" title="next page"><span class="section-number">3. </span>Example - Xgboost, state-of-the-art ensemble method for structured data</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
