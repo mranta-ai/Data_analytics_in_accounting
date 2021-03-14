@@ -1,17 +1,12 @@
-import logging, sys
-logging.disable(sys.maxsize)
-import warnings
-warnings.filterwarnings('ignore')
-
 ## Decision making with ML in accounting
 
 Machine learning models excel at making predictions. However, when we use machine learning in decision making, very often interpretability is as important as good predictions. Therefore, research on interpretable machine learning has increased substantially in the last few years, and new methods for the interpretation is introduced almost weekly. To introduce everything would be impossible and therefore, I try to focus on the following to most popular methods that have established their place in the decision making process. Hopefully, this gives a reader knowledge in fundamentals of interpretable machine learning,
 
-One could ask why we need interpretations? If our model state-of-the-art in prediction, why not just trust the model and forget what is the reason for such a prediction? First of all, even prediction performance can not be measured with a single metric. In the figure below, you see the collection of metrics that we can use to measure binary-classification performance. So, even the prediction performance of a model depends on the metric (interpretation) used.
+Why we need interpretations? If our model is state-of-the-art in prediction, why not just trust the model and forget what is the reason for such a prediction? First of all, even prediction performance can not be measured with a single metric. In the previous chapters we saw that even for binary classifiers, there numerous different metrics to evaluate the prediction performance. In the figure below, you see the collection of metrics that we can use to measure binary-classification performance. So, even the prediction performance of a model depends on the metric (interpretation) used.
 
 ![conf_matrix](./images/conf_matrix.png)
 
-But even if we could measure prediction performance reliably, the interpretation of a model is essential in many applications. Even if we could predict customer churn in our company accurately, we would probably like to know **why** they will churn. Or, if we are using an ML model in our bank to decide who gets a loan an who doesn't, we are probably obliged to **explain** why our model, for example, rejected a loan application. Furthermore, in some applications understanding the behaviour of a machine learning model can help us learn more about the problem, the data and the reason why a model might fail. Of course, this is not the case always. For example, it is not vital for a company to understand how its' product recommendation system works. It is enough that it works well and gives the customers recommendation that boosts sales. Furthermore, some methods are extensively studied and evaluated, and therefore, do not need extensive interpretation.
+But even if we could measure prediction performance reliably, the interpretation of a model is essential in many applications. Even if we could predict customer churn in our company accurately, we would probably like to know **why** they will churn. Or, if we are using an ML model in our bank to decide who gets a loan an who doesn't, we are probably obliged to **explain** why our model rejected a loan application. Furthermore, in some applications understanding the behaviour of a machine learning model can help us learn more about the problem, the data and the reason why a model might fail. Of course, this is not the case always. For example, it is not vital for a company to understand how its' product recommendation system works. It is enough that it works well and gives the customers recommendations that boosts sales. Furthermore, some methods are extensively studied and evaluated, and therefore, do not need interpretation.
 
 However, interpretation of machine learning models is vital in many applications and the subject of increasing research interest in the ML research community. The more ML is affecting our lives, the more important it is for us to understand its' behaviour. As an example of good progress in the field, internet companies nowadays add an explanation to their product recommendations in the form of products often bought together -list.
 
@@ -32,7 +27,7 @@ Individual Conditional Expectation (ICE) plots basically display a PDP line for 
 ![ice_plot](./images/ICE.png)
 
 #### Accumulated local effects
-Accumulated local effects plots are similar to PDP and ICE plots, i.e., they show how a feature affects the prediction on average. However, the main benefit of ALE plots is that they do not suffer about problems caused by the independence assumption.  So, they are an unbiased alternative to PDP plots.
+Accumulated local effects plots are similar to PDP and ICE plots, i.e., they show how a feature affects the prediction on average. However, the main benefit of ALE plots is that they do not suffer about problems caused by the independence assumption.  So, they are an unbiased alternative to PDP plots. Unfortunately, there are no easily installable libraries for ALE in Python any more.
 
 ![ale_plot](./images/ale.png)
 
@@ -53,7 +48,7 @@ SHapley Additive exPlanations (SHAP) is a method to explain individual predictio
 ![shap_sc](./images/shap_sc.png)
 
 #### Shapley additive global explanations
-Initially, the SHAP values were considered to be efficient methods for global explanations. However, because the SHAP values are contributions of each feature to the prediction, it is difficult to construct a reliable aggregate metric, for example, to feature importance. This is solved in Shapley Additive Global importancE (SAGE). Instead of estimating the contribution of features to the prediction, the SAGE values estimate the contribution of each feature to the decrease of the loss function. Therefore, for example, an average of individual explanations would be a reliable estimate of feature importance. Like SHAP, SAGE also accounts for complex feature interactions, because it is based on Shapley values.
+Because the SHAP values are contributions of each feature to the prediction, it is difficult to construct a reliable aggregate metric, for example, to feature importance. This is solved in Shapley Additive Global importancE (SAGE). Instead of estimating the contribution of features to the prediction, the SAGE values estimate the contribution of each feature to the decrease of the loss function. Therefore, for example, an average of individual explanations would be a reliable estimate of feature importance. Like SHAP, SAGE also accounts for complex feature interactions, because it is based on Shapley values.
 
 ![sage_plot](./images/sage.png)
 
@@ -96,7 +91,7 @@ Our dataframe has many variables. However, there are very similar variables, and
 
 master_df.columns
 
-As predictors, we pick the following variables. There are still highly correlated variables. One good aspect of tree-based boosting methods is that multicollinearity is much less of an issue.
+As predictors, we pick the following variables. There are still highly correlating variables. One good aspect of tree-based boosting methods is that multicollinearity is much less of an issue.
 
 features = ['Year', 'DIVIDEND YIELD - CLOSE',
        'NET SALES/REVENUES -1YR ANN GR', 'NET INCOME - 1 YR ANNUAL GROWT',
@@ -110,15 +105,9 @@ features = ['Year', 'DIVIDEND YIELD - CLOSE',
        'FOREIGN RETURN ON ASSETS', 'FOREIGN INCOME MARGIN',
        'ACCOUNTS PAYABLE/SALES', 'CASH FLOW/SALES', 'COST OF GOODS SOLD/SALES']
 
-We temporarily move the predictor variables to another dataframe for winsorisation.
+Winsorisation.
 
-features_df = master_df[features]
-
-features_df.clip(lower=features_df.quantile(0.05), upper=features_df.quantile(0.95), axis = 1,inplace = True)
-
-We move back the winsorised predictor variables to master_df.
-
-master_df[features] = features_df
+master_df[features] = master_df[features].clip(lower=master_df[features].quantile(0.05), upper=master_df[features].quantile(0.95), axis = 1)
 
 With the pandas function **describe()**, we can easily calculate basic statistics for the features.
 
@@ -132,6 +121,8 @@ The features to the **x_df** dataframe.
 
 x_df = master_df[features]
 
+x_df
+
 #### Gradient boosting
 **Xgboost** is implemented as a Python library, which we import here and name it **xgb**.
 
@@ -141,7 +132,7 @@ Xgboost uses its' own data structure, called DMatrix. It speeds up calculations 
 
 dtrain = xgb.DMatrix(x_df, label=y_df, nthread = -1)
 
-Next, we need to define the parameters of the xgboost model. This is a very difficult task and more like black magic than science. You can easily play with different hyperparameter settings for days, and still finding combinations that improve performance. And here is only part of the parameters! More info about the parameters is here: [xgboost.readthedocs.io/en/latest/parameter.html](https://xgboost.readthedocs.io/en/latest/parameter.html)
+Next, we need to define the parameters of the xgboost model. This is a very difficult task.. You can easily play with different hyperparameter settings for days, and still finding combinations that improve performance. And here is only part of the parameters! More info about the parameters is here: [xgboost.readthedocs.io/en/latest/parameter.html](https://xgboost.readthedocs.io/en/latest/parameter.html)
 
 m_depth = 5
 eta = 0.1
@@ -167,8 +158,9 @@ There are indications for overfitting, but let's proceed. Around 800 rounds (dec
 fig, axs = plt.subplots(1,2,figsize=(12,6),squeeze=True)
 axs[0].plot(temp['test-mae-mean'][400:1500],'r--')
 axs[1].plot(temp['train-mae-mean'][400:1500],'b--')
+plt.show()
 
-b_rounds = 800
+b_rounds = 1200
 
 **train()** is used for training. We feed the parameters, the data in a DMAtrix format and the number of boosting rounds to the function.
 
@@ -186,42 +178,37 @@ shap.initjs()
 We define a SHAP tree-explainer and use the data to calculate the SHAP values.
 
 explainerXGB = shap.TreeExplainer(bst)
-shap_values_XGB_test = explainerXGB.shap_values(x_df,y_df)
+shap_values_XGB = explainerXGB.shap_values(x_df,y_df)
 
 SHAP has many convenient functions for model analysis.
 
 Summary_plot with **plot_type = 'bar'** for a quick feature importance analysis. However, for global importance analysis, you should use SAGE instead, because SHAP is prone to errors with the least important features.
 
-shap.summary_plot(shap_values_XGB_test,x_df,plot_type='bar',max_display=30)
+shap.summary_plot(shap_values_XGB,x_df,plot_type='bar',max_display=30)
 
 With **plot_type = 'dot'** we get a much more detailed plot.
 
-shap.summary_plot(shap_values_XGB_test,x_df,plot_type='dot',max_display=30)
+shap.summary_plot(shap_values_XGB,x_df,plot_type='dot',max_display=30)
 
 Next, we use the SHAP values to build up 2D scatter graphs for every feature. It shows the effect of a feature for the prediction for every instance.
 
 fig, axs = plt.subplots(7,3,figsize=(16,22),squeeze=True)
 ind = 0
-for ax in axs.flat:
-    feat = bst.feature_names[ind]
-    ax.scatter(x_df[feat],shap_values_XGB_test[:,ind],s=1,color='gray')
-#    ax.set_ylim([-0.2,0.2])
+for ax,feat in zip(axs.flat,x_df.columns):
+    ax.scatter(x_df[feat],shap_values_XGB[:,ind],s=1,color='gray')
     ax.set_title(feat)
     ind+=1
 plt.subplots_adjust(hspace=0.8)
-plt.savefig('shap_sc.png')
 
 **Decision_plot()** is interesting as it shows how the prediction is formed from the contributions of different features.
 
-shap.decision_plot(explainerXGB.expected_value,shap_values_XGB_test[0:100],features)
+shap.decision_plot(explainerXGB.expected_value,shap_values_XGB[100:150],features)
 
 **Force_plot** is similar to decision_plot. We plot only the first 100 instances because it would be very slow to draw a force_plot with all the instances.
 
-shap.force_plot(explainerXGB.expected_value,shap_values_XGB_test[0:100],features,figsize=(20,10))
+shap.force_plot(explainerXGB.expected_value,shap_values_XGB[0:50],features,figsize=(20,10))
 
 **Waterfall_plot** is great when you want to analyse one instance.
-
-shap.waterfall_plot(explainerXGB.expected_value,shap_values_XGB_test[2000],x_df.iloc[2000],features)
 
 #### Other interpretation methods
 
@@ -247,22 +234,28 @@ best_xgb_model = xgb.XGBRegressor(colsample_bytree=col_tree, gamma=gam,
 
 best_xgb_model.fit(x_df,y_df)
 
-**pdpbox** library has a function for partial dependence plot and individual conditional expectations: [github.com/SauceCat/PDPbox](https://github.com/SauceCat/PDPbox)
+Scikit-learn has libraries for Partial dependece plot and Individual conditional expectations.
 
-from pdpbox import pdp
+from sklearn.inspection import plot_partial_dependence
 
-Here is a code to draw a partial dependence plot and individual conditional expectations. **features[5]** is the feature Return on Assets. These methods do not like missing values in features, so we fill missing values with zeroes. Not a theoretically valid approach, but...
+fig, ax = plt.subplots(figsize=(12, 6))
+plot_partial_dependence(best_xgb_model, x_df, ['DIVIDEND YIELD - CLOSE'],ax=ax)
+plt.show()
 
-plt.rcParams["figure.figsize"] = (20,20)
-pdp_prep = pdp.pdp_isolate(best_xgb_model,x_df.fillna(0),features,features[5])
-fig, axes = pdp.pdp_plot(pdp_prep, features[5],center=False, plot_lines=True,frac_to_plot=0.5)
-plt.savefig('ICE.png')
+fig, ax = plt.subplots(figsize=(10, 14))
+plot_partial_dependence(best_xgb_model, x_df, ['DIVIDEND YIELD - CLOSE'],ax=ax,kind='both')
+plt.show()
 
-ALEPython has functions for ALE plots: [github.com/blent-ai/ALEPython](https://github.com/blent-ai/ALEPython)
+Permutation importance
 
-import ale
+from sklearn.inspection import permutation_importance
 
-plt.rcdefaults()
-ale.ale_plot(best_xgb_model,x_df.fillna(0),features[5],monte_carlo=True)
-plt.savefig('ale.png')
+r = permutation_importance(best_xgb_model, x_df, y_df,n_repeats=30,random_state=0)
+
+importance_df = pd.DataFrame()
+importance_df['Features'] = x_df.columns
+importance_df['Importance'] = r.importances_mean
+
+importance_df.set_index('Features').sort_values('Importance').plot.barh(figsize=(10,10))
+plt.show()
 
