@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example of grid-search &#8212; Data analytics in accounting</title>
+    <title>4. Example of grid-search &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,6 +56,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Decision making with ML in accounting" href="8_Decision_making_in_accounting.html" />
+    <link rel="prev" title="3. Example - Xgboost, state-of-the-art ensemble method for structured data" href="7.3_ML_for_structured_data-xgboost_example.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -139,7 +141,7 @@
   Machine learning in accounting
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
    1. Machine learning for structured data - Classification
@@ -155,84 +157,49 @@
    3. Example - Xgboost, state-of-the-art ensemble method for structured data
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Example of grid-search
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   4. Decision making with ML in accounting
+   5. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   5. Deep learning in accounting
+   6. Deep learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9.1_Bonus_example.html">
-   6. Example - starting from scratch
+   7. Bonus example - starting from scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.2_AccFin_example.html">
+   8. Deep learning example from Accounting/Finance
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_NLP_in_accounting.html">
-   7. Introduction to natural language processing
+   9. Introduction to natural language processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   8. Basic LDA example - An analysis of ~200 scientific articles
+   10. Basic LDA example - An analysis of ~200 scientific articles
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html">
-   9. Neural network models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
-   10. Pretrained language models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
-   11. Sentiment Modelling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
-   12. NLP example - IMDB
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
-   13. Densely connected network
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
-   14. Recurrent neural networks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
-   15. Long short-term memory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
-   16. Neural topic analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
-   17. Named entity recognition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
-   18. Advanced summarisation
+   11. Neural NLP models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   19. Processing unstructured data
+   12. Processing unstructured data
   </a>
  </li>
 </ul>
@@ -325,7 +292,7 @@
               <div>
                 
   <div class="section" id="example-of-grid-search">
-<h1>Example of grid-search<a class="headerlink" href="#example-of-grid-search" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Example of grid-search<a class="headerlink" href="#example-of-grid-search" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xgboost</span>
@@ -337,7 +304,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._xkcd at 0x24a3040fcd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._xkcd at 0x1ac2088f790&gt;
 </pre></div>
 </div>
 </div>
@@ -411,7 +378,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">10.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)],</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;gamma&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">5.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)],</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">10.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)],</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                <span class="s1">&#39;gamma&#39;</span><span class="p">:[</span><span class="n">i</span><span class="o">/</span><span class="mf">5.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)],</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)}</span>
 </pre></div>
 </div>
 </div>
@@ -425,6 +393,21 @@
 </div>
 </div>
 <p>The following step will take a very long time, because the grid-search algorithm is calculating numerous boosting models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch</span><span class="o">.</span><span class="n">param_grid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;learning_rate&#39;: [0.1, 0.2, 0.3, 0.4],
+ &#39;max_depth&#39;: range(1, 5),
+ &#39;gamma&#39;: [0.0, 0.2, 0.4, 0.6, 0.8],
+ &#39;min_child_weight&#39;: range(1, 3)}
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsearch</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_df</span><span class="p">,</span><span class="n">y_df</span><span class="p">)</span>
@@ -517,7 +500,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgboost</span><span class="o">.</span><span class="n">plot_importance</span><span class="p">(</span><span class="n">bst_model</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgboost</span><span class="o">.</span><span class="n">plot_importance</span><span class="p">(</span><span class="n">bst_model</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -525,7 +508,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Feature importance&#39;}, xlabel=&#39;F score&#39;, ylabel=&#39;Features&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/7.4_ML_for_structured_data-example_22_1.png" src="_images/7.4_ML_for_structured_data-example_22_1.png" />
+<img alt="_images/7.4_ML_for_structured_data-example_23_1.png" src="_images/7.4_ML_for_structured_data-example_23_1.png" />
 </div>
 </div>
 </div>
@@ -558,6 +541,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="7.3_ML_for_structured_data-xgboost_example.html" title="previous page"><span class="section-number">3. </span>Example - Xgboost, state-of-the-art ensemble method for structured data</a>
+    <a class='right-next' id="next-link" href="8_Decision_making_in_accounting.html" title="next page"><span class="section-number">5. </span>Decision making with ML in accounting</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
