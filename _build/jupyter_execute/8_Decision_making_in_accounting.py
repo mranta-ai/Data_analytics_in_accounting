@@ -208,8 +208,6 @@ shap.decision_plot(explainerXGB.expected_value,shap_values_XGB[100:150],features
 
 shap.force_plot(explainerXGB.expected_value,shap_values_XGB[0:50],features,figsize=(20,10))
 
-**Waterfall_plot** is great when you want to analyse one instance.
-
 #### Other interpretation methods
 
 For the following methods, we need to use Xgboost's Scikit-learn wrapper **XGBRegressor()** to turn our Xgboost to be compatible with the Scikit-learn ecosystem.

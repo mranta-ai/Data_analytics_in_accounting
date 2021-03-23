@@ -1,4 +1,4 @@
-### Example - starting from scratch
+## Bonus example - starting from scratch
 When we are doing real deep learning tasks, the analysed data is not neatly included in the libraries we are using for the analysis (like Keras Datasets). In these real tasks we need to collect the data by ourselves. Organising and preprocessing these real datasets to a suitable form for the analysis can be sometimes challenging.
 
 The purpose of this example is to introduce you to the (possible) steps needed, when you are preparing your data for a deep learning model.

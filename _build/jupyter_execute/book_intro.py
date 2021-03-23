@@ -42,9 +42,11 @@ Have a nice journey!
 7.1_ML_for_structured_data-classification
 7.2_ML_for_structured_data-regression
 7.3_ML_for_structured_data-xgboost_example
+7.4_ML_for_structured_data-example
 8_Decision_making_in_accounting
 9_Deep_learning_in_accounting
 9.1_Bonus_example
+9.2_AccFin_example
 10_NLP_in_accounting
 10.1_LDA_bonus_example
 11_Neural_NLP_methods

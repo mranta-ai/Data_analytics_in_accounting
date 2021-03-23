@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19. Processing unstructured data &#8212; Data analytics in accounting</title>
+    <title>12. Processing unstructured data &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="9. Neural network models" href="11_Neural_NLP_methods.html" />
+    <link rel="prev" title="11. Neural NLP models" href="11_Neural_NLP_methods.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -157,83 +157,48 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="7.4_ML_for_structured_data-example.html">
+   4. Example of grid-search
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   4. Decision making with ML in accounting
+   5. Decision making with ML in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   5. Deep learning in accounting
+   6. Deep learning in accounting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9.1_Bonus_example.html">
-   6. Example - starting from scratch
+   7. Bonus example - starting from scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.2_AccFin_example.html">
+   8. Deep learning example from Accounting/Finance
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_NLP_in_accounting.html">
-   7. Introduction to natural language processing
+   9. Introduction to natural language processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   8. Basic LDA example - An analysis of ~200 scientific articles
+   10. Basic LDA example - An analysis of ~200 scientific articles
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html">
-   9. Neural network models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#pretrained-language-models">
-   10. Pretrained language models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#sentiment-modelling">
-   11. Sentiment Modelling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#nlp-example-imdb">
-   12. NLP example - IMDB
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#densely-connected-network">
-   13. Densely connected network
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#recurrent-neural-networks">
-   14. Recurrent neural networks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#long-short-term-memory">
-   15. Long short-term memory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#neural-topic-analysis">
-   16. Neural topic analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#named-entity-recognition">
-   17. Named entity recognition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html#advanced-summarisation">
-   18. Advanced summarisation
+   11. Neural NLP models
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   19. Processing unstructured data
+   12. Processing unstructured data
   </a>
  </li>
 </ul>
@@ -325,80 +290,80 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extracting-accounting-data-from-different-document-types">
-   19.1. Extracting accounting data from different document types
+   12.1. Extracting accounting data from different document types
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#json">
-     19.1.1. JSON
+     12.1.1. JSON
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#xml">
-     19.1.2. XML
+     12.1.2. XML
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#xblr">
-     19.1.3. XBLR
+     12.1.3. XBLR
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pdf">
-     19.1.4. PDF
+     12.1.4. PDF
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extracting-data-from-the-internet">
-   19.2. Extracting data from the Internet
+   12.2. Extracting data from the Internet
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#social-media">
-     19.2.1. Social media
+     12.2.1. Social media
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#structured-data">
-     19.2.2. Structured data
+     12.2.2. Structured data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#processing-text-data">
-   19.3. Processing text data
+   12.3. Processing text data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#regular-experssions">
-     19.3.1. Regular experssions
+     12.3.1. Regular experssions
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#processing-video-and-images">
-   19.4. Processing video and images
+   12.4. Processing video and images
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#satellite-data">
-     19.4.1. Satellite data
+     12.4.1. Satellite data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#speech-recognition-and-synthesis">
-   19.5. Speech recognition and synthesis
+   12.5. Speech recognition and synthesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feature-engineering">
-   19.6. Feature engineering
+   12.6. Feature engineering
   </a>
  </li>
 </ul>
@@ -413,11 +378,11 @@
               <div>
                 
   <div class="section" id="processing-unstructured-data">
-<h1><span class="section-number">19. </span>Processing unstructured data<a class="headerlink" href="#processing-unstructured-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">12. </span>Processing unstructured data<a class="headerlink" href="#processing-unstructured-data" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="extracting-accounting-data-from-different-document-types">
-<h2><span class="section-number">19.1. </span>Extracting accounting data from different document types<a class="headerlink" href="#extracting-accounting-data-from-different-document-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.1. </span>Extracting accounting data from different document types<a class="headerlink" href="#extracting-accounting-data-from-different-document-types" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="json">
-<h3><span class="section-number">19.1.1. </span>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.1.1. </span>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
 <p>JSON stands for JavaScript Object Notation. It is a popular format for transporting and storing data, especially in web-page management. Python has a built-in library for encoding/decoding JSON files. In the following are basic examples how to use it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -795,7 +760,7 @@
 </div>
 </div>
 <div class="section" id="xml">
-<h3><span class="section-number">19.1.2. </span>XML<a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.1.2. </span>XML<a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://docs.python.org/3/library/xml.etree.elementtree.html">https://docs.python.org/3/library/xml.etree.elementtree.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -806,7 +771,7 @@
 </div>
 </div>
 <div class="section" id="xblr">
-<h3><span class="section-number">19.1.3. </span>XBLR<a class="headerlink" href="#xblr" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.1.3. </span>XBLR<a class="headerlink" href="#xblr" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://pypi.org/project/python-xbrl/">https://pypi.org/project/python-xbrl/</a></p>
 <p><a class="reference external" href="https://www.codeproject.com/Articles/1227268/Accessing-Financial-Reports-in-the-EDGAR-Database">https://www.codeproject.com/Articles/1227268/Accessing-Financial-Reports-in-the-EDGAR-Database</a></p>
 <p><a class="reference external" href="https://www.codeproject.com/Articles/1227765/Parsing-XBRL-with-Python">https://www.codeproject.com/Articles/1227765/Parsing-XBRL-with-Python</a></p>
@@ -873,7 +838,7 @@
 </div>
 </div>
 <div class="section" id="pdf">
-<h3><span class="section-number">19.1.4. </span>PDF<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.1.4. </span>PDF<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdfminer.pdfparser</span> <span class="kn">import</span> <span class="n">PDFParser</span>
@@ -915,12 +880,12 @@
 </div>
 </div>
 <div class="section" id="extracting-data-from-the-internet">
-<h2><span class="section-number">19.2. </span>Extracting data from the Internet<a class="headerlink" href="#extracting-data-from-the-internet" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.2. </span>Extracting data from the Internet<a class="headerlink" href="#extracting-data-from-the-internet" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="social-media">
-<h3><span class="section-number">19.2.1. </span>Social media<a class="headerlink" href="#social-media" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.2.1. </span>Social media<a class="headerlink" href="#social-media" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="structured-data">
-<h3><span class="section-number">19.2.2. </span>Structured data<a class="headerlink" href="#structured-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.2.2. </span>Structured data<a class="headerlink" href="#structured-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">&#39;https://www.nordnet.fi/markkinakatsaus/osakekurssit?selectedTab=keyFigures&amp;sortField=pe&amp;sortOrder=asc&amp;exchangeCountry=FI&#39;</span><span class="p">,</span><span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
@@ -1157,16 +1122,16 @@
 </div>
 </div>
 <div class="section" id="processing-text-data">
-<h2><span class="section-number">19.3. </span>Processing text data<a class="headerlink" href="#processing-text-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.3. </span>Processing text data<a class="headerlink" href="#processing-text-data" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="regular-experssions">
-<h3><span class="section-number">19.3.1. </span>Regular experssions<a class="headerlink" href="#regular-experssions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.3.1. </span>Regular experssions<a class="headerlink" href="#regular-experssions" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.regular-expressions.info/quickstart.html">https://www.regular-expressions.info/quickstart.html</a></p>
 </div>
 </div>
 <div class="section" id="processing-video-and-images">
-<h2><span class="section-number">19.4. </span>Processing video and images<a class="headerlink" href="#processing-video-and-images" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.4. </span>Processing video and images<a class="headerlink" href="#processing-video-and-images" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="satellite-data">
-<h3><span class="section-number">19.4.1. </span>Satellite data<a class="headerlink" href="#satellite-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">12.4.1. </span>Satellite data<a class="headerlink" href="#satellite-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
@@ -1304,10 +1269,10 @@ filling on
 </div>
 </div>
 <div class="section" id="speech-recognition-and-synthesis">
-<h2><span class="section-number">19.5. </span>Speech recognition and synthesis<a class="headerlink" href="#speech-recognition-and-synthesis" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.5. </span>Speech recognition and synthesis<a class="headerlink" href="#speech-recognition-and-synthesis" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="feature-engineering">
-<h2><span class="section-number">19.6. </span>Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">12.6. </span>Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -1339,7 +1304,7 @@ filling on
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="11_Neural_NLP_methods.html" title="previous page"><span class="section-number">9. </span>Neural network models</a>
+    <a class='left-prev' id="prev-link" href="11_Neural_NLP_methods.html" title="previous page"><span class="section-number">11. </span>Neural NLP models</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -36,12 +36,15 @@ Let's create a dictionary of values that we want to try in our parameters. I' us
 
 [i/5.0 for i in range(0,11)]
 
-param_values = {'learning_rate':[i/10.0 for i in range(1,5)],'max_depth':range(1,5,1),'gamma':[i/5.0 for i in range(0,5)],'min_child_weight':range(1,3,1)}
+param_values = {'learning_rate':[i/10.0 for i in range(1,5)],'max_depth':range(1,5,1),
+                'gamma':[i/5.0 for i in range(0,5)],'min_child_weight':range(1,3,1)}
 
 gsearch = GridSearchCV(estimator = xgboost.XGBRegressor(n_estimators = b_rounds, subsample = subsample, colsample_bytree = colsample_bytree,objective='reg:squarederror',seed = 12),
                         n_jobs = -1, param_grid = param_values, cv=5)
 
 The following step will take a very long time, because the grid-search algorithm is calculating numerous boosting models.
+
+gsearch.param_grid
 
 gsearch.fit(x_df,y_df)
 
@@ -63,5 +66,5 @@ dtrain = xgboost.DMatrix(x_df,y_df,nthread=-1)
 
 bst_model = xgboost.train(param,dtrain,num_boost_round=b_rounds)
 
-xgboost.plot_importance(bst_model)
+xgboost.plot_importance(bst_model,grid=False)
 

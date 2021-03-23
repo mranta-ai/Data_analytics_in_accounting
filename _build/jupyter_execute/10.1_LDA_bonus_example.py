@@ -1,7 +1,7 @@
-### Basic LDA example - An analysis of ~200 scientific articles
+## Basic LDA example - An analysis of ~200 scientific articles
 A visual explanation of topic modelling --> https://en.wikipedia.org/wiki/Topic_model
 
-#### Libraries
+### Libraries
 **Os** is for operating system routines.  
 **Pdfminer** is needed for stripping the text from pdf documents.  
 **Gensim** includes the LDA functions. State-of-the-art NLP library.  
@@ -41,7 +41,7 @@ import pandas as pd
 import re
 from gensim.models import CoherenceModel
 
-#### Stripping text from pdf files
+### Stripping text from pdf files
 The function below is used for stripping the text from the pdf files. Below is an example of pdf file and the raw text stripped from it.
 Pdfminer is not the most easiest pdf-stripper! There are easier options online. Also tools that can be used with a browser.
 

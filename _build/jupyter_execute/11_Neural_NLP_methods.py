@@ -1,3 +1,5 @@
+## Neural NLP models
+
 Around 2014, the field has started to see some success in switching from linear models over sparse inputs to nonlinear complex neural network models over dense inputs. A key difference is how words are presented as relatively low-dimensional vectors that contain semantic information about the word. Two key training algorithms are **continuous-bag-of-words** and **skip-gram** -algorithms.
 
 The CBOW model architecture tries to predict the current target word (the centre word) based on the source context words (surrounding words).

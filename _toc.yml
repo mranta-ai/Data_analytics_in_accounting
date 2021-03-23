@@ -16,9 +16,11 @@
   - file: 7.1_ML_for_structured_data-classification
   - file: 7.2_ML_for_structured_data-regression
   - file: 7.3_ML_for_structured_data-xgboost_example
+  - file: 7.4_ML_for_structured_data-example
   - file: 8_Decision_making_in_accounting
   - file: 9_Deep_learning_in_accounting
   - file: 9.1_Bonus_example
+  - file: 9.2_AccFin_example
   - file: 10_NLP_in_accounting
   - file: 10.1_LDA_bonus_example
   - file: 11_Neural_NLP_methods

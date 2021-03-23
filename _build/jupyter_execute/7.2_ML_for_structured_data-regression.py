@@ -4,9 +4,6 @@
 
 Regression and classification are usually considered as two types of supervised machine learning. Although, for example, clustering can be considered as classification, there are significant differences between them.  Regression and classification both aim to utilise a training dataset to make predictions. Basically, the only difference is that the output variable in a regression model is numerical. The aim in regression is to build a function that models the connection between the input values and the output value (values).
 
-### Outliers
-It is important to identify any existence of unusual observations in a data set. An observation that is unusual in the vertical direction is called an outlier. If we are sure that observation is an outlier and should be removed, we have two options. Either we move those outliers to specific quantiles, which is called winsorisation. Or we remove those outliers altogether.
-
 ### Regression models
 
 #### Linear regression
@@ -21,9 +18,9 @@ One way to expand the scope of linear models is to include *regularisation* to t
 
 #### Ridge regression
 In the ordinary least squares regression, we aim to minimise *residual sum of squares*.
-$$\sum_{i=1}^n{y_i-\hat{y_i}}$$
+$$\sum_{i=1}^n{(y_i-\hat{y_i})}$$
 In ridge regression, we minimise a slightly different quantity
-$$\sum_{i=1}^n{y_i-\hat{y_i}}+\lambda\sum_{j=1}^k{\beta_j^2}$$
+$$\sum_{i=1}^n{(y_i-\hat{y_i})}+\lambda\sum_{j=1}^k{\beta_j^2}$$
 Thus, there is a penalty term that can be decreased by decreasing the size of the parameters. The lambda $\lambda$ in the model is a hyperparameter that needs to be selected beforehand. For example, cross-validation can be used to select the optimal lambda value. If we increase lambda, the second term becomes more important, decreasing the size of the parameters. This will decrease the variance of the predictions but increase the bias (bias-variance tradeoff will be discussed more later). Thus, the solution of ridge regression depends on the lambda parameter. One thing to remember is that the intercept $b_o$ should not be included in the regularisation term.
 
 Usually, ridge regression is useful when the number of variables is almost as large as the number of observations. In these situations, the OLS estimates will be extremely variable. Ridge regression works even when the number of parameters is larger than the number of observations. 
@@ -104,6 +101,9 @@ Variance refers to the sensitivity of the model if we estimated it using a diffe
 On the other hand, bias refers to the error that is introduced by approximating an association, which may be extremely complicated, by a much simpler model. For example, linear regression assumes that there is a linear relationship between the predicted value and the predictors. It is unlikely that any association truly has a simple linear relationship, and so linear regressiom models will always have some bias in the estimates. Generally, more flexible methods result in less bias.
 
 To conclude, as we use more flexible methods, the variance will increase and the bias will decrease. The relative rate of change of these two quantities determines whether the test MSE increases or decreases. As we increase the flexibility of a model, the bias tends to initially decrease faster than the variance increases. Consequently, the expected test MSE declines. However, at some point increasing flexibility does not decrease bias any more but variance continues to increase, thus, increasing also the overall MSE. This phenomenon is referred as the bias-variance trade-off, because it is easy to obtain a model with extremely low bias but high variance (for instance, by drawing a curve that passes through every single training observation) or a model with very low variance but high bias (by fitting a horizontal line to the data). The challenge lies in finding a method for which both the variance and the squared bias are low.  Machine learning methods are usually extremely flexible and hence can essentially eliminate bias. However, this does not guarantee that they will outperform a much simpler method such as linear regression due to higher variance. Cross-validation, which we discussed in the previous chapter, is a way to estimate the test MSE using the training data, and search for the best model.
+
+### Outliers
+It is important to identify any existence of unusual observations in a data set. An observation that is unusual in the vertical direction is called an outlier. If we are sure that observation is an outlier and should be removed, we have two options. Either we move those outliers to specific quantiles, which is called winsorisation. Or we remove those outliers altogether.
 
 ### Examples
 

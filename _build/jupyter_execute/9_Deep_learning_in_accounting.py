@@ -2,13 +2,9 @@
 
 ### Introduction
 
-Deep learning is a specific subfield of machine learning: a new take on learning repre-
+Although the name Deep Learning sounds like some kind of “deeper” understanding, it basically refers to the number of layers in a neural network, the insight behind them is much more profound. The key idea of deep learning is to learn successive layers of increasingly meaningful representations. Modern deep learning models can have tens or even hundreds of successive layers of representations—all learned automatically from exposure to training data. Traditional machine learning models are sometimes called shallow models, because they tend to focus on learning only one or two layers of representations of the data.
 
-sentations from data that puts an emphasis on learning successive layers of increasingly meaningful representations. The deep in deep learning isn’t a reference to any kind of deeper understanding achieved by the approach; rather, it stands for this idea of suc-cessive layers of representations. How many layers contribute to a model of the data is called the depth of the model. Other appropriate names for the field could have been layered representations learning and hierarchical representations learning . Modern deep learning often involves tens or even hundreds of successive layers of representations— and they’re all learned automatically from exposure to training data. Meanwhile, other approaches to machine learning tend to focus on learning only one or two lay-ers of representations of the data; hence, they’re sometimes called shallow learning .
-
-In deep learning, these layered representations are (almost always) learned via models called neural networks , structured in literal layers stacked on top of each other. The term neural network is a reference to neurobiology, but although some of the cen-tral concepts in deep learning were developed in part by drawing inspiration from our
-
-understanding of the brain, deep-learning models are not models of the brain. There’s no evidence that the brain implements anything like the learning mecha-nisms used in modern deep-learning models. You may come across pop-science arti-cles proclaiming that deep learning works like the brain or was modeled after the brain, but that isn’t the case. It would be confusing and counterproductive for new-comers to the field to think of deep learning as being in any way related to neurobiol-ogy; you don’t need that shroud of “just like our minds” mystique and mystery, and you may as well forget anything you may have read about hypothetical links between deep learning and biology. For our purposes, deep learning is a mathematical frame- work for learning representations from dat
+In popular writing, deep learning is often compared to how brains work. However, this “just like our mind” is an unnecessary complication. Deep learning is just an efficient mathematical framework to learn sequences of representations from data.
 
 ### Neural network architectures
 
@@ -39,9 +35,7 @@ The convolution layers filter feature maps (channels in the original image) with
 * As a result, we get a slightly smaller "image" of dot products.
 * The convolution layer is the main building block of CNNs
 
-The fundamental difference between a densely connected layer and a convolution layer is that dense layers learn global structures in their input feature maps (channels), whereas convolution layers learn local patterns. This is useful in computer vision problems because, in the case of images, these local patterns can be located anywhere in the image. Moreover, CNNs have usually chains of convolutional layers, which causes these learned patterns to become more "complex" the deeper we are in the CNN. The first convolutional layers learn arcs, lines etc. and later layers connect these to circles and other more complex structures (, of course depending on the computer vision task at hand). A first convolutional layer learns small and simple patterns, a second convolutional layer learns patterns that are constructed from the patterns of the first layer, and so on.
-
-These characteristic give CNNs interesting properties. For example, the learned patterns are translation invariant. A certain pattern learned at a certain location can be recognised anywhere in an image, a key property for computer vision tasks. A traditional feed-forward network would have to learn a certain pattern anew for every location in an image. This makes CNNs data-efficient; they need fewer training samples to learn representations that have generalisation power.
+The fundamental difference between a densely connected layer and a convolution layer is that dense layers learn global structures in their input feature maps (channels), whereas convolution layers learn local patterns. This is useful in computer vision problems because, in the case of images, these local patterns can be located anywhere in the image. A traditional feed-forward network would have to learn a certain pattern anew for every location in an image. This makes CNNs data-efficient; they need fewer training samples to learn representations that have generalisation power. Moreover, CNNs have usually chains of convolutional layers, which causes these learned patterns to become more "complex" the deeper we are in the CNN. The first convolutional layers learn arcs, lines etc. and later layers connect these to circles and other more complex structures (, of course depending on the computer vision task at hand). A first convolutional layer learns small and simple patterns, a second convolutional layer learns patterns that are constructed from the patterns of the first layer, and so on.
 
 #### ReLUs
 CNNs usually use rectified linear units (ReLU) as activation functions to add nonlinearity, just like traditional densely connected neural networks. Without a non-linear activation function, the network would be linear (no matter how many layers, a linear combination of linear combinations is still a linear combination).
@@ -99,11 +93,9 @@ If you want to replicate the Tensorflow code of this book, I strongly suggest th
 
 import tensorflow as tf
 
-With the following commands, you can check what kind of computing units are available. Of course, you are looking for GPU-units to speed up computations.
+With the following commands, you can check what kind of computing units are available. Of course, you are looking for GPU-units to speed up computations. I am using the CPU version of Tensorflow so that it is easier for others to replicate the results
 
 tf.config.list_physical_devices()
-
-So, I have Quadro P5200 available for calculations. It will speed up calculations a lot when compared to CPU. If you do not have an Nvidia GPU available for calculations, some of the steps below will be very slow to calculate.
 
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
@@ -113,8 +105,6 @@ One way to define a neural network with Keras is a single **Sequential**-command
 With Keras, we can also build the network using sequential **add()**-commands. We first define the **Sequential()**-type and then add the layers with the **add()** -function.
 
 It is much easier to understand how Keras works by following an example. So, lets work through a detailed example using Keras.
-
-
 
 ### The MNIST dataset
 
@@ -277,3 +267,4 @@ With **evaluate()**, we can check the performance with the test data. We achieve
 test_loss,test_acc = model_cnn.evaluate(x_test,test_labels)
 
 test_acc
+
