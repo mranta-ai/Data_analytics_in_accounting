@@ -49,6 +49,9 @@ Have a nice journey!
 9.2_AccFin_example
 10_NLP_in_accounting
 10.1_LDA_bonus_example
+10.2_Advanced_NLP_accfin
 11_Neural_NLP_methods
+11.1_Neural_NLP_and_accfin
+11.2_Transformers_examples
 12_BONUS-processing_unstructured_data
 ```

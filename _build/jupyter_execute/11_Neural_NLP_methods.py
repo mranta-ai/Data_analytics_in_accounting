@@ -379,9 +379,32 @@ plt.show()
 
 ### Neural topic analysis
 
-ERTopic is a topic modeling technique that leverages 🤗 transformers and c-TF-IDF to create dense clusters allowing for easily interpretable topics whilst keeping important words in the topic descriptions. It even supports visualizations similar to LDAvis!
+BERTopic is a topic modeling technique that leverages 🤗 transformers and c-TF-IDF to create dense clusters allowing for easily interpretable topics whilst keeping important words in the topic descriptions. It even supports visualizations similar to LDAvis!
 
-### Named entity recognition
+from bertopic import BERTopic
+from sklearn.datasets import fetch_20newsgroups
 
-### Advanced summarisation
+import torch
+
+docs = fetch_20newsgroups(subset='all',  remove=('headers', 'footers', 'quotes'))['data']
+
+len(docs[0])
+
+model = BERTopic()
+
+topics, probabilities = model.fit_transform(docs)
+
+model.get_topic_freq()
+
+model.get_topic(-1)
+
+model.get_topic(47)
+
+model.get_topic(7)
+
+model.get_topic(35)
+
+model.visualize_distribution(probabilities[0],min_probability=0.008,figsize=(20,10))
+
+model.visualize_topics()
 

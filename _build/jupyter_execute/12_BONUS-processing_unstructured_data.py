@@ -59,15 +59,14 @@ json_df
 json_df.transpose()
 
 #### XML
+XML is another important format, when you are acquiring data from the web using APIs. The following link has a lot of information how to use Python to process XML documents.
 
 https://docs.python.org/3/library/xml.etree.elementtree.html
 
-pd.read_
-
-
-
 
 #### XBLR
+
+XBLR is a very important data format for accounting/finance. It is an universal reporting standard that allows financial statement information to be downloaded directly into spreadsheets. The following links provide information how to process XBLR documents in Python.
 
 https://pypi.org/project/python-xbrl/
 
@@ -75,63 +74,13 @@ https://www.codeproject.com/Articles/1227268/Accessing-Financial-Reports-in-the-
 
 https://www.codeproject.com/Articles/1227765/Parsing-XBRL-with-Python
 
-from bs4 import BeautifulSoup
-import requests
-import sys
-
-# Access page
-cik = '0000051143'
-type = '10-K'
-dateb = '20160101'
-
-# Obtain HTML for search page
-base_url = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={}&type={}&dateb={}"
-edgar_resp = requests.get(base_url.format(cik, type, dateb))
-edgar_str = edgar_resp.text
-
-# Find the document link
-doc_link = ''
-soup = BeautifulSoup(edgar_str, 'html.parser')
-table_tag = soup.find('table', class_='tableFile2')
-rows = table_tag.find_all('tr')
-for row in rows:
-    cells = row.find_all('td')
-    if len(cells) > 3:
-        if '2015' in cells[3].text:
-            doc_link = 'https://www.sec.gov' + cells[1].a['href']
-
-# Exit if document link couldn't be found
-if doc_link == '':
-    print("Couldn't find the document link")
-    sys.exit()
-
-# Obtain HTML for document page
-doc_resp = requests.get(doc_link)
-doc_str = doc_resp.text
-
-# Find the XBRL link
-xbrl_link = ''
-soup = BeautifulSoup(doc_str, 'html.parser')
-table_tag = soup.find('table', class_='tableFile', summary='Data Files')
-rows = table_tag.find_all('tr')
-for row in rows:
-    cells = row.find_all('td')
-    if len(cells) > 3:
-        if 'INS' in cells[3].text:
-            xbrl_link = 'https://www.sec.gov' + cells[2].a['href']
-
-# Obtain XBRL text from document
-xbrl_resp = requests.get(xbrl_link)
-xbrl_str = xbrl_resp.text
-
-# Find and print stockholder's equity
-soup = BeautifulSoup(xbrl_str, 'lxml')
-tag_list = soup.find_all()
-for tag in tag_list:
-    if tag.name == 'us-gaap:stockholdersequity':
-        print("Stockholder's equity: " + tag.text)
-
 #### PDF
+
+Very often, the information from companies is in the form of pdf documents. For analysis in Python, they need to be changed to textual form. They are many ways to do that, like specialized software, webpages etc.
+
+Python also has many libraries that can be used to process pdf documents. In my opinion, PDFMiner is one of the best ones. 
+
+Below is a code that can efficiently change PDF documents to textual form. I found it from the internet, so no credits for me.
 
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
@@ -165,7 +114,49 @@ def convert_pdfminer(fname):
 
 #### Social media
 
+Tweepy is an excellent library for Twitter API.
+
+import  tweepy
+
+You need a permission from Twitter to use their API. In return, they will send you the necessary keys to use the API. Replace *Customer user key* and *Customer secret key* with your personal keys.
+
+auth = tweepy.OAuthHandler(Customer user key, Customer secret key)
+
+try:
+    redirect_url = auth.get_authorization_url()
+except tweepy.TweepError:
+    print('Error! Failed to get request token.')
+
+api = tweepy.API(auth)
+
+user = api.get_user('twitter')
+
+user.name
+
+user.followers_count
+
+search_words = "#blockchain"
+date_since = "2020-01-01"
+
+tweets = tweepy.Cursor(api.search,
+              q=search_words,
+              lang="en",
+              since=date_since).items(10)
+
+for tweet in tweets:
+    print(tweet.text)
+
+tweets = tweepy.Cursor(api.search, 
+                           q=search_words,
+                           lang="en",
+                           since=date_since).items(10)
+
+users_locs = [[tweet.user.screen_name, tweet.user.location] for tweet in tweets]
+users_locs
+
 #### Structured data
+
+Below is an example that collects information from the internet to a structured format (dataframe) using Pandas *read_html* -function.
 
 test_df = pd.read_html('https://www.nordnet.fi/markkinakatsaus/osakekurssit?selectedTab=keyFigures&sortField=pe&sortOrder=asc&exchangeCountry=FI',decimal=',')
 
@@ -230,6 +221,7 @@ work_df.hist(figsize=(10,10))
 plt.show()
 
 ### Processing text data
+The straightforward way to process text data is to use *regular expressions*. They are very efficient, but unfortunately, very difficult. Luckily, many NLP libraries have good text processing tools available. Especially good is Natural Language Toolkit (https://www.nltk.org/).
 
 #### Regular experssions
 
@@ -239,10 +231,14 @@ https://www.regular-expressions.info/quickstart.html
 
 #### Satellite data
 
+Below is an exaxmple, where NO2 observations from Sentinel 5P satellite (https://sentinel.esa.int/web/sentinel/missions/sentinel-5p) are processed to usable image form in Python.
+
 from netCDF4 import Dataset
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+ESA provides data from Sentinel satellites using NetCDF file format. From pro.arcgis.com: "NetCDF (network Common Data Form) is a file format for storing multidimensional scientific data (variables) such as temperature, humidity, pressure, wind speed, and direction. Each of these variables can be displayed through a dimension (such as time) in ArcGIS by making a layer or table view from the netCDF file."
 
 my_example_nc_file = 'S5P_NRTI_L2__NO2____20200309T105605_20200309T110105_12457_01_010302_20200309T114222.nc'
 fh = Dataset(my_example_nc_file, mode='r')

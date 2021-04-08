@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Data analytics in accounting</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Processing unstructured data" href="12_BONUS-processing_unstructured_data.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="11.1_Neural_NLP_and_accfin.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="book_intro.html">
+   Introduction to data analytics in accounting
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basic data analytics in accounting
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_installing_Python.html">
+   1. Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Intro_to_Python.html">
+   2. Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Pandas_basics.html">
+   3. Pandas data basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
+   4. Pandas Data preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
+   5. Connecting with accounting databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Visualisation_with_Python.html">
+   6. Visualisations with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
+   7. Basic statistics and time series analysis with Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Machine learning in accounting
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
+   1. Machine learning for structured data - Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
+   2. Machine learning for structured data - Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
+   3. Example - Xgboost, state-of-the-art ensemble method for structured data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7.4_ML_for_structured_data-example.html">
+   4. Example of grid-search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Decision_making_in_accounting.html">
+   5. Decision making with ML in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
+   6. Deep learning in accounting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.1_Bonus_example.html">
+   7. Bonus example - starting from scratch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9.2_AccFin_example.html">
+   8. Deep learning example from Accounting/Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_NLP_in_accounting.html">
+   9. Introduction to natural language processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_LDA_bonus_example.html">
+   10. Basic LDA example - An analysis of ~200 scientific articles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.2_Advanced_NLP_accfin.html">
+   11. Advanced NLP and Accounting/Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_Neural_NLP_methods.html">
+   12. Neural NLP models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
+   13. Processing unstructured data
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/11.2_Transformers_examples.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/11.2_Transformers_examples.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="simple nav section-nav flex-column">
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summarizer</span> <span class="o">=</span>  <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;summarization&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;D:/Data/Reasonable_10K&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">read</span><span class="p">()[</span><span class="mi">8824</span><span class="p">:</span><span class="mi">9567</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Synovis Life Technologies, Inc. is a diversified medical device\n    company engaged in developing, manufacturing, marketing and\n    selling products for the surgical and interventional treatment\n    of disease. Our business is conducted in two operating segments,\n    the surgical business and the interventional business, with\n    segmentation based upon the similarities of the underlying\n    business operations, products and markets of each.\n\nOur surgical business develops, manufactures, markets and sells\n    implantable biomaterial products, devices for microsurgery and\n    surgical tools, all designed to reduce risk\n     and/or \n    facilitate critical surgeries, leading to better patient\n    outcomes\n     and/or  lower\n    costs.\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summarizer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">max_length</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;summary_text&#39;: &#39; Synovis Life Technologies, Inc. is a diversified medical device company engaged in developing, manufacturing, marketing and selling products for the surgical and interventional treatment of disease . Our surgical business develops, manufactures, markets and sells implantable biomaterial products, devices for microsurgery and surgical tools .&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_gen</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;text-generation&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some weights of GPT2Model were not initialized from the model checkpoint at gpt2 and are newly initialized: [&#39;h.0.attn.masked_bias&#39;, &#39;h.1.attn.masked_bias&#39;, &#39;h.2.attn.masked_bias&#39;, &#39;h.3.attn.masked_bias&#39;, &#39;h.4.attn.masked_bias&#39;, &#39;h.5.attn.masked_bias&#39;, &#39;h.6.attn.masked_bias&#39;, &#39;h.7.attn.masked_bias&#39;, &#39;h.8.attn.masked_bias&#39;, &#39;h.9.attn.masked_bias&#39;, &#39;h.10.attn.masked_bias&#39;, &#39;h.11.attn.masked_bias&#39;]
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_gen</span><span class="p">(</span><span class="s1">&#39;The yearly profit was&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;generated_text&#39;: &#39;The yearly profit was paid out in part to the local community, and in part to an army of loyalists who, in the year 1942, won nearly four million gold rings.&quot;\n\nThe war had been a &quot;tongue in cheek&quot;&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_gen</span><span class="p">(</span><span class="s1">&#39;Mickey Mouse is a friend of&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;generated_text&#39;: &#39;Mickey Mouse is a friend of mine and I always take this to the house. There is a big room there for my son and his friends. When we do an event with friends we do a lot of work for them. The room is so&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ner</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;ner&#39;</span><span class="p">,</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;dslim/bert-base-NER&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ner</span><span class="p">(</span><span class="s1">&#39;Mickey Mouse is a friend of mine since he was eight. He lives in California.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;word&#39;: &#39;Mickey&#39;,
+  &#39;score&#39;: 0.9994354248046875,
+  &#39;entity&#39;: &#39;B-PER&#39;,
+  &#39;index&#39;: 1,
+  &#39;start&#39;: 0,
+  &#39;end&#39;: 6},
+ {&#39;word&#39;: &#39;Mouse&#39;,
+  &#39;score&#39;: 0.9812304377555847,
+  &#39;entity&#39;: &#39;I-PER&#39;,
+  &#39;index&#39;: 2,
+  &#39;start&#39;: 7,
+  &#39;end&#39;: 12},
+ {&#39;word&#39;: &#39;California&#39;,
+  &#39;score&#39;: 0.9996417164802551,
+  &#39;entity&#39;: &#39;B-LOC&#39;,
+  &#39;index&#39;: 16,
+  &#39;start&#39;: 65,
+  &#39;end&#39;: 75}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">questions</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;question-answering&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Synovis Life Technologies, Inc. is a diversified medical device company engaged in developing, manufacturing, marketing and</span>
+<span class="s2">selling products for the surgical and interventional treatment of disease. Our business is conducted in two operating segments,</span>
+<span class="s2">the surgical business and the interventional business, with segmentation based upon the similarities of the underlying</span>
+<span class="s2">business operations, products and markets of each. Our surgical business develops, manufactures, markets and sells </span>
+<span class="s2">implantable biomaterial products, devices for microsurgery and surgical tools, all designed to reduce risk and/or</span>
+<span class="s2">facilitate critical surgeries, leading to better patient outcomes and/or lower costs.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">questions</span><span class="p">(</span><span class="n">question</span> <span class="o">=</span> <span class="s1">&#39;What Synovis develops?&#39;</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;score&#39;: 0.08829150348901749,
+ &#39;start&#39;: 487,
+ &#39;end&#39;: 519,
+ &#39;answer&#39;: &#39;implantable biomaterial products&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">&quot;fill-mask&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some weights of RobertaForMaskedLM were not initialized from the model checkpoint at distilroberta-base and are newly initialized: [&#39;lm_head.decoder.bias&#39;]
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tesla produces </span><span class="si">{</span><span class="n">mask</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">mask_token</span><span class="si">}</span><span class="s1"> for the US market.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;sequence&#39;: &#39;&lt;s&gt;Tesla produces batteries for the US market.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.2810230851173401,
+  &#39;token&#39;: 10535,
+  &#39;token_str&#39;: &#39;Ġbatteries&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Tesla produces cars for the US market.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.12935157120227814,
+  &#39;token&#39;: 1677,
+  &#39;token_str&#39;: &#39;Ġcars&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Tesla produces EVs for the US market.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.10034559667110443,
+  &#39;token&#39;: 34857,
+  &#39;token_str&#39;: &#39;ĠEVs&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Tesla produces vehicles for the US market.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.049529068171978,
+  &#39;token&#39;: 1734,
+  &#39;token_str&#39;: &#39;Ġvehicles&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Tesla produces rockets for the US market.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.021711379289627075,
+  &#39;token&#39;: 19367,
+  &#39;token_str&#39;: &#39;Ġrockets&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mickey Mouse likes to </span><span class="si">{</span><span class="n">mask</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">mask_token</span><span class="si">}</span><span class="s1"> while walking in a park.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;sequence&#39;: &#39;&lt;s&gt;Mickey Mouse likes to fart while walking in a park.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.08874308317899704,
+  &#39;token&#39;: 36762,
+  &#39;token_str&#39;: &#39;Ġfart&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Mickey Mouse likes to smile while walking in a park.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.061683233827352524,
+  &#39;token&#39;: 6675,
+  &#39;token_str&#39;: &#39;Ġsmile&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Mickey Mouse likes to dance while walking in a park.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.05867791920900345,
+  &#39;token&#39;: 3836,
+  &#39;token_str&#39;: &#39;Ġdance&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Mickey Mouse likes to poop while walking in a park.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.051350075751543045,
+  &#39;token&#39;: 36733,
+  &#39;token_str&#39;: &#39;Ġpoop&#39;},
+ {&#39;sequence&#39;: &#39;&lt;s&gt;Mickey Mouse likes to duck while walking in a park.&lt;/s&gt;&#39;,
+  &#39;score&#39;: 0.04298650845885277,
+  &#39;token&#39;: 15223,
+  &#39;token_str&#39;: &#39;Ġduck&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="11.1_Neural_NLP_and_accfin.html" title="previous page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="12_BONUS-processing_unstructured_data.html" title="next page"><span class="section-number">13. </span>Processing unstructured data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Mikko Ranta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

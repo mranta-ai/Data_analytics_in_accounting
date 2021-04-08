@@ -23,5 +23,8 @@
   - file: 9.2_AccFin_example
   - file: 10_NLP_in_accounting
   - file: 10.1_LDA_bonus_example
+  - file: 10.2_Advanced_NLP_accfin
   - file: 11_Neural_NLP_methods
+  - file: 11.1_Neural_NLP_and_accfin
+  - file: 11.2_Transformers_examples
   - file: 12_BONUS-processing_unstructured_data
