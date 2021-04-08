@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12. Processing unstructured data &#8212; Data analytics in accounting</title>
+    <title>13. Processing unstructured data &#8212; Data analytics in accounting</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="11. Neural NLP models" href="11_Neural_NLP_methods.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="11.2_Transformers_examples.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -192,13 +192,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="10.2_Advanced_NLP_accfin.html">
+   11. Advanced NLP and Accounting/Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="11_Neural_NLP_methods.html">
-   11. Neural NLP models
+   12. Neural NLP models
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   12. Processing unstructured data
+   13. Processing unstructured data
   </a>
  </li>
 </ul>
@@ -290,80 +295,80 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extracting-accounting-data-from-different-document-types">
-   12.1. Extracting accounting data from different document types
+   13.1. Extracting accounting data from different document types
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#json">
-     12.1.1. JSON
+     13.1.1. JSON
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#xml">
-     12.1.2. XML
+     13.1.2. XML
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#xblr">
-     12.1.3. XBLR
+     13.1.3. XBLR
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pdf">
-     12.1.4. PDF
+     13.1.4. PDF
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extracting-data-from-the-internet">
-   12.2. Extracting data from the Internet
+   13.2. Extracting data from the Internet
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#social-media">
-     12.2.1. Social media
+     13.2.1. Social media
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#structured-data">
-     12.2.2. Structured data
+     13.2.2. Structured data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#processing-text-data">
-   12.3. Processing text data
+   13.3. Processing text data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#regular-experssions">
-     12.3.1. Regular experssions
+     13.3.1. Regular experssions
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#processing-video-and-images">
-   12.4. Processing video and images
+   13.4. Processing video and images
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#satellite-data">
-     12.4.1. Satellite data
+     13.4.1. Satellite data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#speech-recognition-and-synthesis">
-   12.5. Speech recognition and synthesis
+   13.5. Speech recognition and synthesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feature-engineering">
-   12.6. Feature engineering
+   13.6. Feature engineering
   </a>
  </li>
 </ul>
@@ -378,11 +383,11 @@
               <div>
                 
   <div class="section" id="processing-unstructured-data">
-<h1><span class="section-number">12. </span>Processing unstructured data<a class="headerlink" href="#processing-unstructured-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">13. </span>Processing unstructured data<a class="headerlink" href="#processing-unstructured-data" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="extracting-accounting-data-from-different-document-types">
-<h2><span class="section-number">12.1. </span>Extracting accounting data from different document types<a class="headerlink" href="#extracting-accounting-data-from-different-document-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.1. </span>Extracting accounting data from different document types<a class="headerlink" href="#extracting-accounting-data-from-different-document-types" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="json">
-<h3><span class="section-number">12.1.1. </span>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.1.1. </span>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h3>
 <p>JSON stands for JavaScript Object Notation. It is a popular format for transporting and storing data, especially in web-page management. Python has a built-in library for encoding/decoding JSON files. In the following are basic examples how to use it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -760,85 +765,22 @@
 </div>
 </div>
 <div class="section" id="xml">
-<h3><span class="section-number">12.1.2. </span>XML<a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.1.2. </span>XML<a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h3>
+<p>XML is another important format, when you are acquiring data from the web using APIs. The following link has a lot of information how to use Python to process XML documents.</p>
 <p><a class="reference external" href="https://docs.python.org/3/library/xml.etree.elementtree.html">https://docs.python.org/3/library/xml.etree.elementtree.html</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_</span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="xblr">
-<h3><span class="section-number">12.1.3. </span>XBLR<a class="headerlink" href="#xblr" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.1.3. </span>XBLR<a class="headerlink" href="#xblr" title="Permalink to this headline">¶</a></h3>
+<p>XBLR is a very important data format for accounting/finance. It is an universal reporting standard that allows financial statement information to be downloaded directly into spreadsheets. The following links provide information how to process XBLR documents in Python.</p>
 <p><a class="reference external" href="https://pypi.org/project/python-xbrl/">https://pypi.org/project/python-xbrl/</a></p>
 <p><a class="reference external" href="https://www.codeproject.com/Articles/1227268/Accessing-Financial-Reports-in-the-EDGAR-Database">https://www.codeproject.com/Articles/1227268/Accessing-Financial-Reports-in-the-EDGAR-Database</a></p>
 <p><a class="reference external" href="https://www.codeproject.com/Articles/1227765/Parsing-XBRL-with-Python">https://www.codeproject.com/Articles/1227765/Parsing-XBRL-with-Python</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="c1"># Access page</span>
-<span class="n">cik</span> <span class="o">=</span> <span class="s1">&#39;0000051143&#39;</span>
-<span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;10-K&#39;</span>
-<span class="n">dateb</span> <span class="o">=</span> <span class="s1">&#39;20160101&#39;</span>
-
-<span class="c1"># Obtain HTML for search page</span>
-<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=</span><span class="si">{}</span><span class="s2">&amp;type=</span><span class="si">{}</span><span class="s2">&amp;dateb=</span><span class="si">{}</span><span class="s2">&quot;</span>
-<span class="n">edgar_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">dateb</span><span class="p">))</span>
-<span class="n">edgar_str</span> <span class="o">=</span> <span class="n">edgar_resp</span><span class="o">.</span><span class="n">text</span>
-
-<span class="c1"># Find the document link</span>
-<span class="n">doc_link</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">edgar_str</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-<span class="n">table_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;tableFile2&#39;</span><span class="p">)</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="n">table_tag</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
-    <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">&#39;2015&#39;</span> <span class="ow">in</span> <span class="n">cells</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
-            <span class="n">doc_link</span> <span class="o">=</span> <span class="s1">&#39;https://www.sec.gov&#39;</span> <span class="o">+</span> <span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
-
-<span class="c1"># Exit if document link couldn&#39;t be found</span>
-<span class="k">if</span> <span class="n">doc_link</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t find the document link&quot;</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-
-<span class="c1"># Obtain HTML for document page</span>
-<span class="n">doc_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doc_link</span><span class="p">)</span>
-<span class="n">doc_str</span> <span class="o">=</span> <span class="n">doc_resp</span><span class="o">.</span><span class="n">text</span>
-
-<span class="c1"># Find the XBRL link</span>
-<span class="n">xbrl_link</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">doc_str</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-<span class="n">table_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;tableFile&#39;</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s1">&#39;Data Files&#39;</span><span class="p">)</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="n">table_tag</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
-    <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">&#39;INS&#39;</span> <span class="ow">in</span> <span class="n">cells</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
-            <span class="n">xbrl_link</span> <span class="o">=</span> <span class="s1">&#39;https://www.sec.gov&#39;</span> <span class="o">+</span> <span class="n">cells</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
-
-<span class="c1"># Obtain XBRL text from document</span>
-<span class="n">xbrl_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">xbrl_link</span><span class="p">)</span>
-<span class="n">xbrl_str</span> <span class="o">=</span> <span class="n">xbrl_resp</span><span class="o">.</span><span class="n">text</span>
-
-<span class="c1"># Find and print stockholder&#39;s equity</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">xbrl_str</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
-<span class="n">tag_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tag_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;us-gaap:stockholdersequity&#39;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stockholder&#39;s equity: &quot;</span> <span class="o">+</span> <span class="n">tag</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="pdf">
-<h3><span class="section-number">12.1.4. </span>PDF<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.1.4. </span>PDF<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h3>
+<p>Very often, the information from companies is in the form of pdf documents. For analysis in Python, they need to be changed to textual form. They are many ways to do that, like specialized software, webpages etc.</p>
+<p>Python also has many libraries that can be used to process pdf documents. In my opinion, PDFMiner is one of the best ones.</p>
+<p>Below is a code that can efficiently change PDF documents to textual form. I found it from the internet, so no credits for me.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdfminer.pdfparser</span> <span class="kn">import</span> <span class="n">PDFParser</span>
@@ -880,12 +822,170 @@
 </div>
 </div>
 <div class="section" id="extracting-data-from-the-internet">
-<h2><span class="section-number">12.2. </span>Extracting data from the Internet<a class="headerlink" href="#extracting-data-from-the-internet" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.2. </span>Extracting data from the Internet<a class="headerlink" href="#extracting-data-from-the-internet" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="social-media">
-<h3><span class="section-number">12.2.1. </span>Social media<a class="headerlink" href="#social-media" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.2.1. </span>Social media<a class="headerlink" href="#social-media" title="Permalink to this headline">¶</a></h3>
+<p>Tweepy is an excellent library for Twitter API.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span>  <span class="nn">tweepy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You need a permission from Twitter to use their API. In return, they will send you the necessary keys to use the API. Replace <em>Customer user key</em> and <em>Customer secret key</em> with your personal keys.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">Customer</span> <span class="n">user</span> <span class="n">key</span><span class="p">,</span> <span class="n">Customer</span> <span class="n">secret</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">redirect_url</span> <span class="o">=</span> <span class="n">auth</span><span class="o">.</span><span class="n">get_authorization_url</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">TweepError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error! Failed to get request token.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="s1">&#39;twitter&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Twitter&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">.</span><span class="n">followers_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59478986
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_words</span> <span class="o">=</span> <span class="s2">&quot;#blockchain&quot;</span>
+<span class="n">date_since</span> <span class="o">=</span> <span class="s2">&quot;2020-01-01&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span>
+              <span class="n">q</span><span class="o">=</span><span class="n">search_words</span><span class="p">,</span>
+              <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+              <span class="n">since</span><span class="o">=</span><span class="n">date_since</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RT @jamilahmed_16: Buy 1 Get 2 offer #Edureka Courses
+
+https://t.co/BdDunPHkJV
+
+#node #nodejs #javascript #npm #coding #webdesign #js #sql…
+RT @PaniniAmerica: Tomorrow at 10 a.m. CST! @PaniniAmerica launches the 2021 Immaculate Blockchain initiative — a 10-week release featuring…
+Buy 1 Get 2 offer #Edureka Courses
+
+https://t.co/BdDunPHkJV
+
+#node #nodejs #javascript #npm #coding #webdesign #js… https://t.co/e6WxLOp7FY
+RT @EpikNFT: #NFTCommunity let&#39;s go 🔥🚀
+
+Put your best NFT&#39;s in the comments👇
+
+Retweet and like for exposure BLAST!
+
+#nftart #nftcollector #…
+RT @ethrollcasino: The ETR sale starts in just 48 hours!
+
+Visit out website for more info! https://t.co/tCn1QKe2FY
+
+#EthRollHype #EthRollMo…
+RT @MinaProtocol: Mina&#39;s first virtual summit #IlluminateGenesis💡is now LIVE! 🎊 
+
+Join our free #blockchain event, featuring panels and ses…
+RT @Gemini: 4/8 SKALE $SKL is an ERC-777 standard utility token used to support application deployment on the @SkaleNetwork, a layer-2 #blo…
+@georginacastens @rariblecom 🎁 Don’t buy an old shiny rock, buy LBY Coin.💎 
+
+#blockchain #interoperability #thefastestblockchain #Libonomy
+RT @ethrollcasino: The ETR sale starts in just 48 hours!
+
+Visit out website for more info! https://t.co/tCn1QKe2FY
+
+#EthRollHype #EthRollMo…
+RT @FinanceChainge: Seeing Chainge through the eyes of our community members is always inspiring and pushes us forward knowing our app&#39;s po…
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> 
+                           <span class="n">q</span><span class="o">=</span><span class="n">search_words</span><span class="p">,</span>
+                           <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+                           <span class="n">since</span><span class="o">=</span><span class="n">date_since</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">users_locs</span> <span class="o">=</span> <span class="p">[[</span><span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">location</span><span class="p">]</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span><span class="p">]</span>
+<span class="n">users_locs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;AlbanoVfx&#39;, &#39;Brazil&#39;],
+ [&#39;cg1907BC&#39;, &#39;Paderborn, Germany&#39;],
+ [&#39;RaverCrypto&#39;, &#39;&#39;],
+ [&#39;Jojojo63407320&#39;, &#39;&#39;],
+ [&#39;AbdulBa58799299&#39;, &#39;&#39;],
+ [&#39;Rana01744715781&#39;, &#39;&#39;],
+ [&#39;flipzide&#39;, &#39;Metaverse&#39;],
+ [&#39;RajeshKSuri&#39;, &#39;New Delhi&#39;],
+ [&#39;SurajKu83832715&#39;, &#39;&#39;],
+ [&#39;robertcastelo&#39;, &#39;London&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="structured-data">
-<h3><span class="section-number">12.2.2. </span>Structured data<a class="headerlink" href="#structured-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.2.2. </span>Structured data<a class="headerlink" href="#structured-data" title="Permalink to this headline">¶</a></h3>
+<p>Below is an example that collects information from the internet to a structured format (dataframe) using Pandas <em>read_html</em> -function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">&#39;https://www.nordnet.fi/markkinakatsaus/osakekurssit?selectedTab=keyFigures&amp;sortField=pe&amp;sortOrder=asc&amp;exchangeCountry=FI&#39;</span><span class="p">,</span><span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
@@ -1116,22 +1216,24 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/12_BONUS-processing_unstructured_data_43_0.png" src="_images/12_BONUS-processing_unstructured_data_43_0.png" />
+<img alt="_images/12_BONUS-processing_unstructured_data_56_0.png" src="_images/12_BONUS-processing_unstructured_data_56_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="processing-text-data">
-<h2><span class="section-number">12.3. </span>Processing text data<a class="headerlink" href="#processing-text-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.3. </span>Processing text data<a class="headerlink" href="#processing-text-data" title="Permalink to this headline">¶</a></h2>
+<p>The straightforward way to process text data is to use <em>regular expressions</em>. They are very efficient, but unfortunately, very difficult. Luckily, many NLP libraries have good text processing tools available. Especially good is Natural Language Toolkit (<a class="reference external" href="https://www.nltk.org/">https://www.nltk.org/</a>).</p>
 <div class="section" id="regular-experssions">
-<h3><span class="section-number">12.3.1. </span>Regular experssions<a class="headerlink" href="#regular-experssions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.3.1. </span>Regular experssions<a class="headerlink" href="#regular-experssions" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.regular-expressions.info/quickstart.html">https://www.regular-expressions.info/quickstart.html</a></p>
 </div>
 </div>
 <div class="section" id="processing-video-and-images">
-<h2><span class="section-number">12.4. </span>Processing video and images<a class="headerlink" href="#processing-video-and-images" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.4. </span>Processing video and images<a class="headerlink" href="#processing-video-and-images" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="satellite-data">
-<h3><span class="section-number">12.4.1. </span>Satellite data<a class="headerlink" href="#satellite-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.4.1. </span>Satellite data<a class="headerlink" href="#satellite-data" title="Permalink to this headline">¶</a></h3>
+<p>Below is an exaxmple, where NO2 observations from Sentinel 5P satellite (<a class="reference external" href="https://sentinel.esa.int/web/sentinel/missions/sentinel-5p">https://sentinel.esa.int/web/sentinel/missions/sentinel-5p</a>) are processed to usable image form in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
@@ -1142,6 +1244,7 @@
 </div>
 </div>
 </div>
+<p>ESA provides data from Sentinel satellites using NetCDF file format. From <a class="reference external" href="http://pro.arcgis.com">pro.arcgis.com</a>: “NetCDF (network Common Data Form) is a file format for storing multidimensional scientific data (variables) such as temperature, humidity, pressure, wind speed, and direction. Each of these variables can be displayed through a dimension (such as time) in ArcGIS by making a layer or table view from the netCDF file.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_example_nc_file</span> <span class="o">=</span> <span class="s1">&#39;S5P_NRTI_L2__NO2____20200309T105605_20200309T110105_12457_01_010302_20200309T114222.nc&#39;</span>
@@ -1249,7 +1352,7 @@ filling on
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/12_BONUS-processing_unstructured_data_57_0.png" src="_images/12_BONUS-processing_unstructured_data_57_0.png" />
+<img alt="_images/12_BONUS-processing_unstructured_data_72_0.png" src="_images/12_BONUS-processing_unstructured_data_72_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1263,16 +1366,16 @@ filling on
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x173bea96488&gt;
 </pre></div>
 </div>
-<img alt="_images/12_BONUS-processing_unstructured_data_58_1.png" src="_images/12_BONUS-processing_unstructured_data_58_1.png" />
+<img alt="_images/12_BONUS-processing_unstructured_data_73_1.png" src="_images/12_BONUS-processing_unstructured_data_73_1.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="speech-recognition-and-synthesis">
-<h2><span class="section-number">12.5. </span>Speech recognition and synthesis<a class="headerlink" href="#speech-recognition-and-synthesis" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.5. </span>Speech recognition and synthesis<a class="headerlink" href="#speech-recognition-and-synthesis" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="feature-engineering">
-<h2><span class="section-number">12.6. </span>Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.6. </span>Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -1304,7 +1407,7 @@ filling on
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="11_Neural_NLP_methods.html" title="previous page"><span class="section-number">11. </span>Neural NLP models</a>
+    <a class='left-prev' id="prev-link" href="11.2_Transformers_examples.html" title="previous page">&lt;no title&gt;</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
