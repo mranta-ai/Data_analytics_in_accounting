@@ -345,7 +345,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pure-python">1.4. Installing pure Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">1.5. Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.6. Jupyter notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyter-notebook">1.7. Starting Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyter-notebooks-your-gateway-to-python-programming">1.7. Launching Jupyter Notebooks: Your Gateway to Python Programming</a></li>
 </ul>
             </nav>
         </div>
@@ -359,70 +359,150 @@ document.write(`
                   
   <section id="installing-python">
 <h1><span class="section-number">1. </span>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this heading">#</a></h1>
-<p>There are two alternatives for installing Python:</p>
-<ul class="simple">
-<li><p>Directly from the installation files that can be downloaded from <a class="reference external" href="https://www.python.org">www.python.org</a></p></li>
-<li><p>The Anaconda environment that can be downloaded from <a class="reference external" href="https://www.anaconda.com">www.anaconda.com</a></p></li>
-</ul>
-<p>Both options have pros and cons. Personally, I started with Anaconda, but have since moved to use “pure” Python. With Anaconda, you get much more, but also many unneeded features that waste space. Also, with pure Python, you get more recent versions of libraries using Pip. The Conda versions are always older.</p>
+<p>As you embark on your journey into data analytics in accounting, one of the first technical decisions you’ll face is how to install Python. There are two widely adopted alternatives:</p>
+<ol class="arabic simple">
+<li><p>Direct Installation from Python’s Official Website: You can download the installation files directly from Python’s official website: <a class="reference external" href="https://www.python.org">www.python.org</a></p></li>
+<li><p>Using the Anaconda Environment: Another option is to use Anaconda, which you can download from Anaconda’s official website: <a class="reference external" href="https://www.anaconda.com">www.anaconda.com</a></p></li>
+</ol>
+<p>Both of these methods have distinct advantages and limitations, which I will elaborate on below to help you make an informed decision.</p>
+<p><strong>Direct Python Installation</strong></p>
+<p><strong>Pros:</strong></p>
+<p>Up-t-Date Libraries: With a direct installation, you often get the most recent versions of Python libraries. You can manage these libraries easily using pip, Python’s package installer.</p>
+<p>Lean Setup: A direct installation includes only the essential features, making it a lighter package that uses less disk space.</p>
+<p>Full Control: You have more direct control over your Python environment, including which libraries to install.</p>
+<p><strong>Cons:</strong></p>
+<p>Initial Complexity: New users might find it challenging to manage different libraries and dependencies manually.</p>
+<p>Potential for Conflicts: Without a managed environment, there’s a greater onus on the user to resolve any library conflicts.</p>
+<p><strong>Anaconda Environment</strong></p>
+<p><strong>Pros:</strong></p>
+<p>Comprehensive: Anaconda provides a robust and integrated environment that comes pre-packaged with a wide array of libraries and tools geared toward data science.</p>
+<p>Ease of Use: It offers a more user-friendly approach to package management and environment management, making it a good choice for beginners.</p>
+<p>Versatility: Anaconda allows you to create multiple environments, which can be beneficial if you’re working on different projects that require different library versions.</p>
+<p><strong>Cons:</strong></p>
+<p>Disk Space: Anaconda comes with many features and libraries that you may not need, consuming more disk space.</p>
+<p>Slightly Outdated Libraries: The libraries in Anaconda can sometimes lag behind the most current versions available through pip.</p>
+<p><strong>Personal Experience and Recommendation</strong></p>
+<p>In my own journey, I started with Anaconda to take advantage of its user-friendly environment and extensive suite of pre-installed libraries. However, as my needs became more specialized and disk space more precious, I transitioned to a “pure” Python setup to benefit from the latest library versions and more direct control over my environment.</p>
+<p>Your choice may depend on several factors, including your level of familiarity with Python, specific project requirements, and computer limitations. Both approaches are viable, but they cater to different needs and skill levels.</p>
 <section id="anaconda">
 <h2><span class="section-number">1.1. </span>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this heading">#</a></h2>
 <p><img alt="snake" src="_images/snake.png" /></p>
-<p>The core Python package is pretty easy to install, especially in Linux. However, I would still suggest that you start your Python-journey with Anaconda <a class="reference external" href="https://www.anaconda.com/">www.anaconda.com</a>. You need many additional libraries not provided by the core installation to go through this book. Of course, you could manually install those libraries, but there is always a danger of compatibility issues with the most recent versions of the libraries.</p>
-<p>So that you can entirely focus on learning Python, it is essential that everything is working. The Python libraries provided by the Anaconda environment are checked to be compatible with each other, and all are very easy to install. For example, installing GPU-enabled Tensorflow in Anaconda is just a few mouse clicks. In pure Python, it is extremely difficult, because you need to manually install the exact correct versions of the NVIDIA GPU libraries. Anaconda is also very popular and works exactly in the same way on all platforms. Also, the libraries list is quite extensive, and it is rare that a Python library is missing from the Conda environment (although this can happen).</p>
+<p>Anaconda is a highly recommended environment for those embarking on their journey through this book and, more broadly, in data analytics in accounting. Anaconda provides an integrated, pre-packaged set of libraries and tools designed to facilitate scientific computing and data science. To learn more or initiate the installation process, please visit <a class="reference external" href="https://www.anaconda.com/">www.anaconda.com</a>. For the exercises and case studies in this book, you will require numerous Python libraries that extend beyond the core installation. While you could certainly install these libraries manually in a “pure” Python environment, compatibility issues could potentially disrupt your learning process. Anaconda alleviates this concern by ensuring that all provided Python libraries are compatible with each other, and all are very easy to install.  For example, installing the GPU-enabled version of TensorFlow is a straightforward process that can be accomplished with just a few mouse clicks. In pure Python, it is extremely difficult, because you need to manually install the exact correct versions of the NVIDIA GPU libraries. Anaconda is also very popular and  functions identically across all major operating systems, offering a level of consistency that simplifies cross-platform development. Furthermore, the list of libraries is quite extensive, and it is rare that a Python library is missing from the Conda environment (although this can happen). Given Anaconda’s ease of use, its stress on compatibility, and its extensive library support, it serves as an excellent starting point for Python learners, especially those interested in data analytics in accounting. By following these guidelines, you can ensure a stable and productive learning environment.</p>
 </section>
 <section id="installing-anaconda">
 <h2><span class="section-number">1.2. </span>Installing Anaconda<a class="headerlink" href="#installing-anaconda" title="Permalink to this heading">#</a></h2>
-<p>To install Anaconda, you just need to download the binaries from <a class="reference external" href="https://www.anaconda.com/products/individual">www.anaconda.com/products/individual</a> and follow the instructions. Remember to install the latest version. During the installation, you are asked whether you’d like to make Anaconda your default Python environment. You should definitely answer yes to avoid difficulties later. (Notice that if you plan to install also pure Python, then you do not necessarily want to make Anaconda your default environment. However, if you are learning Python, it is <strong>strongly</strong> discouraged to hassle with many Python installations. It is like asking for trouble.)</p>
+<p>To install Anaconda, you just need to download the binaries from <a class="reference external" href="https://www.anaconda.com/products/individual">www.anaconda.com/products/individual</a> and follow the instructions. Follow the installation instructions specific to your operating system. During this process, you’ll be prompted to set Anaconda as your default Python environment. For the purposes of this book and for those primarily learning Python, it is strongly recommended to accept this option. Note: If you plan to use both Anaconda and a “pure” Python environment, then carefully consider whether you want to set Anaconda as your default, as managing multiple Python installations can become complicated.</p>
 </section>
 <section id="updating-anaconda">
 <h2><span class="section-number">1.3. </span>Updating Anaconda<a class="headerlink" href="#updating-anaconda" title="Permalink to this heading">#</a></h2>
-<p>Anaconda uses Conda (<a class="reference external" href="https://docs.conda.io/en/latest/">conda.io</a>) to manage libraries and packages. You do not necessarily need to learn Conda commands, as you can do (almost) everything in Anaconda just by pointing and clicking. However, one command you should execute regularly is <strong>conda update anaconda</strong>. It keeps your Anaconda environment updated.</p>
+<p>Anaconda utilizes conda (<a class="reference external" href="https://docs.conda.io/en/latest/">conda.io</a>) as its package and environment manager. While it’s entirely possible to manage your Anaconda environment via the graphical interface, it’s advantageous to become familiar with basic conda commands. One such command that should be executed regularly is: <strong>conda update anaconda</strong>. This command ensures that your Anaconda environment and the libraries therein are up-to-date.</p>
 <p>For more information on Conda, go to <a class="reference external" href="https://docs.conda.io/en/latest/">docs.conda.io</a>.</p>
 </section>
 <section id="installing-pure-python">
 <h2><span class="section-number">1.4. </span>Installing pure Python<a class="headerlink" href="#installing-pure-python" title="Permalink to this heading">#</a></h2>
 <p><img alt="python" src="_images/python.jpg" /></p>
-<p>If you still, despite my warnings, want to install pure Python, then follow these instructions. (Just kidding :). There are benefits of using pure Python, as I mentioned earlier.)</p>
-<p>For windows, follow these steps: <a class="reference external" href="https://docs.python.org/3/using/windows.html#installation-steps">docs.python.org/3/using/windows.html#installation-steps</a></p>
-<p>Python comes preinstalled on most Linux distributions and is available as a package on almost all others.
-If this is not the case for your Linux, follow these steps: <a class="reference external" href="https://docs.python.org/3/using/unix.html#on-linux">docs.python.org/3/using/unix.html#on-linux</a></p>
+<p>While the previous sections have emphasized the benefits of using Anaconda, there are indeed valid reasons for opting for a ‘pure’ Python installation. This approach offers you more direct control over your programming environment and is often favored for specialized development needs. However, be aware that this method may require more hands-on management, especially when dealing with library dependencies.</p>
+<p><strong>Installing Python on Windows</strong></p>
+<p>For those using a Windows operating system, Python does not come pre-installed, so you’ll need to download it manually. Below are the general steps, but for a more detailed guide, please refer to Python’s official documentation on: <a class="reference external" href="https://docs.python.org/3/using/windows.html#installation-steps">docs.python.org/3/using/windows.html#installation-steps</a></p>
+<ol class="arabic simple">
+<li><p>Download: Visit Python’s official website and download the installer for the latest Python version.</p></li>
+<li><p>Run Installer: Double-click the downloaded file to start the installation process.</p></li>
+<li><p>Customization: You’ll be presented with various options. It’s generally safe to stick with the defaults, but make sure to check the box that says “Add Python to PATH” to ensure easy command-line access.</p></li>
+<li><p>Install: Click on the ‘Install Now’ button. Once the process is complete, you can verify the installation by opening a Command Prompt and typing python –version.</p></li>
+</ol>
+<p><strong>Installing Python on Linux</strong></p>
+<p>Python usually comes preinstalled on most Linux distributions. If not, it’s available as a package that you can easily install. For specific instructions tailored to your Linux distribution, consult Python’s official Linux installation guide: <a class="reference external" href="https://docs.python.org/3/using/unix.html#on-linux">docs.python.org/3/using/unix.html#on-linux</a></p>
+<ol class="arabic simple">
+<li><p>Check for Pre-installation: Open a terminal and type *<em>python –version</em> or <strong>python3 –version</strong> to see if Python is already installed.</p></li>
+<li><p>Package Manager: If Python is not installed, you can usually install it using your distribution’s package manager. For Debian-based distributions like Ubuntu, this can often be done with <strong>sudo apt-get install python3</strong>.</p></li>
+<li><p>Verify Installation: Once the installation is complete, open a new terminal window and type <strong>python3 –version</strong> to confirm that Python has been successfully installed.</p></li>
+</ol>
+<p><strong>A Note on Managing Multiple Python Environments</strong>
+If you’ve opted to install both Anaconda and pure Python, managing your PATH variables becomes important. Be cautious when setting either as your default environment, as having multiple Python installations can sometimes lead to complexities.</p>
+<p><strong>Final remarks</strong>
+Whether you choose Anaconda or a ‘pure’ Python installation is contingent on your specific needs, skill level, and the projects you’ll be working on. Each has its advantages and disadvantages, and your choice will set the foundation for your Python programming journey in the realm of accounting data analytics.</p>
 </section>
 <section id="environments">
 <h2><span class="section-number">1.5. </span>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">#</a></h2>
-<p>Whether you use Anaconda or pure Python, you should definitely learn to use environments. This way, you can install only the libraries needed for the current task, and other unnecessary libraries are not breaking the environment.</p>
-<p>The instructions to create and activate environments in pure Python are here: <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">docs.python.org/3/tutorial/venv.html</a></p>
-<p>And for Anaconda, here: <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/">docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/</a></p>
-<p>If you want to use Conda at the terminal, follow these instructions: <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
+<p>Regardless of whether you opt for Anaconda or a ‘pure’ Python installation, mastering the concept of Python environments is important for several reasons:</p>
+<ol class="arabic simple">
+<li><p>Isolation: Environments allow you to work in isolated spaces, meaning you can tailor each environment with only the libraries needed for a specific project or task. This minimizes the risk of version conflicts between libraries.</p></li>
+<li><p>Reproducibility: Utilizing environments makes it easier to share your work and collaborate with others by ensuring that everyone has the same setup, thus minimizing the infamous “it works on my machine” problem.</p></li>
+<li><p>Resource Management: By limiting each environment to only the libraries it requires, you conserve disk space and computational resources, resulting in faster program execution.</p></li>
+</ol>
+<p><strong>Managing enviroments in Python</strong></p>
+<p>For those working with ‘pure’ Python, the standard tool for managing environments is venv. It provides an isolated Python environment in which you can install libraries independently of the system Python. Follow the instructions in Python’s official documentation to learn how to create, activate, and manage environments: <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">docs.python.org/3/tutorial/venv.html</a></p>
+<p>Key Commands:</p>
+<ul class="simple">
+<li><p>Creating an Environment: <strong>python3 -m venv myenv</strong></p></li>
+<li><p>Activating an Environment:</p>
+<ul>
+<li><p>On Windows: myenv\Scripts\Activate</p></li>
+<li><p>On Unix/MacOS: source myenv/bin/activate</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Managing environments in Anaconda</strong></p>
+<p>Anaconda offers its own environment management through its conda tool. These environments can be easily managed through the Anaconda Navigator, a graphical interface that comes with the Anaconda distribution. The official Anaconda documentation provides a comprehensive tutorial on creating and managing environments: <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/">docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/</a></p>
+<p>For those who prefer using the terminal, you can accomplish the same tasks with conda commands. The official guide provides an exhaustive list of commands and options: <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
+<p>Key Commands:</p>
+<ul class="simple">
+<li><p>Creating an Environment: conda create –name myenv</p></li>
+<li><p>Activating an Environment: conda activate myenv</p></li>
+</ul>
+<p><strong>Final thoughts</strong>
+Understanding and effectively using Python environments will not only make your development process more efficient but also minimize potential roadblocks related to library dependencies. Whether you are an amateur coder or an experienced developer, proper environment management is key to successful, reproducible, and scalable data analytics.</p>
 </section>
 <section id="jupyter-notebook">
 <h2><span class="section-number">1.6. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
-<p>Jupyter notebooks are one of the many possible ways to interact with Python and its scientific libraries.</p>
-<p>They use a browser-based interface to Python with</p>
+<p>Jupyter Notebooks serve as one of the most dynamic environments for interactive computing and data analysis. Developed as a part of Project Jupyter, these notebooks offer a browser-based interface to Python, among other programming languages. Their capabilities extend far beyond mere code execution; they provide a multifaceted platform that amalgamates code, data, and descriptive text into a single, coherent document.</p>
+<p>Jupyter Notebooks bring a host of features conducive for academic and professional work in data science and accounting:</p>
 <ul class="simple">
-<li><p>The ability to write and execute Python commands one command at a time.</p></li>
-<li><p>Observe output in a formatted form, including tables, figures, animation, etc.</p></li>
-<li><p>Add formatted text (Markdown) between the Python commands. It also supports mathematical expressions with MathJax.</p></li>
+<li><p>Incremental Execution: They allow for the piecewise execution of code, enabling real-time evaluation and debugging.</p></li>
+<li><p>Rich Output: Jupyter Notebooks support a variety of output formats including tables, images, charts, and even interactive visualizations. This is particularly beneficial for tasks such as financial modeling and data visualization.</p></li>
+<li><p>Annotated Workflow: The inclusion of Markdown cells between code cells allows you to add explanatory text, mathematical equations (thanks to MathJax support), and even HTML elements, making your work more comprehensible and presentable.</p></li>
 </ul>
-<p>Jupyter is nowadays an extremely popular environment for data science and scientific computing. Almost always, data science examples that are available on the Internet are in the form of Jupyter notebooks.</p>
-<p>While Jupyter isn’t the only way to code in Python, it’s great for</p>
+<p>In recent years, Jupyter Notebooks have become an industry standard in data science and academic research. Given their versatility and ease-of-use, it’s hardly surprising that the majority of data science tutorials, courses, and example projects available online utilize Jupyter Notebooks. This is equally true for accounting analytics, where the need for data-driven decision-making is ever-increasing.</p>
+<p>While Jupyter Notebooks are not the sole avenue for Python programming, they are particularly well-suited for:</p>
 <ul class="simple">
-<li><p>beginners</p></li>
-<li><p>quick testing</p></li>
-<li><p>sharing code</p></li>
+<li><p>Beginners: The incremental execution and rich output features make it easier for newcomers to grasp Python and data analytics concepts.</p></li>
+<li><p>Prototyping and Testing: The interactive nature of Jupyter Notebooks makes them excellent tools for quick code experiments, data analysis trials, and ad-hoc querying.</p></li>
+<li><p>Code Sharing and Collaboration: Given their comprehensive format, Jupyter Notebooks are ideal for sharing analyses, methodologies, and results with colleagues or for educational purposes.</p></li>
 </ul>
-<p>By the way, this book is written with Jupyter notebooks.</p>
+<p>By the way, this  book was authored using Jupyter Notebooks, embodying the principles of interactive learning and data-centric academic instruction. Jupyter Notebooks offer a harmonious blend of coding capability and textual narrative, making them an indispensable tool in the modern landscape of data analytics in accounting. Whether you’re a student, a practitioner, or a seasoned researcher, integrating Jupyter Notebooks into your workflow will likely augment both your productivity and the reproducibility of your work.</p>
 </section>
-<section id="starting-jupyter-notebook">
-<h2><span class="section-number">1.7. </span>Starting Jupyter notebook<a class="headerlink" href="#starting-jupyter-notebook" title="Permalink to this heading">#</a></h2>
-<p>Once you have installed Anaconda, you can start the Jupyter notebook either</p>
+<section id="launching-jupyter-notebooks-your-gateway-to-python-programming">
+<h2><span class="section-number">1.7. </span>Launching Jupyter Notebooks: Your Gateway to Python Programming<a class="headerlink" href="#launching-jupyter-notebooks-your-gateway-to-python-programming" title="Permalink to this heading">#</a></h2>
+<p><strong>Initiating Jupyter with Anaconda</strong></p>
+<p>Once you’ve successfully installed Anaconda, launching Jupyter Notebook is a straightforward process. You have a couple of options:</p>
 <ul class="simple">
-<li><p>by searching for Jupyter in your applications menu,</p></li>
-<li><p>or opening up a terminal and typing <strong>jupyter notebook</strong>.</p></li>
+<li><p>Via the Applications Menu: Navigate to your computer’s applications menu and search for “Jupyter Notebook.” Clicking on it will initiate the service.</p></li>
+<li><p>Via Anaconda’s Command Prompt (Windows) or Terminal (Mac/Linux): Open Anaconda’s specialized command prompt (Windows) or your regular terminal (Mac/Linux) and type the following command: <strong>jupyter notebook</strong></p></li>
 </ul>
-<p>In Windows, you need to open the Anaconda command prompt for the previous line to work.</p>
-<p>The first option will always open Jupyter automatically. On some platforms, the second option will output an address that you need to write to your browser for Jupyter the open. This is always the case if you are using Jupyter in a server environment.</p>
-<p>There is also Jypterlab that is an advanced version of Jupyter. You can start it from the Anaconda menus or by writing <strong>jupyter-lab</strong>.</p>
+<p><strong>Note for Windows Users</strong>: It’s crucial to open the Anaconda-specific command prompt for the terminal command to function properly.</p>
+<p>Upon successful launch, Jupyter Notebook typically opens a new browser window that showcases your file directory. Alternatively, it may generate a URL that you’ll need to manually enter into your browser’s address bar, particularly if you’re running Jupyter in a server environment.</p>
+<p>JupyterLab is a more advanced interface that comes bundled with Anaconda. It provides a more integrated environment for Jupyter Notebook, and other types of documents and activities. To launch JupyterLab:</p>
+<ul class="simple">
+<li><p>From Anaconda Navigator: Navigate to Anaconda’s applications menu and select JupyterLab.</p></li>
+<li><p>From Command Prompt or Terminal: Enter the following command: <strong>jupyter-lab</strong></p></li>
+</ul>
+<p><strong>Initiating Jupyter with Python</strong></p>
+<p>If you opted for a ‘pure’ Python installation, you can also run Jupyter Notebook or JupyterLab, although you’ll need to install them first. Here’s how:</p>
+<ol class="arabic simple">
+<li><p>Install Jupyter: Open your terminal and run the following pip command to install Jupyter Notebook:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Notebook: <strong>pip install notebook</strong></p></li>
+<li><p>JupyterLab: <strong>pip install jupyterlab</strong></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Launch Jupyter Notebook or JupyterLab: After installation, you can launch Jupyter Notebook by running:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Notebook: <strong>jupyter notebook</strong></p></li>
+<li><p>JupyterLab: <strong>jupyter-lab</strong></p></li>
+</ul>
+<p>A browser window should automatically open, showcasing your file directory. As with Anaconda, you may need to manually enter a URL into your browser in certain instances.</p>
 <p>That’s it! Now you have a working Python environment, and you can start coding.</p>
 </section>
 </section>
@@ -496,7 +576,7 @@ If this is not the case for your Linux, follow these steps: <a class="reference 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pure-python">1.4. Installing pure Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">1.5. Environments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.6. Jupyter notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyter-notebook">1.7. Starting Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyter-notebooks-your-gateway-to-python-programming">1.7. Launching Jupyter Notebooks: Your Gateway to Python Programming</a></li>
 </ul>
   </nav></div>
 
