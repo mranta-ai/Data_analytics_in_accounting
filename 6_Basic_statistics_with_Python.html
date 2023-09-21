@@ -1,349 +1,366 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>7. Basic statistics and time series analysis with Python &#8212; Data analytics in accounting</title>
-    
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '6_Basic_statistics_with_Python';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Machine learning for structured data - Classification" href="7.1_ML_for_structured_data-classification.html" />
+    <link rel="next" title="8. Machine learning for structured data - Classification" href="7.1_ML_for_structured_data-classification.html" />
     <link rel="prev" title="6. Visualisations with Python" href="5_Visualisation_with_Python.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="book_intro.html">
   
   
-  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
   
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="book_intro.html">
+                    Introduction to data analytics in accounting
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic data analytics in accounting</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_installing_Python.html">1. Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python.html">2. Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Pandas_basics.html">3. Pandas data basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Pandas_data_preprocessing.html">4. Pandas Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Connecting_with_accounting_databases.html">5. Connecting with accounting databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Visualisation_with_Python.html">6. Visualisations with Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Basic statistics and time series analysis with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning in accounting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="7.1_ML_for_structured_data-classification.html">8. Machine learning for structured data - Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.2_ML_for_structured_data-regression.html">9. Machine learning for structured data - Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">10. Example - Xgboost, state-of-the-art ensemble method for structured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.4_ML_for_structured_data-example.html">11. Example of grid-search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Decision_making_in_accounting.html">12. Decision making with ML in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Deep_learning_in_accounting.html">13. Deep learning in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.1_Bonus_example.html">14. Bonus example - starting from scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.2_AccFin_example.html">15. Deep learning example from Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_NLP_in_accounting.html">16. Introduction to natural language processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.1_LDA_bonus_example.html">17. Basic LDA example - An analysis of ~200 scientific articles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.2_Advanced_NLP_accfin.html">18. Advanced NLP and Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Neural_NLP_methods.html">19. Neural NLP models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.1_Neural_NLP_and_accfin.html">20. Neural NLP and accounting/finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.2_Transformers_examples.html">21. Transformers examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_BONUS-processing_unstructured_data.html">22. Processing unstructured data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/6_Basic_statistics_with_Python.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="book_intro.html">
-   Introduction to data analytics in accounting
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Basic data analytics in accounting
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="0_installing_Python.html">
-   1. Installing Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="1_Intro_to_Python.html">
-   2. Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Pandas_basics.html">
-   3. Pandas data basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
-   4. Pandas Data preprocessing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
-   5. Connecting with accounting databases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="5_Visualisation_with_Python.html">
-   6. Visualisations with Python
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   7. Basic statistics and time series analysis with Python
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Machine learning in accounting
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
-   1. Machine learning for structured data - Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
-   2. Machine learning for structured data - Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
-   3. Example - Xgboost, state-of-the-art ensemble method for structured data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.4_ML_for_structured_data-example.html">
-   4. Example of grid-search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   5. Decision making with ML in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   6. Deep learning in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.1_Bonus_example.html">
-   7. Bonus example - starting from scratch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.2_AccFin_example.html">
-   8. Deep learning example from Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_NLP_in_accounting.html">
-   9. Introduction to natural language processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   10. Basic LDA example - An analysis of ~200 scientific articles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.2_Advanced_NLP_accfin.html">
-   11. Advanced NLP and Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html">
-   12. Neural NLP models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   13. Processing unstructured data
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/6_Basic_statistics_with_Python.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-        <!-- Source interaction buttons -->
-
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/6_Basic_statistics_with_Python.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#descriptive-statistics-with-pandas">
-   7.1. Descriptive statistics with Pandas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#probability-and-statistics-functions">
-   7.2. Probability and statistics functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#statistical-analysis-with-statsmodels">
-   7.3. Statistical analysis with statsmodels
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#statistical-analysis-with-scipy-stats">
-   7.4. Statistical analysis with scipy.stats
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-series">
-   7.5. Time series
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#datetime">
-     7.5.1. Datetime
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arima-models">
-     7.5.2. ARIMA models
-    </a>
-   </li>
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
-        </nav>
-        
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic statistics and time series analysis with Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-with-pandas">7.1. Descriptive statistics with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-and-statistics-functions">7.2. Probability and statistics functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis-with-statsmodels">7.3. Statistical analysis with statsmodels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis-with-scipy-stats">7.4. Statistical analysis with scipy.stats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">7.5. Time series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime">7.5.1. Datetime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-models">7.5.2. ARIMA models</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="basic-statistics-and-time-series-analysis-with-python">
-<h1><span class="section-number">7. </span>Basic statistics and time series analysis with Python<a class="headerlink" href="#basic-statistics-and-time-series-analysis-with-python" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="basic-statistics-and-time-series-analysis-with-python">
+<h1><span class="section-number">7. </span>Basic statistics and time series analysis with Python<a class="headerlink" href="#basic-statistics-and-time-series-analysis-with-python" title="Permalink to this heading">#</a></h1>
 <p>This chapter shortly introduces the methods and libraries Python has to offer for basic statistics and time series analysis.</p>
 <p>Let’s start by analysing what kind statistical functions Numpy has to offer. The selection is somewhat limited and usually it is better to use some other libraries for statistical analysis, like Pandas or Statsmodels. However, sometimes you have to use Numpy for data manipulations. For example, if your accounting datasets are very large, Numpy is the most efficient solution in Python. Therefore, it is also useful to know the  basic statistical functions that Numpy has to offer. We will learn more about Numpy in the next chapter. Here we check only the main statistical functions.</p>
 <div class="cell docutils container">
@@ -508,11 +525,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_20_0.png" src="_images/6_Basic_statistics_with_Python_20_0.png" />
+<img alt="_images/7300de27f80cdd14842a7e5fb4b8e88d19db9505bb0355351c52fbdd315cbcfa.png" src="_images/7300de27f80cdd14842a7e5fb4b8e88d19db9505bb0355351c52fbdd315cbcfa.png" />
 </div>
 </div>
-<div class="section" id="descriptive-statistics-with-pandas">
-<h2><span class="section-number">7.1. </span>Descriptive statistics with Pandas<a class="headerlink" href="#descriptive-statistics-with-pandas" title="Permalink to this headline">¶</a></h2>
+<section id="descriptive-statistics-with-pandas">
+<h2><span class="section-number">7.1. </span>Descriptive statistics with Pandas<a class="headerlink" href="#descriptive-statistics-with-pandas" title="Permalink to this heading">#</a></h2>
 <p>Pandas is much more versatile for statistical calculations than Numpy, and should be used if there is no specific reason to use Numpy. Let’s load a more interesting dataset to analyse.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1074,7 +1091,7 @@ Name: ACCOUNTING STANDARD, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_45_0.png" src="_images/6_Basic_statistics_with_Python_45_0.png" />
+<img alt="_images/30f10ed457498c1eae664ed77a195835c558ca346940fb7791a664729ea34db2.png" src="_images/30f10ed457498c1eae664ed77a195835c558ca346940fb7791a664729ea34db2.png" />
 </div>
 </div>
 <p>It is also easy to draw bar plots, line plots, etc. from variables.</p>
@@ -1086,7 +1103,7 @@ Name: ACCOUNTING STANDARD, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_47_0.png" src="_images/6_Basic_statistics_with_Python_47_0.png" />
+<img alt="_images/aebe12cfd2b19fcd7e0c20545c9e53864d11d2987d629c80df482451e981a022.png" src="_images/aebe12cfd2b19fcd7e0c20545c9e53864d11d2987d629c80df482451e981a022.png" />
 </div>
 </div>
 <p>Pandas also has functions for quantiles, median, mean absolute deviation, variance, st. dev., skewness, kurtosis etc.</p>
@@ -1290,7 +1307,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_59_0.png" src="_images/6_Basic_statistics_with_Python_59_0.png" />
+<img alt="_images/928164e9c684f5c27e931c3af94d7ef84f464642da23196ca473871e23000a31.png" src="_images/928164e9c684f5c27e931c3af94d7ef84f464642da23196ca473871e23000a31.png" />
 </div>
 </div>
 <p>There is also a function for covariance.</p>
@@ -1412,12 +1429,12 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_66_0.png" src="_images/6_Basic_statistics_with_Python_66_0.png" />
+<img alt="_images/f19d5d27c516e8b5cab93bd2afa22ba716544df17929b8fed96fe8652c4101c0.png" src="_images/f19d5d27c516e8b5cab93bd2afa22ba716544df17929b8fed96fe8652c4101c0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="probability-and-statistics-functions">
-<h2><span class="section-number">7.2. </span>Probability and statistics functions<a class="headerlink" href="#probability-and-statistics-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="probability-and-statistics-functions">
+<h2><span class="section-number">7.2. </span>Probability and statistics functions<a class="headerlink" href="#probability-and-statistics-functions" title="Permalink to this heading">#</a></h2>
 <p>What we mainly need in data analysis from probability theory are random variables and distributions. Numpy has a large collection of random number generators that are located in module <strong>numpy.random</strong>. There are random number generators for every distribution that you will ever need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1429,7 +1446,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_69_0.png" src="_images/6_Basic_statistics_with_Python_69_0.png" />
+<img alt="_images/16e6bbef47a600c63fd9b27d7708d7e9d228b2ba1e2bb2320d45266e2c04256b.png" src="_images/16e6bbef47a600c63fd9b27d7708d7e9d228b2ba1e2bb2320d45266e2c04256b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1462,7 +1479,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_73_0.png" src="_images/6_Basic_statistics_with_Python_73_0.png" />
+<img alt="_images/cdfed4d0d9ae5d6e82b239b5cd22a6435417a58d5866d8e255e02935aed78124.png" src="_images/cdfed4d0d9ae5d6e82b239b5cd22a6435417a58d5866d8e255e02935aed78124.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1473,7 +1490,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_74_0.png" src="_images/6_Basic_statistics_with_Python_74_0.png" />
+<img alt="_images/485f93da1970cbea961e4017f3e22b406b9a2fe6e45fa459a45d1f675ec632bb.png" src="_images/485f93da1970cbea961e4017f3e22b406b9a2fe6e45fa459a45d1f675ec632bb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1484,7 +1501,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_75_0.png" src="_images/6_Basic_statistics_with_Python_75_0.png" />
+<img alt="_images/4077ac07705cf44e64a3ac2adafe3f1c9a3cf2ad9b6ab5d14fa8109885e94d5e.png" src="_images/4077ac07705cf44e64a3ac2adafe3f1c9a3cf2ad9b6ab5d14fa8109885e94d5e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1495,13 +1512,13 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_76_0.png" src="_images/6_Basic_statistics_with_Python_76_0.png" />
+<img alt="_images/bf3cf95c172ba3f156107ed4b90abbe482198dbbc69a0d1809c4afadea345212.png" src="_images/bf3cf95c172ba3f156107ed4b90abbe482198dbbc69a0d1809c4afadea345212.png" />
 </div>
 </div>
 <p>It is good to remember that computer-generated random numbers are not truly random numbers. They are so called pseudorandom numbers. It is because they are generated using a deterministic algorithm and a seed value.</p>
-</div>
-<div class="section" id="statistical-analysis-with-statsmodels">
-<h2><span class="section-number">7.3. </span>Statistical analysis with statsmodels<a class="headerlink" href="#statistical-analysis-with-statsmodels" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="statistical-analysis-with-statsmodels">
+<h2><span class="section-number">7.3. </span>Statistical analysis with statsmodels<a class="headerlink" href="#statistical-analysis-with-statsmodels" title="Permalink to this heading">#</a></h2>
 <p>Pandas (and Numpy) has only functions for basic statistical analysis, like descriptive statistics. If you want to do more advanced (traditional) statistical analysis, the <strong>statsmodels</strong> library is a good option.</p>
 <p>For example, linear regerssion models are very easy to build with <strong>statsmodels</strong>. Let’s model the dividend yield as a function of the R&amp;D intensity.</p>
 <div class="cell docutils container">
@@ -1914,7 +1931,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_97_0.png" src="_images/6_Basic_statistics_with_Python_97_0.png" />
+<img alt="_images/23211efac9081ae39ee5f005136bd36d44d50cd87f6e924ce08b513531b3648a.png" src="_images/23211efac9081ae39ee5f005136bd36d44d50cd87f6e924ce08b513531b3648a.png" />
 </div>
 </div>
 <p>It is easy to add dummy-variables to your model using the Pandas <strong>get_dummes()</strong> -function. For more than two categories, it creates more than one dummmy-variables.</p>
@@ -2025,7 +2042,7 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/6_Basic_statistics_with_Python_107_1.png" src="_images/6_Basic_statistics_with_Python_107_1.png" />
+<img alt="_images/6b5969055749fec3d66fb0b1215d27d22737f2b6f667671f48d1b35abb8393a6.png" src="_images/6b5969055749fec3d66fb0b1215d27d22737f2b6f667671f48d1b35abb8393a6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2065,7 +2082,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_111_0.png" src="_images/6_Basic_statistics_with_Python_111_0.png" />
+<img alt="_images/71beaa5974a8656117cc49520e4f382ef09bc1921bc50a40556a7b1d0a01fdb0.png" src="_images/71beaa5974a8656117cc49520e4f382ef09bc1921bc50a40556a7b1d0a01fdb0.png" />
 </div>
 </div>
 <p>Let’s try to build the regression model again.</p>
@@ -2158,9 +2175,9 @@ Name: ROE (%), dtype: float64
 </div>
 <p>Although accounting controversies has a negative coefficient, it is not statisticall significant.</p>
 <p>Statsmodels is a very comprehensive statistical library. It has modules for nonparametric statistics, generalised linear models, robust regression and time series analysis. We do not go into more details of Statsmodels at this point. If you want to learn more, check the Statsmodels documentation: <a class="reference external" href="https://www.statsmodels.org/stable/index.html">www.statsmodels.org/stable/index.html</a></p>
-</div>
-<div class="section" id="statistical-analysis-with-scipy-stats">
-<h2><span class="section-number">7.4. </span>Statistical analysis with scipy.stats<a class="headerlink" href="#statistical-analysis-with-scipy-stats" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="statistical-analysis-with-scipy-stats">
+<h2><span class="section-number">7.4. </span>Statistical analysis with scipy.stats<a class="headerlink" href="#statistical-analysis-with-scipy-stats" title="Permalink to this heading">#</a></h2>
 <p>Another option for statistical analysis in Python is the <strong>stats</strong> module of <strong>Scipy</strong>. It has many functions that are not included in other statistical libraries. However, Scipy does not handle automatically nan-values. Accounting data almost always has missing values, thus, they need to be manually handled, which is a bit annoying.</p>
 <p>Like Numpy, it has an extensive range of random number generators and probability distributions. It also has a long list of statistical tests.</p>
 <div class="cell docutils container">
@@ -2240,7 +2257,7 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_134_0.png" src="_images/6_Basic_statistics_with_Python_134_0.png" />
+<img alt="_images/1724264fa3b2d04d73d44a38f8377ebe7df87f1c88632248f734f25a5cb7696f.png" src="_images/1724264fa3b2d04d73d44a38f8377ebe7df87f1c88632248f734f25a5cb7696f.png" />
 </div>
 </div>
 <p>The list of distributions in Scipy is long. Here you can read more about them: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">docs.scipy.org/doc/scipy/reference/stats.html</a></p>
@@ -2387,12 +2404,12 @@ Name: ROE (%), dtype: float64
 </div>
 </div>
 <p>There are functions for many other statistical tasks, like transformations, statistical distnaces, contigency tables. Check the Scipy homepage for more details.</p>
-</div>
-<div class="section" id="time-series">
-<h2><span class="section-number">7.5. </span>Time series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="time-series">
+<h2><span class="section-number">7.5. </span>Time series<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h2>
 <p>Time series analysis is an important topic in accounting. Python and Pandas has many functions for time series analysis. Time series data has usually fixed frequency, which means that data points occur at regular intervals. Time series can also be irregular, which can potentially make the analysis very difficult. Luckily, Python/Pandas simplifies things considerably.</p>
-<div class="section" id="datetime">
-<h3><span class="section-number">7.5.1. </span>Datetime<a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h3>
+<section id="datetime">
+<h3><span class="section-number">7.5.1. </span>Datetime<a class="headerlink" href="#datetime" title="Permalink to this heading">#</a></h3>
 <p>Python has modules for date/time -handling by default, the most important being <strong>datetime</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2975,7 +2992,7 @@ Name: 1940-01-01 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_214_0.png" src="_images/6_Basic_statistics_with_Python_214_0.png" />
+<img alt="_images/e39b293439eab19212b6893ce68b9f36dddf0772bc1e65d60d0efa211dc7bb18.png" src="_images/e39b293439eab19212b6893ce68b9f36dddf0772bc1e65d60d0efa211dc7bb18.png" />
 </div>
 </div>
 <p>Everything works nicely, although we have a dataset with irregular frequency.</p>
@@ -3183,7 +3200,7 @@ Name: 1940-01-01 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_220_0.png" src="_images/6_Basic_statistics_with_Python_220_0.png" />
+<img alt="_images/9fd5ca3e29885fc6128a8fe0c1466d49202040452ef5afec2b55db30e54f6b5d.png" src="_images/9fd5ca3e29885fc6128a8fe0c1466d49202040452ef5afec2b55db30e54f6b5d.png" />
 </div>
 </div>
 <p>If we want, we can fill the missing values with <strong>fillna</strong>.</p>
@@ -3292,7 +3309,7 @@ Name: 1940-01-01 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_223_0.png" src="_images/6_Basic_statistics_with_Python_223_0.png" />
+<img alt="_images/958ef6c57f33269cc7f88161e74760ce8e4af821b7fd2911a65acbd60f002744.png" src="_images/958ef6c57f33269cc7f88161e74760ce8e4af821b7fd2911a65acbd60f002744.png" />
 </div>
 </div>
 <p>We can also decrease the frequency and decide how the original data is aggregated. Let’s simulate a stock price using a random walk series.</p>
@@ -3374,7 +3391,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_230_0.png" src="_images/6_Basic_statistics_with_Python_230_0.png" />
+<img alt="_images/b894e2f0490763d04f72640df08da9216c42f6066ca90d9460979c408f02c0b5.png" src="_images/b894e2f0490763d04f72640df08da9216c42f6066ca90d9460979c408f02c0b5.png" />
 </div>
 </div>
 <p>A very common way to aggregate data in finance, is open-high-low-close.</p>
@@ -3457,7 +3474,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_233_0.png" src="_images/6_Basic_statistics_with_Python_233_0.png" />
+<img alt="_images/40f2cc429fd1daa5e319596d77e59afb237643ad1e4f9dd59e568a622f2578e3.png" src="_images/40f2cc429fd1daa5e319596d77e59afb237643ad1e4f9dd59e568a622f2578e3.png" />
 </div>
 </div>
 <p>A very important topic in time series analysis is filtering with moving windows.</p>
@@ -3471,7 +3488,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_236_0.png" src="_images/6_Basic_statistics_with_Python_236_0.png" />
+<img alt="_images/257b5f2f54027ead3eda758e705f9256633c3bb9d852ec0dcc9198a76e614f89.png" src="_images/257b5f2f54027ead3eda758e705f9256633c3bb9d852ec0dcc9198a76e614f89.png" />
 </div>
 </div>
 <p>As you can see, by default the function calculates the average only when all values are awailable, and therefore, there are missing values at the beginning. You can avoid this with the <strong>min_periods</strong> parameter. With the <strong>center</strong> parameter, you can remove the lag in the average:</p>
@@ -3484,7 +3501,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_238_0.png" src="_images/6_Basic_statistics_with_Python_238_0.png" />
+<img alt="_images/d1eeda5ae48280b97f4f3bc469c48da3bbb9df915bb3febbf5908ac7fccc72dc.png" src="_images/d1eeda5ae48280b97f4f3bc469c48da3bbb9df915bb3febbf5908ac7fccc72dc.png" />
 </div>
 </div>
 <p>Very often, the moving average is calculated using an exponentially weighted filter. Pandas has the <strong>ewm</strong> function for that.</p>
@@ -3498,7 +3515,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_240_0.png" src="_images/6_Basic_statistics_with_Python_240_0.png" />
+<img alt="_images/28c2fcca6bd0deb3f5a4104afac99f45881adc3794ab3c601398e4f927c67996.png" src="_images/28c2fcca6bd0deb3f5a4104afac99f45881adc3794ab3c601398e4f927c67996.png" />
 </div>
 </div>
 <p>With <strong>rolling</strong>, we can even calculate correlations from aggregates. Let’s load a more interesting data for that.</p>
@@ -3525,7 +3542,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_245_0.png" src="_images/6_Basic_statistics_with_Python_245_0.png" />
+<img alt="_images/f70ee3071377eebf3aa1a89665b5b52406efa00d89a073fae857c17f04be221d.png" src="_images/f70ee3071377eebf3aa1a89665b5b52406efa00d89a073fae857c17f04be221d.png" />
 </div>
 </div>
 <p>The returns of stock indices.</p>
@@ -3544,7 +3561,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_248_0.png" src="_images/6_Basic_statistics_with_Python_248_0.png" />
+<img alt="_images/7cca20704a934d62222455b83b24ce69e47728695e77bb998a8d0601ac7362d5.png" src="_images/7cca20704a934d62222455b83b24ce69e47728695e77bb998a8d0601ac7362d5.png" />
 </div>
 </div>
 <p>The correlation between DAX and the other indices calculated from a 64-day window.</p>
@@ -3558,7 +3575,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/6_Basic_statistics_with_Python_250_1.png" src="_images/6_Basic_statistics_with_Python_250_1.png" />
+<img alt="_images/d54a75c9840c155c72032ead7d57da8fc47ef7c38b2b2c26b1f86198b5990a30.png" src="_images/d54a75c9840c155c72032ead7d57da8fc47ef7c38b2b2c26b1f86198b5990a30.png" />
 </div>
 </div>
 <p>With <strong>apply</strong>, you can even define your own functions to calculate an aggregate value from windows. The following calculates an interquartile range from the window.</p>
@@ -3577,13 +3594,13 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_253_0.png" src="_images/6_Basic_statistics_with_Python_253_0.png" />
+<img alt="_images/266b6b792c0bea60755d0236f1e2125375795249887c75acaf500ecf28907223.png" src="_images/266b6b792c0bea60755d0236f1e2125375795249887c75acaf500ecf28907223.png" />
 </div>
 </div>
 <p>Time series analysis in Pandas is a vast topic, and we have only scratched a surface. If you want to learn more, check <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html">pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html</a></p>
-</div>
-<div class="section" id="arima-models">
-<h3><span class="section-number">7.5.2. </span>ARIMA models<a class="headerlink" href="#arima-models" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="arima-models">
+<h3><span class="section-number">7.5.2. </span>ARIMA models<a class="headerlink" href="#arima-models" title="Permalink to this heading">#</a></h3>
 <p>In this section, I will shortly introduce ARIMA models. They assume that in a time series the present valua depends on the previous values (AR = autoregressive). They also include moving averages (MA). “I” in the name means that the modeled time series is the n:th difference of the original time series (I = integrated):</p>
 <p>Let’s build an ARIMA model for the euro dataset.</p>
 <p>One essential tool to assess how the data depends on the previous values and select a model that reflects this is the sample autocorrelation function. The sample ACF will provide us with an estimate of the ACF and suggests a time series model suitable for representing the data’s dependence. For example, a sample ACF close to zero for all nonzero lags suggests that an appropriate model for the data might be iid noise.</p>
@@ -3605,7 +3622,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_261_0.png" src="_images/6_Basic_statistics_with_Python_261_0.png" />
+<img alt="_images/01d1a35d2dd70d7e926f628c82ec27f53b530b977195a651762fa4bfd79709d4.png" src="_images/01d1a35d2dd70d7e926f628c82ec27f53b530b977195a651762fa4bfd79709d4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3737,7 +3754,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_269_0.png" src="_images/6_Basic_statistics_with_Python_269_0.png" />
+<img alt="_images/9bd72d6a9e6213005ad3e22338c4006cc7896c2dee264f7b06d05ad01511ee27.png" src="_images/9bd72d6a9e6213005ad3e22338c4006cc7896c2dee264f7b06d05ad01511ee27.png" />
 </div>
 </div>
 <p>The distribution of the residuals.</p>
@@ -3749,7 +3766,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_271_0.png" src="_images/6_Basic_statistics_with_Python_271_0.png" />
+<img alt="_images/5092379155229d4b9bfc6ad0a8a959728e6b61fde7c4330d53a554db2a879058.png" src="_images/5092379155229d4b9bfc6ad0a8a959728e6b61fde7c4330d53a554db2a879058.png" />
 </div>
 </div>
 <p>Prediction 100 steps forward and comparison to real values. As you can see from the plot below, the prediction is heavily based on the current value. The best prediction for tomorrow is the current value.</p>
@@ -3783,7 +3800,7 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_275_0.png" src="_images/6_Basic_statistics_with_Python_275_0.png" />
+<img alt="_images/6e79465c7aa01cbdd285b0745d724140d6e02e204857e601507b68cd3fd379dd.png" src="_images/6e79465c7aa01cbdd285b0745d724140d6e02e204857e601507b68cd3fd379dd.png" />
 </div>
 </div>
 <p>A comprehensive list of model diagnostics can be plotted with <strong>plot_diagnostics</strong>.</p>
@@ -3794,13 +3811,13 @@ Freq: W-SUN, Length: 72, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6_Basic_statistics_with_Python_277_0.png" src="_images/6_Basic_statistics_with_Python_277_0.png" />
-<img alt="_images/6_Basic_statistics_with_Python_277_1.png" src="_images/6_Basic_statistics_with_Python_277_1.png" />
+<img alt="_images/7e63a85a05647460d90e844cd7a23412297058784de1220d2b0a7504b3b4e43f.png" src="_images/7e63a85a05647460d90e844cd7a23412297058784de1220d2b0a7504b3b4e43f.png" />
+<img alt="_images/7e63a85a05647460d90e844cd7a23412297058784de1220d2b0a7504b3b4e43f.png" src="_images/7e63a85a05647460d90e844cd7a23412297058784de1220d2b0a7504b3b4e43f.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3814,7 +3831,7 @@ Freq: W-SUN, Length: 72, dtype: float64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -3822,38 +3839,109 @@ Freq: W-SUN, Length: 72, dtype: float64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="5_Visualisation_with_Python.html" title="previous page"><span class="section-number">6. </span>Visualisations with Python</a>
-    <a class='right-next' id="next-link" href="7.1_ML_for_structured_data-classification.html" title="next page"><span class="section-number">1. </span>Machine learning for structured data - Classification</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Mikko Ranta<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5_Visualisation_with_Python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Visualisations with Python</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="7.1_ML_for_structured_data-classification.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Machine learning for structured data - Classification</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-with-pandas">7.1. Descriptive statistics with Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-and-statistics-functions">7.2. Probability and statistics functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis-with-statsmodels">7.3. Statistical analysis with statsmodels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis-with-scipy-stats">7.4. Statistical analysis with scipy.stats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">7.5. Time series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetime">7.5.1. Datetime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-models">7.5.2. ARIMA models</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikko Ranta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

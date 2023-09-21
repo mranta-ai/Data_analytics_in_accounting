@@ -1,457 +1,408 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Machine learning for structured data - Regression &#8212; Data analytics in accounting</title>
-    
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>9. Machine learning for structured data - Regression &#8212; Data analytics in accounting</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '7.2_ML_for_structured_data-regression';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Example - Xgboost, state-of-the-art ensemble method for structured data" href="7.3_ML_for_structured_data-xgboost_example.html" />
-    <link rel="prev" title="1. Machine learning for structured data - Classification" href="7.1_ML_for_structured_data-classification.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+    <link rel="next" title="10. Example - Xgboost, state-of-the-art ensemble method for structured data" href="7.3_ML_for_structured_data-xgboost_example.html" />
+    <link rel="prev" title="8. Machine learning for structured data - Classification" href="7.1_ML_for_structured_data-classification.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="book_intro.html">
   
   
-  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
   
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="book_intro.html">
+                    Introduction to data analytics in accounting
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic data analytics in accounting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_installing_Python.html">1. Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python.html">2. Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Pandas_basics.html">3. Pandas data basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Pandas_data_preprocessing.html">4. Pandas Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Connecting_with_accounting_databases.html">5. Connecting with accounting databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Visualisation_with_Python.html">6. Visualisations with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Basic_statistics_with_Python.html">7. Basic statistics and time series analysis with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning in accounting</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="7.1_ML_for_structured_data-classification.html">8. Machine learning for structured data - Classification</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Machine learning for structured data - Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">10. Example - Xgboost, state-of-the-art ensemble method for structured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.4_ML_for_structured_data-example.html">11. Example of grid-search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Decision_making_in_accounting.html">12. Decision making with ML in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Deep_learning_in_accounting.html">13. Deep learning in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.1_Bonus_example.html">14. Bonus example - starting from scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.2_AccFin_example.html">15. Deep learning example from Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_NLP_in_accounting.html">16. Introduction to natural language processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.1_LDA_bonus_example.html">17. Basic LDA example - An analysis of ~200 scientific articles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.2_Advanced_NLP_accfin.html">18. Advanced NLP and Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Neural_NLP_methods.html">19. Neural NLP models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.1_Neural_NLP_and_accfin.html">20. Neural NLP and accounting/finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.2_Transformers_examples.html">21. Transformers examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_BONUS-processing_unstructured_data.html">22. Processing unstructured data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/7.2_ML_for_structured_data-regression.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="book_intro.html">
-   Introduction to data analytics in accounting
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Basic data analytics in accounting
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="0_installing_Python.html">
-   1. Installing Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="1_Intro_to_Python.html">
-   2. Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Pandas_basics.html">
-   3. Pandas data basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
-   4. Pandas Data preprocessing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
-   5. Connecting with accounting databases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="5_Visualisation_with_Python.html">
-   6. Visualisations with Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   7. Basic statistics and time series analysis with Python
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Machine learning in accounting
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
-   1. Machine learning for structured data - Classification
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   2. Machine learning for structured data - Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
-   3. Example - Xgboost, state-of-the-art ensemble method for structured data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.4_ML_for_structured_data-example.html">
-   4. Example of grid-search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   5. Decision making with ML in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   6. Deep learning in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.1_Bonus_example.html">
-   7. Bonus example - starting from scratch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.2_AccFin_example.html">
-   8. Deep learning example from Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_NLP_in_accounting.html">
-   9. Introduction to natural language processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   10. Basic LDA example - An analysis of ~200 scientific articles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.2_Advanced_NLP_accfin.html">
-   11. Advanced NLP and Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html">
-   12. Neural NLP models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   13. Processing unstructured data
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/7.2_ML_for_structured_data-regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
+  
 </div>
-
-        <!-- Source interaction buttons -->
-
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/7.2_ML_for_structured_data-regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
 </div>
+              
+              
 
-    </div>
-
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine learning for structured data - Regression</h1>
     <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification-vs-regression">
-   2.1. Classification vs. regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression-models">
-   2.2. Regression models
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-regression">
-     2.2.1. Linear regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regularised-regression">
-     2.2.2. Regularised regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ridge-regression">
-     2.2.3. Ridge regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lasso-regression">
-     2.2.4. LASSO regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ensemble-methods-for-regression">
-     2.2.5. Ensemble methods for regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#shallow-neural-network">
-     2.2.6. Shallow neural network
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#neural-networks">
-     2.2.7. Neural networks
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multilayer-perceptron">
-     2.2.8. Multilayer perceptron
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#performance-of-regression-models">
-   2.3. Performance of regression models
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#coefficient-of-determination">
-     2.3.1. Coefficient of determination
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mse">
-     2.3.2. MSE
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bias-variance-tradeoff">
-     2.3.3. Bias-Variance tradeoff
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outliers">
-   2.4. Outliers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   2.5. Examples
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scikit-learn">
-     2.5.1. Scikit-learn
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-model">
-     2.5.2. Linear model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     2.5.3. Ridge regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-lasso">
-     2.5.4. The Lasso
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-reference-model">
-     2.5.5. Linear reference model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-forest">
-     2.5.6. Random forest
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gradient-boosting">
-     2.5.7. Gradient boosting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#neural-networks-multi-layer-perceptron">
-     2.5.8. Neural networks (multi-layer perceptron)
-    </a>
-   </li>
-  </ul>
- </li>
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression">9.1. Classification vs. regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-models">9.2. Regression models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">9.2.1. Linear regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularised-regression">9.2.2. Regularised regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">9.2.3. Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regression">9.2.4. LASSO regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods-for-regression">9.2.5. Ensemble methods for regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-neural-network">9.2.6. Shallow neural network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">9.2.7. Neural networks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multilayer-perceptron">9.2.8. Multilayer perceptron</a></li>
 </ul>
-
-        </nav>
-        
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-regression-models">9.3. Performance of regression models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination">9.3.1. Coefficient of determination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mse">9.3.2. MSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-tradeoff">9.3.3. Bias-Variance tradeoff</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">9.4. Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">9.5. Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">9.5.1. Scikit-learn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model">9.5.2. Linear model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.5.3. Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lasso">9.5.4. The Lasso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-reference-model">9.5.5. Linear reference model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">9.5.6. Random forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-boosting">9.5.7. Gradient boosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks-multi-layer-perceptron">9.5.8. Neural networks (multi-layer perceptron)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="machine-learning-for-structured-data-regression">
-<h1><span class="section-number">2. </span>Machine learning for structured data - Regression<a class="headerlink" href="#machine-learning-for-structured-data-regression" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="classification-vs-regression">
-<h2><span class="section-number">2.1. </span>Classification vs. regression<a class="headerlink" href="#classification-vs-regression" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="machine-learning-for-structured-data-regression">
+<h1><span class="section-number">9. </span>Machine learning for structured data - Regression<a class="headerlink" href="#machine-learning-for-structured-data-regression" title="Permalink to this heading">#</a></h1>
+<section id="classification-vs-regression">
+<h2><span class="section-number">9.1. </span>Classification vs. regression<a class="headerlink" href="#classification-vs-regression" title="Permalink to this heading">#</a></h2>
 <p>Regression and classification are usually considered as two types of supervised machine learning. Although, for example, clustering can be considered as classification, there are significant differences between them.  Regression and classification both aim to utilise a training dataset to make predictions. Basically, the only difference is that the output variable in a regression model is numerical. The aim in regression is to build a function that models the connection between the input values and the output value (values).</p>
-</div>
-<div class="section" id="regression-models">
-<h2><span class="section-number">2.2. </span>Regression models<a class="headerlink" href="#regression-models" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="linear-regression">
-<h3><span class="section-number">2.2.1. </span>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="regression-models">
+<h2><span class="section-number">9.2. </span>Regression models<a class="headerlink" href="#regression-models" title="Permalink to this heading">#</a></h2>
+<section id="linear-regression">
+<h3><span class="section-number">9.2.1. </span>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h3>
 <p>A linear regression model assumes that the regression function <span class="math notranslate nohighlight">\(E(Y|X)\)</span> is linear in the inputs <span class="math notranslate nohighlight">\(x_1,...,x_k\)</span>. The basic model is of the form
 $<span class="math notranslate nohighlight">\(\hat{y}=b_0+b_1x_1+...+b_kx_k,\)</span><span class="math notranslate nohighlight">\(
 where the training data is used to learn the optimal parameters \)</span>b_0,…,b_k$. Linear models are very old and were the most important prediction tools in the precomputer era. However, they are still useful today as they are simple and often provide an adequate and interpretable description of how the inputs affect the output. Furthermore, they sometimes outperform nonlinear models in prediction, especially when the number of training cases is low. Their scope can be considerably expanded if we apply these methods to the transformation of the inputs.</p>
 <p><img alt="Linear_regression" src="_images/Linear_regression.svg" /></p>
-</div>
-<div class="section" id="regularised-regression">
-<h3><span class="section-number">2.2.2. </span>Regularised regression<a class="headerlink" href="#regularised-regression" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="regularised-regression">
+<h3><span class="section-number">9.2.2. </span>Regularised regression<a class="headerlink" href="#regularised-regression" title="Permalink to this heading">#</a></h3>
 <p>One way to expand the scope of linear models is to include <em>regularisation</em> to them. This method constrains the coefficient estimates and forces them towards zero. It can be easily proven that this approach is an efficient way to counter overfitting and makes more robust models. The two best-known regularisation techniques are ridge regression and the lasso.</p>
-</div>
-<div class="section" id="ridge-regression">
-<h3><span class="section-number">2.2.3. </span>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ridge-regression">
+<h3><span class="section-number">9.2.3. </span>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this heading">#</a></h3>
 <p>In the ordinary least squares regression, we aim to minimise <em>residual sum of squares</em>.
 $<span class="math notranslate nohighlight">\(\sum_{i=1}^n{(y_i-\hat{y_i})}\)</span><span class="math notranslate nohighlight">\(
 In ridge regression, we minimise a slightly different quantity
@@ -459,16 +410,16 @@ In ridge regression, we minimise a slightly different quantity
 Thus, there is a penalty term that can be decreased by decreasing the size of the parameters. The lambda \)</span>\lambda<span class="math notranslate nohighlight">\( in the model is a hyperparameter that needs to be selected beforehand. For example, cross-validation can be used to select the optimal lambda value. If we increase lambda, the second term becomes more important, decreasing the size of the parameters. This will decrease the variance of the predictions but increase the bias (bias-variance tradeoff will be discussed more later). Thus, the solution of ridge regression depends on the lambda parameter. One thing to remember is that the intercept \)</span>b_o$ should not be included in the regularisation term.</p>
 <p>Usually, ridge regression is useful when the number of variables is almost as large as the number of observations. In these situations, the OLS estimates will be extremely variable. Ridge regression works even when the number of parameters is larger than the number of observations.</p>
 <p>Moradi &amp; Badrinarayanan (2021) use ridge regression as one of the models to analyse the effects of brand prominence and narrative features on crowdfunding success for entrepreneurial aftermarket enterprises (<em>Moradi, M., &amp; Badrinarayanan, V. (2021). The effects of brand prominence and narrative features on crowdfunding success for entrepreneurial aftermarket enterprises. Journal of Business Research, 124, 286–298.</em>)</p>
-</div>
-<div class="section" id="lasso-regression">
-<h3><span class="section-number">2.2.4. </span>LASSO regression<a class="headerlink" href="#lasso-regression" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="lasso-regression">
+<h3><span class="section-number">9.2.4. </span>LASSO regression<a class="headerlink" href="#lasso-regression" title="Permalink to this heading">#</a></h3>
 <p>Although ridge regression decreases the size of the parameters, it is not decreasing them to zero. Thus, the complexity of the model is not decreasing. Lasso regression solves this issue with a small change. In the penalty term, the lasso uses the parameters’ absolute values instead of the squared values
 $<span class="math notranslate nohighlight">\(\sum_{i=1}^n{y_i-\hat{y_i}}+\lambda\sum_{j=1}^k{|\beta_j|}\)</span><span class="math notranslate nohighlight">\(
 As with ridge regression, the lasso shrinks the coefficient estimates towards zero. However, the small change in the penalty term can force some of the coefficients to zero if the lambda parameter is large enough. Hence, the lasso performs also variable selection making the interpretation of the model easier. Depending on the value of \)</span>\lambda$, the lasso can produce a model involving any number of variables.</p>
 <p>Lasso can be used as a preliminary step for variable selection, like in the reseaarch of Sheehan et al. (2020) (<em>Sheehan, M., Garavan, T. N., &amp; Morley, M. J. (2020). Transformational leadership and work unit innovation: A dyadic two-wave investigation. Journal of Business Research, 109, 399–412.</em>)</p>
-</div>
-<div class="section" id="ensemble-methods-for-regression">
-<h3><span class="section-number">2.2.5. </span>Ensemble methods for regression<a class="headerlink" href="#ensemble-methods-for-regression" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ensemble-methods-for-regression">
+<h3><span class="section-number">9.2.5. </span>Ensemble methods for regression<a class="headerlink" href="#ensemble-methods-for-regression" title="Permalink to this heading">#</a></h3>
 <p>We already discussed ensemble methods in the previous section, and the details of these methods can be read there. They can also be used for regression. As ensemble methods often use decision trees as weak estimators, and for regression purposes, we only need to use CARTs as weak estimators.</p>
 <p>Some examples of accounting/finance research that use ensemble methods:</p>
 <ul class="simple">
@@ -480,21 +431,21 @@ As with ridge regression, the lasso shrinks the coefficient estimates towards ze
 <li><p>Chang, Y.-C., Chang, K.-H., &amp; Wu, G.-J. (2018). Application of eXtreme gradient boosting trees in the construction of credit risk assessment models for financial institutions. Applied Soft Computing, 73, 914–920.</p></li>
 <li><p>Pierdzioch, C., Risse, M., &amp; Rohloff, S. (2015). Forecasting gold-price fluctuations: A real-time boosting approach. Applied Economics Letters, 22(1), 46–50.</p></li>
 </ul>
-</div>
-<div class="section" id="shallow-neural-network">
-<h3><span class="section-number">2.2.6. </span>Shallow neural network<a class="headerlink" href="#shallow-neural-network" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="shallow-neural-network">
+<h3><span class="section-number">9.2.6. </span>Shallow neural network<a class="headerlink" href="#shallow-neural-network" title="Permalink to this heading">#</a></h3>
 <p>Although we will mainly discuss neural networks in the following chapters, I will shortly introduce shallow neural networks. They were already used 30 years ago and often in similar situations where other methods of this section are used. As structured data is still an essential form of accounting data, it is important to know those neural network architectures often used to analyse them.</p>
-</div>
-<div class="section" id="neural-networks">
-<h3><span class="section-number">2.2.7. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="neural-networks">
+<h3><span class="section-number">9.2.7. </span>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this heading">#</a></h3>
 <p>Neural networks are a large class of models and learning methods. The most traditional is the single hidden layer back-propagation network or a single layer perceptron.</p>
 <p><img alt="trad_nnetwork" src="_images/trad_nnetwork.svg" /></p>
 <p>The above networks belong to a class of networks called feed-forward neural networks. The name comes from the fact that we calculate linear combinations of inputs at different layers, pass the results to a non-linear activation function and feed the value forward. By combining these non-linear functions of linear combinations into a network, we get a very powerful non-linear estimator.</p>
 <p>Basically, deep learning means that we add many layers to the network. (The paradigm of deep learning is a little bit <em>deeper</em> than that, but we do not go into details at this point.)</p>
 <p>Despite the hype surrounding neural networks, they are no different from other non-linear statistical models. They are just networks of neurons that calculate linear combinations of input values and input these linear combinations to non-linear activation functions. The result is a powerful learning method with widespread applications in many fields.</p>
-</div>
-<div class="section" id="multilayer-perceptron">
-<h3><span class="section-number">2.2.8. </span>Multilayer perceptron<a class="headerlink" href="#multilayer-perceptron" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="multilayer-perceptron">
+<h3><span class="section-number">9.2.8. </span>Multilayer perceptron<a class="headerlink" href="#multilayer-perceptron" title="Permalink to this heading">#</a></h3>
 <p>In this chapter, we will use multilayer perceptron as an example of a shallow neural network. The multilayer perceptron adds neurons between the input nodes and the outputs, and this will make more complex neural networks. The MLP is one of the most common neural networks in use.  The training happens in two phases. The forward phase calculates predictions from input values, and the predictions are then compared to the correct output values with a suitable loss function. In the backward phase, <em>gradient descent</em> is used to optimise the network parameters so that the difference between the predictions and the correct output values is decreased.</p>
 <p>Some examples of accounting/finance research that use neural networks:</p>
 <ul class="simple">
@@ -504,40 +455,40 @@ As with ridge regression, the lasso shrinks the coefficient estimates towards ze
 <li><p>Kumar, M., &amp; Thenmozhi, M. (2014). Forecasting stock index returns using ARIMA-SVM, ARIMA-ANN, and ARIMA-random forest hybrid models. International Journal of Banking, Accounting and Finance, 5(3), 284–308.</p></li>
 <li><p>Mai, F., Tian, S., Lee, C., &amp; Ma, L. (2019). Deep learning models for bankruptcy prediction using textual disclosures. European Journal of Operational Research, 274(2), 743–758.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="performance-of-regression-models">
-<h2><span class="section-number">2.3. </span>Performance of regression models<a class="headerlink" href="#performance-of-regression-models" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="performance-of-regression-models">
+<h2><span class="section-number">9.3. </span>Performance of regression models<a class="headerlink" href="#performance-of-regression-models" title="Permalink to this heading">#</a></h2>
 <p>Evaluating the performance of regression models is important because there is no one method that would dominate other models all the time. Hence it is an important task to decide for any given set of data which method produces the best results.
 Selecting the best model is far from trivial and can be the most challenging task in a practical ML project.</p>
 <p>This section will briefly discuss some of the concepts when doing performance analysis of regression models.</p>
-<div class="section" id="coefficient-of-determination">
-<h3><span class="section-number">2.3.1. </span>Coefficient of determination<a class="headerlink" href="#coefficient-of-determination" title="Permalink to this headline">¶</a></h3>
+<section id="coefficient-of-determination">
+<h3><span class="section-number">9.3.1. </span>Coefficient of determination<a class="headerlink" href="#coefficient-of-determination" title="Permalink to this heading">#</a></h3>
 <p>One of the ways to measure the contribution of input values <span class="math notranslate nohighlight">\(x\)</span> in predicting <span class="math notranslate nohighlight">\(y\)</span> is to consider how much the prediction errors were reduced by using the information provided by the variables <span class="math notranslate nohighlight">\(x\)</span>. The coefficient of determination <span class="math notranslate nohighlight">\(R^2\)</span> is a value between zero and one that can be interpreted to be the proportion of variability explained by the regression model.  Thus, a value of <span class="math notranslate nohighlight">\(R^2=0.75\)</span> means that the model explains 75 % of the variation of y. So, the best model is the one that has the highest <span class="math notranslate nohighlight">\(R^2\)</span> and thus, explains most of the predicted variables’ variation.</p>
-</div>
-<div class="section" id="mse">
-<h3><span class="section-number">2.3.2. </span>MSE<a class="headerlink" href="#mse" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mse">
+<h3><span class="section-number">9.3.2. </span>MSE<a class="headerlink" href="#mse" title="Permalink to this heading">#</a></h3>
 <p>To evaluate the performance of a statistical learning method on a given data set, we need some way to measure how well its predictions match the observed data. We need to quantify the extent to which the predicted response value for a given observation is close to the true response value for that observation. The coefficient of determination is the standard way to evaluate models in the traditional statistics community. However, the machine learning community prefers using the mean squared error. The MSE is the theoretically correct approach to evaluate models. It is defined as $<span class="math notranslate nohighlight">\(MSE=\frac{1}{n}\sum_{i=1}^n{(y_i-\hat{y_i})^2}\)</span>$. The MSE will be small if the predicted responses are very close to the correct responses and will be large if the predicted and true responses differ substantially for some of the observations</p>
 <p>The MSE can be computed using the training data, and then it is called the in-sample MSE. However, more important for practical applications is the out-of-sample MSE. In general, we do not care how well the method works on the training data. Instead, we are interested in the accuracy of the predictions we obtain when applying our method to previously unseen test data. For example, if we are developing an algorithm to predict a stock’s price based on the previous values, we do not care how well our method predicts last week’s stock price because we already know that. We instead care about how well it will predict tomorrow’s price or next month’s price. Therefore, when comparing ML models, we should always compare them with the out-of-sample MSE using a test set.</p>
 <p>In some settings, we may have a test data set available. We can then evaluate the MSE on the test observations and select the learning method for which the test MSE is the smallest. If there are no test observations available, one might think that the second-best option would be to use the in-sample MSE for model comparison. Unfortunately, there is no guarantee that the method with the lowest training MSE will also have the lowest test MSE. This is related to the fact that many ML models specifically optimise the coefficients so that the in-sample MSE is minimised.</p>
 <p>As model flexibility increases, training MSE will decrease, but the test MSE may not. When a given method yields a small training MSE but a large test MSE, we are said to be overfitting the data. This happens because our statistical learning procedure is picking up some patterns that are just caused by random chance rather than by real associations between the predictors and the predicted value. When we overfit the training data, the test MSE can grow to very large values, because the algorithm tries to model complex patterns caused by pure chance. Overfitting refers specifically to the case in which a less flexible model would have yielded a smaller test MSE.</p>
-</div>
-<div class="section" id="bias-variance-tradeoff">
-<h3><span class="section-number">2.3.3. </span>Bias-Variance tradeoff<a class="headerlink" href="#bias-variance-tradeoff" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="bias-variance-tradeoff">
+<h3><span class="section-number">9.3.3. </span>Bias-Variance tradeoff<a class="headerlink" href="#bias-variance-tradeoff" title="Permalink to this heading">#</a></h3>
 <p>Mean square error measures, on average, how close a model comes to the true values. Hence, this could be used as a criterion for determining the best model. It can proven that MSE is a composition of two parts, bias and variance.</p>
 <p>Variance refers to the sensitivity of the model if we estimated it using a different training data set. Even if sampling is perferct, different training sets will results in a slightly different model. But ideally the model should not vary too much between training sets. However, if a model has high variance then small changes in the training data can result in large changes. In general, more flexible models (what machine learning models usually are) have higher variance.</p>
 <p>On the other hand, bias refers to the error that is introduced by approximating an association, which may be extremely complicated, by a much simpler model. For example, linear regression assumes that there is a linear relationship between the predicted value and the predictors. It is unlikely that any association truly has a simple linear relationship, and so linear regressiom models will always have some bias in the estimates. Generally, more flexible methods result in less bias.</p>
 <p>To conclude, as we use more flexible methods, the variance will increase and the bias will decrease. The relative rate of change of these two quantities determines whether the test MSE increases or decreases. As we increase the flexibility of a model, the bias tends to initially decrease faster than the variance increases. Consequently, the expected test MSE declines. However, at some point increasing flexibility does not decrease bias any more but variance continues to increase, thus, increasing also the overall MSE. This phenomenon is referred as the bias-variance trade-off, because it is easy to obtain a model with extremely low bias but high variance (for instance, by drawing a curve that passes through every single training observation) or a model with very low variance but high bias (by fitting a horizontal line to the data). The challenge lies in finding a method for which both the variance and the squared bias are low.  Machine learning methods are usually extremely flexible and hence can essentially eliminate bias. However, this does not guarantee that they will outperform a much simpler method such as linear regression due to higher variance. Cross-validation, which we discussed in the previous chapter, is a way to estimate the test MSE using the training data, and search for the best model.</p>
-</div>
-</div>
-<div class="section" id="outliers">
-<h2><span class="section-number">2.4. </span>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="outliers">
+<h2><span class="section-number">9.4. </span>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h2>
 <p>It is important to identify any existence of unusual observations in a data set. An observation that is unusual in the vertical direction is called an outlier. If we are sure that observation is an outlier and should be removed, we have two options. Either we move those outliers to specific quantiles, which is called winsorisation. Or we remove those outliers altogether.</p>
-</div>
-<div class="section" id="examples">
-<h2><span class="section-number">2.5. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="scikit-learn">
-<h3><span class="section-number">2.5.1. </span>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="examples">
+<h2><span class="section-number">9.5. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
+<section id="scikit-learn">
+<h3><span class="section-number">9.5.1. </span>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this heading">#</a></h3>
 <p>Scikit-learn is a multi-purpose machine learning library. It has modules for many different machine learning approaches. It is not the best library in any machine learning field but very good at most of them. Also, all the approaches use the common workflow approach of the library. Thus, by learning to do one machine learning analysis, you learn to do them all.</p>
 <p>Scikit-learn has libraries for classification, regression, clustering, dimensionality reduction and model selection. It also has an extensive library of methods for data pre-processing.</p>
 <p>A very convenient feature in Scikit-learn is <strong>pipeline</strong> that you can use to construct full workflows of machine learning analyses.</p>
@@ -783,7 +734,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_32_0.png" src="_images/7.2_ML_for_structured_data-regression_32_0.png" />
+<img alt="_images/98806d8b7c2fe1bf58f6eade36b6da8f52737e76c4917997fab3b18e84b3fd45.png" src="_images/98806d8b7c2fe1bf58f6eade36b6da8f52737e76c4917997fab3b18e84b3fd45.png" />
 </div>
 </div>
 <p>With <strong>corr()</strong> you can check the correlations. There is multicollinearity present, but for example with ensemble methods, multicollinearity is much less of a problem.</p>
@@ -1002,9 +953,9 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="linear-model">
-<h3><span class="section-number">2.5.2. </span>Linear model<a class="headerlink" href="#linear-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="linear-model">
+<h3><span class="section-number">9.5.2. </span>Linear model<a class="headerlink" href="#linear-model" title="Permalink to this heading">#</a></h3>
 <p>Although Scikit-learn is a ML library, it is possible to do a basic linear regression analysis with it. (All ML methods are statistical methods. The separation between them is artificial.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1094,7 +1045,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_56_0.png" src="_images/7.2_ML_for_structured_data-regression_56_0.png" />
+<img alt="_images/f59da1d3a7efafa85dbac38e9bbba0b586730db20d077d7107f6b17f80934a0a.png" src="_images/f59da1d3a7efafa85dbac38e9bbba0b586730db20d077d7107f6b17f80934a0a.png" />
 </div>
 </div>
 <p>Mean squared error can be used to the measure the performance. Less is better.</p>
@@ -1117,13 +1068,13 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id1">
-<h3><span class="section-number">2.5.3. </span>Ridge regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id1">
+<h3><span class="section-number">9.5.3. </span>Ridge regression<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model. So it is a regularisation method.</p>
 <p><img alt="Regularisation" src="_images/Regularization.svg" /></p>
 <p>We can optimise the alpha parameter of the error function automatically using <strong>RidgeCV</strong>.</p>
-<p><img alt="Ridge_alpha" src="./images/ridge_alpha.png" /></p>
+<p><img alt="Ridge_alpha" src="_images/ridge_alpha.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -1220,7 +1171,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_74_0.png" src="_images/7.2_ML_for_structured_data-regression_74_0.png" />
+<img alt="_images/16b830ce120cdab4659f7651ffac191dcc1ffaf144bef72d5fde3aea0dbfb2ac.png" src="_images/16b830ce120cdab4659f7651ffac191dcc1ffaf144bef72d5fde3aea0dbfb2ac.png" />
 </div>
 </div>
 <p>MSE has also improved.</p>
@@ -1236,9 +1187,9 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-lasso">
-<h3><span class="section-number">2.5.4. </span>The Lasso<a class="headerlink" href="#the-lasso" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-lasso">
+<h3><span class="section-number">9.5.4. </span>The Lasso<a class="headerlink" href="#the-lasso" title="Permalink to this heading">#</a></h3>
 <p>Let’s try next the lasso. It uses stronger regularisation (the absolute values of parameters in the regularisation term)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1329,7 +1280,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_89_0.png" src="_images/7.2_ML_for_structured_data-regression_89_0.png" />
+<img alt="_images/71be4e89b8c4e04cf0de4e3f3c0c2f739a537263b3fe85b76ac679d88ec338d3.png" src="_images/71be4e89b8c4e04cf0de4e3f3c0c2f739a537263b3fe85b76ac679d88ec338d3.png" />
 </div>
 </div>
 <p>MSE has also improved.</p>
@@ -1416,7 +1367,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_101_0.png" src="_images/7.2_ML_for_structured_data-regression_101_0.png" />
+<img alt="_images/dd6a70fd744bed488034cc1d525280c353c715affa81e55a7a839a604f5da842.png" src="_images/dd6a70fd744bed488034cc1d525280c353c715affa81e55a7a839a604f5da842.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1431,9 +1382,9 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="linear-reference-model">
-<h3><span class="section-number">2.5.5. </span>Linear reference model<a class="headerlink" href="#linear-reference-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="linear-reference-model">
+<h3><span class="section-number">9.5.5. </span>Linear reference model<a class="headerlink" href="#linear-reference-model" title="Permalink to this heading">#</a></h3>
 <p>In the following, we use a more reasonable division between training and testing datasets. With so large data, there is no need for Ridge or Lasso regularisation and we use a basic linear model as a reference. 80% / 20% -split is commonly used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1488,9 +1439,9 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="random-forest">
-<h3><span class="section-number">2.5.6. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="random-forest">
+<h3><span class="section-number">9.5.6. </span>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h3>
 <p>Random forest has proven to be a very powerful prediction model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1531,7 +1482,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_119_0.png" src="_images/7.2_ML_for_structured_data-regression_119_0.png" />
+<img alt="_images/1d33739197415ab3e06e3845a1976d732f974bcddaed25c8446f7b27791caa6c.png" src="_images/1d33739197415ab3e06e3845a1976d732f974bcddaed25c8446f7b27791caa6c.png" />
 </div>
 </div>
 <p>Scikit-Learn has a <strong>feature_importances_</strong> attribute to explain the importance of different parameters in explaining the predictions.</p>
@@ -1639,9 +1590,9 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="gradient-boosting">
-<h3><span class="section-number">2.5.7. </span>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="gradient-boosting">
+<h3><span class="section-number">9.5.7. </span>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this heading">#</a></h3>
 <p>Random forest and gradient boosting are often the best ensemble models in applications. The gradient boosting model is defined using the same steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1680,7 +1631,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_130_0.png" src="_images/7.2_ML_for_structured_data-regression_130_0.png" />
+<img alt="_images/c88afab2416ea85c42996142cef9eada9d21a3ab4eb0ef95adc60ac272657dc1.png" src="_images/c88afab2416ea85c42996142cef9eada9d21a3ab4eb0ef95adc60ac272657dc1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1787,9 +1738,9 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="neural-networks-multi-layer-perceptron">
-<h3><span class="section-number">2.5.8. </span>Neural networks (multi-layer perceptron)<a class="headerlink" href="#neural-networks-multi-layer-perceptron" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="neural-networks-multi-layer-perceptron">
+<h3><span class="section-number">9.5.8. </span>Neural networks (multi-layer perceptron)<a class="headerlink" href="#neural-networks-multi-layer-perceptron" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPRegressor</span>
@@ -1827,7 +1778,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7.2_ML_for_structured_data-regression_139_0.png" src="_images/7.2_ML_for_structured_data-regression_139_0.png" />
+<img alt="_images/65c3a2f1fa285071c676c5160f4244c0c4c05acb5e4a320de60b194f303bf428.png" src="_images/65c3a2f1fa285071c676c5160f4244c0c4c05acb5e4a320de60b194f303bf428.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1854,9 +1805,9 @@ Selecting the best model is far from trivial and can be the most challenging tas
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1870,7 +1821,7 @@ Selecting the best model is far from trivial and can be the most challenging tas
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1878,38 +1829,130 @@ Selecting the best model is far from trivial and can be the most challenging tas
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="7.1_ML_for_structured_data-classification.html" title="previous page"><span class="section-number">1. </span>Machine learning for structured data - Classification</a>
-    <a class='right-next' id="next-link" href="7.3_ML_for_structured_data-xgboost_example.html" title="next page"><span class="section-number">3. </span>Example - Xgboost, state-of-the-art ensemble method for structured data</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Mikko Ranta<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="7.1_ML_for_structured_data-classification.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Machine learning for structured data - Classification</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="7.3_ML_for_structured_data-xgboost_example.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Example - Xgboost, state-of-the-art ensemble method for structured data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression">9.1. Classification vs. regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-models">9.2. Regression models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">9.2.1. Linear regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularised-regression">9.2.2. Regularised regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">9.2.3. Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regression">9.2.4. LASSO regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods-for-regression">9.2.5. Ensemble methods for regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-neural-network">9.2.6. Shallow neural network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">9.2.7. Neural networks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multilayer-perceptron">9.2.8. Multilayer perceptron</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-of-regression-models">9.3. Performance of regression models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficient-of-determination">9.3.1. Coefficient of determination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mse">9.3.2. MSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-tradeoff">9.3.3. Bias-Variance tradeoff</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">9.4. Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">9.5. Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">9.5.1. Scikit-learn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model">9.5.2. Linear model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.5.3. Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lasso">9.5.4. The Lasso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-reference-model">9.5.5. Linear reference model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">9.5.6. Random forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-boosting">9.5.7. Gradient boosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks-multi-layer-perceptron">9.5.8. Neural networks (multi-layer perceptron)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikko Ranta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
