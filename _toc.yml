@@ -1,7 +1,8 @@
-- file: book_intro
+format: jb-book
+root: book_intro
+parts:
+- caption: Basic data analytics in accounting
   numbered: true
-
-- part: Basic data analytics in accounting
   chapters:
   - file: 0_installing_Python
   - file: 1_Intro_to_Python
@@ -10,8 +11,8 @@
   - file: 4_Connecting_with_accounting_databases
   - file: 5_Visualisation_with_Python
   - file: 6_Basic_statistics_with_Python
-  
-- part: Machine learning in accounting
+- caption: Machine learning in accounting
+  numbered: true
   chapters:
   - file: 7.1_ML_for_structured_data-classification
   - file: 7.2_ML_for_structured_data-regression

@@ -1,341 +1,381 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>5. Connecting with accounting databases &#8212; Data analytics in accounting</title>
-    
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
-
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '4_Connecting_with_accounting_databases';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. Visualisations with Python" href="5_Visualisation_with_Python.html" />
     <link rel="prev" title="4. Pandas Data preprocessing" href="3_Pandas_data_preprocessing.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="book_intro.html">
   
   
-  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
   
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Data analytics in accounting - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Data analytics in accounting - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="book_intro.html">
+                    Introduction to data analytics in accounting
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic data analytics in accounting</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_installing_Python.html">1. Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python.html">2. Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Pandas_basics.html">3. Pandas data basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Pandas_data_preprocessing.html">4. Pandas Data preprocessing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Connecting with accounting databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Visualisation_with_Python.html">6. Visualisations with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Basic_statistics_with_Python.html">7. Basic statistics and time series analysis with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning in accounting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="7.1_ML_for_structured_data-classification.html">8. Machine learning for structured data - Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.2_ML_for_structured_data-regression.html">9. Machine learning for structured data - Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">10. Example - Xgboost, state-of-the-art ensemble method for structured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.4_ML_for_structured_data-example.html">11. Example of grid-search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Decision_making_in_accounting.html">12. Decision making with ML in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Deep_learning_in_accounting.html">13. Deep learning in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.1_Bonus_example.html">14. Bonus example - starting from scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.2_AccFin_example.html">15. Deep learning example from Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_NLP_in_accounting.html">16. Introduction to natural language processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.1_LDA_bonus_example.html">17. Basic LDA example - An analysis of ~200 scientific articles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.2_Advanced_NLP_accfin.html">18. Advanced NLP and Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Neural_NLP_methods.html">19. Neural NLP models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.1_Neural_NLP_and_accfin.html">20. Neural NLP and accounting/finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.2_Transformers_examples.html">21. Transformers examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_BONUS-processing_unstructured_data.html">22. Processing unstructured data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/4_Connecting_with_accounting_databases.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="book_intro.html">
-   Introduction to data analytics in accounting
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Basic data analytics in accounting
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="0_installing_Python.html">
-   1. Installing Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="1_Intro_to_Python.html">
-   2. Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Pandas_basics.html">
-   3. Pandas data basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
-   4. Pandas Data preprocessing
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   5. Connecting with accounting databases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="5_Visualisation_with_Python.html">
-   6. Visualisations with Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   7. Basic statistics and time series analysis with Python
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Machine learning in accounting
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
-   1. Machine learning for structured data - Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
-   2. Machine learning for structured data - Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
-   3. Example - Xgboost, state-of-the-art ensemble method for structured data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.4_ML_for_structured_data-example.html">
-   4. Example of grid-search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   5. Decision making with ML in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   6. Deep learning in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.1_Bonus_example.html">
-   7. Bonus example - starting from scratch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.2_AccFin_example.html">
-   8. Deep learning example from Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_NLP_in_accounting.html">
-   9. Introduction to natural language processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   10. Basic LDA example - An analysis of ~200 scientific articles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.2_Advanced_NLP_accfin.html">
-   11. Advanced NLP and Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html">
-   12. Neural NLP models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   13. Processing unstructured data
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/4_Connecting_with_accounting_databases.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-        <!-- Source interaction buttons -->
-
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/4_Connecting_with_accounting_databases.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#power-bi">
-   5.1. Power BI
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mysql-sap-and-others">
-   5.2. MySQL, SAP and others
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sqlite">
-   5.3. Sqlite
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-sources-of-accounting-data">
-   5.4. Other sources of accounting data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pandas-datareader">
-     5.4.1. Pandas Datareader
-    </a>
-   </li>
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
-        </nav>
-        
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Connecting with accounting databases</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-bi">5.1. Power BI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mysql-sap-and-others">5.2. MySQL, SAP and others</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite">5.3. Sqlite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-sources-of-accounting-data">5.4. Other sources of accounting data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-datareader">5.4.1. Pandas Datareader</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="connecting-with-accounting-databases">
-<h1><span class="section-number">5. </span>Connecting with accounting databases<a class="headerlink" href="#connecting-with-accounting-databases" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="power-bi">
-<h2><span class="section-number">5.1. </span>Power BI<a class="headerlink" href="#power-bi" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="connecting-with-accounting-databases">
+<h1><span class="section-number">5. </span>Connecting with accounting databases<a class="headerlink" href="#connecting-with-accounting-databases" title="Link to this heading">#</a></h1>
+<section id="power-bi">
+<h2><span class="section-number">5.1. </span>Power BI<a class="headerlink" href="#power-bi" title="Link to this heading">#</a></h2>
 <p>The easiest way to exploit the Python ecosystem in Power BI is to enable Python scripting inside Power BI. For that, you need to have Python installed in your system.</p>
 <p>In Power BI, check from <strong>Options - Global - Python scripting</strong> that you have correct folders for your Python and IDE. Power BI should detect the folders automatically, but it is good to check.</p>
 <p>Furthermore, you need to have at least Pandas, Matplotlib and Numpy installed.</p>
@@ -348,15 +388,15 @@
 <li><p>Nested tables are not supported.</p></li>
 </ul>
 <p>Otherwise, implementing Python in Power BI is very similar to doing analysis purely inside Python. The good thing is, of course, that you have the tools of both Python and Power BI at your disposal.</p>
-</div>
-<div class="section" id="mysql-sap-and-others">
-<h2><span class="section-number">5.2. </span>MySQL, SAP and others<a class="headerlink" href="#mysql-sap-and-others" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-sap-and-others">
+<h2><span class="section-number">5.2. </span>MySQL, SAP and others<a class="headerlink" href="#mysql-sap-and-others" title="Link to this heading">#</a></h2>
 <p>There are good libraries for connecting to MySQL, for example, MySQLdb: <a class="reference external" href="https://pypi.org/project/MySQL-python/">pypi.org/project/MySQL-python/</a>. If you want, you can use your MySQL database to go through the examples, instead of SQlite.</p>
 <p>SAP HANA is used to connect with Python to a SAP database. Here are the instructions on how to connect Python to SAP: <a class="reference external" href="https://developers.sap.com/tutorials/hana-clients-python.html">developers.sap.com/tutorials/hana-clients-python.html</a>.
 The task is quite difficult, and we are not doing that in this course.</p>
-</div>
-<div class="section" id="sqlite">
-<h2><span class="section-number">5.3. </span>Sqlite<a class="headerlink" href="#sqlite" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sqlite">
+<h2><span class="section-number">5.3. </span>Sqlite<a class="headerlink" href="#sqlite" title="Link to this heading">#</a></h2>
 <p>In the following, we will analyse our example database purely in Python. For that, we use an example company database that is available here: <a class="reference external" href="https://github.com/jpwhite3/northwind-SQLite3">github.com/jpwhite3/northwind-SQLite3</a></p>
 <p><img alt="Northwind" src="_images/Northwind.png" /></p>
 <p>This demo-database has originally been published to Microsoft Access 2000. We analyse it using Sqlite3. However, keep in mind that you can repeat the following analysis by connecting to many other databases, like SAP. In the following, we use some basic SQL statements. However, this course is not about SQL, so we do not go deeper in that direction.</p>
@@ -969,7 +1009,7 @@ The task is quite difficult, and we are not doing that in this course.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/4_Connecting_with_accounting_databases_27_1.png" src="_images/4_Connecting_with_accounting_databases_27_1.png" />
+<img alt="_images/c591a5b5a82a3b0373a44753d53c864ae9e68092e2e7ac0483e2c97cc010152f.png" src="_images/c591a5b5a82a3b0373a44753d53c864ae9e68092e2e7ac0483e2c97cc010152f.png" />
 </div>
 </div>
 <p>Let’s check next, to which country the company is selling the most. The following command is quite long! First, it groups values by <strong>ShipCountry</strong>, then counts values and sorts them in a descending order by <strong>Quantity</strong>, and finally selects only <strong>Quantity</strong> -column.</p>
@@ -1031,7 +1071,7 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4_Connecting_with_accounting_databases_34_0.png" src="_images/4_Connecting_with_accounting_databases_34_0.png" />
+<img alt="_images/d5ffea8a36e26aed1cd7970d3269bd539e631ac9a26faa3dc548ebe003fea9ee.png" src="_images/d5ffea8a36e26aed1cd7970d3269bd539e631ac9a26faa3dc548ebe003fea9ee.png" />
 </div>
 </div>
 <p>With pivot tables, we can do a 2-way grouping.</p>
@@ -1348,7 +1388,7 @@ Name: Quantity, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;OrderDate&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/4_Connecting_with_accounting_databases_40_1.png" src="_images/4_Connecting_with_accounting_databases_40_1.png" />
+<img alt="_images/f98902bd86e21bcad8046b7b1af948158285278dbf8e0ce290ebaffc2c2de391.png" src="_images/f98902bd86e21bcad8046b7b1af948158285278dbf8e0ce290ebaffc2c2de391.png" />
 </div>
 </div>
 <p>Let’s plot how the sales of different salesperson have progressed. The <strong>for</strong> loop in the command goes through all the salesperson and draws their performance to the same chart. With <strong>set</strong>, we can pick from the <strong>LastName</strong> column unique values.</p>
@@ -1363,7 +1403,7 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4_Connecting_with_accounting_databases_42_0.png" src="_images/4_Connecting_with_accounting_databases_42_0.png" />
+<img alt="_images/851aaf1a4b01978e369b29c25e73ce53cc95a1493db8ace98daeb869c6c89b30.png" src="_images/851aaf1a4b01978e369b29c25e73ce53cc95a1493db8ace98daeb869c6c89b30.png" />
 </div>
 </div>
 <p>We can also use bar charts. Here are the sales of different salesperson and product categories. We first do a two-level grouping, sum the values in those groups, and pick <strong>TotalPrice</strong>. Adding <strong>plot.barh()</strong> to the end turns the 2-level grouping table into a bar chart.</p>
@@ -1375,7 +1415,7 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4_Connecting_with_accounting_databases_44_0.png" src="_images/4_Connecting_with_accounting_databases_44_0.png" />
+<img alt="_images/e1b7121727c5e08a17bf3eb94a29cf9bd1bab44964e319414b39f6a7879fe2ca.png" src="_images/e1b7121727c5e08a17bf3eb94a29cf9bd1bab44964e319414b39f6a7879fe2ca.png" />
 </div>
 </div>
 <p>We can also use percentage values in tables. (I admit, the following command is a mess!). It divides the values of a <strong>LastName/CategoryName</strong> -pivot table with the row sums of that table. Then, it multiplies these numbers by hundred. <strong>style.format</strong> is used to decrease the number of decimals to 2 <strong>2f</strong>, and to add <strong>%</strong> to the end.</p>
@@ -1491,13 +1531,13 @@ Name: Quantity, dtype: int64
             </tr>
     </tbody></table></div></div>
 </div>
-</div>
-<div class="section" id="other-sources-of-accounting-data">
-<h2><span class="section-number">5.4. </span>Other sources of accounting data<a class="headerlink" href="#other-sources-of-accounting-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="other-sources-of-accounting-data">
+<h2><span class="section-number">5.4. </span>Other sources of accounting data<a class="headerlink" href="#other-sources-of-accounting-data" title="Link to this heading">#</a></h2>
 <p>Google Dataset Search is an excellent source of datasets, including interesting accounting datasets: <a class="reference external" href="https://datasetsearch.research.google.com/">datasetsearch.research.google.com/</a></p>
 <p>Quandl is another interesting source of data. They have some free datasets, but you need to register to get an api key before you can download any data. Quandl offers a library that you can use to download datasets directly in Python: <a class="reference external" href="https://www.quandl.com/">www.quandl.com/</a></p>
-<div class="section" id="pandas-datareader">
-<h3><span class="section-number">5.4.1. </span>Pandas Datareader<a class="headerlink" href="#pandas-datareader" title="Permalink to this headline">¶</a></h3>
+<section id="pandas-datareader">
+<h3><span class="section-number">5.4.1. </span>Pandas Datareader<a class="headerlink" href="#pandas-datareader" title="Link to this heading">#</a></h3>
 <p>Pandas Datareader is a library that can be used to download external datasets to Pandas dataframes. <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/">pandas-datareader.readthedocs.io/en/latest/</a></p>
 <p>Currently, the following sources are supported in Pandas Datareader</p>
 <ul class="simple">
@@ -1545,7 +1585,7 @@ Name: Quantity, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4_Connecting_with_accounting_databases_58_0.png" src="_images/4_Connecting_with_accounting_databases_58_0.png" />
+<img alt="_images/8c8b779eb0abe35dd52bb4984d33d8b9ccf75edb312a1506ba8fae7f09c3c32c.png" src="_images/8c8b779eb0abe35dd52bb4984d33d8b9ccf75edb312a1506ba8fae7f09c3c32c.png" />
 </div>
 </div>
 <p>Fama/French data library is also very interesting for accounting research. <a class="reference external" href="http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html</a></p>
@@ -1612,12 +1652,12 @@ Name: Quantity, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/4_Connecting_with_accounting_databases_68_1.png" src="_images/4_Connecting_with_accounting_databases_68_1.png" />
+<img alt="_images/b1c13bea2aa29c590ed40c0e9c6cd3732f0252a6da83f38beecb14cba1fcf6f7.png" src="_images/b1c13bea2aa29c590ed40c0e9c6cd3732f0252a6da83f38beecb14cba1fcf6f7.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1631,7 +1671,7 @@ Name: Quantity, dtype: int64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1639,38 +1679,109 @@ Name: Quantity, dtype: int64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="3_Pandas_data_preprocessing.html" title="previous page"><span class="section-number">4. </span>Pandas Data preprocessing</a>
-    <a class='right-next' id="next-link" href="5_Visualisation_with_Python.html" title="next page"><span class="section-number">6. </span>Visualisations with Python</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Mikko Ranta<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3_Pandas_data_preprocessing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Pandas Data preprocessing</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="5_Visualisation_with_Python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Visualisations with Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-bi">5.1. Power BI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mysql-sap-and-others">5.2. MySQL, SAP and others</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite">5.3. Sqlite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-sources-of-accounting-data">5.4. Other sources of accounting data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-datareader">5.4.1. Pandas Datareader</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikko Ranta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
