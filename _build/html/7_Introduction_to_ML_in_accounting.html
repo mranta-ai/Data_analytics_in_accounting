@@ -1,404 +1,398 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Introduction to Machine learning in accounting &#8212; Data analytics in accounting</title>
-    
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
-
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '7_Introduction_to_ML_in_accounting';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="book_intro.html">
   
   
-  <h1 class="site-logo" id="site-title">Data analytics in accounting</h1>
   
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Data analytics in accounting - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Data analytics in accounting - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="book_intro.html">
+                    Introduction to data analytics in accounting
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic data analytics in accounting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_installing_Python.html">1. Installing Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Intro_to_Python.html">2. Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Pandas_basics.html">3. Pandas data basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Pandas_data_preprocessing.html">4. Pandas Data preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Connecting_with_accounting_databases.html">5. Connecting with accounting databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Visualisation_with_Python.html">6. Visualisations with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Basic_statistics_with_Python.html">7. Basic statistics and time series analysis with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning in accounting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="7.1_ML_for_structured_data-classification.html">8. Machine learning for structured data - Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.2_ML_for_structured_data-regression.html">9. Machine learning for structured data - Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">10. Example - Xgboost, state-of-the-art ensemble method for structured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.4_ML_for_structured_data-example.html">11. Example of grid-search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Decision_making_in_accounting.html">12. Decision making with ML in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Deep_learning_in_accounting.html">13. Deep learning in accounting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.1_Bonus_example.html">14. Bonus example - starting from scratch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.2_AccFin_example.html">15. Deep learning example from Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_NLP_in_accounting.html">16. Introduction to natural language processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.1_LDA_bonus_example.html">17. Basic LDA example - An analysis of ~200 scientific articles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.2_Advanced_NLP_accfin.html">18. Advanced NLP and Accounting/Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Neural_NLP_methods.html">19. Neural NLP models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.1_Neural_NLP_and_accfin.html">20. Neural NLP and accounting/finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.2_Transformers_examples.html">21. Transformers examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_BONUS-processing_unstructured_data.html">22. Processing unstructured data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/7_Introduction_to_ML_in_accounting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="book_intro.html">
-   Introduction to data analytics in accounting
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Basic data analytics in accounting
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="0_installing_Python.html">
-   1. Installing Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="1_Intro_to_Python.html">
-   2. Introduction to Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Pandas_basics.html">
-   3. Pandas data basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Pandas_data_preprocessing.html">
-   4. Pandas Data preprocessing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_Connecting_with_accounting_databases.html">
-   5. Connecting with accounting databases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="5_Visualisation_with_Python.html">
-   6. Visualisations with Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="6_Basic_statistics_with_Python.html">
-   7. Basic statistics and time series analysis with Python
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Machine learning in accounting
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="7.1_ML_for_structured_data-classification.html">
-   1. Machine learning for structured data - Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.2_ML_for_structured_data-regression.html">
-   2. Machine learning for structured data - Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3_ML_for_structured_data-xgboost_example.html">
-   3. Example - Xgboost, state-of-the-art ensemble method for structured data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.4_ML_for_structured_data-example.html">
-   4. Example of grid-search
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="8_Decision_making_in_accounting.html">
-   5. Decision making with ML in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9_Deep_learning_in_accounting.html">
-   6. Deep learning in accounting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.1_Bonus_example.html">
-   7. Bonus example - starting from scratch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="9.2_AccFin_example.html">
-   8. Deep learning example from Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_NLP_in_accounting.html">
-   9. Introduction to natural language processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.1_LDA_bonus_example.html">
-   10. Basic LDA example - An analysis of ~200 scientific articles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.2_Advanced_NLP_accfin.html">
-   11. Advanced NLP and Accounting/Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_Neural_NLP_methods.html">
-   12. Neural NLP models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_BONUS-processing_unstructured_data.html">
-   13. Processing unstructured data
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/7_Introduction_to_ML_in_accounting.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
+  
 </div>
-
-        <!-- Source interaction buttons -->
-
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/7_Introduction_to_ML_in_accounting.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
 </div>
+              
+              
 
-    </div>
-
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Machine learning in accounting</h1>
     <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ensemble-methods">
-   Ensemble methods
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#support-vector-machines">
-   Support vector machines
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#key-ml-libraries-in-python">
-   Key ML libraries in Python
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numpy">
-     Numpy
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scikit-learn">
-     Scikit-learn
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regression">
-   Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-model">
-     Linear model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ridge-regression">
-     Ridge regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-lasso">
-     The Lasso
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-reference-model">
-     Linear reference model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-forest">
-     Random forest
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gradient-boosting">
-   Gradient boosting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classification">
-   Classification
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#linear-discriminant-analysis">
-     Linear discriminant analysis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Support vector machines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#decision-trees">
-     Decision trees
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-forest-revisited">
-     Random forest revisited
-    </a>
-   </li>
-  </ul>
- </li>
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods">Ensemble methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machines">Support vector machines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-ml-libraries-in-python">Key ML libraries in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">Scikit-learn</a></li>
 </ul>
-
-        </nav>
-        
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model">Linear model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lasso">The Lasso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-reference-model">Linear reference model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random forest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-boosting">Gradient boosting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis">Linear discriminant analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Support vector machines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">Decision trees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-revisited">Random forest revisited</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="introduction-to-machine-learning-in-accounting">
-<h1>Introduction to Machine learning in accounting<a class="headerlink" href="#introduction-to-machine-learning-in-accounting" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="introduction-to-machine-learning-in-accounting">
+<h1>Introduction to Machine learning in accounting<a class="headerlink" href="#introduction-to-machine-learning-in-accounting" title="Link to this heading">#</a></h1>
 <p>In this chapter we will discus <strong>shallow</strong> machine learning models. Although neural networks can also be shallow, the discussion of them is postponed to Chapter 9.</p>
-<div class="section" id="ensemble-methods">
-<h2>Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h2>
+<section id="ensemble-methods">
+<h2>Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Link to this heading">#</a></h2>
 <p>There is a saying: Two heads are better than one. What about even more heads? At least with machine learning, more heads is helpful (I am not sure about humans. :))</p>
 <p>The idea of ensemble methods is to join many weak estimators as one efficient estimator. Using this approach, these methods achieve strong results. It is enough that the weak estimator is only slightly better than pure chance, their ensemble can still be a very efficient machine learning method.</p>
 <p><strong>Example:</strong> Let’s assume that we have a weak estimator that can correctly predict the bankcruptcy of a company 52 % of a time. Thus, the predictor is only slightly better than pure chance (50 %).</p>
@@ -454,16 +448,16 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <p><img alt="boosting" src="_images/boost.png" /></p>
 <p>Xgboost has probably been the most succesfull boosting method. It is very often behind the winning solutions of different machine learning competitions (<a class="reference external" href="https://www.kaggle.com">www.kaggle.com</a>). Here is a short info from the Xgboost github-page: “XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It implements machine learning algorithms under the Gradient Boosting framework. XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. The same code runs on major distributed environment (Kubernetes, Hadoop, SGE, MPI, Dask) and can solve problems beyond billions of examples.”</p>
 <p>Later in the book, we will see an example using Xgboost.</p>
-</div>
-<div class="section" id="support-vector-machines">
-<h2>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="support-vector-machines">
+<h2>Support vector machines<a class="headerlink" href="#support-vector-machines" title="Link to this heading">#</a></h2>
 <p>The Support Vector Machine (SVM) was previously one of the most popular algorithms in modern machine learning. It often provides very impressive classification performance on reasonably sized datasets. However, SVMs have difficulties with large datasets since the computations don’t scale well with the number of training examples. This poor performance with large datasets hinders somewhat their success in big data and is the reason why neural networks have partly replaced SVMs in that field. However, in accounting we have often datasets of modest size and SVMs work very well with them.</p>
 <p><img alt="SVM" src="_images/SVM_margin.png" /></p>
-</div>
-<div class="section" id="key-ml-libraries-in-python">
-<h2>Key ML libraries in Python<a class="headerlink" href="#key-ml-libraries-in-python" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="numpy">
-<h3>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="key-ml-libraries-in-python">
+<h2>Key ML libraries in Python<a class="headerlink" href="#key-ml-libraries-in-python" title="Link to this heading">#</a></h2>
+<section id="numpy">
+<h3>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h3>
 <p>Although Numpy is not exactly a machine learning library, it is the backbone of many other ML libraries and the most important library for numerical computing in Python. Therefore, we start our journey of ML libraries with the basics of NumPy.</p>
 <p>The key feature of Numpy is its flexible and fast multidimensional <strong>ndarray</strong> that can contain large datasets. It enables mathematical operations between arrays in a way that is very similar to calculations with scalars.</p>
 <div class="cell docutils container">
@@ -822,7 +816,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x21ee5214220&gt;]
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_45_1.png" src="_images/7_Introduction_to_ML_in_accounting_45_1.png" />
+<img alt="_images/2cc6d3725205748df8714c2b07bf31406afc071e482f22572a1cd85f3188423e.png" src="_images/2cc6d3725205748df8714c2b07bf31406afc071e482f22572a1cd85f3188423e.png" />
 </div>
 </div>
 <p>Dividing with an array works also element-wise.</p>
@@ -1390,9 +1384,9 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="scikit-learn">
-<h3>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="scikit-learn">
+<h3>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Link to this heading">#</a></h3>
 <p>Scikit-learn is a multi-purpose machine learning library. It has modules for many different machine learning approaches. It is not the best library in any machine learning field but very good at most of them. Also, all the approaches use the common workflow approach of the library. Thus, by learning to do one machine learning analysis, you learn to do them all.</p>
 <p>Scikit-learn has libraries for classification, regression, clustering, dimensionality reduction and model selection. It also has an extensive library of methods for data pre-processing.</p>
 <p>A very convenient feature in Scikit-learn is <strong>pipeline</strong> that you can use to construct full workflows of machine learning analyses.</p>
@@ -1639,7 +1633,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_122_0.png" src="_images/7_Introduction_to_ML_in_accounting_122_0.png" />
+<img alt="_images/293d7f28dac7ddd0c5679e6a5034dfaf11808f2e707dcea8c197af6f7cea999c.png" src="_images/293d7f28dac7ddd0c5679e6a5034dfaf11808f2e707dcea8c197af6f7cea999c.png" />
 </div>
 </div>
 <p>With <strong>corr()</strong> you can check the correlations. There is multicollinearity present, but for example with ensemble methods, multicollinearity is much less of a problem.</p>
@@ -1858,12 +1852,12 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="regression">
-<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="linear-model">
-<h3>Linear model<a class="headerlink" href="#linear-model" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="regression">
+<h2>Regression<a class="headerlink" href="#regression" title="Link to this heading">#</a></h2>
+<section id="linear-model">
+<h3>Linear model<a class="headerlink" href="#linear-model" title="Link to this heading">#</a></h3>
 <p>Although Scikit-learn is a ML library, it is possible to do a basic linear regression analysis with it. (All ML methods are statistical methods. The separation between them is artificial.)
 <img alt="Linear_regression" src="_images/Linear_regression.svg" /></p>
 <div class="cell docutils container">
@@ -1946,7 +1940,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_146_0.png" src="_images/7_Introduction_to_ML_in_accounting_146_0.png" />
+<img alt="_images/5c0035bc947ee7f077b4f61d035966d2ce761ab5290020d2d5cc5ad44ca6a70e.png" src="_images/5c0035bc947ee7f077b4f61d035966d2ce761ab5290020d2d5cc5ad44ca6a70e.png" />
 </div>
 </div>
 <p>Mean squared error can be used to the measure the performance. Less is better.</p>
@@ -1969,13 +1963,13 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="ridge-regression">
-<h3>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ridge-regression">
+<h3>Ridge regression<a class="headerlink" href="#ridge-regression" title="Link to this heading">#</a></h3>
 <p>Ridge regression counters overfitting by adding a penalty on the size if the coefficients of the standard linear regression model. So it is a regularisation method.</p>
 <p><img alt="Regularisation" src="_images/Regularization.svg" /></p>
 <p>We can optimise the alpha parameter of the error function automatically using <strong>RidgeCV</strong>.</p>
-<p><img alt="Ridge_alpha" src="./images/ridge_alpha.png" /></p>
+<p><img alt="Ridge_alpha" src="_images/ridge_alpha.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -2072,7 +2066,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_164_0.png" src="_images/7_Introduction_to_ML_in_accounting_164_0.png" />
+<img alt="_images/cd92616b714121fe8cc499ce7de1e12638bbc96383e885f35cea2c5bae85b707.png" src="_images/cd92616b714121fe8cc499ce7de1e12638bbc96383e885f35cea2c5bae85b707.png" />
 </div>
 </div>
 <p>MSE has also improved.</p>
@@ -2088,9 +2082,9 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-lasso">
-<h3>The Lasso<a class="headerlink" href="#the-lasso" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-lasso">
+<h3>The Lasso<a class="headerlink" href="#the-lasso" title="Link to this heading">#</a></h3>
 <p>Let’s try next the lasso. It uses stronger regularisation (the absolute values of parameters in the regularisation term)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2181,7 +2175,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_179_0.png" src="_images/7_Introduction_to_ML_in_accounting_179_0.png" />
+<img alt="_images/62c42d262d413050064ad06be154fcb7a6c77896283c5a2b9ea7728c64a12e4e.png" src="_images/62c42d262d413050064ad06be154fcb7a6c77896283c5a2b9ea7728c64a12e4e.png" />
 </div>
 </div>
 <p>MSE has also improved.</p>
@@ -2268,7 +2262,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_191_0.png" src="_images/7_Introduction_to_ML_in_accounting_191_0.png" />
+<img alt="_images/974ebeec779f0f7f74159e93e6737011a8aa6684eca8fb9f88414348f7ff6b5f.png" src="_images/974ebeec779f0f7f74159e93e6737011a8aa6684eca8fb9f88414348f7ff6b5f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2283,9 +2277,9 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="linear-reference-model">
-<h3>Linear reference model<a class="headerlink" href="#linear-reference-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="linear-reference-model">
+<h3>Linear reference model<a class="headerlink" href="#linear-reference-model" title="Link to this heading">#</a></h3>
 <p>In the following, we use a more reasonable division between training and testing datasets. With so large data, there is no need for Ridge or Lasso regularisation and we use a basic linear model as a reference. 80% / 20% -split is commonly used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2340,9 +2334,9 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="random-forest">
-<h3>Random forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="random-forest">
+<h3>Random forest<a class="headerlink" href="#random-forest" title="Link to this heading">#</a></h3>
 <p>Random forest has proven to be a very powerful prediction model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2383,7 +2377,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_209_0.png" src="_images/7_Introduction_to_ML_in_accounting_209_0.png" />
+<img alt="_images/3f20b718c1359845fe6ecfed973d3492b305ff4895b4b896a13a5880a34e875e.png" src="_images/3f20b718c1359845fe6ecfed973d3492b305ff4895b4b896a13a5880a34e875e.png" />
 </div>
 </div>
 <p>Scikit-Learn has a <strong>feature_importances_</strong> attribute to explain the importance of different parameters in explaining the predictions.</p>
@@ -2491,10 +2485,10 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="gradient-boosting">
-<h2>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="gradient-boosting">
+<h2>Gradient boosting<a class="headerlink" href="#gradient-boosting" title="Link to this heading">#</a></h2>
 <p>Random forest and gradient boosting are often the best ensemble models in applications. The gradient boosting model is defined using the same steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2533,7 +2527,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_220_0.png" src="_images/7_Introduction_to_ML_in_accounting_220_0.png" />
+<img alt="_images/a823905c29e409308a945ba7f51e7d6f3600cd7155ba2e40524965aeff4b3a6c.png" src="_images/a823905c29e409308a945ba7f51e7d6f3600cd7155ba2e40524965aeff4b3a6c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2640,9 +2634,9 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="classification">
-<h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="classification">
+<h2>Classification<a class="headerlink" href="#classification" title="Link to this heading">#</a></h2>
 <p>Let’s look next ML models can be used for classification.</p>
 <p>The following statement constructs an indicator variable to the dataframe, that has a value 1, if the ROA of that company is larger than zero (and zero otherwise). In the following models we try to classify the companies to these two categories.</p>
 <div class="cell docutils container">
@@ -2675,8 +2669,8 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 </div>
-<div class="section" id="linear-discriminant-analysis">
-<h3>Linear discriminant analysis<a class="headerlink" href="#linear-discriminant-analysis" title="Permalink to this headline">¶</a></h3>
+<section id="linear-discriminant-analysis">
+<h3>Linear discriminant analysis<a class="headerlink" href="#linear-discriminant-analysis" title="Link to this heading">#</a></h3>
 <p>Linear discriminant analysis is the simplest approach. It tries to separate classes using a linear combination of features.</p>
 <p><img alt="LinDis" src="_images/LinDis.png" /></p>
 <p>The models are build like in the regression examples.</p>
@@ -2736,7 +2730,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_243_0.png" src="_images/7_Introduction_to_ML_in_accounting_243_0.png" />
+<img alt="_images/ae0bba53aba5c4de9fbbb846e65e05b54207d86832a0543b95e33e32e19a0abe.png" src="_images/ae0bba53aba5c4de9fbbb846e65e05b54207d86832a0543b95e33e32e19a0abe.png" />
 </div>
 </div>
 <p>A precision-recall curve is an alternative and especially suitable for imbalanced data (the sizes of the categories are not equal). The more the line bends to the upper-<em>right</em> corner, the better.</p>
@@ -2748,12 +2742,12 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_245_0.png" src="_images/7_Introduction_to_ML_in_accounting_245_0.png" />
+<img alt="_images/bc7ce37a0721b09d6b4a0c7c059c2c3d228c56b49adfd0f325e6e8db4dd412df.png" src="_images/bc7ce37a0721b09d6b4a0c7c059c2c3d228c56b49adfd0f325e6e8db4dd412df.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id1">
-<h3>Support vector machines<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id1">
+<h3>Support vector machines<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Usually SVMs are powerfull classifiers, but for this data, they do not perform as well as the LDA model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2810,7 +2804,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_254_0.png" src="_images/7_Introduction_to_ML_in_accounting_254_0.png" />
+<img alt="_images/71a25b9b538b3b2c5b749d262c9c252ba078bf6d2506a2c3e8f9885a91f3dcdc.png" src="_images/71a25b9b538b3b2c5b749d262c9c252ba078bf6d2506a2c3e8f9885a91f3dcdc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2823,7 +2817,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x21eeff0e1f0&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_255_1.png" src="_images/7_Introduction_to_ML_in_accounting_255_1.png" />
+<img alt="_images/00a2858a1be502e5714670f846468507789549d632138dea1e5f46fb3bf9f287.png" src="_images/00a2858a1be502e5714670f846468507789549d632138dea1e5f46fb3bf9f287.png" />
 </div>
 </div>
 <p>Radial basis function is more powerful kernel for SVMs.</p>
@@ -2867,7 +2861,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_261_0.png" src="_images/7_Introduction_to_ML_in_accounting_261_0.png" />
+<img alt="_images/306044157e27b42cb0a20e04100c832d7e473eac6ca2d292c91d6d02a737a70b.png" src="_images/306044157e27b42cb0a20e04100c832d7e473eac6ca2d292c91d6d02a737a70b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2880,12 +2874,12 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x21ef06e2d60&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_262_1.png" src="_images/7_Introduction_to_ML_in_accounting_262_1.png" />
+<img alt="_images/c7b9e6100f27da1d17e1ea6535fd2d88b93aa79a04f96e07e30c4e44c9a15f72.png" src="_images/c7b9e6100f27da1d17e1ea6535fd2d88b93aa79a04f96e07e30c4e44c9a15f72.png" />
 </div>
 </div>
-</div>
-<div class="section" id="decision-trees">
-<h3>Decision trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="decision-trees">
+<h3>Decision trees<a class="headerlink" href="#decision-trees" title="Link to this heading">#</a></h3>
 <p>Decision tree classifies companies by using features to catogorise companies to different branches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2929,7 +2923,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_269_0.png" src="_images/7_Introduction_to_ML_in_accounting_269_0.png" />
+<img alt="_images/622a5a563ae929fd9f4f9182400993e740a76e76e3ff89f0447c2851208ddaaf.png" src="_images/622a5a563ae929fd9f4f9182400993e740a76e76e3ff89f0447c2851208ddaaf.png" />
 </div>
 </div>
 <p>The decision tree model has the best performance so far.</p>
@@ -2955,7 +2949,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x21ee7fdedf0&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_272_1.png" src="_images/7_Introduction_to_ML_in_accounting_272_1.png" />
+<img alt="_images/9e99c6e7f9c42578366f9a07b162517fbd53646b2a546f1ebd8d4ff4b19d1edd.png" src="_images/9e99c6e7f9c42578366f9a07b162517fbd53646b2a546f1ebd8d4ff4b19d1edd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2968,12 +2962,12 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x21ef02d2a00&gt;
 </pre></div>
 </div>
-<img alt="_images/7_Introduction_to_ML_in_accounting_273_1.png" src="_images/7_Introduction_to_ML_in_accounting_273_1.png" />
+<img alt="_images/5428d59774b1ebdb845d4e3de1346b9cda940ff3183dc6e5462c3811e04ee200.png" src="_images/5428d59774b1ebdb845d4e3de1346b9cda940ff3183dc6e5462c3811e04ee200.png" />
 </div>
 </div>
-</div>
-<div class="section" id="random-forest-revisited">
-<h3>Random forest revisited<a class="headerlink" href="#random-forest-revisited" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="random-forest-revisited">
+<h3>Random forest revisited<a class="headerlink" href="#random-forest-revisited" title="Link to this heading">#</a></h3>
 <p>If the decision tree model was performin so well, we could anticipate that many decision trees (= random forest) would perform even better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3101,7 +3095,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_282_0.png" src="_images/7_Introduction_to_ML_in_accounting_282_0.png" />
+<img alt="_images/c5595ddcf5e1619b5fbc35b64b0de52ce71885bab1ff71e6ea0d7f31112e6ff1.png" src="_images/c5595ddcf5e1619b5fbc35b64b0de52ce71885bab1ff71e6ea0d7f31112e6ff1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3112,12 +3106,12 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7_Introduction_to_ML_in_accounting_283_0.png" src="_images/7_Introduction_to_ML_in_accounting_283_0.png" />
+<img alt="_images/c012244e79b74f2228ca652219be7e444b98a42c421361917966f602d656861f.png" src="_images/c012244e79b74f2228ca652219be7e444b98a42c421361917966f602d656861f.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3131,7 +3125,7 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -3139,36 +3133,107 @@ In Boosting, weak estimators work in series. The idea is to feed the data again 
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensemble-methods">Ensemble methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machines">Support vector machines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-ml-libraries-in-python">Key ML libraries in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">Scikit-learn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-model">Linear model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">Ridge regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lasso">The Lasso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-reference-model">Linear reference model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random forest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-boosting">Gradient boosting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">Classification</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis">Linear discriminant analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Support vector machines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">Decision trees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-revisited">Random forest revisited</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
     
+<p class="component-author">
+By Mikko Ranta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
     
-    <div class='prev-next-bottom'>
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
         
 
+      </main>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Mikko Ranta<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
   </footer>
-</main>
-
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>
