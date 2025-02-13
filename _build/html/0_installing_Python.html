@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -354,13 +354,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.1. Anaconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-anaconda">1.2. Installing Anaconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-anaconda">1.3. Updating Anaconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pure-python">1.4. Installing pure Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">1.5. Environments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.6. Jupyter notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyter-notebook">1.7. Starting Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">1.1. Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.2. Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-anaconda">1.3. Installing Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-anaconda">1.4. Updating Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pure-python">1.5. Installing pure Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">1.6. Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.7. Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyter-notebook">1.8. Starting Jupyter notebook</a></li>
 </ul>
             </nav>
         </div>
@@ -374,29 +375,34 @@ document.write(`
                   
   <section id="installing-python">
 <h1><span class="section-number">1. </span>Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">#</a></h1>
-<p>There are two alternatives for installing Python:</p>
+<p>There are several alternatives for installing Python:</p>
 <ul class="simple">
 <li><p>Directly from the installation files that can be downloaded from <a class="reference external" href="https://www.python.org">www.python.org</a></p></li>
-<li><p>The Anaconda environment that can be downloaded from <a class="reference external" href="https://www.anaconda.com">www.anaconda.com</a></p></li>
+<li><p>Using more user-friendly packages, like the Anaconda environment that can be downloaded from <a class="reference external" href="https://www.anaconda.com">www.anaconda.com</a></p></li>
 </ul>
-<p>Both options have pros and cons. Personally, I started with Anaconda, but have since moved to use “pure” Python. With Anaconda, you get much more, but also many unneeded features that waste space. Also, with pure Python, you get more recent versions of libraries using Pip. The Conda versions are always older.</p>
+<p>They have different pros and cons. Personally, I started with Anaconda, but have since moved to use “pure” Python. With Anaconda, you get much more, but also many unneeded features that waste space. Also, with pure Python, you get more recent versions of libraries using Pip. The Conda versions are always older.
+Completely different approach is to skip the installation process completely, and use online programming environments, like Google Colab: <a class="reference external" href="https://colab.google.com/">colab.google.com/</a></p>
+<section id="google-colab">
+<h2><span class="section-number">1.1. </span>Google Colab<a class="headerlink" href="#google-colab" title="Link to this heading">#</a></h2>
+<p>Probably the easiest way to start practicing Python, is by using the Google Colab environment. If you have a Google account, you just need to go to <a class="reference external" href="https://colab.google.com/">colab.google.com/</a>, open a notebook, and start coding. For beginners, this is the preferred option.</p>
+</section>
 <section id="anaconda">
-<h2><span class="section-number">1.1. </span>Anaconda<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>Anaconda<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h2>
 <p><img alt="snake" src="_images/snake.png" /></p>
-<p>The core Python package is pretty easy to install, especially in Linux. However, I would still suggest that you start your Python-journey with Anaconda <a class="reference external" href="https://www.anaconda.com/">www.anaconda.com</a>. You need many additional libraries not provided by the core installation to go through this book. Of course, you could manually install those libraries, but there is always a danger of compatibility issues with the most recent versions of the libraries.</p>
-<p>So that you can entirely focus on learning Python, it is essential that everything is working. The Python libraries provided by the Anaconda environment are checked to be compatible with each other, and all are very easy to install. For example, installing GPU-enabled Tensorflow in Anaconda is just a few mouse clicks. In pure Python, it is extremely difficult, because you need to manually install the exact correct versions of the NVIDIA GPU libraries. Anaconda is also very popular and works exactly in the same way on all platforms. Also, the libraries list is quite extensive, and it is rare that a Python library is missing from the Conda environment (although this can happen).</p>
+<p>If you want to install Python environment to your own computer,the core Python package is relatively easy to install, especially in Linux. However, I would still suggest that you start your Python-journey with Anaconda <a class="reference external" href="https://www.anaconda.com/">www.anaconda.com</a>. It comes with many additional libraries pre-installed that you will need to go through this book. Of course, you could manually install those libraries in pure Python environment, but there is always a danger of compatibility issues with the most recent versions of the libraries.</p>
+<p>So that you can entirely focus on learning Python, it is essential that everything is working. The Python libraries provided by the Anaconda environment are checked to be compatible with each other, and all are very easy to install. For example, installing GPU-enabled Tensorflow in Anaconda is just a few mouse clicks. In pure Python, it is extremely difficult, because you need to manually install specific versions of the NVIDIA GPU libraries. Anaconda is also very popular and works exactly in the same way on all platforms. Also, the libraries list is quite extensive, and it is rare that a Python library is missing from the Conda environment (although this can happen).</p>
 </section>
 <section id="installing-anaconda">
-<h2><span class="section-number">1.2. </span>Installing Anaconda<a class="headerlink" href="#installing-anaconda" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Installing Anaconda<a class="headerlink" href="#installing-anaconda" title="Link to this heading">#</a></h2>
 <p>To install Anaconda, you just need to download the binaries from <a class="reference external" href="https://www.anaconda.com/products/individual">www.anaconda.com/products/individual</a> and follow the instructions. Remember to install the latest version. During the installation, you are asked whether you’d like to make Anaconda your default Python environment. You should definitely answer yes to avoid difficulties later. (Notice that if you plan to install also pure Python, then you do not necessarily want to make Anaconda your default environment. However, if you are learning Python, it is <strong>strongly</strong> discouraged to hassle with many Python installations. It is like asking for trouble.)</p>
 </section>
 <section id="updating-anaconda">
-<h2><span class="section-number">1.3. </span>Updating Anaconda<a class="headerlink" href="#updating-anaconda" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Updating Anaconda<a class="headerlink" href="#updating-anaconda" title="Link to this heading">#</a></h2>
 <p>Anaconda uses Conda (<a class="reference external" href="https://docs.conda.io/en/latest/">conda.io</a>) to manage libraries and packages. You do not necessarily need to learn Conda commands, as you can do (almost) everything in Anaconda just by pointing and clicking. However, one command you should execute regularly is <strong>conda update anaconda</strong>. It keeps your Anaconda environment updated.</p>
 <p>For more information on Conda, go to <a class="reference external" href="https://docs.conda.io/en/latest/">docs.conda.io</a>.</p>
 </section>
 <section id="installing-pure-python">
-<h2><span class="section-number">1.4. </span>Installing pure Python<a class="headerlink" href="#installing-pure-python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.5. </span>Installing pure Python<a class="headerlink" href="#installing-pure-python" title="Link to this heading">#</a></h2>
 <p><img alt="python" src="_images/python.jpg" /></p>
 <p>If you still, despite my warnings, want to install pure Python, then follow these instructions. (Just kidding :). There are benefits of using pure Python, as I mentioned earlier.)</p>
 <p>For windows, follow these steps: <a class="reference external" href="https://docs.python.org/3/using/windows.html#installation-steps">docs.python.org/3/using/windows.html#installation-steps</a></p>
@@ -404,14 +410,14 @@ document.write(`
 If this is not the case for your Linux, follow these steps: <a class="reference external" href="https://docs.python.org/3/using/unix.html#on-linux">docs.python.org/3/using/unix.html#on-linux</a></p>
 </section>
 <section id="environments">
-<h2><span class="section-number">1.5. </span>Environments<a class="headerlink" href="#environments" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.6. </span>Environments<a class="headerlink" href="#environments" title="Link to this heading">#</a></h2>
 <p>Whether you use Anaconda or pure Python, you should definitely learn to use environments. This way, you can install only the libraries needed for the current task, and other unnecessary libraries are not breaking the environment.</p>
 <p>The instructions to create and activate environments in pure Python are here: <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">docs.python.org/3/tutorial/venv.html</a></p>
 <p>And for Anaconda, here: <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/">docs.anaconda.com/anaconda/navigator/tutorials/manage-environments/</a></p>
 <p>If you want to use Conda at the terminal, follow these instructions: <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a></p>
 </section>
 <section id="jupyter-notebook">
-<h2><span class="section-number">1.6. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.7. </span>Jupyter notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>Jupyter notebooks are one of the many possible ways to interact with Python and its scientific libraries.</p>
 <p>They use a browser-based interface to Python with</p>
 <ul class="simple">
@@ -429,7 +435,7 @@ If this is not the case for your Linux, follow these steps: <a class="reference 
 <p>By the way, this book is written with Jupyter notebooks.</p>
 </section>
 <section id="starting-jupyter-notebook">
-<h2><span class="section-number">1.7. </span>Starting Jupyter notebook<a class="headerlink" href="#starting-jupyter-notebook" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8. </span>Starting Jupyter notebook<a class="headerlink" href="#starting-jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>Once you have installed Anaconda, you can start the Jupyter notebook either</p>
 <ul class="simple">
 <li><p>by searching for Jupyter in your applications menu,</p></li>
@@ -506,13 +512,14 @@ If this is not the case for your Linux, follow these steps: <a class="reference 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.1. Anaconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-anaconda">1.2. Installing Anaconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-anaconda">1.3. Updating Anaconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pure-python">1.4. Installing pure Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">1.5. Environments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.6. Jupyter notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyter-notebook">1.7. Starting Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">1.1. Google Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">1.2. Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-anaconda">1.3. Installing Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-anaconda">1.4. Updating Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pure-python">1.5. Installing pure Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">1.6. Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1.7. Jupyter notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyter-notebook">1.8. Starting Jupyter notebook</a></li>
 </ul>
   </nav></div>
 
